@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/overview-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, certificates, 
+summary: 'Puedes usar System Manager para crear solicitudes de firma de certificado (CSRs), importar certificados y gestionar certificados existentes.' 
+---
+= Conoce los certificados en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes usar SANtricity System Manager para crear solicitudes de firma de certificados (CSRs), importar certificados y gestionar certificados existentes.
+
+
+
+== ¿Qué son los certificados?
+
+Los _certificados_ son archivos digitales que identifican entidades en línea, como sitios web y servidores, para comunicaciones seguras en internet. Hay dos tipos de certificados: un _certificado firmado_ es validado por una autoridad de certificación (CA) y un _certificado autofirmado_ es validado por el propietario de la entidad en lugar de un tercero.
+
+Más información:
+
+* link:how-certificates-work-sam.html["Cómo funcionan los certificados"]
+* link:certificate-terminology.html["Terminología de certificados"]
+
+
+
+
+== ¿Cómo configuro los certificados firmados?
+
+Puedes generar una solicitud de firma desde System Manager o externamente usando un par de claves privada y pública. La solicitud de firma se envía a una CA para generar los archivos de certificado. Una vez que la CA devuelve los archivos de certificado, los importas usando System Manager.
+
+Más información:
+
+* link:use-ca-signed-certificates-for-controllers.html["Usa certificados firmados por CA para los controladores"]
+* link:use-ca-signed-certificates-for-authentication-with-a-key-management-server.html["Usa certificados firmados por CA para la autenticación con un servidor de gestión de claves"]
+
+
+
+
+== Información relacionada
+
+Conoce más sobre las tareas relacionadas con los certificados:
+
+* link:view-imported-certificates.html["Ver información del certificado importado"]
+* link:enable-certificate-revocation-checking.html["Activar la comprobación de revocación de certificados"]
+

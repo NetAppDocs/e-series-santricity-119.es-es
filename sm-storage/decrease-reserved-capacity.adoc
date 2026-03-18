@@ -1,0 +1,47 @@
+---
+permalink: sm-storage/decrease-reserved-capacity.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, decrease, reserved, capacity 
+summary: 'Usa la opción Disminuir capacidad para reducir la capacidad reservada de los siguientes objetos de almacenamiento: grupo de instantáneas, volumen de instantáneas y volumen miembro del grupo de coherencia. Solo puedes reducir la capacidad reservada en la(s) cantidad(es) que usaste para aumentarla.' 
+---
+= Disminuir la capacidad reservada en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Usa la opción Decrease Capacity para disminuir la capacidad reservada de los siguientes objetos de almacenamiento: grupo de snapshot, volumen de snapshot y volumen miembro del grupo de consistencia. Solo puedes disminuir la capacidad reservada por la(s) cantidad(es) que usaste para aumentarla.
+
+.Antes de empezar
+* El objeto de almacenamiento debe contener más de un volumen de capacidad reservada.
+* El objeto de almacenamiento no debe ser un volumen de par reflejado.
+* Si el objeto de almacenamiento es un volumen de instantánea, entonces debe ser un volumen de instantánea desactivado.
+* Si el objeto de almacenamiento es un grupo de instantáneas, entonces no debe contener ninguna imagen de instantánea asociada.
+
+
+.Acerca de esta tarea
+Revise las siguientes directrices:
+
+* Solo puedes eliminar volúmenes de capacidad reservada en el orden inverso en que fueron añadidos.
+* No puedes disminuir la capacidad reservada para un volumen de instantánea que es de solo lectura porque no tiene ninguna capacidad reservada asociada. Solo los volúmenes de instantánea que son de lectura/escritura requieren capacidad reservada.
+
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Haz clic en la pestaña *Capacidad reservada*.
+. Selecciona el objeto de almacenamiento para el que quieres disminuir la capacidad reservada y luego haz clic en *Disminuir capacidad*.
++
+Aparece el cuadro de diálogo Decrease Reserved Capacity.
+
+. Selecciona la cantidad de capacidad por la que quieres disminuir la capacidad reservada y luego haz clic en *Disminuir*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Actualiza la capacidad del objeto de almacenamiento.
+* Muestra la capacidad reservada recién actualizada para el objeto de almacenamiento.
+* Cuando reduces la capacidad de un volumen de instantánea, System Manager pasa automáticamente el volumen de instantánea a un estado Deshabilitado. Deshabilitado significa que el volumen de instantánea no está asociado actualmente con una imagen de instantánea y, por lo tanto, no se puede asignar a un host para E/S.
+

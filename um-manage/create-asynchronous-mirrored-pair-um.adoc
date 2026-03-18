@@ -1,0 +1,160 @@
+---
+permalink: um-manage/create-asynchronous-mirrored-pair-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, create, asynchronous, mirrored, pair 
+summary: Para configurar el mirroring asíncrono, debe crear una pareja reflejada que incluya un volumen primario en la cabina local y un volumen secundario en la cabina remota. 
+---
+= Crear un par reflejado asíncrono en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar el mirroring asíncrono, debe crear una pareja reflejada que incluya un volumen primario en la cabina local y un volumen secundario en la cabina remota.
+
+.Antes de empezar
+Antes de crear un par reflejado, cumple con los siguientes requisitos para Unified Manager:
+
+* El proxy de servicios web se encuentra en ejecución.
+* Unified Manager debe estar ejecutándose en tu host local a través de una conexión HTTPS.
+* Unified Manager debe mostrar certificados SSL válidos para la matriz de almacenamiento. Puedes aceptar un certificado autofirmado o instalar tu propio certificado de seguridad usando Unified Manager y navegando hasta menu:Certificate[Certificate Management].
+
+
+Asegúrate también de cumplir con los siguientes requisitos para las matrices y volúmenes de almacenamiento:
+
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Las dos matrices de almacenamiento deben descubrirse en Unified Manager.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Debes tener suficiente capacidad libre en la matriz de almacenamiento remota para crear un volumen secundario igual o mayor que el volumen primario que quieres reflejar.
+* Tus matrices de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel o una interfaz iSCSI.
+* Creó el volumen primario y el volumen secundario que desea usar en la relación de reflejo asíncrono.
+* El volumen secundario deber tener al menos el tamaño del volumen primario.
+
+
+.Acerca de esta tarea
+El proceso para crear una pareja reflejada asíncrona es un procedimiento de varios pasos.
+
+
+
+== Paso 1: crea o selecciona un grupo de coherencia de réplica
+
+En este paso, creas un nuevo grupo de consistencia de réplica o seleccionas uno existente. Un grupo de consistencia de réplica es un contenedor para los volúmenes primario y secundario (el par reflejado), y especifica el método de resincronización que quieras (manual o automático) para todos los pares del grupo.
+
+.Pasos
+. Desde la página *Manage*, selecciona la matriz de almacenamiento local que quieres usar como origen.
+. Selecciona el menú:Actions[Create Asynchronous Mirrored Pair].
++
+Se abre el asistente Create Asynchronous Mirrored Pair.
+
+. Selecciona un grupo de coherencia de réplica existente o crea uno nuevo.
++
+Para seleccionar un grupo existente, asegúrate de que *An existing mirror consistency group* está seleccionado y luego selecciona el grupo de la tabla. Un grupo de coherencia puede incluir varios pares reflejados.
+
++
+Para crear un nuevo grupo, haz lo siguiente:
+
++
+.. Selecciona *A new mirror consistency group* y luego haz clic en *Next*.
+.. Ingresa un nombre único que describa mejor los datos en los volúmenes que se van a reflejar entre las dos matrices de almacenamiento. Un nombre solo puede contener letras, números y los caracteres especiales guion bajo (_), guion (-) y el signo de almohadilla (#). Un nombre no puede exceder los 30 caracteres y no puede contener espacios.
+.. Selecciona la matriz de almacenamiento remota en la que quieres establecer una relación de espejo con la matriz de almacenamiento local.
++
+[NOTE]
+====
+Si tu matriz de almacenamiento remoto está protegida por contraseña, el sistema te pedirá una contraseña.
+
+====
+.. Elige si quieres sincronizar los pares reflejados manual o automáticamente:
++
+*** *Manual* -- Selecciona esta opción para iniciar manualmente la sincronización de todos los pares reflejados dentro de este grupo. Ten en cuenta que cuando quieras realizar una resincronización más tarde, debes iniciar System Manager para la matriz de almacenamiento principal, luego ir a menu:Storage[Asynchronous Mirroring], seleccionar el grupo desde la pestaña *Mirror Consistency Groups* y después seleccionar menu:More[Manually resynchronize].
+*** *Automático* -- selecciona el intervalo deseado en *Minutos*, *Horas* o *Días*, desde el inicio de la actualización anterior hasta el inicio de la siguiente actualización. Por ejemplo, si el intervalo de sincronización se establece en 30 minutos y el proceso de sincronización comienza a las 16:00, el siguiente proceso comienza a las 16:30.
+
+
+.. Selecciona los ajustes de alerta que quieras:
++
+*** Para las sincronizaciones manuales, especifica el umbral (definido por el porcentaje de la capacidad restante) para cuando recibas alertas.
+*** Para las sincronizaciones automáticas, puedes establecer tres métodos de alerta: cuando la sincronización no se ha completado en un período de tiempo específico, cuando los datos del punto de recuperación en la matriz remota son más antiguos que un límite de tiempo específico y cuando la capacidad reservada se acerca a un umbral específico (definido por el porcentaje de la capacidad restante).
+
+
+
+
+. Selecciona *Siguiente* y ve a <<Paso 2: selecciona el volumen primario>>.
++
+Si definiste un nuevo grupo de coherencia de réplica, Unified Manager crea el grupo de coherencia de réplica primero en la matriz de almacenamiento local y luego en la matriz de almacenamiento remota. Puedes ver y gestionar el grupo de coherencia de réplica iniciando System Manager para cada matriz.
+
++
+[NOTE]
+====
+Si Unified Manager crea correctamente el grupo de coherencia de réplica en la matriz de almacenamiento local, pero falla al crearlo en la matriz de almacenamiento remota, elimina automáticamente el grupo de coherencia de réplica de la matriz de almacenamiento local. Si ocurre un error mientras Unified Manager intenta eliminar el grupo de coherencia de réplica, tienes que eliminarlo manualmente.
+
+====
+
+
+
+
+== Paso 2: selecciona el volumen primario
+
+En este paso, seleccionas el volumen primario que vas a usar en la relación de espejo y asignas su capacidad reservada. Cuando seleccionas un volumen primario en la matriz de almacenamiento local, el sistema muestra una lista de todos los volúmenes elegibles para ese par reflejado. Cualquier volumen que no sea elegible para usarse no aparece en esa lista.
+
+Cualquier volumen que añadas al grupo de consistencia de réplica en la matriz de almacenamiento local tendrá el rol principal en la relación de réplica.
+
+.Pasos
+. En la lista de volúmenes elegibles, selecciona un volumen que quieras usar como volumen primario y luego haz clic en *Siguiente* para asignar la capacidad reservada.
+. De la lista de candidatos elegibles, selecciona la capacidad reservada para el volumen primario.
++
+Ten en cuenta las siguientes directrices:
+
++
+** El ajuste por defecto para la capacidad reservada es el 20% de la capacidad del volumen base, y normalmente esta capacidad es suficiente. Si cambias el porcentaje, haz clic en *Refresh Candidates*.
+** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de I/O en el volumen primario y cuánto tiempo necesites mantener la capacidad.
+** En general, elige una capacidad mayor para la capacidad reservada si se da una o ambas de estas condiciones:
++
+*** Tienes intención de conservar la pareja de espejos durante un largo periodo de tiempo.
+*** Un gran porcentaje de bloques de datos cambiarán en el volumen primario debido a una gran actividad de E/S. Usa datos históricos de rendimiento u otras utilidades del sistema operativo para ayudarte a determinar la actividad típica de E/S en el volumen primario.
+
+
+
+
+. Selecciona *Siguiente* y ve a <<Paso 3: selecciona el volumen secundario>>.
+
+
+
+
+== Paso 3: selecciona el volumen secundario
+
+En este paso, seleccionas el volumen secundario que quieres usar en la relación de duplicación y asignas su capacidad reservada. Cuando seleccionas un volumen secundario en la matriz de almacenamiento remota, el sistema muestra una lista de todos los volúmenes elegibles para ese par duplicado. Cualquier volumen que no sea elegible para usarse no aparece en esa lista.
+
+Cualquier volumen que añadas al grupo de consistencia de réplica en la matriz de almacenamiento remota tendrá el rol secundario en la relación de réplica.
+
+.Pasos
+. En la lista de volúmenes elegibles, selecciona un volumen que quieras usar como volumen secundario en el par reflejado y luego haz clic en *Siguiente* para asignar la capacidad reservada.
+. De la lista de candidatos elegibles, selecciona la capacidad reservada para el volumen secundario.
++
+Ten en cuenta las siguientes directrices:
+
++
+** El ajuste por defecto para la capacidad reservada es el 20% de la capacidad del volumen base, y normalmente esta capacidad es suficiente. Si cambias el porcentaje, haz clic en *Refresh Candidates*.
+** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de I/O en el volumen primario y cuánto tiempo necesites mantener la capacidad.
+** En general, elige una capacidad mayor para la capacidad reservada si se da una o ambas de estas condiciones:
++
+*** Tienes intención de conservar la pareja de espejos durante un largo periodo de tiempo.
+*** Un gran porcentaje de bloques de datos cambiarán en el volumen primario debido a una gran actividad de E/S. Usa datos históricos de rendimiento u otras utilidades del sistema operativo para ayudarte a determinar la actividad típica de E/S en el volumen primario.
+
+
+
+
+. Selecciona *Finalizar* para completar la secuencia de duplicación asíncrona.
+
+
+.Resultados
+Unified Manager realiza las siguientes acciones:
+
+* Comienza la sincronización inicial entre la matriz de almacenamiento local y la matriz de almacenamiento remota.
+* Crea la capacidad reservada para el par reflejado en la matriz de almacenamiento local y en la matriz de almacenamiento remota.
+
+
+
+NOTE: Si el volumen que se está reflejando es un volumen delgado, solo se transfieren al volumen secundario los bloques aprovisionados (capacidad asignada en lugar de capacidad reportada) durante la sincronización inicial. Esto reduce la cantidad de datos que deben transferirse para completar la sincronización inicial.

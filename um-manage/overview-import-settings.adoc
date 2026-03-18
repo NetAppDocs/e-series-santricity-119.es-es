@@ -1,0 +1,41 @@
+---
+permalink: um-manage/overview-import-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, settings 
+summary: Puedes importar configuraciones de una matriz de almacenamiento a otra, incluyendo alertas, AutoSupport y servicios de directorio. 
+---
+= Conoce cómo importar configuraciones de matrices de almacenamiento en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función Import Settings permite realizar una operación por lotes para importar la configuración de una matriz a varias matrices. Esta función ahorra tiempo cuando necesitas configurar varias matrices en la red.
+
+
+
+== ¿Qué ajustes se pueden importar?
+
+Puedes importar métodos de alerta, configuraciones de AutoSupport, configuraciones de Servicios de directorio, configuraciones de almacenamiento (como grupos de volúmenes y pools) y configuraciones del sistema (como el equilibrio de carga automático).
+
+Más información:
+
+* link:how-import-settings-works.html["Cómo funciona la importación de configuración"]
+* link:requirements-for-replicating-storage-configurations.html["Requisitos para replicar configuraciones de almacenamiento"]
+
+
+
+
+== ¿Cómo hago una importación por lotes?
+
+En una matriz de almacenamiento que se vaya a usar como origen, abre System Manager y configura los ajustes deseados. Luego, desde Unified Manager, ve a la página Manage e importa los ajustes a una o más matrices.
+
+Más información:
+
+* link:import-alert-settings.html["Importar la configuración de alerta"]
+* link:import-autosupport-settings.html["Importar la configuración de AutoSupport"]
+* link:import-directory-services-settings.html["Importar la configuración de servicios de directorio"]
+* link:import-storage-configuration-settings.html["Importar los ajustes de configuración de almacenamiento"]
+* link:import-system-settings.html["Importar la configuración del sistema"]
+

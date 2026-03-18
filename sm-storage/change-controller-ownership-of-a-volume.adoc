@@ -1,0 +1,35 @@
+---
+permalink: sm-storage/change-controller-ownership-of-a-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, controller ownership, volume 
+summary: Es posible cambiar la propiedad de la controladora preferida de un volumen, para que las operaciones de I/O de las aplicaciones host se redirijan por la ruta nueva. 
+---
+= Cambia la propiedad del controlador de un volumen en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible cambiar la propiedad de la controladora preferida de un volumen, para que las operaciones de I/O de las aplicaciones host se redirijan por la ruta nueva.
+
+.Antes de empezar
+Si no se utiliza un controlador multivía, se deben cerrar todas las aplicaciones host que actualmente utilizan el volumen. Esta acción previene errores de las aplicaciones cuando se realizan cambios de ruta de I/O.
+
+.Acerca de esta tarea
+Es posible cambiar la propiedad de la controladora de uno o más volúmenes en un pool o grupo de volúmenes.
+
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona cualquier volumen y luego selecciona menú:More[Change ownership].
++
+Aparece el cuadro de diálogo Cambiar la propiedad del volumen. Todos los volúmenes de la matriz de almacenamiento aparecen en este cuadro de diálogo.
+
+. Usa la lista desplegable *Preferred Owner* para cambiar el controlador preferido de cada volumen que quieras cambiar y confirma que quieres realizar la operación.
+
+
+.Resultados
+* System Manager cambia la propiedad del controlador del volumen. La I/O al volumen ahora se dirige a través de esta ruta de I/O.
+* Es posible que el volumen no utilice la ruta de I/O nueva hasta que se vuelva a configurar el controlador multivía para que reconozca la ruta nueva. Por lo general, esta acción tarda menos de cinco minutos.
+

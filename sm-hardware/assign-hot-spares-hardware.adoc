@@ -1,0 +1,66 @@
+---
+permalink: sm-hardware/assign-hot-spares-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, assign, hot, spares, raid, 
+summary: Puedes asignar una unidad de reserva activa como unidad de reserva para una protección de datos adicional en grupos de volúmenes RAID 1, RAID 5 o RAID 6. Si una unidad falla en uno de estos grupos de volúmenes, la controladora reconstruye los datos de la unidad con error en la unidad de reserva activa. 
+---
+= Asigna repuestos en caliente en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes asignar una unidad de reserva activa como unidad de reserva para una protección de datos adicional en grupos de volúmenes RAID 1, RAID 5 o RAID 6. Si una unidad falla en uno de estos grupos de volúmenes, la controladora reconstruye los datos de la unidad con error en la unidad de reserva activa.
+
+.Antes de empezar
+* Deben crearse grupos de volúmenes RAID 1, RAID 5 o RAID 6. (No se pueden usar repuestos en caliente para los pools. En su lugar, un pool utiliza capacidad de reserva dentro de cada unidad para su protección de datos.)
+* Debe haber una unidad disponible que cumpla con los siguientes criterios:
++
+** Sin asignar, con estado óptimo.
+** El mismo tipo de soporte que las unidades del grupo de volúmenes (por ejemplo, SSDs).
+** Mismo tipo de interfaz que las unidades en el grupo de volúmenes (por ejemplo, SAS).
+** Capacidad igual o mayor que la capacidad utilizada de las unidades en el grupo de volúmenes.
+
+
+
+
+.Acerca de esta tarea
+Esta tarea describe cómo asignar manualmente un hot spare desde la página Hardware. La cobertura recomendada es de dos hot spares por conjunto de unidades.
+
+[NOTE]
+====
+Los repuestos calientes también se pueden asignar desde el asistente de configuración inicial. Puedes determinar si los repuestos calientes ya están asignados buscando las bahías de unidad que se muestran en rosa en la página Hardware.
+
+====
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra los controladores, haz clic en la pestaña *Drives*.
++
+El gráfico cambia para mostrar las unidades en lugar de los controladores.
+
+. Selecciona una unidad no asignada (mostrada en gris) que quieras usar como hot spare.
++
+Se abre el menú contextual de la unidad.
+
+. Selecciona *Asignar hot spare*.
++
+Si la unidad está habilitada para seguridad, se abre el cuadro de diálogo ¿Borrar unidad con seguridad? Para usar una unidad habilitada para seguridad como hot spare, primero tienes que realizar una operación de borrado seguro para eliminar todos sus datos y restablecer sus atributos de seguridad.
+
++
+[CAUTION]
+====
+*Posible pérdida de datos* -- Asegúrate de haber seleccionado la unidad correcta. Después de completar la operación de borrado seguro, no puedes recuperar ninguno de los datos.
+
+====
++
+Si la unidad *no* está habilitada para seguridad, se abre el cuadro de diálogo Confirm Assign Hot Spare Drive.
+
+. Revisa el texto en el cuadro de diálogo y luego confirma la operación.
++
+La unidad aparece en rosa en la página Hardware, lo que indica que ahora es un hot spare.
+
+
+
+.Resultados
+Si falla una unidad de un grupo de volúmenes RAID 1, RAID 5 o RAID 6, la controladora utiliza automáticamente los datos de redundancia para reconstruir los datos de la unidad con error en la hot spare.

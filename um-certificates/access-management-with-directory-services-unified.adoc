@@ -1,0 +1,49 @@
+---
+permalink: um-certificates/access-management-with-directory-services-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, directory services, 
+summary: 'Los administradores pueden usar un servidor LDAP (Lightweight Directory Access Protocol) y un servicio de directorio, como Microsoft’s Active Directory.' 
+---
+= Gestión de acceso con servicios de directorio en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los administradores pueden usar un servidor LDAP (Lightweight Directory Access Protocol) y un servicio de directorio, como el Active Directory de Microsoft.
+
+
+
+== Flujo de trabajo de configuración
+
+Si en la red se utiliza un servidor LDAP y un servicio de directorio, la configuración funciona así:
+
+. Un administrador inicia sesión en Unified Manager con un perfil de usuario que incluye permisos de Security admin.
++
+[NOTE]
+====
+El `admin` usuario tiene acceso completo a todas las funciones del sistema.
+
+====
+. El administrador introduce los ajustes de configuración para el servidor LDAP. Los ajustes incluyen el nombre de dominio, la URL y la información de la cuenta Bind.
+. Si el servidor LDAP utiliza un protocolo seguro (LDAPS), el administrador carga una cadena de certificados de autoridad de certificación (CA) para la autenticación entre el servidor LDAP y el sistema host donde está instalado el Web Services Proxy.
+. Después de que se establece la conexión con el servidor, el administrador asigna los grupos de usuarios a los roles de usuario locales. Estos roles están predefinidos y no pueden modificarse.
+. El administrador prueba la conexión entre el servidor LDAP y el Web Services Proxy.
+. Los usuarios inician sesión en el sistema con sus credenciales asignadas de LDAP/Directory Services.
+
+
+
+
+== Gestión
+
+Cuando se utilizan servicios de directorio para la autenticación, los administradores pueden realizar las siguientes tareas de gestión:
+
+* Agrega un servidor de directorio.
+* Edita la configuración del servidor de directorio.
+* Asigna usuarios LDAP a roles de usuario locales.
+* Eliminar un servidor de directorio.
+* Cambia las contraseñas.
+* Establece una longitud mínima para las contraseñas.
+* Permite que los usuarios inicien sesión sin contraseñas.
+

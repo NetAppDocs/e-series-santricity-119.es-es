@@ -1,0 +1,35 @@
+---
+permalink: um-manage/perform-pre-upgrade-health-check.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, perform, pre-upgrade, health, check 
+summary: Una comprobación del estado se ejecuta como parte del proceso de actualización, pero también es posible ejecutarla por separado, antes de comenzar. La comprobación del estado evalúa los componentes de la cabina de almacenamiento para garantizar que se pueda proceder con la actualización. 
+---
+= Realiza una comprobación de estado previa a la actualización en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una comprobación del estado se ejecuta como parte del proceso de actualización, pero también es posible ejecutarla por separado, antes de comenzar. La comprobación del estado evalúa los componentes de la cabina de almacenamiento para garantizar que se pueda proceder con la actualización.
+
+.Pasos
+. En la vista principal, selecciona *Manage* y luego selecciona menú:Upgrade Center[Pre-Upgrade Health Check].
++
+Se abre el cuadro de diálogo Comprobación del estado previa a la actualización, donde se enumeran todos los sistemas de almacenamiento detectados.
+
+. Si es necesario, puede filtrar u ordenar los sistemas de almacenamiento de la lista, de modo que pueda ver todos los sistemas que están actualmente en estado Óptimo.
+. Marque las casillas de comprobación de los sistemas de almacenamiento que quiere incluir en la comprobación del estado.
+. Haz clic en *Start*.
++
+Mientras se lleva a cabo la comprobación del estado, se muestra el progreso en el cuadro de diálogo.
+
+. Una vez finalizada la comprobación del estado, puede hacer clic en los tres puntos (...) a la derecha de cada fila para ver más información y realizar otras tareas.
++
+[NOTE]
+====
+Si ocurre un error en la comprobación del estado de alguna cabina, puede omitir esa cabina en particular y continuar la actualización de las otras cabinas. Otra opción es detener el proceso por completo y solucionar los problemas de las cabinas que presentaron errores.
+
+====
+

@@ -1,0 +1,43 @@
+---
+permalink: sm-storage/cancel-snapshot-image-rollback.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, cancel, snapshot, image, rollback 
+summary: 'Puedes cancelar un rollback activo que esté en curso (copiando datos activamente), un rollback pendiente (en una cola pendiente esperando recursos para empezar) o un rollback que se haya pausado debido a un error.' 
+---
+= Cancelar la reversión de imagen instantánea en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cancelar un rollback activo que esté en curso (copiando datos activamente), un rollback pendiente (en una cola pendiente esperando recursos para empezar) o un rollback que se haya pausado debido a un error.
+
+.Acerca de esta tarea
+Cuando cancelas una operación de rollback que está en curso, el volumen base vuelve a un estado inutilizable y aparece como fallido. Por lo tanto, considera cancelar una operación de rollback solo cuando existan opciones de recuperación para restaurar el contenido del volumen base.
+
+[NOTE]
+====
+Si el grupo de instantáneas en el que reside la imagen de instantánea tiene una o más imágenes de instantánea que se han purgado automáticamente, es posible que la imagen de instantánea utilizada para la operación de reversión no esté disponible para futuras reversiones.
+
+====
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Snapshot Images*.
+. Selecciona el rollback activo o en pausa y luego selecciona menu:Rollback[Cancel].
++
+Aparece el cuadro de diálogo Confirm Cancel Rollback.
+
+. Haz clic en *Sí* para confirmar.
+
+
+.Resultados
+System Manager detiene la operación de rollback. El volumen base es utilizable, pero podría tener datos que sean inconsistentes o no estén intactos.
+
+.Después de que termines
+Después de cancelar una operación de reversión, debes realizar una de las siguientes acciones:
+
+* Reinicializa el contenido del volumen base.
+* Realiza una nueva operación de rollback para restaurar el volumen base usando la misma imagen de instantánea que se usó en la operación Cancel Rollback o una imagen de instantánea diferente para realizar la nueva operación de rollback.
+

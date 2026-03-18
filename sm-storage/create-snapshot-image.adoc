@@ -1,0 +1,99 @@
+---
+permalink: sm-storage/create-snapshot-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, image 
+summary: Puedes crear manualmente una imagen de snapshot a partir de un volumen base o un grupo de coherencia de snapshots. Esto también se llama snapshot instantáneo o imagen instantánea. 
+---
+= Crea una imagen instantánea en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes crear manualmente una imagen de snapshot a partir de un volumen base o un grupo de consistencia de snapshots. Esto también se llama _instant snapshot_ o _instant image_.
+
+.Antes de empezar
+* El volumen base debe ser óptimo.
+* La unidad debe ser óptima.
+* El grupo de instantáneas no puede designarse como "`reservado.`"
+* El volumen de capacidad reservada debe tener la misma configuración de Data Assurance (DA) que el volumen base asociado para el grupo de instantáneas.
+
+
+.Pasos
+. Haz una de las siguientes acciones para crear una imagen instantánea:
++
+** Selecciona menú:Storage[Volumes]. Selecciona el objeto (volumen base o grupo de coherencia de instantáneas), y luego selecciona menú:Copy Services[Create instant snapshot].
+** Selecciona menu:Storage[Snapshots]. Selecciona la pestaña *Snapshot Images* y luego selecciona menu:Create[Instant snapshot].
++
+Aparece el cuadro de diálogo Create Snapshot Image. Selecciona el objeto (volumen base o snapshot consistency group) y luego haz clic en *Next*. Si ya se creó una snapshot image anterior para el volumen o snapshot consistency group, entonces el sistema crea la instantánea al instante. De lo contrario, si es la primera vez que se crea una snapshot image para el volumen o snapshot consistency group, aparece el cuadro de diálogo Confirm Create Snapshot Image.
+
+
+
+. Haz clic en *Crear* para aceptar la notificación de que se necesita capacidad reservada y para pasar al paso Reservar capacidad.
++
+Aparece el cuadro de diálogo Reserve Capacity.
+
+. Usa el cuadro giratorio para ajustar el porcentaje de capacidad y luego haz clic en *Next* para aceptar el volumen candidato resaltado en la tabla.
++
+Aparece el cuadro de diálogo Edit Settings.
+
+. Selecciona los ajustes para la imagen instantánea según corresponda y confirma que quieres realizar la operación.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Configuración de la imagen snapshot*
+
+
+
+ a| 
+Límite de imágenes snapshot
+ a| 
+Mantén la casilla de comprobación seleccionada si quieres que las imágenes de instantánea se eliminen automáticamente después del límite especificado; usa la casilla giratoria para cambiar el límite. Si desmarcas esta casilla de comprobación, la creación de imágenes de instantánea se detiene después de 32 imágenes.
+
+
+
+ a| 
+*Ajustes de capacidad reservada*
+
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un grupo de instantáneas está a punto de llenarse.
+
+Cuando la capacidad reservada para el grupo de instantáneas supere el umbral especificado, usa el aviso previo para aumentar la capacidad reservada o eliminar objetos innecesarios antes de que se acabe el espacio restante.
+
+
+
+ a| 
+Política para la capacidad reservada completa
+ a| 
+Elige una de las siguientes políticas:
+
+** *Purge oldest snapshot image* -- El sistema purga automáticamente la imagen de instantánea más antigua del grupo de instantáneas, lo que libera la capacidad reservada de la imagen de instantánea para su reutilización dentro del grupo.
+** *Rechazar escrituras en el volumen base* -- Cuando la capacidad reservada alcanza su porcentaje máximo definido, el sistema rechaza cualquier solicitud de escritura de E/S en el volumen base que activó el acceso a la capacidad reservada.
+
+
+|===
+====
+
+
+.Resultados
+* System Manager muestra la nueva imagen de snapshot en la tabla Snapshot Images. La tabla enumera la nueva imagen por marca de tiempo y volumen base asociado o grupo de consistencia de snapshot.
+* La creación de instantáneas puede permanecer en estado pendiente debido a las siguientes condiciones:
++
+** El volumen base que contiene esta imagen snapshot es miembro de un grupo espejo asíncrono.
+** El volumen base está actualmente en una operación de sincronización. La creación de la imagen snapshot se completa en cuanto finaliza la operación de sincronización.
+
+
+

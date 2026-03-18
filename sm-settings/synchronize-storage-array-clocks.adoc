@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/synchronize-storage-array-clocks.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, synchronize, storage, array, clocks, 
+summary: 'Si Network Time Protocol (NTP) no está activado, puedes ajustar manualmente los relojes de los controladores para que se sincronicen con el cliente de gestión (el sistema que usas para ejecutar el navegador que accede a SANtricity System Manager).' 
+---
+= Sincroniza los relojes de las matrices de almacenamiento en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si Network Time Protocol (NTP) no está activado, puedes ajustar manualmente los relojes de los controladores para que se sincronicen con el cliente de gestión (el sistema que usas para ejecutar el navegador que accede a SANtricity System Manager).
+
+.Acerca de esta tarea
+La sincronización garantiza que las marcas de tiempo de los eventos en el registro de eventos coincidan con las marcas de tiempo escritas en los archivos de registro del host. Durante el proceso de sincronización, los controladores siguen estando disponibles y operativos.
+
+[NOTE]
+====
+Si NTP está activado en System Manager, no uses esta opción para sincronizar los relojes. En su lugar, NTP sincroniza automáticamente los relojes con un host externo usando SNTP (Simple Network Time Protocol).
+
+====
+[NOTE]
+====
+Después de la sincronización, puede que notes que las estadísticas de rendimiento se pierden o se distorsionan, los horarios se ven afectados (ASUP, snapshots, etc.) y las marcas de tiempo en los datos de registro se distorsionan. Usar NTP evita este problema.
+
+====
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *General*, haz clic en *Synchronize Storage Array Clocks*.
++
+Se abre el cuadro de diálogo Synchronize Storage Array Clocks. Muestra la fecha y la hora actuales de la(s) controladora(s) y del ordenador usado como cliente de gestión.
+
++
+[NOTE]
+====
+Para matrices de almacenamiento simplex, solo se muestra un controlador.
+
+====
+. Si las horas mostradas en el cuadro de diálogo no coinciden, haz clic en *Sincronizar*.
+
+
+.Resultados
+Después de que la sincronización se realiza correctamente, las marcas de tiempo de los eventos son las mismas para el registro de eventos y los registros del host.

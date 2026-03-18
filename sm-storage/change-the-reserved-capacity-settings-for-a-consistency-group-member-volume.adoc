@@ -1,0 +1,64 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-consistency-group-member-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, consistency group, member volume 
+summary: Puedes cambiar la configuración de un volumen miembro de un grupo de coherencia para ajustar el punto porcentual en el que System Manager envía una notificación de alerta cuando la capacidad reservada de un volumen miembro está a punto de llenarse y para cambiar la política que se usará cuando la capacidad reservada alcance su porcentaje máximo definido. 
+---
+= Cambia la configuración de capacidad reservada para un volumen miembro de un grupo de consistencia en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración de un volumen miembro de un grupo de coherencia para ajustar el punto porcentual en el que SANtricity System Manager envía una notificación de alerta cuando la capacidad reservada de un volumen miembro está a punto de llenarse y para cambiar la política que se usará cuando la capacidad reservada alcance su porcentaje máximo definido.
+
+.Acerca de esta tarea
+Cambiar la configuración de la capacidad reservada de un volumen miembro individual también cambia la configuración de la capacidad reservada de todos los volúmenes miembros asociados a un grupo de coherencia.
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Haz clic en la pestaña *Capacidad reservada*.
+. Selecciona el volumen miembro del grupo de consistencia que quieres editar y luego haz clic en *Ver/Editar configuración*.
++
+Aparece el cuadro de diálogo de configuración de la capacidad reservada del volumen miembro.
+
+. Cambia los ajustes de capacidad reservada para el volumen miembro según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que System Manager envía una notificación de alerta cuando la capacidad reservada para un volumen miembro está a punto de llenarse.
+
+Cuando la capacidad reservada para el volumen miembro supera el umbral especificado, System Manager envía una alerta, dándote tiempo para aumentar la capacidad reservada o eliminar objetos innecesarios.
+
+
+NOTE: Cambiar la configuración de Alerta para un volumen miembro cambiará la configuración para _todos_ los volúmenes miembros que pertenezcan al mismo grupo de coherencia.
+
+
+
+ a| 
+Política para la capacidad reservada completa
+ a| 
+Puedes elegir una de las siguientes políticas:
+
+** *Purgar la imagen de instantánea más antigua* -- System Manager purga automáticamente la imagen de instantánea más antigua del grupo de coherencia, lo que libera la capacidad reservada del miembro para reutilizarla dentro del grupo.
+** *Rechazar escrituras en el volumen base* -- Cuando la capacidad reservada alcanza su porcentaje máximo definido, System Manager rechaza cualquier solicitud de escritura de I/O en el volumen base que desencadenó el acceso a la capacidad reservada.
+
+
+|===
+====
+. Haz clic en *Guardar* para aplicar tus cambios.
+
+
+.Resultados
+System Manager cambia la configuración de la capacidad reservada para el volumen miembro, así como la configuración de la capacidad reservada para todos los volúmenes miembros del grupo de coherencia.

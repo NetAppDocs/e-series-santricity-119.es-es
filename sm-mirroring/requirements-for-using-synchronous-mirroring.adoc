@@ -1,0 +1,87 @@
+---
+permalink: sm-mirroring/requirements-for-using-synchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, requirements, synchronous, mirroring, 
+summary: Si planeas usar la duplicación síncrona, ten en cuenta los siguientes requisitos. 
+---
+= Requisitos para usar la duplicación síncrona en el software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si planeas usar la duplicación síncrona, ten en cuenta los siguientes requisitos.
+
+
+
+== Unified Manager
+
+Para activar y configurar la replicación de datos entre dos arrays, debes usar la interfaz de Unified Manager. Unified Manager se instala en un sistema host junto con el Web Services Proxy.
+
+* El proxy de servicios web se encuentra en ejecución.
+* Unified Manager debe estar ejecutándose en tu host local a través de una conexión HTTPS.
+* Unified Manager debe mostrar certificados SSL válidos para la matriz de almacenamiento. Puedes aceptar un certificado autofirmado o instalar tu propio certificado de seguridad usando Unified Manager y navegando hasta menu:Certificate[Certificate Management].
+
+
+
+
+== Cabinas de almacenamiento
+
+[NOTE]
+====
+La duplicación síncrona no está disponible en la matriz de almacenamiento EF300/EF300C o EF600/EF600C.
+
+====
+* Debes tener dos matrices de almacenamiento.
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Las dos matrices de almacenamiento deben descubrirse en Unified Manager.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Debes tener suficiente capacidad libre en la matriz de almacenamiento remota para crear un volumen secundario igual o mayor que el volumen primario que quieres reflejar.
+* Tus cabinas de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel.
+
+
+
+
+== Conexiones compatibles
+
+La comunicación para la duplicación síncrona solo se admite en controladores con puertos de host Fibre Channel (FC).
+
+La duplicación síncrona utiliza el puerto de host con el número más alto de cada controlador, tanto en la matriz de almacenamiento local como en la matriz de almacenamiento remota. El puerto de host 4 del adaptador de bus de host (HBA) del controlador suele reservarse para la transmisión de datos reflejados.
+
+
+
+== Candidatos de volumen reflejado
+
+* El nivel RAID, los parámetros de caché y el tamaño de segmento pueden ser diferentes en los volúmenes primario y secundario de un par reflejado síncrono.
+* Los volúmenes primario y secundario de un par reflejado síncrono deben ser volúmenes estándar. No pueden ser volúmenes thin ni volúmenes snapshot.
+* El volumen secundario deber tener al menos el tamaño del volumen primario.
+* Solo el volumen primario puede tener instantáneas asociadas y/o ser el volumen origen o destino en una operación de copia de volumen.
+* Un volumen puede participar solo en una relación de reflejo.
+* Existen límites en el número de volúmenes que se admiten en una determinada matriz de almacenamiento. Asegúrate de que el número de volúmenes configurados en tu matriz de almacenamiento sea menor que el límite admitido. Cuando la replicación sincrónica está activa, los dos volúmenes de capacidad reservada que se crean cuentan para el límite de volúmenes.
+
+
+
+
+== Capacidad reservada
+
+* La capacidad reservada es necesaria para un volumen primario y para un volumen secundario para registrar información de escritura y recuperarse de reinicios del controlador y otras interrupciones temporales.
+* Los volúmenes de capacidad reservada se crean automáticamente cuando se activa la duplicación sincrónica. Porque tanto el volumen primario como el volumen secundario en un par reflejado requieren capacidad reservada, debes asegurarte de que tienes suficiente capacidad libre disponible en ambas matrices de almacenamiento que participan en la relación de espejo sincrónico.
+
+
+
+
+== Función Drive Security
+
+* Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben tener configuraciones de seguridad compatibles. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.
+* Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben usar el mismo tipo de unidad. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.
++
+** Si el volumen primario utiliza unidades Full Disk Encryption (FDE), el volumen secundario debe usar unidades FDE.
+** Si el volumen primario utiliza unidades validadas por Federal Information Processing Standards 140-2 (FIPS), el volumen secundario debe utilizar unidades validadas por FIPS 140-2.
+
+
+* Si estás usando Data Assurance (DA), el volumen primario y el volumen secundario deben tener la misma configuración de DA.
+

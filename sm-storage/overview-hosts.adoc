@@ -1,0 +1,55 @@
+---
+permalink: sm-storage/overview-hosts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hosts 
+summary: Puedes configurar hosts y clústeres de hosts, que definen las conexiones entre la matriz de almacenamiento y los servidores de datos. 
+---
+= Conoce los hosts y los clústeres de hosts en el software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes configurar hosts y clústeres de hosts, que definen las conexiones entre la matriz de almacenamiento y los servidores de datos.
+
+
+
+== ¿Qué son los hosts y los clústeres de hosts?
+
+Un _host_ es un servidor que envía I/O a un volumen en un storage array. Un _host cluster_ es un grupo de hosts, que puedes crear para asignar los mismos volúmenes a múltiples hosts.
+
+Más información:
+
+* link:host-terminology.html["Terminología de host"]
+* link:access-volumes.html["Acceder a volúmenes"]
+* link:maximum-number-of-luns.html["Número máximo de LUNs"]
+
+
+
+
+== ¿Cómo configuro los hosts y los clústeres de hosts?
+
+Para definir las conexiones de host, puedes ir al menú:Storage[Hosts] para configurar manualmente el host. Si quieres que dos o más hosts compartan el acceso al mismo conjunto de volúmenes, entonces puedes definir un cluster y asignar los volúmenes a ese cluster.
+
+Más información:
+
+* link:manual-host-creation.html["Creación manual de host"]
+* link:how-volumes-are-assigned-to-hosts-and-host-clusters.html["Cómo se asignan los volúmenes a los hosts y a los host clusters"]
+* link:workflow-for-creating-hosts-and-assigning-volumes.html["Flujo de trabajo para la creación de host y la asignación de volúmenes"]
+* link:create-host-manually.html["Crear host manualmente"]
+* link:create-host-cluster.html["Crear clúster de hosts"]
+* link:assign-volumes.html["Asigna volúmenes a hosts"]
+
+
+
+
+== Información relacionada
+
+Obtén más información sobre las tareas relacionadas con los hosts:
+
+* link:../sm-settings/set-automatic-load-balancing.html["Configura el equilibrio automático de la carga"]
+* link:../sm-settings/set-host-connectivity-reporting.html["Configura los informes de conectividad de host"]
+* link:../sm-settings/change-default-host-type.html["Cambiar el tipo de host predeterminado"]
+

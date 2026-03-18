@@ -1,0 +1,62 @@
+---
+permalink: sm-settings/enable-iscsi-discovery-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, iscsi, discovery, settings, 
+summary: Puedes activar la configuración relacionada con el descubrimiento de dispositivos de almacenamiento en una red iSCSI. 
+---
+= Habilita la configuración de descubrimiento iSCSI en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes activar la configuración relacionada con el descubrimiento de dispositivos de almacenamiento en una red iSCSI.
+
+La configuración de detección de destino te permite registrar la información iSCSI de la matriz de almacenamiento usando el protocolo Internet Storage Name Service (iSNS), y también decidir si se permiten sesiones de detección sin nombre.
+
+.Antes de empezar
+Si el servidor iSNS utiliza una dirección IP estática, esa dirección debe estar disponible para el registro iSNS. Se admiten tanto IPv4 como IPv6.
+
+.Acerca de esta tarea
+Puedes activar los siguientes ajustes relacionados con el descubrimiento de iSCSI:
+
+* *Habilitar servidor iSNS para registrar un objetivo* -- Cuando está habilitado, la matriz de almacenamiento registra su iSCSI Qualified Name (IQN) y la información de puerto desde el servidor iSNS. Esta configuración permite el descubrimiento iSNS, así que un iniciador puede recuperar el IQN y la información de puerto desde el servidor iSNS.
+* *Habilitar sesiones de descubrimiento sin nombre* -- Cuando las sesiones de descubrimiento sin nombre están habilitadas, el iniciador (host iSCSI) no necesita proporcionar el IQN del destino (controlador) durante la secuencia de inicio de sesión para una conexión de tipo descubrimiento. Cuando está deshabilitado, los hosts sí necesitan proporcionar el IQN para establecer una sesión de descubrimiento con el controlador. Sin embargo, el IQN del destino siempre es necesario para una sesión normal (con E/S). Deshabilitar esta configuración puede evitar que hosts iSCSI no autorizados se conecten al controlador usando solo su dirección IP.
+
+
+[NOTE]
+====
+La configuración y las funciones de iSCSI solo aparecen en la página de Configuración si tu matriz de almacenamiento es compatible con iSCSI.
+
+====
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *iSCSI settings*, haz clic en *View/Edit Target Discovery Settings*.
++
+Aparece el cuadro de diálogo Target Discovery Settings. Debajo del campo *Enable iSNS server*..., el cuadro de diálogo indica si el controlador ya está registrado.
+
+. Para registrar el controlador, selecciona *Habilitar servidor iSNS para registrar mi objetivo* y luego selecciona una de las siguientes:
++
+** *Obtener automáticamente la configuración del servidor DHCP* -- selecciona esta opción si quieres configurar el servidor iSNS usando un servidor DHCP (Dynamic Host Configuration Protocol). Ten en cuenta que si usas esta opción, todos los puertos iSCSI del controlador también deben estar configurados para usar DHCP. Si es necesario, actualiza la configuración de los puertos iSCSI del controlador para habilitar esta opción.
++
+[NOTE]
+====
+Para que el servidor DHCP proporcione la dirección del servidor iSNS, debes configurar el servidor DHCP para que use la opción 43 -- "`Vendor Specific Information.`" Esta opción debe contener la dirección IPv4 del servidor iSNS en los bytes de datos 0xa-0xd (10-13).
+
+====
+** *Especificar manualmente la configuración estática* -- selecciona esta opción si quieres introducir una dirección IP estática para el servidor iSNS. (Si quieres, puedes cortar y pegar direcciones en los campos.) En el campo, introduce una dirección IPv4 o una dirección IPv6. Si configuraste ambas, IPv4 es la predeterminada. También introduce un puerto de escucha TCP (usa el predeterminado de 3205 o introduce un valor entre 49152 y 65535).
+
+
+. Para permitir que la matriz de almacenamiento participe en sesiones de descubrimiento sin nombre, selecciona *Habilitar sesiones de descubrimiento sin nombre*.
++
+** Cuando está activada, los iniciadores iSCSI no tienen que especificar el IQN de destino para recuperar la información del controlador.
+** Cuando se desactiva, se impiden las sesiones de descubrimiento a menos que el iniciador proporcione el IQN de destino. Desactivar las sesiones de descubrimiento sin nombre proporciona mayor seguridad.
+
+
+. Haz clic en *Guardar*.
+
+
+.Resultados
+Aparece una barra de progreso mientras System Manager intenta registrar el controlador con el servidor iSNS. Este proceso puede tardar hasta cinco minutos.

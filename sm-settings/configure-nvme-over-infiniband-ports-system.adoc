@@ -1,0 +1,37 @@
+---
+permalink: sm-settings/configure-nvme-over-infiniband-ports-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, nvme, over, InfiniBand, ports, 
+summary: Si tu controlador incluye una conexión NVMe a través de InfiniBand, puedes configurar los ajustes del puerto NVMe desde la página System. 
+---
+= Configura los puertos NVMe sobre InfiniBand en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tu controlador incluye una conexión NVMe a través de InfiniBand, puedes configurar los ajustes del puerto NVMe desde la página System.
+
+.Antes de empezar
+* Tu controlador debe incluir un puerto host NVMe sobre InfiniBand; de lo contrario, la configuración de NVMe sobre InfiniBand no está disponible en System Manager.
+* Se debe conocer la dirección IP de la conexión de host.
+
+
+[NOTE]
+====
+La configuración y las funciones de NVMe over InfiniBand aparecen solo si el controlador de la matriz de almacenamiento incluye un puerto NVMe over InfiniBand.
+
+====
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *Configuración de NVMe a través de InfiniBand*, selecciona *Configurar puertos NVMe a través de InfiniBand*.
+. Selecciona el controlador con el puerto NVMe sobre InfiniBand que quieres configurar. Haz clic en *Next*.
+. Selecciona el puerto HIC que quieres configurar en la lista desplegable y luego introduce la dirección IP.
++
+Si estás configurando una matriz de almacenamiento EF600 con un HIC con capacidad de 200 Gb, este cuadro de diálogo muestra dos campos de dirección IP, uno para un puerto físico (externo) y otro para un puerto virtual (interno). Deberías asignar una dirección IP única para ambos puertos. Estos ajustes permiten que el host establezca una ruta entre cada puerto y que el HIC alcance el máximo rendimiento. Si no asignas una dirección IP al puerto virtual, el HIC funcionará aproximadamente a la mitad de su velocidad máxima.
+
+. Haz clic en *Finalizar*.
+. Restablece el puerto NVMe a través de InfiniBand haciendo clic en *Sí*.
+

@@ -1,0 +1,129 @@
+---
+permalink: um-manage/discover-multiple-arrays.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, discover, multiple, storage, arrays 
+summary: Descubres varias matrices para detectar todas las matrices de almacenamiento en la subred donde reside el servidor de gestión y para añadir automáticamente las matrices descubiertas a tu dominio de gestión. 
+---
+= Descubre varias cabinas de almacenamiento en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Descubres varias matrices para detectar todas las matrices de almacenamiento en la subred donde reside el servidor de gestión y para añadir automáticamente las matrices descubiertas a tu dominio de gestión.
+
+.Antes de empezar
+* Debes iniciar sesión con un perfil de usuario que incluya permisos de Security Admin.
+* La cabina de almacenamiento debe estar instalada y configurada correctamente.
+* Las contraseñas de las matrices de almacenamiento deben configurarse usando el mosaico de Access Management de System Manager.
+* Para resolver certificados no fiables, debes tener archivos de certificado fiables de una Certificate Authority (CA), y los archivos de certificado deben estar disponibles en tu sistema local.
+
+
+Descubrir matrices es un procedimiento de varios pasos.
+
+
+
+== Paso 1: introduce la dirección de red
+
+Introduces un intervalo de direcciones de red para buscar en toda la subred local. Cualquier matriz de almacenamiento a la que se acceda con éxito aparece en la página Discover y podría añadirse a tu dominio de gestión.
+
+Si necesitas detener la operación de detección por cualquier motivo, haz clic en *Detener detección*.
+
+.Pasos
+. Desde la página Manage, selecciona *Add/Discover*.
++
+Aparece el cuadro de diálogo Add/Discover.
+
+. Selecciona el botón de opción *Detectar todas las matrices de almacenamiento dentro de un rango de red*.
+. Ingresa la dirección de red inicial y la dirección de red final para buscar en tu subred local y luego haz clic en *Start Discovery*.
++
+Se inicia el proceso de descubrimiento. Este proceso de descubrimiento puede tardar varios minutos en completarse. La tabla en la página Discover se llena a medida que se descubren las storage arrays.
+
++
+[NOTE]
+====
+Si no se detectan arrays gestionables, verifica que los arrays de almacenamiento estén conectados correctamente a tu red y que sus direcciones asignadas estén dentro del rango. Haz clic en *New Discovery Parameters* para volver a la página Add/Discover.
+
+====
+. Revisa la lista de matrices de almacenamiento descubiertas.
+. Selecciona la casilla de comprobación junto a cualquier matriz de almacenamiento que quieras añadir a tu dominio de gestión y luego haz clic en *Next*.
++
+Unified Manager realiza una comprobación de credenciales en cada matriz que añades al dominio de gestión. Puede que tengas que resolver cualquier certificado autofirmado y certificado no fiable asociado a esa matriz.
+
+. Haz clic en *Siguiente* para pasar al siguiente paso del asistente.
+
+
+
+
+== Paso 2: resolver los certificados autofirmados durante la detección
+
+Como parte del proceso de descubrimiento, el sistema verifica que las matrices de almacenamiento están usando certificados de una fuente de confianza.
+
+.Pasos
+. Debe realizar una de las siguientes acciones:
++
+** Si confías en las conexiones a las matrices de almacenamiento descubiertas, continúa con la siguiente tarjeta del asistente. Los certificados autofirmados se marcarán como de confianza y las matrices de almacenamiento se añadirán a Unified Manager.
+** Si no confías en las conexiones a las matrices de almacenamiento, selecciona *Cancelar* y valida la estrategia de certificados de seguridad de cada matriz de almacenamiento antes de añadir cualquiera de ellas a Unified Manager.
+
+
+. Haz clic en *Siguiente* para pasar al siguiente paso del asistente.
+
+
+
+
+== Paso 3: resolver certificados no fiables durante la detección
+
+Los certificados no fiables se producen cuando una matriz de almacenamiento intenta establecer una conexión segura con Unified Manager, pero la conexión no se confirma como segura. Durante el proceso de detección de matrices, puedes resolver los certificados no fiables importando un certificado de autoridad de certificación (CA) o un certificado firmado por CA que haya sido emitido por un tercero de confianza.
+
+Puede que necesites instalar certificados CA de confianza adicionales si se cumple alguna de las siguientes condiciones:
+
+* Añadió recientemente una cabina de almacenamiento.
+* Uno o ambos certificados están caducados.
+* Uno o ambos certificados están revocados.
+* Falta un certificado raíz o intermedio en uno o ambos certificados.
+
+
+.Pasos
+. Selecciona la casilla de comprobación junto a cualquier matriz de almacenamiento para la que quieras resolver certificados no fiables y luego selecciona el botón **Import**.
++
+Se abre un cuadro de diálogo para importar los archivos de certificados de confianza.
+
+. Haz clic en *Browse* para seleccionar los archivos de certificado para las matrices de almacenamiento.
++
+Los nombres de los archivos se muestran en el cuadro de diálogo.
+
+. Haz clic en *Importar*.
++
+Los archivos se cargan y validan.
+
++
+[NOTE]
+====
+No se añadirá a Unified Manager ninguna matriz de almacenamiento con problemas de certificados no confiables que no se hayan resuelto.
+
+====
+. Haz clic en *Siguiente* para pasar al siguiente paso del asistente.
+
+
+
+
+== Paso 4: proporciona contraseñas
+
+Debes introducir las contraseñas de las matrices de almacenamiento que quieres añadir a tu dominio de gestión.
+
+.Pasos
+. Ingresa la contraseña de cada matriz de almacenamiento que quieras añadir a Unified Manager.
+. *Opcional:* Asocia las matrices de almacenamiento a un grupo: en la lista desplegable, selecciona el grupo que quieras para asociarlo con las matrices de almacenamiento seleccionadas.
+. Haz clic en *Finalizar*.
+
+
+.Después de que termines
+Las cabinas de almacenamiento se añaden al dominio de gestión y se asocian con el grupo seleccionado (si se especificó alguno).
+
+[NOTE]
+====
+Puede tardar varios minutos en que Unified Manager se conecte a las matrices de almacenamiento especificadas.
+
+====

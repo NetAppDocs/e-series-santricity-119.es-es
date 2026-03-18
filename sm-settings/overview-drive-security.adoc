@@ -1,0 +1,64 @@
+---
+permalink: sm-settings/overview-drive-security.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, system, security, key, management, 
+summary: La gestión de claves de seguridad está disponible en la página System. 
+---
+= Conoce la seguridad de las unidades en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes configurar Drive Security y la gestión de claves desde la página Security Key Management.
+
+
+
+== ¿Qué es Drive Security?
+
+_Drive Security_ es una función que impide el acceso no autorizado a los datos en las unidades habilitadas para seguridad cuando se retiran de la matriz de almacenamiento. Estas unidades pueden ser Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS). Cuando las unidades FDE o FIPS se retiran físicamente de la matriz, no pueden funcionar hasta que se instalan en otra matriz, y en ese momento, las unidades estarán en un estado de Security Locked hasta que se proporcione la clave de seguridad correcta. Una _security key_ es una cadena de caracteres que se comparte entre estos tipos de unidades y los controladores de una matriz de almacenamiento.
+
+Más información:
+
+* link:how-the-drive-security-feature-works.html["Cómo funciona la función Drive Security"]
+* link:how-security-key-management-works.html["Cómo funciona la gestión de claves de seguridad"]
+* link:drive-security-terminology.html["Terminología de Drive Security"]
+
+
+
+
+== ¿Cómo configuro la gestión de claves?
+
+Para implementar Drive Security, debes tener unidades FDE o FIPS instaladas en la matriz. Para configurar la gestión de claves para estas unidades, ve al menú:Settings[System > Security key management] donde puedes crear una clave interna desde la memoria persistente del controlador o una clave externa desde un servidor de gestión de claves. Por último, habilitas Drive Security para pools y grupos de volúmenes seleccionando "secure-capable" en la configuración de volúmenes.
+
+Más información:
+
+* link:create-internal-security-key.html["Crear clave de seguridad interna"]
+* link:create-external-security-key.html["Crear una clave de seguridad externa"]
+* link:../sm-storage/create-pool-manually.html["Crear un pool manualmente"]
+* link:../sm-storage/create-volume-group.html["Crear grupos de volúmenes"]
+
+
+
+
+== ¿Cómo desbloqueo las unidades?
+
+Si configuraste la gestión de claves y luego trasladas las unidades habilitadas para seguridad de una matriz de almacenamiento a otra, debes volver a asignar la clave de seguridad a la nueva matriz de almacenamiento para poder acceder a los datos cifrados de las unidades.
+
+Más información:
+
+* link:unlock-drives-using-an-internal-security-key.html["Desbloquea las unidades cuando usas la gestión interna de claves"]
+* link:unlock-drives-using-an-external-security-key.html["Desbloquea las unidades cuando usas la gestión externa de claves"]
+
+
+
+
+== Información relacionada
+
+Obtén más información sobre las tareas relacionadas con la gestión de claves:
+
+* link:use-ca-signed-certificates-for-authentication-with-a-key-management-server.html["Usa certificados firmados por CA para la autenticación con un servidor de gestión de claves"]
+* link:back-up-security-key.html["Haz una copia de seguridad de la clave de seguridad"]
+

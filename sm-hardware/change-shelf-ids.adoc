@@ -1,0 +1,30 @@
+---
+permalink: sm-hardware/change-shelf-ids.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, shelf, ids, 
+summary: El ID de la estantería es un número que identifica de forma única una estantería en la matriz de almacenamiento. Las estanterías se numeran consecutivamente, comenzando con 00 o 01, en la parte superior izquierda de cada vista de estantería. 
+---
+= Cambia los ID de estantería en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El ID de la estantería es un número que identifica de forma única una estantería en la matriz de almacenamiento. Las estanterías se numeran consecutivamente, comenzando con 00 o 01, en la parte superior izquierda de cada vista de estantería.
+
+.Acerca de esta tarea
+El firmware del controlador asigna automáticamente el ID de estantería, pero puedes cambiar ese número si quieres crear un esquema de orden diferente.
+
+.Pasos
+. Selecciona *Hardware*.
+. Selecciona la lista desplegable para el Controller Shelf o Drive Shelf y luego selecciona *Change ID*.
+. En el cuadro de diálogo Cambiar ID de estantería, selecciona la lista desplegable para mostrar los números disponibles.
++
+Este cuadro de diálogo no muestra los ID asignados actualmente a las estanterías activas.
+
+. Selecciona un número disponible y luego haz clic en *Guardar*.
++
+En función del número que seleccionaste, el orden de las baldas puede reordenarse en la página Hardware. Si quieres, puedes usar las flechas arriba/abajo en la parte superior derecha de cada balda para reajustar el orden.
+
+

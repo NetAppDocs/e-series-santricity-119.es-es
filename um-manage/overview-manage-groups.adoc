@@ -1,0 +1,37 @@
+---
+permalink: um-manage/overview-manage-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, manage, groups 
+summary: En la página Gestionar grupos, puedes crear un conjunto de grupos de matrices de almacenamiento para facilitar la gestión. 
+---
+= Conoce la vista general de Grupos en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la página Gestionar grupos, puedes crear un conjunto de grupos de matrices de almacenamiento para facilitar la gestión.
+
+
+
+== ¿Qué son los grupos de matrices?
+
+Es posible gestionar la infraestructura física y virtualizada si se agrupa un conjunto de cabinas de almacenamiento. Las cabinas de almacenamiento pueden agruparse de modo que sea más sencillo ejecutar las tareas de supervisión o generación de informes.
+
+Hay dos tipos de grupos:
+
+* *Grupo Todos* -- El grupo Todos es el grupo por defecto e incluye todas las matrices de almacenamiento descubiertas en tu organización. Se puede acceder al grupo Todos desde la vista principal.
+* *Grupo creado por el usuario* -- Un grupo creado por el usuario incluye las matrices de almacenamiento que seleccionas manualmente para añadir a ese grupo. Puedes acceder a los grupos creados por el usuario desde la vista principal.
+
+
+
+
+== ¿Cómo configuro los grupos?
+
+Desde la página Manage Groups, puedes crear un grupo y luego añadir arrays a ese grupo.
+
+Más información:
+
+* link:create-storage-array-group.html["Configura el grupo de matrices de almacenamiento"]
+

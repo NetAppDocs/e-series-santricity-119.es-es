@@ -1,0 +1,41 @@
+---
+permalink: sm-interface/recover-from-problems-using-recovery-guru.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Recovery Guru 
+summary: The Recovery Guru es un componente de System Manager que diagnostica los problemas de las matrices de almacenamiento y recomienda procedimientos de recuperación para solucionarlos. 
+---
+= Recupérate de problemas usando SANtricity System Manager Recovery Guru
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El Recovery Guru es un componente de SANtricity System Manager que diagnostica problemas en la matriz de almacenamiento y recomienda procedimientos de recuperación para solucionarlos.
+
+.Pasos
+. Selecciona *Home*.
+. Haz clic en el enlace *Recuperarse de _n_ problemas* en la parte superior central de la ventana.
++
+Aparece el cuadro de diálogo Recovery Guru.
+
+. Selecciona el primer problema que aparece en la lista de resumen y luego sigue las instrucciones del procedimiento de recuperación para corregir el problema. Donde sea necesario, usa las instrucciones de sustitución para reemplazar los componentes fallados. Repite este paso para cada problema listado.
++
+Múltiples problemas dentro de una matriz de almacenamiento pueden estar relacionados. En este caso, el orden en que se corrigen los problemas puede afectar el resultado. Selecciona y corrige los problemas en el orden en que aparecen en la lista de resumen.
+
++
+Las fallas múltiples de un canister de fuente de alimentación se agrupan y se muestran como un solo problema en la lista de resumen. Las fallas múltiples de un canister de ventilador también se muestran como un solo problema.
+
+. Para asegurarte de que el procedimiento de recuperación fue exitoso, haz clic en *Revisar*.
++
+Si seleccionaste un problema para un grupo de espejo asíncrono o un miembro de un grupo de espejo asíncrono, haz clic en *Borrar* primero para borrar la falla del controlador y luego haz clic en *Verificar* para eliminar el evento del Recovery Guru.
+
++
+Si se han corregido todos los problemas, el icono de la matriz de almacenamiento pasa finalmente de Needs Attention a Optimal. Para algunos problemas, aparece un icono de Fixing mientras se realiza una operación, como la reconstrucción.
+
+. *Opcional:* Para guardar la información de Recovery Guru en un archivo, haz clic en el icono *Save*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `recovery-guru-failure-yyyy-mm-dd-hh-mm-ss-mmm.html`.
+
+. Para imprimir la información de Recovery Guru, haz clic en el icono *Imprimir*.
+

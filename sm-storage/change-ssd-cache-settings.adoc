@@ -1,0 +1,89 @@
+---
+permalink: sm-storage/change-ssd-cache-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ssd, cache, settings 
+summary: Es posible editar el nombre de la caché SSD y visualizar el estado, las capacidades máxima y actual, el estado de las funciones Drive Security y Garantía de datos, y los volúmenes y las unidades asociadas. 
+---
+= Cambia la configuración de caché SSD en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible editar el nombre de la caché SSD y visualizar el estado, las capacidades máxima y actual, el estado de las funciones Drive Security y Garantía de datos, y los volúmenes y las unidades asociadas.
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Selecciona la caché SSD que quieres editar y luego haz clic en *View/Edit Settings*.
++
+Aparece el cuadro de diálogo Configuración de caché SSD.
+
+. Revise o edite la configuración de la caché SSD según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Muestra el nombre de la caché SSD, que se puede modificar. El nombre de la caché SSD es obligatorio.
+
+
+
+ a| 
+Características
+ a| 
+Muestra el estado de la caché SSD. Los estados posibles incluyen los siguientes:
+
+** Óptimo
+** Desconocido
+** Degradado
+** Con errores (un estado fallido genera un evento MEL crítico).
+** Suspendida
+
+
+
+
+ a| 
+Capacidades
+ a| 
+Muestra la capacidad actual y la capacidad máxima permitida de la caché SSD.
+
+La capacidad máxima permitida de la caché SSD depende del tamaño de la caché primaria de la controladora:
+
+** Hasta 1 GiB
+** 1 GiB a 2 GiB
+** 2 GiB a 4 GiB
+** Más de 4 GiB
+
+
+
+
+ a| 
+Seguridad y DA
+ a| 
+Muestra el estado de Drive Security y Garantía de datos de la caché SSD.
+
+** *Secure-capable* -- Indica si la caché SSD está compuesta en su totalidad por unidades secure-capable. Una unidad secure-capable es una unidad con autocifrado que puede proteger sus datos de accesos no autorizados.
+** *Secure-enabled* -- Indica si la seguridad está activada en la caché SSD.
+** *Compatible con DA* -- Indica si la caché SSD está compuesta en su totalidad por unidades compatibles con DA. Una unidad compatible con DA puede comprobar y corregir errores que puedan producirse a medida que los datos se comunican entre el host y el almacenamiento.
+
+
+
+
+ a| 
+Objetos asociados
+ a| 
+Muestra los volúmenes y las unidades asociados con la caché SSD.
+
+|===
+====
+. Haz clic en *Guardar*.
+

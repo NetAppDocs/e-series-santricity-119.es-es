@@ -1,0 +1,188 @@
+---
+permalink: sm-storage/create-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, volume 
+summary: Creas un volumen de instantánea para darle acceso al host a una imagen de instantánea de un volumen o de un grupo de coherencia de instantáneas. Puedes designar el volumen de instantánea como solo lectura o lectura/escritura. 
+---
+= Crea un volumen de instantánea en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Creas un volumen de instantánea para darle acceso al host a una imagen de instantánea de un volumen o de un grupo de coherencia de instantáneas. Puedes designar el volumen de instantánea como solo lectura o lectura/escritura.
+
+.Acerca de esta tarea
+La secuencia de creación de volúmenes snapshot te permite crear un volumen snapshot a partir de una imagen snapshot y te da opciones para asignar capacidad reservada si el volumen es de lectura/escritura. Un volumen snapshot puede designarse como uno de los siguientes:
+
+* Un volumen de snapshot de solo lectura proporciona a una aplicación host acceso de lectura a una copia de los datos contenidos en la imagen de snapshot, pero sin la capacidad de modificar la imagen de snapshot. Un volumen de snapshot de solo lectura no tiene capacidad reservada asociada.
+* Un volumen de instantánea de lectura/escritura le da a la aplicación host acceso de escritura a una copia de los datos que están en la imagen de instantánea. Tiene su propia capacidad reservada que se usa para guardar cualquier modificación posterior que haga la aplicación host en el volumen base sin afectar la imagen de instantánea de referencia.
+
+
+El proceso para crear un volumen snapshot es un procedimiento de varios pasos.
+
+
+
+== Paso 1: revisa los miembros de un volumen instantáneo
+
+Selecciona una imagen de instantánea de un volumen base o de un grupo de coherencia de instantáneas. Si seleccionas una imagen de instantánea de un grupo de coherencia de instantáneas, los volúmenes miembros del grupo de coherencia de instantáneas aparecerán para que los revises.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Selecciona la pestaña *Snapshot Volumes*.
+. Selecciona *Crear*.
++
+Aparece el cuadro de diálogo Create Snapshot Volume.
+
+. Selecciona la imagen de instantánea (volumen o grupo de coherencia de instantáneas) que quieres convertir en un volumen de instantánea y luego haz clic en *Next*. Usa una entrada de texto en el campo *Filter* para reducir la lista.
++
+Si la selección era para una imagen de instantánea de grupo de coherencia de instantáneas, aparece el cuadro de diálogo Review Members.
+
++
+En el cuadro de diálogo Revisar miembros, revisa la lista de volúmenes que están seleccionados para la conversión a volúmenes de instantáneas y luego haz clic en *Siguiente*.
+
+. Vaya a <<Paso 2: asignar volumen de instantánea al host>>.
+
+
+
+
+== Paso 2: asignar volumen de instantánea al host
+
+Selecciona un host o clúster de host específico para asignarlo al volumen de instantáneas. Esta asignación le da a un host o clúster de host acceso al volumen de instantáneas. Puedes elegir asignar un host más tarde si lo necesitas.
+
+.Antes de empezar
+* Existen hosts o clústeres de hosts válidos en la página Hosts.
+* Los identificadores de puerto de host deben haberse definido para el host.
+* Antes de crear un volumen habilitado para DA, verifica que la conexión de host que planeas usar sea compatible con la función Data Assurance (DA). Si alguna de las conexiones de host en los controladores de tu matriz de almacenamiento no es compatible con DA, los hosts asociados no podrán acceder a los datos en los volúmenes habilitados para DA.
+
+
+.Acerca de esta tarea
+Cuando asignes volúmenes, ten en cuenta estas pautas:
+
+* El sistema operativo de un host puede tener límites específicos sobre cuántos volúmenes puede acceder el host.
+* Puedes definir una asignación de host para cada volumen de instantánea en la matriz de almacenamiento.
+* Los volúmenes asignados se comparten entre controladoras de la cabina de almacenamiento.
+* El mismo número de unidad lógica (LUN) no puede ser usado dos veces por un host o un clúster de hosts para acceder a un volumen de instantánea. Debes usar un LUN único.
+
+
+[NOTE]
+====
+Asignar un volumen a un host falla si intentas asignar un volumen a un host cluster que entra en conflicto con una asignación ya establecida para un host en el host cluster.
+
+====
+.Pasos
+. En el cuadro de diálogo *Asignar a host*, selecciona el host o clúster de hosts que quieres asignar al nuevo volumen. Si quieres crear el volumen sin asignar un host, selecciona *Asignar más tarde* en la lista desplegable.
+. Selecciona el modo de acceso. Elige uno de los siguientes:
++
+** *Lectura/escritura* -- Esta opción le da al host acceso de lectura/escritura al volumen de snapshot y requiere capacidad reservada.
+** *Sólo lectura* -- Esta opción le da al host acceso de solo lectura al volumen de instantáneas y no requiere capacidad reservada.
+
+
+. Haz clic en *Siguiente* y haz una de las siguientes cosas:
++
+** Si tu volumen de instantánea es de lectura/escritura, aparece el cuadro de diálogo Revisar capacidad. Ve a <<Paso 3: reserva capacidad para un volumen de instantánea>>.
+** Si tu volumen de instantánea es de solo lectura, aparece el cuadro de diálogo Editar prioridad. Ve a <<Paso 4: editar la configuración de un volumen instantáneo>>.
+
+
+
+
+
+
+== Paso 3: reserva capacidad para un volumen de instantánea
+
+Asocia la capacidad reservada a un volumen de instantánea de lectura/escritura. System Manager sugiere los volúmenes y la capacidad según las propiedades del volumen base o del grupo de coherencia de instantáneas. Puedes aceptar la configuración recomendada de capacidad reservada o personalizar el almacenamiento asignado.
+
+.Acerca de esta tarea
+Puedes aumentar o disminuir la capacidad reservada para el volumen de instantánea según lo necesites. Si ves que la capacidad reservada para la instantánea es mayor de lo que necesitas, puedes reducir su tamaño para liberar espacio que necesitan otros volúmenes lógicos.
+
+.Pasos
+. Usa el cuadro de giro para asignar la capacidad reservada para el volumen de instantáneas.
++
+La tabla de candidatos a volumen muestra solo los candidatos que soportan la capacidad reservada especificada.
+
++
+Realice una de las siguientes acciones:
+
++
+** *Acepta la configuración predeterminada*.
++
+Usa esta opción recomendada para asignar la capacidad reservada para el volumen de instantáneas con la configuración predeterminada.
+
+** *Asigna tus propios ajustes de capacidad reservada para satisfacer tus necesidades de almacenamiento de datos*.
++
+Si cambias la configuración predeterminada de capacidad reservada, haz clic en *Refrescar candidatos* para actualizar la lista de candidatos para la capacidad reservada que especificaste.
+
++
+Asigna la capacidad reservada usando las siguientes pautas.
+
++
+*** La configuración predeterminada para la capacidad reservada es el 40% de la capacidad del volumen base y normalmente esta capacidad es suficiente.
+*** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de E/S en los volúmenes y la cantidad y duración de la recopilación de imágenes snapshot.
+
+
+
+
+. *Opcional:* Si estás creando el volumen de instantánea para un grupo de coherencia de instantáneas, la opción "Cambiar candidato" aparece en la tabla de Candidatos de capacidad reservada. Haz clic en *Cambiar candidato* para seleccionar un candidato de capacidad reservada alternativo.
+. Haz clic en *Siguiente* y ve a <<Paso 4: editar la configuración de un volumen instantáneo>>.
+
+
+
+
+== Paso 4: editar la configuración de un volumen instantáneo
+
+Cambia la configuración de un volumen de instantáneas, como su nombre, caché, umbrales de alerta de capacidad reservada y así sucesivamente.
+
+.Acerca de esta tarea
+Puedes añadir el volumen a la caché SSD como una forma de mejorar el rendimiento de solo lectura. La caché SSD consiste en un conjunto de unidades SSD que agrupas lógicamente en tu matriz de almacenamiento.
+
+.Pasos
+. Acepta o cambia la configuración del volumen de instantánea según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Configuración del volumen de instantáneas*
+
+
+
+ a| 
+Nombre
+ a| 
+Especifica el nombre para el volumen de instantánea.
+
+
+
+ a| 
+Activar caché SSD
+ a| 
+Elige esta opción para activar el almacenamiento en caché de solo lectura en SSDs.
+
+
+
+ a| 
+*Ajustes de capacidad reservada*
+
+
+
+ a| 
+Avísame cuando...
+ a| 
+*Aparece solo para un volumen snapshot de lectura/escritura*.
+
+Usa el cuadro giratorio para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un grupo de instantáneas está a punto de llenarse.
+
+Cuando la capacidad reservada para el grupo de instantáneas supere el umbral especificado, usa el aviso previo para aumentar la capacidad reservada o eliminar objetos innecesarios antes de que se acabe el espacio restante.
+
+|===
+====
+. Revisa la configuración del volumen de instantáneas. Haz clic en *Atrás* para hacer cualquier cambio.
+. Cuando estés satisfecho con la configuración de tu volumen de instantáneas, haz clic en *Finalizar*.
+

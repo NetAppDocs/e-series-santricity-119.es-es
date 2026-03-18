@@ -1,0 +1,71 @@
+---
+permalink: sm-storage/create-host-cluster.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, host, cluster 
+summary: Se crea un clúster de hosts cuando dos o más hosts requieren acceso de I/O a los mismos volúmenes. 
+---
+= Crea un clúster de hosts en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se crea un clúster de hosts cuando dos o más hosts requieren acceso de I/O a los mismos volúmenes.
+
+.Acerca de esta tarea
+Tenga en cuenta estas directrices al crear un clúster de hosts:
+
+* Esta operación no comienza a menos que haya dos o más hosts disponibles para crear el clúster.
+* Los hosts de los clústeres de hosts pueden tener sistemas operativos diferentes (heterogéneos).
+* Los hosts NVMe en los clústeres de hosts no se pueden mezclar con hosts que no sean NVMe.
+* Para crear un volumen habilitado para Data Assurance (DA), la conexión host que planeas usar debe ser compatible con DA.
++
+Si alguna de las conexiones de host en los controladores de tu matriz de almacenamiento no es compatible con DA, los hosts asociados no pueden acceder a los datos en los volúmenes habilitados para DA.
+
+* Esta operación no tiene éxito si el nombre que eliges ya está en uso.
+* La longitud del nombre no puede superar 30 caracteres.
+
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Hosts].
+. Selecciona el menú:Crear[Host Cluster].
++
+Aparece el cuadro de diálogo Crear clúster de host.
+
+. Seleccione la configuración del clúster de hosts que corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Escriba un nombre para el clúster de hosts nuevo.
+
+
+
+ a| 
+Seleccionar los hosts para compartir acceso al volumen
+ a| 
+Seleccione dos o más hosts de la lista desplegable. Solo se muestran en la lista los hosts que todavía no forman parte del clúster de hosts.
+
+|===
+====
+. Haz clic en *Crear*.
++
+Si los hosts seleccionados están conectados a tipos de interfaz que tienen diferentes capacidades de Data Assurance (DA), aparece un cuadro de diálogo con el mensaje de que DA no estará disponible en el clúster de hosts. Esta falta de disponibilidad impide que se añadan volúmenes habilitados para DA al clúster de hosts. Selecciona *Sí* para continuar o *No* para cancelar.
+
++
+DA aumenta la integridad de los datos en todo el sistema de almacenamiento. DA permite que la matriz de almacenamiento compruebe si hay errores que puedan ocurrir cuando los datos se mueven entre los hosts y las unidades. Usar DA para el nuevo volumen asegura que se detecte cualquier error.
+
+
+
+.Resultados
+El nuevo clúster de hosts se muestra en la tabla con los hosts asignados en las filas de abajo.

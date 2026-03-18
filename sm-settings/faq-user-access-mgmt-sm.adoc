@@ -1,0 +1,202 @@
+---
+permalink: sm-settings/faq-user-access-mgmt-sm.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la gestión de acceso de usuarios para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Por qué no puedo iniciar sesión?
+
+Si recibes un error al intentar iniciar sesión en SANtricity System Manager, revisa estas posibles causas.
+
+Los errores de inicio de sesión en System Manager pueden ocurrir por una de estas razones:
+
+* Introdujo un nombre de usuario o contraseña incorrectos.
+* No tiene privilegios suficientes.
+* El servidor de directorio (si está configurado) puede no estar disponible. Si este es el caso, intente iniciar sesión con un rol de usuario local.
+* Intentó iniciar sesión reiteradamente sin éxito y se activó el modo de bloqueo. Aguarde 10 minutos y vuelva a intentarlo.
+* Se activó una condición de bloqueo y tu registro de auditoría podría estar lleno. Ve a Access Management y elimina los eventos antiguos del registro de auditoría.
+* La autenticación SAML está activada. Actualiza tu navegador para iniciar sesión.
+
+
+Los errores de inicio de sesión en una cabina de almacenamiento remota para tareas de mirroring pueden ocurrir por uno de estos motivos:
+
+* Introdujo una contraseña incorrecta.
+* Intentó iniciar sesión reiteradamente sin éxito y se activó el modo de bloqueo. Aguarde 10 minutos para volver a iniciar sesión.
+* Se alcanzó la cantidad máxima de conexiones de clientes en la controladora. Busque clientes o usuarios múltiples.
+
+
+
+
+== ¿Qué debo saber antes de añadir un servidor de directorio?
+
+Antes de añadir un servidor de directorio en Access Management, asegúrate de cumplir los siguientes requisitos.
+
+* Los grupos de usuarios deben estar definidos en tu servicio de directorio.
+* Las credenciales del servidor LDAP deben estar disponibles, incluido el nombre de dominio, la URL del servidor y, opcionalmente, el nombre de usuario y la contraseña de la cuenta bind.
+* Para los servidores LDAPS que usan un protocolo seguro, la cadena de certificados del servidor LDAP debe estar instalada en tu máquina local.
+
+
+
+
+== ¿Qué debo saber acerca de la asignación de roles de la cabina de almacenamiento?
+
+Antes de asignar grupos a roles, revise las siguientes directrices.
+
+Las capacidades RBAC (control de acceso basado en roles) integradas en la matriz de almacenamiento incluyen los siguientes roles:
+
+* *Storage admin* -- Acceso total de lectura/escritura a los objetos de almacenamiento (por ejemplo, volúmenes y grupos de discos), pero sin acceso a la configuración de seguridad.
+* *Security admin* -- Acceso a la configuración de seguridad en Access Management, gestión de certificados, gestión de registros de auditoría y la capacidad de activar o desactivar la interfaz de gestión heredada (SYMbol).
+* *Support admin* -- Acceso a todos los recursos de hardware en la matriz de almacenamiento, datos de fallos, eventos MEL y actualizaciones de firmware del controlador. Sin acceso a objetos de almacenamiento ni a la configuración de seguridad.
+* *Monitor* -- Acceso de solo lectura a todos los objetos de almacenamiento, pero sin acceso a la configuración de seguridad.
+
+
+
+
+=== Servicios de directorio
+
+Si estás usando un servidor LDAP (Lightweight Directory Access Protocol) y Directory Services, asegúrate de que:
+
+* Un administrador haya definido grupos de usuarios en el servicio de directorio.
+* Conoces los nombres de dominio de grupo para los grupos de usuarios LDAP. Se admiten expresiones regulares. Estos caracteres especiales de expresiones regulares deben escaparse con una barra invertida (`\`) si no forman parte de un patrón de expresión regular:
++
+[listing]
+----
+\.[]{}()<>*+-=!?^$|
+----
+* La función Monitor es necesaria para todos los usuarios, incluido el administrador. System Manager no funcionará correctamente para ningún usuario sin la función Monitor presente.
+
+
+
+
+=== SAML
+
+Si estás usando las capacidades de Security Assertion Markup Language (SAML) integradas en la matriz de almacenamiento, asegúrate de que:
+
+* Un administrador del proveedor de identidades (IdP) ha configurado los atributos de usuario y la pertenencia a grupo en el sistema IdP.
+* Conoce los nombres de pertenencia a grupos.
+* Sabes el valor del atributo para el grupo que se va a asignar. Se admiten expresiones regulares. Estos caracteres especiales de expresión regular deben escaparse con una barra invertida (`\` si no forman parte de un patrón de expresión regular:
++
+[listing]
+----
+\.[]{}()<>*+-=!?^$|
+----
+* La función Monitor es necesaria para todos los usuarios, incluido el administrador. System Manager no funcionará correctamente para ningún usuario sin la función Monitor presente.
+
+
+
+
+== ¿Qué herramientas de gestión externas pueden verse afectadas por este cambio?
+
+Cuando haces ciertos cambios en SANtricity System Manager, como cambiar la interfaz de gestión o usar SAML como método de autenticación, algunas herramientas y funciones externas podrían estar restringidas para su uso.
+
+
+
+=== Interfaz de gestión
+
+Las herramientas que se comunican directamente con la interfaz de gestión heredada (SYMbol), como el SANtricity SMI-S Provider o OnCommand Insight (OCI), no funcionan a menos que la opción de Interfaz de gestión heredada esté activada. Además, no puedes usar comandos CLI heredados ni realizar operaciones de duplicación si esta opción está desactivada.
+
+Póngase en contacto con el soporte técnico para obtener más información.
+
+
+
+=== Autenticación SAML
+
+Cuando SAML está activado, los siguientes clientes no pueden acceder a los servicios y recursos de la storage array:
+
+* Ventana de gestión empresarial (EMW)
+* Interfaz de línea de comandos (CLI)
+* Clientes de kits de desarrollo de software (SDK)
+* Clientes en banda
+* Clientes de API de REST con autenticación básica HTTP
+* Inicia sesión usando el endpoint estándar de la API de REST
+
+
+Póngase en contacto con el soporte técnico para obtener más información.
+
+
+
+== ¿Qué debo saber antes de configurar y habilitar SAML?
+
+Antes de configurar y activar las capacidades de Security Assertion Markup Language (SAML) para la autenticación, asegúrate de cumplir con los siguientes requisitos y de entender las restricciones de SAML.
+
+
+
+=== Requisitos
+
+Antes de empezar, asegúrate de que:
+
+* Se ha configurado un proveedor de identidades (IdP) en tu red. Un IdP es un sistema externo que se usa para solicitar credenciales a un usuario y determinar si el usuario se autenticó correctamente. Tu equipo de seguridad es responsable de mantener el IdP.
+* Un administrador de IdP ha configurado los atributos y grupos de usuario en el sistema IdP.
+* Un administrador de IdP se ha asegurado de que el IdP admite la capacidad de devolver un Name ID en la autenticación.
+* Un administrador se ha asegurado de que los relojes del servidor IdP y del controlador están sincronizados (ya sea mediante un servidor NTP o ajustando la configuración del reloj del controlador).
+* Se descarga un archivo de metadatos IdP del sistema IdP y está disponible en el sistema local usado para acceder a System Manager.
+* Sabes la dirección IP o el nombre de dominio de cada controlador en la matriz de almacenamiento.
+
+
+
+
+=== Restricciones
+
+Además de los requisitos anteriores, asegúrate de entender las siguientes restricciones:
+
+* Una vez que SAML está habilitado, _no_ puedes deshabilitarlo a través de la interfaz de usuario, ni puedes editar la configuración del IdP. Si necesitas deshabilitar o editar la configuración de SAML, contacta con Technical Support para que te ayuden. Te recomendamos que pruebes los inicios de sesión único (SSO) antes de habilitar SAML en el paso final de configuración. (El sistema también realiza una prueba de inicio de sesión único (SSO) antes de habilitar SAML.)
+* Si desactivas SAML en el futuro, el sistema restaura automáticamente la configuración anterior (Local User Roles y/o Directory Services).
+* Si los servicios de directorio están configurados actualmente para la autenticación de usuarios, SAML reemplaza esa configuración.
+* Cuando SAML está configurado, los siguientes clientes no pueden acceder a los recursos de la matriz de almacenamiento:
++
+** Ventana de gestión empresarial (EMW)
+** Interfaz de línea de comandos (CLI)
+** Clientes de kits de desarrollo de software (SDK)
+** Clientes en banda
+** Clientes de API de REST con autenticación básica HTTP
+** Inicia sesión usando el endpoint estándar de la API de REST
+
+
+
+
+
+
+== ¿Qué tipos de eventos se registran en el registro de auditoría?
+
+El registro de auditoría puede registrar eventos de modificación o tanto eventos de modificación como de solo lectura.
+
+Dependiendo de la configuración de la política, se muestran los siguientes tipos de eventos:
+
+* *Eventos de modificación* -- Acciones del usuario desde dentro de System Manager que implican cambios en el sistema, como aprovisionar almacenamiento.
+* *Eventos de modificación y solo lectura* -- Acciones del usuario que implican cambios en el sistema, así como eventos que implican ver o descargar información, como ver asignaciones de volumen.
+
+
+
+
+== ¿Qué necesito saber antes de configurar un servidor syslog?
+
+Puedes archivar los registros de auditoría en un servidor syslog externo.
+
+Antes de configurar un servidor syslog, ten en cuenta las siguientes directrices.
+
+* Asegúrate de saber la dirección del servidor, el protocolo y el número de puerto. La dirección del servidor puede ser un nombre de dominio completo, una dirección IPv4 o una dirección IPv6.
+* Si tu servidor utiliza un protocolo seguro (por ejemplo, TLS), debe haber un certificado de Autoridad de Certificación (CA) disponible en tu sistema local. Los certificados CA identifican a los propietarios de sitios web para conexiones seguras entre servidores y clientes.
+* Después de la configuración, todos los registros de auditoría nuevos se envían al servidor syslog. Los registros anteriores no se transfieren.
+* La configuración de la política de sobrescritura (disponible en *Ver/Editar configuración*) no afecta cómo se gestionan los registros con una configuración de servidor syslog.
+* Los registros de auditoría siguen el formato de mensajería RFC 5424.
+
+
+
+
+== El servidor syslog ya no recibe registros de auditoría. ¿Qué hago?
+
+Si configuraste un servidor syslog con un protocolo TLS, el servidor no puede recibir mensajes si el certificado se vuelve inválido por cualquier motivo. Se publica un mensaje de error sobre el certificado inválido en el registro de auditoría.
+
+Para resolver este problema, primero tienes que arreglar el certificado para el servidor syslog. Una vez que haya una cadena de certificados válida, ve al menú:Settings[Audit Log > Configure Syslog Servers > Test All].

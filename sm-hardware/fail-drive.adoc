@@ -1,0 +1,49 @@
+---
+permalink: sm-hardware/fail-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, fail, drive, 
+summary: Si te lo indican, puedes provocar manualmente el fallo de una unidad. 
+---
+= Falla manualmente una unidad en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si te lo indican, puedes provocar manualmente el fallo de una unidad.
+
+.Acerca de esta tarea
+System Manager supervisa las unidades en la matriz de almacenamiento. Cuando detecta que una unidad está generando muchos errores, el Recovery Guru te notifica sobre un fallo inminente de la unidad. Si esto pasa y tienes una unidad de reemplazo disponible, podrías querer hacer que falle la unidad para tomar medidas preventivas. Si no tienes una unidad de reemplazo disponible, puedes esperar a que la unidad falle por sí sola.
+
+[CAUTION]
+====
+*Posible pérdida de acceso a los datos* -- Esta operación podría provocar la pérdida de datos o la pérdida de redundancia de datos. Realiza esta operación solo cuando te lo indique el soporte técnico o el Recovery Guru.
+
+====
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra los controladores, haz clic en la pestaña *Drives*.
++
+El gráfico cambia para mostrar las unidades en lugar de los controladores.
+
+. Haz clic en la unidad que quieres que falle.
++
+Aparece el menú contextual de la unidad.
+
+. Selecciona *Fallo*.
+. Mantén seleccionada la casilla de comprobación *Copiar el contenido de la unidad antes de que falle*.
++
+La opción de copia solo aparece para unidades asignadas y para grupos de volúmenes que no sean RAID 0.
+
++
+Antes de provocar el fallo de la unidad, asegúrate de copiar el contenido de la unidad. Dependiendo de tu configuración, podrías perder todos los datos o la redundancia de datos en el grupo de volúmenes o pool asociado si no copias primero el contenido de la unidad.
+
++
+La opción de copia permite una recuperación de la unidad más rápida que la reconstrucción y reduce la posibilidad de un fallo de volumen si otra unidad falla durante la operación de copia.
+
+. Confirma que quieres provocar el fallo de la unidad.
++
+Después de que la unidad haya fallado, espera al menos 60 segundos antes de retirarla.
+
+

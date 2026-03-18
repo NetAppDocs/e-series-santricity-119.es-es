@@ -1,0 +1,78 @@
+---
+permalink: sm-storage/change-host-port-identifiers-for-a-host.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, host port, identifiers, host 
+summary: Cambia los identificadores de puerto de host cuando quieras cambiar la etiqueta de usuario de un identificador de puerto de host, añadir un nuevo identificador de puerto de host al host o eliminar un identificador de puerto de host del host. 
+---
+= Cambia los identificadores de puerto de un host en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cambia los identificadores de puerto de host cuando quieras cambiar la etiqueta de usuario de un identificador de puerto de host, añadir un nuevo identificador de puerto de host al host o eliminar un identificador de puerto de host del host.
+
+.Acerca de esta tarea
+Cuando cambies los identificadores de puerto host, ten en cuenta las siguientes directrices:
+
+* *Add* -- Cuando agregas un puerto de host, estás asociando el identificador del puerto de host al host que creaste para conectarte a tu matriz de almacenamiento. Puedes introducir manualmente la información del puerto usando una utilidad de adaptador de bus de host (HBA).
+* *Editar* -- Puedes editar los puertos de host para mover (asociar) un puerto de host a un host diferente. Puede que hayas movido el adaptador de bus de host o el iniciador iSCSI a un host diferente, así que debes mover (asociar) el puerto de host al nuevo host.
+* *Borrar* -- Puedes borrar puertos de host para eliminar (desasociar) puertos de host de un host.
+
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Hosts].
+. Selecciona el host al que se asociarán los puertos y luego haz clic en *View/Edit Settings*.
++
+Si quieres añadir puertos a un host en un host cluster, expande el host cluster y selecciona el host que quieras. No puedes añadir puertos a nivel de host cluster.
+
++
+Se muestra un cuadro de diálogo en el que se proporciona la configuración actual de los hosts.
+
+. Haz clic en la pestaña *Host Ports*.
++
+El cuadro de diálogo muestra los identificadores de puerto de host actuales.
+
+. Cambia la configuración del identificador de puerto host según corresponda.
++
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Puerto de host
+ a| 
+Es posible elegir una de las siguientes opciones:
+
+** *Add* -- Usa Add para asociar un nuevo identificador de puerto host al host. La longitud del nombre del identificador de puerto host está determinada por la tecnología de interfaz del host. Los nombres de identificador de puerto host Fibre Channel e Infiniband deben tener 16 caracteres. Los nombres de identificador de puerto host iSCSI tienen un máximo de 223 caracteres. El puerto debe ser único. No se permite un número de puerto que ya haya sido configurado.
+** *Delete* -- Usa Delete para eliminar (desasociar) un identificador de puerto de host. La opción Delete no elimina físicamente el puerto de host. Esta opción elimina la asociación entre el puerto de host y el host. A menos que elimines el adaptador de bus de host o el iniciador iSCSI, el puerto de host sigue siendo reconocido por el controlador.
++
+[NOTE]
+====
+Si se elimina el identificador de puerto de host, el identificador ya no sigue asociado a este host. Además, el host pierde acceso a cualquiera de los volúmenes asignados a través de este identificador de puerto de host.
+
+====
+
+
+
+
+ a| 
+Etiqueta
+ a| 
+Para cambiar el nombre de la etiqueta del puerto, haz clic en el icono *Editar* (lápiz). El nombre de la etiqueta del puerto debe ser único. No se permite un nombre de etiqueta que ya se haya configurado.
+
+
+
+ a| 
+Secreto CHAP
+ a| 
+Solo se muestra para los hosts iSCSI. Es posible configurar o cambiar el secreto CHAP para los iniciadores (hosts iSCSI).
+
+System Manager utiliza el método Challenge Handshake Authentication Protocol (CHAP), que valida la identidad de targets e initiators durante el enlace inicial. La autenticación se basa en una clave de seguridad compartida llamada secreto CHAP.
+
+|===
+. Haz clic en *Guardar*.
+

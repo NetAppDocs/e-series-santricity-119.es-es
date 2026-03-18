@@ -1,0 +1,118 @@
+---
+permalink: sm-support/overview-upgrade-center.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, upgrade, center 
+summary: Usa el Centro de actualizaciones para descargar el software y firmware más recientes y actualizar tu matriz de almacenamiento para las últimas funciones y correcciones de errores. 
+---
+= Conoce cómo actualizar el software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Usa el Upgrade Center para descargar el software y firmware más recientes y para actualizar tus controladores y unidades.
+
+
+
+== Resumen de la actualización del controlador
+
+Puedes actualizar el software y el firmware de tu matriz de almacenamiento para tener las últimas funciones y correcciones de errores.
+
+
+
+=== Componentes incluidos en la actualización del controlador del OS
+
+Varios componentes de la matriz de almacenamiento contienen software o hardware que podrías querer actualizar ocasionalmente.
+
+* *Software de gestión* -- System Manager es el software que gestiona la matriz de almacenamiento.
+* *Firmware del controlador* -- El firmware del controlador gestiona la E/S entre hosts y volúmenes.
+* *Controller NVSRAM* -- Controller NVSRAM es un archivo de controlador que especifica la configuración predeterminada para los controladores.
+* *Firmware IOM* -- El firmware del módulo de E/S (IOM) gestiona la conexión entre un controlador y un estante de unidades. También supervisa el estado de los componentes.
+* *Software supervisor* -- El software supervisor es la máquina virtual en un controlador en la que se ejecuta el software.
+
+
+image::../media/sam1130-dwg-upgrade-firmware-locations.gif[Actualizar ubicaciones de firmware]
+
+^1^ Estante del controlador; ^2^ Estante de la unidad; ^3^ Software, firmware del controlador, NVSRAM del controlador, software del supervisor; ^4^ firmware de la unidad; ^5^ firmware del IOM; ^6^ firmware de la unidad
+
+Puedes ver tus versiones actuales de software y firmware en el cuadro de diálogo Inventario de software y firmware. Ve al menú:Support[Upgrade Center] y luego haz clic en el enlace *Software and Firmware Inventory*.
+
+Como parte del proceso de actualización, es posible que también haya que actualizar el controlador multivía/failover y/o el controlador HBA del host para que el host pueda interactuar correctamente con los controladores. Para determinar si este es el caso, consulta la  https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^].
+
+
+
+=== Cuándo detener las E/S
+
+Si tu matriz de almacenamiento contiene dos controladoras y tienes un controlador multivía instalado, la matriz de almacenamiento puede seguir procesando E/S mientras ocurre la actualización. Durante la actualización, la controladora A traspasa todos sus volúmenes a la controladora B, se actualiza, recupera sus volúmenes y todos los volúmenes de la controladora B, y luego actualiza la controladora B.
+
+
+
+=== Comprobación de estado previa a la actualización
+
+Se ejecuta una comprobación de estado previa a la actualización como parte del proceso de actualización. La comprobación de estado previa a la actualización evalúa todos los componentes de la matriz de almacenamiento para asegurarse de que la actualización pueda continuar. Las siguientes condiciones pueden impedir la actualización:
+
+* Unidades asignadas con errores
+* Piezas de repuesto en uso
+* Grupos de volúmenes incompletos
+* Operaciones exclusivas en ejecución
+* Volúmenes faltantes
+* Estado no óptimo de la controladora
+* Cantidad excesiva de eventos en el registro de eventos
+* Fallo de validación de la base de datos de configuración
+* Unidades con versiones de DACstore anteriores
+
+
+También puedes ejecutar la comprobación de estado previa a la actualización por separado sin hacer una actualización.
+
+
+
+== Descripción general de la actualización de la unidad
+
+El firmware de la unidad controla las características de funcionamiento de bajo nivel de una unidad. Periódicamente, los fabricantes de unidades lanzan actualizaciones de firmware de la unidad para añadir nuevas funciones, mejorar el rendimiento y corregir defectos.
+
+
+
+=== Actualizaciones del firmware de la unidad online y offline
+
+Hay dos tipos de métodos de actualización del firmware de la unidad: en línea y fuera de línea.
+
+
+
+==== En línea
+
+Durante una actualización en línea, las unidades se actualizan secuencialmente, de una en una. La matriz de almacenamiento sigue procesando E/S mientras ocurre la actualización. No tienes que detener la E/S. Si una unidad puede hacer una actualización en línea, se usa automáticamente el método en línea.
+
+Las unidades que pueden hacer una actualización en línea incluyen las siguientes:
+
+* Unidades en un pool óptimo
+* Unidades en un grupo de volúmenes redundante óptimo (RAID 1, RAID 5 y RAID 6)
+* Unidades sin asignar
+* Unidades de reserva en caliente en espera
+
+
+Realizar una actualización del firmware de la unidad en línea puede llevar varias horas, exponiendo la matriz de almacenamiento a posibles fallos de volumen. El fallo de volumen podría ocurrir en estos casos:
+
+* En un grupo de volúmenes RAID 1 o RAID 5, una unidad falla mientras se actualiza una unidad diferente en el grupo de volúmenes.
+* En un grupo RAID 6 o grupo de volúmenes, fallan dos unidades mientras se actualiza otra unidad en el grupo RAID 6 o grupo de volúmenes.
+
+
+
+
+==== Fuera de línea (parallel)
+
+Durante una actualización sin conexión, todas las unidades del mismo tipo se actualizan al mismo tiempo. Este método requiere detener la actividad de E/S en los volúmenes asociados con las unidades seleccionadas. Como se pueden actualizar varias unidades al mismo tiempo (en paralelo), el tiempo de inactividad total se reduce significativamente. Si una unidad solo puede hacer una actualización sin conexión, el método sin conexión se usa automáticamente.
+
+Las siguientes unidades DEBEN usar el método offline:
+
+* Unidades en un grupo de volúmenes no redundante (RAID 0)
+* Unidades en un pool o grupo de volúmenes no óptimo
+* Unidades en SSD cache
+
+
+
+
+=== Compatibilidad
+
+Cada archivo de firmware de unidad contiene información sobre el tipo de unidad en la que se ejecuta el firmware. Solo puedes descargar el archivo de firmware especificado en una unidad compatible. System Manager comprueba automáticamente la compatibilidad durante el proceso de actualización.

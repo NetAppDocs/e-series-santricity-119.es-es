@@ -1,0 +1,41 @@
+---
+permalink: sm-mirroring/remove-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, asynchronous, mirror, relationship, 
+summary: Eliminas un par reflejado para quitar la relación de espejo del volumen primario en la matriz de almacenamiento local y del volumen secundario en la matriz de almacenamiento remota. 
+---
+= Eliminar relaciones espejo asíncronas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Eliminas un par reflejado para quitar la relación de espejo del volumen primario en la matriz de almacenamiento local y del volumen secundario en la matriz de almacenamiento remota.
+
+.Acerca de esta tarea
+Revisa la siguiente información sobre pares reflejados huérfanos:
+
+* Existe un par reflejado huérfano cuando se ha eliminado un volumen miembro en un grupo de reflejo de consistencia en un lado (ya sea el lado de la matriz de almacenamiento local o el lado de la matriz de almacenamiento remota) pero no en el otro lado.
+* Los pares reflejados huérfanos se detectan cuando se restablece la comunicación entre matrices y las dos partes de la configuración de espejo reconcilian los parámetros de espejo.
+* Puedes eliminar un par reflejado para corregir un estado de par reflejado huérfano.
+
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Par Espejado*.
++
+Aparece la tabla Mirrored Pairs y muestra todos los pares reflejados asociados con la matriz de almacenamiento.
+
+. Selecciona el par reflejado que quieres quitar y luego haz clic en *Remove*.
+. Confirma que quieres eliminar el par reflejado y luego haz clic en *Eliminar*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina la relación de reflejo del grupo de coherencia de reflejo en la matriz de almacenamiento local y en la matriz de almacenamiento remota, y elimina la capacidad reservada.
+* Devuelve el volumen primario y el volumen secundario a volúmenes accesibles por el host y no reflejados.
+* Actualiza el mosaico de reflejo asíncrono con la eliminación del par reflejado asíncrono.
+

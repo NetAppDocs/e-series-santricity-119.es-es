@@ -1,0 +1,47 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-mirrored-pair-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, mirrored pair volume 
+summary: Puedes cambiar la configuración de un volumen de par reflejado para ajustar el punto porcentual en el que System Manager envía una notificación de alerta cuando la capacidad reservada para un volumen de par reflejado está a punto de llenarse. 
+---
+= Cambia la configuración de capacidad reservada para un volumen de par reflejado en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración de un volumen de par reflejado para ajustar el punto porcentual en el que SANtricity System Manager envía una notificación de alerta cuando la capacidad reservada para un volumen de par reflejado está a punto de llenarse.
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Selecciona la pestaña *Capacidad reservada*.
+. Selecciona el volumen reflejado en pareja que quieres editar y luego haz clic en *View/Edit Settings*.
++
+Aparece el cuadro de diálogo de configuración de la capacidad reservada del volumen del par reflejado.
+
+. Cambia los ajustes de capacidad reservada para el volumen del par reflejado según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que System Manager envía una notificación de alerta cuando la capacidad reservada para un par reflejado está a punto de llenarse.
+
+Cuando la capacidad reservada para el par duplicado supera el umbral especificado, System Manager envía una alerta, dándote tiempo para aumentar la capacidad reservada.
+
+
+NOTE: Cambiar la configuración de Alert para un par reflejado cambia la configuración de Alert para todos los pares reflejados que pertenecen al mismo mirror consistency group.
+
+|===
+====
+. Haz clic en *Guardar* para aplicar tus cambios.
+

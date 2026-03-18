@@ -1,0 +1,61 @@
+---
+indexpage:
+  title: Documentación del software SANtricity 11.9
+  summary: SANtricity System Manager y Unified Manager
+  keywords: santricity, all-flash arrays, heavy workload applications, video surveillance,
+    data analytics
+  lead: El software SANtricity 11.9 te permite lograr el máximo rendimiento y utilización
+    de tus cabinas híbridas-flash E-Series y all-flash EF-Series para aplicaciones
+    de grandes cargas de trabajo, incluyendo análisis de datos, videovigilancia y
+    backup y recuperación.
+  tiles:
+  - title: Empezar
+    links:
+    - title: Interfaz de SANtricity System Manager
+      url: /sm-interface/overview-interface-sam.html"
+    - title: Interfaz de SANtricity Unified Manager
+      url: "/um-admin/overview-interface-unified.html"
+    - title: Ficha técnica del software SANtricity
+      url: https://www.netapp.com/pdf.html?item=/media/7676-ds-3891.pdf
+  - title: Documentación de E-Series
+    links:
+    - title: Documentación de sistemas E-Series
+      url: https://docs.netapp.com/us-en/e-series/index.html
+    - title: Referencia de la interfaz de línea de comandos (CLI)
+      url: https://docs.netapp.com/us-en/e-series-cli/index.html
+  - title: APIs de SANtricity
+    links:
+    - title: Servicios web
+      url: https://docs.netapp.com/us-en/e-series/web-services-proxy/index.html
+    - title: Plug-in para vCenter
+      url: https://docs.netapp.com/us-en/e-series/vcenter-plugin/san-spvc-ic-overview.html
+    - title: Proveedores SMI-S
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62208
+  - title: Aplicaciones y complementos de rendimiento
+    links:
+    - title: Aplicación SANtricity para Splunk Enterprise
+      url: https://splunkbase.splunk.com/app/1932/
+    - title: Complemento de tecnología Splunk para SANtricity
+      url: https://splunkbase.splunk.com/app/1933/
+    - title: Analizador de rendimiento con E-Series + Grafana
+      url: https://github.com/NetApp/eseries-perf-analyzer
+    - title: Blog sobre el analizador de rendimiento E-Series
+      url: https://blog.netapp.com/monitoring-netapp-eseries
+  - title: Para los SEs
+    links:
+    - title: Formación técnica E-Series/EF-Series (es necesario iniciar sesión)
+      url: https://fieldportal.netapp.com/content/199944
+    - title: EF300 descripción general y detalles técnicos (inicio de sesión obligatorio)
+      url: https://fieldportal.netapp.com/content/1417672
+    - title: NetApp Fusion (se requiere inicio de sesión)
+      url: https://fusion.netapp.com/
+  - title: Herramientas y soporte
+    links:
+    - title: Matriz de interoperabilidad de NetApp
+      url: http://mysupport.netapp.com/matrix/
+    - title: NetApp base de conocimientos
+      url: https://kb.netapp.com/
+    - title: Active IQ (inicio de sesión obligatorio)
+      url: https://activeiq.netapp.com/?source=aiqnsspage
+    - title: Descargas de E-Series/SANtricity (login required)
+      url: https://mysupport.netapp.com/site/downloads#E

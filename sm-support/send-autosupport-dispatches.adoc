@@ -1,0 +1,30 @@
+---
+permalink: sm-support/send-autosupport-dispatches.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, send, autosupport, dispatches 
+summary: System Manager te permite enviar envíos de AutoSupport al soporte técnico sin esperar a un envío programado. 
+---
+= Enviar envíos de AutoSupport en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager te permite enviar despachos de AutoSupport al soporte técnico sin esperar a un despacho programado.
+
+.Antes de empezar
+La función AutoSupport debe estar activada. Puedes ver si está activada en la página AutoSupport.
+
+.Acerca de esta tarea
+Esta operación recopila datos de soporte y los envía automáticamente al soporte técnico para que puedan solucionar problemas.
+
+.Pasos
+. Selecciona el menú:Support[Support Center > AutoSupport] tab.
+. Selecciona *Enviar AutoSupport Dispatch*.
++
+Aparece el cuadro de diálogo Send AutoSupport Dispatch.
+
+. Confirma la operación seleccionando *Enviar*.
+

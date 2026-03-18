@@ -1,0 +1,14 @@
+---
+permalink: um-admin/index.html 
+sidebar: sidebar 
+keywords: santricity, unified, manager 7 
+summary: SANtricity Unified Manager 7 
+---
+= SANtricity Unified Manager 7
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity Unified Manager es una interfaz basada en web que te permite gestionar varias matrices de almacenamiento en una sola vista.

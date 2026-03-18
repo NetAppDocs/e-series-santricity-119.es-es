@@ -1,0 +1,71 @@
+---
+permalink: sm-settings/define-log-policies.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, define, audit, log, policies, 
+summary: Puedes cambiar la política de sobrescritura y los tipos de eventos registrados en el registro de auditoría. 
+---
+= Define políticas de registro de auditoría en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la política de sobrescritura y los tipos de eventos registrados en el registro de auditoría.
+
+.Antes de empezar
+Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+
+.Acerca de esta tarea
+Esta tarea describe cómo cambiar la configuración del registro de auditoría, que incluye la política para sobrescribir eventos antiguos y la política para registrar tipos de eventos.
+
+.Pasos
+. Selecciona el menú:Configuración[Gestión de acceso].
+. Selecciona la pestaña *Registro de auditoría*.
+. Selecciona *Ver/Editar configuración*.
++
+Se abre el cuadro de diálogo Audit Log Settings.
+
+. Cambia la política de sobrescritura o los tipos de eventos registrados.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Política de sobrescritura
+ a| 
+Determina la política para sobrescribir eventos antiguos cuando se alcanza la capacidad máxima:
+
+** *Permitir que los eventos más antiguos del registro de auditoría se sobrescriban cuando el registro de auditoría está lleno* -- Sobrescribe los eventos antiguos cuando el registro de auditoría alcanza 50,000 registros.
+** *Requerir que los eventos del registro de auditoría se eliminen manualmente* -- especifica que los eventos no se eliminarán automáticamente; en su lugar, aparece una advertencia de umbral en el porcentaje establecido. Los eventos deben eliminarse manualmente.
++
+
+NOTE: Si la política de sobrescritura está desactivada y las entradas del registro de auditoría alcanzan el límite máximo, se deniega el acceso a System Manager a los usuarios sin permisos de Security Admin. Para restaurar el acceso al sistema a los usuarios sin permisos de Security Admin, un usuario asignado a la función de Security Admin debe eliminar los registros de eventos antiguos.
+
++
+
+NOTE: Las políticas de sobrescritura no se aplican si se configura un servidor syslog para archivar registros de auditoría.
+
+
+
+
+
+ a| 
+Nivel de acciones que deben registrarse
+ a| 
+Determina los tipos de eventos que se registrarán:
+
+** *Registrar solo eventos de modificación* -- Muestra solo los eventos en los que una acción del usuario implica realizar un cambio en el sistema.
+** *Registrar todos los eventos de modificación y solo lectura* -- Muestra todos los eventos, incluyendo una acción del usuario que implique leer o descargar información.
+
+
+|===
+====
+. Haz clic en *Guardar*.
+

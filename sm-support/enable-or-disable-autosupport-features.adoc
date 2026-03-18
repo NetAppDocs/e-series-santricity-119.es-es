@@ -1,0 +1,41 @@
+---
+permalink: sm-support/enable-or-disable-autosupport-features.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, disable, autosupport, 
+summary: Tú habilitas la función de AutoSupport y las funciones individuales de AutoSupport durante la configuración inicial o puedes habilitarlas o deshabilitarlas después. 
+---
+= Activa o desactiva las funciones de AutoSupport en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tú habilitas la función de AutoSupport y las funciones individuales de AutoSupport durante la configuración inicial o puedes habilitarlas o deshabilitarlas después.
+
+.Antes de empezar
+Si quieres activar AutoSupport OnDemand o Remote Diagnostics, el método de entrega de AutoSupport debe estar configurado en HTTPS.
+
+.Acerca de esta tarea
+Es posible deshabilitar la función AutoSupport en cualquier momento, pero se recomienda especialmente dejarla habilitada. Habilitar la función AutoSupport puede acelerar significativamente la detección y resolución de problemas cuando se producen fallos en la cabina de almacenamiento.
+
+La función AutoSupport está formada por tres funciones individuales que activas por separado.
+
+* *Basic AutoSupport* -- Permite que tu matriz de almacenamiento recopile y envíe datos automáticamente al soporte técnico.
+* *AutoSupport OnDemand* -- Permite que el soporte técnico solicite la retransmisión de un envío anterior de AutoSupport cuando sea necesario para solucionar un problema. Todas las transmisiones se inician desde la matriz de almacenamiento, no desde el servidor AutoSupport. La matriz de almacenamiento se comunica periódicamente con el servidor AutoSupport para determinar si hay solicitudes de retransmisión pendientes y responde en consecuencia.
+* *Remote Diagnostics* -- Permite que el soporte técnico solicite un nuevo envío actualizado de AutoSupport cuando sea necesario para solucionar un problema. Todas las transmisiones se inician desde la matriz de almacenamiento, no desde el servidor AutoSupport. La matriz de almacenamiento se comunica periódicamente con el servidor AutoSupport para determinar si hay solicitudes nuevas pendientes y responde en consecuencia.
+
+
+.Pasos
+. Selecciona el menú:Support[Support Center > AutoSupport] tab.
+. Selecciona *Activar/Desactivar AutoSupport Features*.
+. Seleccione las casillas ubicadas junto a las funciones de AutoSupport que desea habilitar.
++
+Las funciones dependen una de otra, como lo indican las marcas de los elementos en el cuadro de diálogo. Por ejemplo, debe habilitar AutoSupport OnDemand para poder habilitar Remote Diagnostics.
+
+. Haz clic en *Guardar*.
++
+Si desactivas AutoSupport, aparece una notificación en la página de inicio. Puedes descartar la notificación haciendo clic en *Ignorar*.
+
+

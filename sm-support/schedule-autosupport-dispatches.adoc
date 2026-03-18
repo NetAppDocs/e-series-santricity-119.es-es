@@ -1,0 +1,33 @@
+---
+permalink: sm-support/schedule-autosupport-dispatches.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, schedule, autosupport, dispatches 
+summary: System Manager crea automáticamente un horario predeterminado para los envíos de AutoSupport. Si prefieres, puedes especificar tu propio horario. 
+---
+= Programa los envíos de AutoSupport en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager crea automáticamente un horario predeterminado para los envíos de AutoSupport. Si prefieres, puedes especificar tu propio horario.
+
+.Antes de empezar
+La función AutoSupport debe estar activada. Puedes ver si está activada en la página AutoSupport.
+
+.Acerca de esta tarea
+* *Hora diaria* -- Los envíos diarios se recogen y envían todos los días durante el intervalo de tiempo que especifiques. System Manager selecciona una hora aleatoria durante el intervalo. Todas las horas están en Tiempo Universal Coordinado (UTC), que puede ser diferente de la hora local de la matriz de almacenamiento. Debes convertir la hora local de tu matriz de almacenamiento a UTC.
+* *Día semanal* -- Los envíos semanales se recogen y envían una vez a la semana. System Manager selecciona un día aleatorio de entre los días que tú especifiques. Deselecciona cualquier día en el que no quieras permitir que se produzca un envío semanal. System Manager selecciona un día aleatorio de entre los días que tú permitas.
+* *Hora semanal* -- Los envíos semanales se recogen y envían una vez a la semana durante el intervalo de tiempo que tú especifiques. System Manager selecciona una hora aleatoria durante el intervalo. Todas las horas están en Tiempo Universal Coordinado (UTC), que puede ser diferente de la hora local de la matriz de almacenamiento. Tienes que convertir la hora local de tu matriz de almacenamiento a UTC.
+
+
+.Pasos
+. Selecciona el menú:Support[Support Center > AutoSupport] tab.
+. Selecciona *Programar envíos AutoSupport*.
++
+Aparece el asistente Programar envíos AutoSupport.
+
+. Sigue los pasos del asistente.
+

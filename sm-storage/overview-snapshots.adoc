@@ -1,0 +1,69 @@
+---
+permalink: sm-storage/overview-snapshots.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshots 
+summary: La función Snapshot te permite crear imágenes de un momento específico de volúmenes de matrices de almacenamiento para usarlas en copias de seguridad o pruebas. 
+---
+= Conoce las instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función Snapshot te permite crear imágenes de un momento específico de volúmenes de matrices de almacenamiento para usarlas en copias de seguridad o pruebas.
+
+
+
+== ¿Qué son las imágenes instantáneas?
+
+Una _imagen de instantánea_ es una copia lógica de los datos de un volumen, capturada en un momento específico. Al igual que un punto de restauración, las imágenes de instantánea te permiten volver a un conjunto de datos en buen estado. Aunque el host puede acceder a la imagen de instantánea, no puede leer ni escribir directamente en ella.
+
+Más información:
+
+* link:how-snapshot-storage-works.html["Cómo funciona el almacenamiento de snapshots"]
+* link:snapshot-terminology.html["Terminología de instantáneas"]
+* link:base-volumes-reserved-capacity-and-snapshot-groups.html["Volúmenes base, capacidad reservada y grupos de instantáneas"]
+* link:snapshot-schedules-and-snapshot-consistency-groups.html["Programaciones de snapshots y grupos de consistencia"]
+* link:snapshot-volumes.html["Volúmenes de instantáneas"]
+
+
+
+
+== ¿Cómo creo instantáneas?
+
+Puedes crear manualmente una imagen de instantánea a partir de un volumen base o un grupo de coherencia de instantáneas. Este procedimiento está disponible desde menú:Storage[Snapshots].
+
+Más información:
+
+* link:requirements-and-guidelines-for-snapshots.html["Requisitos y directrices para las instantáneas"]
+* link:workflow-for-creating-snapshot-images-and-snapshot-volumes.html["Flujo de trabajo para crear imágenes snapshot y volúmenes"]
+* link:create-snapshot-image.html["Crear una imagen instantánea"]
+* link:schedule-snapshot-images.html["Programar imágenes instantáneas"]
+* link:create-snapshot-consistency-group.html["Crear un grupo de coherencia de instantáneas"]
+* link:create-snapshot-volume.html["Crear un volumen snapshot"]
+
+
+
+
+== ¿Cómo puedo revertir datos desde una instantánea?
+
+Un _rollback_ es el proceso de devolver los datos de un volumen base a un punto anterior en el tiempo. Puedes hacer un rollback de los datos de una instantánea desde menú:Storage[Snapshots].
+
+Más información:
+
+* link:snapshot-rollback.html["Reversión de snapshot"]
+* link:start-snapshot-image-rollback-for-base-volume.html["Inicia un rollback de imagen snapshot para un volumen base"]
+* link:start-snapshot-image-rollback-for-consistency-group-member-volumes.html["Inicia una reversión de imagen instantánea para un miembro del grupo de consistencia"]
+
+
+
+
+== Información relacionada
+
+Obtén más información sobre las tareas relacionadas con las instantáneas:
+
+* link:change-the-reserved-capacity-settings-for-a-snapshot-volume.html["Cambiar la capacidad reservada para un volumen de instantánea"]
+* link:change-the-reserved-capacity-settings-for-a-snapshot-group.html["Cambiar la capacidad reservada para un grupo de instantáneas"]
+

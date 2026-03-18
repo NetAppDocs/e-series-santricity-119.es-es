@@ -1,0 +1,64 @@
+---
+permalink: sm-storage/delete-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, volume 
+summary: Normalmente, eliminas volúmenes si los volúmenes se crearon con los parámetros o la capacidad incorrectos, ya no cumplen con las necesidades de configuración de almacenamiento, o son imágenes snapshot que ya no necesitas para backup o pruebas de aplicaciones. 
+---
+= Eliminar un volumen en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Normalmente, eliminas volúmenes si los volúmenes se crearon con los parámetros o la capacidad incorrectos, ya no cumplen con las necesidades de configuración de almacenamiento, o son imágenes snapshot que ya no necesitas para backup o pruebas de aplicaciones.
+
+Eliminar un volumen aumenta la capacidad libre en el pool o grupo de volúmenes. Puedes seleccionar uno o más volúmenes para eliminar.
+
+.Antes de empezar
+Asegúrese de que se cumplan las siguientes condiciones en los volúmenes que desea eliminar:
+
+* Existen backups de todos los datos.
+* Todas las entradas y las salidas (I/O) están detenidas.
+* Todos los dispositivos y los sistemas de archivos están desmontados.
+
+
+.Acerca de esta tarea
+No puedes borrar un volumen que tenga una de estas condiciones:
+
+* El volumen se está inicializando.
+* El volumen se está reconstruyendo.
+* El volumen forma parte de un grupo de volúmenes que contiene una unidad que está realizando una operación de copyback.
+* El volumen está realizando una operación de modificación, como un cambio de tamaño de segmento, a menos que el volumen se encuentre en el estado Con errores.
+* El volumen mantiene cualquier tipo de reserva persistente.
+* El volumen es un volumen de origen o un volumen objetivo en una operación Copiar volumen con estado Pending, In Progress o Con errores.
+
+
+[CAUTION]
+====
+Al eliminar un volumen, se produce la pérdida de todos los datos en estos volúmenes.
+
+====
+[NOTE]
+====
+Cuando un volumen supera un tamaño determinado (actualmente 128 TB) la eliminación se realiza en segundo plano y es posible que el espacio liberado no esté disponible de inmediato.
+
+====
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Haz clic en *Delete*.
++
+Aparece el cuadro de diálogo Eliminar volúmenes.
+
+. Seleccione uno o varios volúmenes para eliminar y confirme que desea realizar la operación.
+. Haz clic en *Delete*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina cualquier imagen de instantánea, programación y volumen de instantánea asociado.
+* Elimina cualquier relación de mirroring.
+* Aumenta el espacio libre en el pool o grupo de volúmenes.
+

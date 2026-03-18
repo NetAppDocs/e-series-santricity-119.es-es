@@ -1,0 +1,113 @@
+---
+permalink: um-manage/upgrade-controller-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, upgrade, os, operating system 
+summary: Puede actualizar una o varias cabinas de almacenamiento con el software más reciente y NVSRAM para asegurarse de contar con las funciones y correcciones de errores más recientes. NVSRAM de controladora es un archivo de la controladora que especifica las configuraciones predeterminadas para las controladoras. 
+---
+= Actualiza el sistema operativo SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede actualizar una o varias cabinas de almacenamiento con el software más reciente y NVSRAM para asegurarse de contar con las funciones y correcciones de errores más recientes. NVSRAM de controladora es un archivo de la controladora que especifica las configuraciones predeterminadas para las controladoras.
+
+.Antes de empezar
+* Los archivos más recientes de SANtricity OS están disponibles en el sistema host donde se están ejecutando SANtricity Web Services Proxy y Unified Manager.
+* Sabe si desea activar la actualización del software ahora o más adelante.
++
+Puede optar por activarlos más tarde por los siguientes motivos:
+
++
+** *Hora del día* -- Activar el software puede llevar mucho tiempo, así que quizá quieras esperar hasta que las cargas de E/S sean más ligeras. Los controladores hacen failover durante la activación, así que el rendimiento puede ser más bajo de lo normal hasta que termine la actualización.
+** *Tipo de paquete* -- Puede que quieras probar el nuevo software del sistema operativo en una matriz de almacenamiento antes de actualizar los archivos en otras matrices de almacenamiento.
+
+
+
+
+
+IMPORTANT: Los sistemas deben estar ejecutando SANtricity OS 11.70.5 para actualizar a 11.80.x o versiones posteriores.
+
+.Acerca de esta tarea
+++ ++
+
+[NOTE]
+====
+Riesgo de pérdida de datos o riesgo de daños a la cabina de almacenamiento: no introduzca cambios en la cabina de almacenamiento mientras se realiza la actualización. Mantenga encendida la cabina de almacenamiento.
+
+====
+.Pasos
+. Si tu matriz de almacenamiento contiene solo un controlador o no se está utilizando un controlador multivía, detén la actividad de E/S en la matriz de almacenamiento para evitar errores en la aplicación. Si tu matriz de almacenamiento tiene dos controladores y tienes instalado un controlador multivía, no necesitas detener la actividad de E/S.
+. En la vista principal, selecciona *Gestionar* y luego selecciona una o varias matrices de almacenamiento que quieras actualizar.
+. Selecciona el menú:Upgrade Center[Upgrade SANtricity OS Software].
++
+Aparece la página Upgrade SANtricity OS software.
+
+. Descarga el paquete de software SANtricity OS más reciente desde el sitio de soporte de NetApp a tu máquina local.
++
+.. Haz clic en *Add new file to software repository*.
+.. Haz clic en el enlace para encontrar las últimas *SANtricity OS Downloads*.
+.. Haz clic en el enlace *Descargar la última versión*.
+.. Sigue las instrucciones restantes para descargar el archivo SANtricity OS y el archivo NVSRAM en tu equipo local.
+
+
++
+[NOTE]
+====
+Se requiere firmware con firma digital en la versión 8.42 y posteriores. Si intenta descargar firmware sin firmar, se muestra un error y se anula la descarga.
+
+====
+. Seleccione el archivo de software de sistema operativo y el archivo de NVSRAM que desea usar para actualizar las controladoras:
++
+.. En el menú desplegable *Select a SANtricity OS software file*, selecciona el archivo del OS que descargaste en tu equipo local.
++
+Si hay varios archivos disponibles, se ordenarán del más reciente al más antiguo.
+
++
+[NOTE]
+====
+El repositorio de software enumera todos los archivos de software asociados con el Web Services Proxy. Si no ves el archivo que quieres usar, puedes hacer clic en el enlace, *Add new file to software repository*, para ir a la ubicación donde está el archivo de OS que quieres añadir.
+
+====
+.. En el menú desplegable *Seleccionar un archivo NVSRAM*, selecciona el archivo del controlador que quieres usar.
++
+Si hay varios archivos, se ordenarán del más reciente al más antiguo.
+
+
+
+. En la tabla Cabina de almacenamiento compatible, revise las cabinas de almacenamiento que son compatibles con el archivo de software del sistema operativo seleccionado. A continuación, seleccione las cabinas que desea actualizar.
++
+** Las cabinas de almacenamiento seleccionadas en la vista Gestionar que son compatibles con el archivo de firmware elegido están seleccionadas de forma predeterminada en la tabla Cabina de almacenamiento compatible.
+** Las matrices de almacenamiento que no se pueden actualizar con el archivo de firmware seleccionado no se pueden seleccionar en la tabla Compatible Storage Array, como indica el estado *Incompatible*.
+
+
+. *Opcional:* Para transferir el archivo de software a las matrices de almacenamiento sin activarlas, selecciona la casilla de comprobación *Transfer the OS software to the storage arrays, mark it as staged, and activate at a later time*.
+. Haz clic en *Start*.
+. Según elija activar ahora o más adelante, realice una de las siguientes acciones:
++
+** Escribe *TRANSFER* para confirmar que quieres transferir las versiones de software del SO propuestas en las matrices que seleccionaste para actualizar y luego haz clic en *Transfer*.
++
+Para activar el software transferido, selecciona menú:Upgrade Center[Activate Staged OS Software].
+
+** Escribe *UPGRADE* para confirmar que quieres transferir y activar las versiones de software del SO propuestas en las cabinas que seleccionaste para actualizar y luego haz clic en *Upgrade*.
++
+El sistema transfiere el archivo de software a cada cabina de almacenamiento que seleccionó para actualizar y, luego, activa el archivo mediante un reinicio.
+
+
+
++
+Durante la operación de actualización, ocurren las siguientes acciones:
+
++
+** Como parte del proceso de actualización, se ejecuta una comprobación del estado previa a la actualización. La comprobación del estado previa a la actualización evalúa todos los componentes de la cabina de almacenamiento para garantizar que se pueda proceder con la actualización.
+** Si falla cualquier comprobación de estado de una matriz de almacenamiento, la actualización se detiene. Puedes hacer clic en la elipsis (...) y seleccionar *Guardar registro* para revisar los errores. También puedes elegir omitir el error de comprobación de estado y luego hacer clic en *Continuar* para seguir con la actualización.
+** Puede cancelar la operación de actualización después de la comprobación del estado previa a la actualización.
+
+
+. *Opcional:* Una vez finalizada la actualización, puedes ver una lista de lo que se actualizó para una matriz de almacenamiento específica haciendo clic en la elipsis (...) y luego seleccionando *Guardar registro*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `upgrade_log-<date>.json`.
+
+

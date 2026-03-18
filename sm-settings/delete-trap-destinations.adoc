@@ -1,0 +1,31 @@
+---
+permalink: sm-settings/delete-trap-destinations.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, trap, destinations, 
+summary: Puedes eliminar una dirección de destino de traps para que el monitor de eventos de la matriz de almacenamiento ya no envíe traps SNMP a esa dirección. 
+---
+= Eliminar destinos trap en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes eliminar una dirección de destino de traps para que el monitor de eventos de la matriz de almacenamiento ya no envíe traps SNMP a esa dirección.
+
+.Pasos
+. Selecciona el menú:ajustes[Alertas].
+. Selecciona la pestaña *SNMP*.
++
+Las direcciones de destino de las trampas aparecen en la tabla.
+
+. Selecciona un destino de trampa y luego haz clic en *Delete* en la parte superior derecha de la página.
+. Confirma la operación y luego haz clic en *Borrar*.
++
+La dirección de destino ya no aparece en la página de Alerts.
+
+
+
+.Resultados
+El destino de trap eliminado ya no recibe traps SNMP del monitor de eventos de la matriz de almacenamiento.

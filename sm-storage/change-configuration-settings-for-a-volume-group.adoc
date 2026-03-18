@@ -1,0 +1,81 @@
+---
+permalink: sm-storage/change-configuration-settings-for-a-volume-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configuration settings, volume group 
+summary: Puede editar la configuración de un grupo de volúmenes, incluidos el nombre y nivel de RAID. 
+---
+= Cambia los ajustes de configuración de un grupo de volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar la configuración de un grupo de volúmenes, incluidos el nombre y nivel de RAID.
+
+.Antes de empezar
+Si cambia el nivel de RAID para tener en cuenta las necesidades de rendimiento de las aplicaciones que acceden al grupo de volúmenes, asegúrese de cumplir con los requisitos previos siguientes:
+
+* El grupo de volúmenes debe tener el estado Óptima.
+* Debes tener suficiente capacidad en el grupo de volúmenes para convertirlo al nuevo nivel RAID.
+
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Selecciona el grupo de volúmenes que quieres editar y luego haz clic en *Ver/Editar configuración*.
++
+Aparece el cuadro de diálogo de configuración del grupo de volúmenes.
+
+. Selecciona la pestaña *Settings* y luego edita la configuración del grupo de volúmenes según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Es posible modificar el nombre del grupo de volúmenes provisto por el usuario. Es obligatorio indicar un nombre para el grupo de volúmenes.
+
+
+
+ a| 
+Nivel de RAID
+ a| 
+Seleccione el nuevo nivel de RAID en el menú desplegable.
+
+** *RAID 0 striping* -- Ofrece un alto rendimiento, pero no proporciona ninguna redundancia de datos. Si falla una sola unidad en el grupo de volúmenes, fallan todos los volúmenes asociados y se pierden todos los datos. Un grupo RAID striping combina dos o más unidades en una sola unidad lógica grande.
+** *RAID 1 mirroring* -- Ofrece un alto rendimiento y la mejor disponibilidad de datos, y es adecuado para almacenar datos confidenciales a nivel corporativo o personal. Protege tus datos duplicando automáticamente el contenido de una unidad en la segunda unidad del par duplicado. Proporciona protección en caso de fallo de una sola unidad.
+** *RAID 10 striping/mirroring* -- Proporciona una combinación de RAID 0 (striping) y RAID 1 (mirroring), y se consigue cuando se seleccionan cuatro o más unidades. RAID 10 es adecuado para aplicaciones de transacciones de alto volumen, como una base de datos, que requieren alto rendimiento y tolerancia a fallos.
+** *RAID 5* -- Óptimo para entornos multiusuario (como almacenamiento de bases de datos o sistemas de archivos) donde el tamaño de I/O típico es pequeño y hay una alta proporción de actividad de lectura.
+** *RAID 6* -- óptimo para entornos que requieren protección de redundancia superior a RAID 5, pero que no requieren alto rendimiento de escritura.
+
+
+RAID 3 solo puede asignarse a grupos de volúmenes usando la línea de comandos (CLI).
+
+Al cambiar el nivel de RAID, no puede cancelar esta operación una vez que se inicia. Durante el cambio, los datos permanecerán disponibles.
+
+
+
+ a| 
+Capacidad de optimización (solo arrays EF600)
+ a| 
+Cuando se crea un grupo de volúmenes, se genera una capacidad de optimización recomendada que proporciona un balanceo de la capacidad disponible frente a la vida útil de la unidad y el rendimiento. Puede ajustar este balanceo moviendo el control deslizante hacia la derecha para un mejor rendimiento y vida útil a expensas de una mayor capacidad disponible o hacia la izquierda para una mayor capacidad disponible a expensas de un mejor rendimiento y vida útil de la unidad.
+
+Las unidades SSD tendrán una vida útil más larga y un mejor rendimiento máximo de escritura cuando una parte de su capacidad no esté asignada. Para las unidades asociadas con un grupo de volúmenes, la capacidad no asignada se compone de la capacidad libre del grupo (capacidad no utilizada por los volúmenes) y una parte de la capacidad utilizable reservada como capacidad de optimización adicional. La capacidad de optimización adicional garantiza un nivel mínimo de capacidad de optimización al reducir la capacidad utilizable y, por lo tanto, no está disponible para la creación de volúmenes.
+
+|===
+====
+. Haz clic en *Guardar*.
++
+Aparece un cuadro de diálogo de confirmación si se reduce la capacidad, se pierde la redundancia del volumen o se pierde la protección contra pérdida de estantes/cajones como resultado del cambio de nivel de RAID. Selecciona *Sí* para continuar; de lo contrario, haz clic en *No*.
+
+
+
+.Resultados
+Si cambias el nivel de RAID de un grupo de volúmenes, SANtricity System Manager cambia los niveles de RAID de cada volumen que forma el grupo de volúmenes. El rendimiento podría verse ligeramente afectado durante la operación.

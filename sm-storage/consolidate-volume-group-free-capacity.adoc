@@ -1,0 +1,56 @@
+---
+permalink: sm-storage/consolidate-volume-group-free-capacity.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, consolidate, free capacity, volume group 
+summary: Utilice la opción Consolidar capacidad libre para consolidar las extensiones libres existentes de un grupo de volúmenes seleccionado. Con esta acción, se pueden crear volúmenes adicionales de la cantidad máxima de capacidad libre de un grupo de volúmenes. 
+---
+= Consolida la capacidad libre de un grupo de volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice la opción Consolidar capacidad libre para consolidar las extensiones libres existentes de un grupo de volúmenes seleccionado. Con esta acción, se pueden crear volúmenes adicionales de la cantidad máxima de capacidad libre de un grupo de volúmenes.
+
+.Antes de empezar
+* El grupo de volúmenes debe contener al menos un área de capacidad libre.
+* Todos los volúmenes del grupo de volúmenes deben estar en línea y con el estado Óptima.
+* No debe haber operaciones de modificación de volúmenes en curso, por ejemplo, cambio del tamaño de segmento de un volumen.
+
+
+.Acerca de esta tarea
+No se puede cancelar la operación una vez iniciada. Se puede acceder a los datos durante la operación de consolidación.
+
+Puedes abrir el cuadro de diálogo Consolidar capacidad libre usando cualquiera de los siguientes métodos:
+
+* Cuando se detecta al menos un área de capacidad libre para un grupo de volúmenes, aparece la recomendación "Consolidar capacidad libre" en la página de inicio en el área de notificaciones. Haz clic en el enlace *Consolidar capacidad libre* para abrir el cuadro de diálogo.
+* También puedes abrir el cuadro de diálogo Consolidar capacidad libre desde la página Pools & grupos de volúmenes, como se describe en la siguiente tarea.
+
+
+.Más información acerca de las áreas de capacidad libre
+[%collapsible]
+====
+Un área de capacidad libre es la capacidad libre que puede resultar de borrar un volumen o de no usar toda la capacidad libre disponible durante la creación del volumen. Cuando creas un volumen en un grupo de volúmenes que tiene una o más áreas de capacidad libre, la capacidad del volumen está limitada al área de capacidad libre más grande en ese grupo de volúmenes. Por ejemplo, si un grupo de volúmenes tiene un total de 15 GiB de capacidad libre y el área de capacidad libre más grande es de 10 GiB, el volumen más grande que puedes crear es de 10 GiB.
+
+Se puede consolidar la capacidad libre de un grupo de volúmenes para mejorar el rendimiento de escritura. La capacidad libre del grupo de volúmenes se fragmentará con el tiempo a medida que el host escribe, modifica y elimina archivos. A la larga, la capacidad disponible ya no estará ubicada en un único bloque contiguo, sino que estará distribuida en pequeños fragmentos del grupo de volúmenes. Esto aumenta la fragmentación del archivo, ya que el host debe escribir archivos nuevos en forma de fragmentos para poder ubicarlos en los rangos disponibles de los clústeres libres.
+
+Cuando se consolida la capacidad libre de un grupo de volúmenes seleccionado, se observa que mejora el rendimiento del sistema de archivos cada vez que el host escribe en archivos nuevos. El proceso de consolidación también ayuda a evitar que se fragmenten archivos nuevos en el futuro.
+
+====
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Selecciona el grupo de volúmenes con capacidad libre que quieres consolidar y luego selecciona menu:Tareas no comunes[Consolidar capacidad libre de grupo de volúmenes].
++
+Aparece el cuadro de diálogo Consolidate Free Capacity.
+
+. Escribe `consolidate` para confirmar que quieres hacer esta operación.
+. Haz clic en *Consolidar*.
++
+System Manager comienza a consolidar (desfragmentar) las áreas de capacidad libre del grupo de volúmenes en una cantidad contigua para las siguientes tareas de configuración del almacenamiento.
+
+
+
+.Después de que termines
+Selecciona menú:Home[View Operations in Progress] para ver el progreso de la operación Consolidate Free Capacity. Esta operación puede ser larga y podría afectar el rendimiento del sistema.

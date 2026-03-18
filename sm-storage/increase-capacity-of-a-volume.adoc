@@ -1,0 +1,58 @@
+---
+permalink: sm-storage/increase-capacity-of-a-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, increase, capacity, volume 
+summary: 'Es posible aumentar la Capacidad notificada (a los hosts) de un volumen con la capacidad libre que está disponible en el pool o el grupo de volúmenes.' 
+---
+= Aumenta la capacidad de un volumen en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible aumentar la Capacidad notificada (a los hosts) de un volumen con la capacidad libre que está disponible en el pool o el grupo de volúmenes.
+
+.Antes de empezar
+* Existe capacidad libre suficiente disponible en el pool o el grupo de volúmenes asociado.
+* El volumen es óptimo y no está en ningún estado de modificación.
+* No se ha alcanzado la capacidad máxima reportada de 256 TiB para volúmenes finos.
+* No existen unidades de repuesto en uso en el volumen. (Esto se aplica solo a volúmenes que pertenecen a grupos de volúmenes.)
+
+
+
+NOTE: Solo puedes ampliar la capacidad de volumen hasta 128 TiB de una sola vez.
+
+.Acerca de esta tarea
+Ten en cuenta cualquier requisito de capacidad futuro que puedas tener para otros volúmenes en este pool o grupo de volúmenes. Asegúrate de dejar suficiente capacidad libre para crear imágenes instantáneas, volúmenes instantáneos o réplicas remotas.
+
+[NOTE]
+====
+Solo ciertos sistemas operativos permiten aumentar la capacidad de un volumen. Si aumenta la capacidad de un volumen en un sistema operativo que no lo permite, la capacidad ampliada será inutilizable y no se podrá restaurar la capacidad de volumen original.
+
+====
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona el volumen para el que quieres aumentar la capacidad y luego selecciona *Aumentar capacidad*.
++
+Aparece el cuadro de diálogo Confirm Increase Capacity.
+
+. Selecciona *Sí* para continuar.
++
+Aparece el cuadro de diálogo Increase Reported Capacity.
+
++
+En este cuadro de diálogo, se muestran la Capacidad notificada actual y la capacidad libre disponibles en el pool o el grupo de volúmenes asociado.
+
+. Usa la casilla *Aumentar la capacidad notificada añadiendo...* para añadir capacidad a la capacidad notificada disponible actualmente. Puedes cambiar el valor de la capacidad para que se muestre en mebibytes (MiB), gibibytes (GiB) o tebibytes (TiB).
+. Haz clic en *Aumentar*.
+
+
+.Resultados
+* System Manager aumenta la capacidad del volumen según tu selección.
+* Selecciona menú:Home[View Operations in Progress] para ver el progreso de la operación de aumento de capacidad que se está ejecutando actualmente para el volumen seleccionado. Esta operación puede ser larga y podría afectar el rendimiento del sistema.
+
+
+.Después de que termines
+Después de ampliar la capacidad del volumen, tienes que aumentar manualmente el tamaño del sistema de archivos para que coincida. Cómo hacerlo depende del sistema de archivos que estés usando. Consulta la documentación de tu sistema operativo host para más detalles.

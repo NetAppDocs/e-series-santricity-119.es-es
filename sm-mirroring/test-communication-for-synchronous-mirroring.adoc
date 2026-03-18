@@ -1,0 +1,34 @@
+---
+permalink: sm-mirroring/test-communication-for-synchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, test, communication, synchronous, mirroring, 
+summary: Puedes probar la comunicación entre una matriz de almacenamiento local y una matriz de almacenamiento remota para diagnosticar posibles problemas de comunicación en un par reflejado que participa en el reflejo síncrono. 
+---
+= Prueba de comunicación para la sincronización de datos en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes probar la comunicación entre una matriz de almacenamiento local y una matriz de almacenamiento remota para diagnosticar posibles problemas de comunicación en un par reflejado que participa en el reflejo síncrono.
+
+.Acerca de esta tarea
+Se realizan dos pruebas diferentes:
+
+* *Comunicación* -- Verifica que las dos matrices de almacenamiento tienen una ruta de comunicación. La prueba de comunicación valida que la matriz de almacenamiento local puede comunicarse con la matriz de almacenamiento remota y que el volumen secundario asociado con el volumen reflejado existe en la matriz de almacenamiento remota.
+* *Latencia* -- Envía un comando de unidad de prueba SCSI al volumen secundario en la matriz de almacenamiento remota asociada con el par reflejado para probar la latencia mínima, promedio y máxima.
+
+
+.Pasos
+. Selecciona el menú:Storage[Synchronous Mirroring].
+. Selecciona el par reflejado que quieres probar y luego selecciona *Probar comunicación*.
+. Revisa la información que aparece en la ventana de Resultados y, si es necesario, sigue la acción correctiva indicada.
++
+[NOTE]
+====
+Si la prueba de comunicación falla, la prueba sigue ejecutándose después de que cierres este cuadro de diálogo hasta que se restablezca la comunicación entre el par reflejado.
+
+====
+

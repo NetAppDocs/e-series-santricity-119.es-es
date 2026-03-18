@@ -1,0 +1,26 @@
+---
+permalink: sm-support/re-enable-drive-ports.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, re-enable, drive, ports 
+summary: Puedes indicar al controlador que se han tomado medidas correctivas para recuperarse de una condición de cableado incorrecto. 
+---
+= Vuelve a habilitar los puertos de unidad en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes indicar al controlador que se han tomado medidas correctivas para recuperarse de una condición de cableado incorrecto.
+
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *Re-enable Drive Ports* y confirma que quieres realizar la operación.
++
+Esta opción solo aparece cuando la matriz de almacenamiento tiene puertos de unidad desactivados.
+
++
+El controlador vuelve a habilitar cualquier puerto SAS que se haya deshabilitado cuando se detectó un error de cableado.
+
+

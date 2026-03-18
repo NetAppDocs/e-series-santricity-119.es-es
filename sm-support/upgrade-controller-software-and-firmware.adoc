@@ -1,0 +1,100 @@
+---
+permalink: sm-support/upgrade-controller-software-and-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, upgrade, software, firmware 
+summary: 'Puedes actualizar el software de tu matriz de almacenamiento y, opcionalmente, el firmware del IOM y la memoria estática no volátil de acceso aleatorio (NVSRAM) para asegurarte de que tienes todas las funciones y correcciones de errores más recientes.' 
+---
+= Actualiza el software y el firmware del controlador en SANtricity System Manager
+:allow-uri-read: 
+
+
+[role="lead"]
+Es posible actualizar el software de la cabina de almacenamiento y, de manera opcional, el firmware IOM y la memoria estática de acceso aleatorio no volátil (NVSRAM) para asegurarse de tener las funciones y las correcciones de errores más recientes.
+
+.Antes de empezar
+* Sabe si desea actualizar el firmware del módulo de I/O (IOM).
++
+Normalmente, deberías actualizar todos los componentes al mismo tiempo. Sin embargo, podrías decidir no actualizar el firmware del IOM si no quieres actualizarlo como parte de la actualización del software SANtricity OS o si el soporte técnico te ha indicado que hagas un downgrade del firmware de tu IOM (solo puedes hacer downgrade del firmware usando la línea de comandos).
+
+* Sabe si desea actualizar el archivo NVSRAM de controladora.
++
+Normalmente, es conveniente actualizar todos los componentes al mismo tiempo. Sin embargo, puede decidir no actualizar el archivo NVSRAM de la controladora si el archivo ya se revisó o es una versión personalizada y no desea sobrescribirla.
+
+* Sabe si desea activar la actualización del sistema operativo ahora o más adelante.
++
+Algunos motivos para activar la actualización más adelante pueden ser:
+
++
+** *Hora del día* -- Activar el software y el firmware puede llevar mucho tiempo, así que quizá quieras esperar hasta que las cargas de E/S sean más ligeras. Los controladores hacen failover durante la activación, así que el rendimiento puede ser más bajo de lo normal hasta que termine la actualización.
+** *Tipo de paquete* -- Puede que quieras probar el nuevo software y firmware en una matriz de almacenamiento antes de actualizar los archivos en otras matrices de almacenamiento.
+
+
+* Sabes si quieres cambiar de unidades no protegidas o unidades protegidas internamente para usar un servidor externo de gestión de claves (KMS) para la seguridad de las unidades.
+* Sabes si quieres usar control de acceso basado en roles en tu matriz de almacenamiento.
+
+
+.Acerca de esta tarea
+Es posible optar por actualizar únicamente el archivo de software del sistema operativo o únicamente el archivo NVSRAM de la controladora, o bien actualizar ambos archivos.
+
+Realiza esta operación solo cuando te lo indique el soporte técnico.
+
+[CAUTION]
+====
+*Riesgo de pérdida de datos o riesgo de daños en la matriz de almacenamiento* -- No hagas cambios en la matriz de almacenamiento mientras se realiza la actualización. Mantén la alimentación de la matriz de almacenamiento.
+
+====
+.Pasos
+. Si la cabina de almacenamiento contiene una sola controladora o no existe un controlador multivía instalado, detenga la actividad de I/O de la cabina de almacenamiento para evitar errores en la aplicación. Si la cabina de almacenamiento tiene dos controladoras y existe un controlador multivía instalado, no necesita detener la actividad de I/O.
+. Selecciona el menú:Soporte[Upgrade Center].
+. Descarga el nuevo archivo desde el sitio de Support a tu cliente de gestión.
++
+.. Haz clic en *NetApp Support* para abrir el sitio web de soporte.
+.. En el sitio web de soporte, haz clic en la pestaña *Descargas* y luego selecciona *Descargas*.
+.. Selecciona *E-Series SANtricity OS Controller Software*.
+.. Sigue las instrucciones restantes.
+
+
++
+[NOTE]
+====
+Se requiere firmware con firma digital en la versión 8.42 y posteriores. Si intenta descargar firmware sin firmar, se muestra un error y se anula la descarga.
+
+====
+. Si NO quieres actualizar el firmware del IOM en este momento, haz clic en *Suspender la sincronización automática del IOM*.
++
+Si tienes una matriz de almacenamiento con un solo controlador, el firmware del IOM no se actualiza.
+
+. En Actualización del software SANtricity OS, haz clic en *Comenzar actualización*.
++
+Aparece el cuadro de diálogo Upgrade SANtricity OS Software.
+
+. Selecciona uno o más archivos para empezar el proceso de actualización:
++
+.. Selecciona el archivo de software SANtricity OS haciendo clic en *Browse* y navegando hasta el archivo de software OS que descargaste del sitio web de soporte.
+.. Selecciona el archivo NVSRAM del controlador haciendo clic en *Browse* y navegando hasta el archivo NVSRAM que descargaste del sitio de soporte. Los archivos NVSRAM del controlador tienen un nombre de archivo similar a `N2800-830000-000.dlp`.
+
+
++
+Estas acciones ocurren:
+
++
+** Por defecto, solo aparecen los archivos compatibles con la configuración actual de la matriz de almacenamiento.
+** Cuando seleccionas un archivo para actualizar, aparecen el nombre y el tamaño del archivo.
+
+
+. *Opcional:* Si seleccionaste un archivo de software SANtricity OS Software para actualizar, puedes transferir los archivos al controlador sin activarlos seleccionando la casilla de comprobación *Transfer files now, but do not upgrade (activate upgrade later)*.
+. Haz clic en *Iniciar* y confirma que quieres realizar la operación.
++
+Puedes cancelar la operación durante la comprobación de estado previa a la actualización, pero no durante la transferencia o activación.
+
+. *Opcional:* Para ver una lista de lo que se actualizó, haz clic en *Guardar registro*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `drive_upgrade_log-timestamp.txt`.
+
+
+
+.Después de que termines
+* Verifica que todos los componentes aparecen en la página Hardware.
+* Verifica las nuevas versiones de software y firmware comprobando el cuadro de diálogo Inventario de software y firmware (ve al menú:Soporte[Centro de actualizaciones] y luego haz clic en el enlace *Inventario de software y firmware*).
+* Si actualizaste la NVSRAM del controlador, cualquier configuración personalizada que hayas aplicado a la NVSRAM existente se pierde durante el proceso de activación. Necesitas volver a aplicar la configuración personalizada a la NVSRAM después de que termine el proceso de activación.
+

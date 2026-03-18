@@ -1,0 +1,80 @@
+---
+permalink: sm-storage/change-the-settings-for-a-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, settings, snapshot, consistency group 
+summary: Cambia la configuración de un grupo de coherencia de instantáneas cuando quieras cambiar su nombre, la configuración de eliminación automática o el número máximo de imágenes de instantáneas permitidas. 
+---
+= Cambiar la configuración de un grupo de consistencia de snapshot en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cambia la configuración de un grupo de coherencia de instantáneas cuando quieras cambiar su nombre, la configuración de eliminación automática o el número máximo de imágenes de instantáneas permitidas.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Grupos de consistencia de instantáneas*.
+. Selecciona el grupo de coherencia de instantáneas que quieres editar y luego haz clic en *Ver/Editar configuración*.
++
+Aparece el cuadro de diálogo Snapshot Consistency Group Setting.
+
+. Cambia la configuración del grupo de coherencia de instantáneas según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Configuración del grupo de consistencia de snapshots*
+
+
+
+ a| 
+Nombre
+ a| 
+Puedes cambiar el nombre del grupo de coherencia de instantáneas.
+
+
+
+ a| 
+Eliminación automática
+ a| 
+Mantén la casilla de comprobación seleccionada si quieres que las imágenes de instantánea se eliminen automáticamente después del límite especificado; usa la casilla giratoria para cambiar el límite. Si desmarcas esta casilla de comprobación, la creación de imágenes de instantánea se detiene después de 32 imágenes.
+
+
+
+ a| 
+Límite de imágenes snapshot
+ a| 
+Puedes cambiar el número máximo de imágenes de instantánea permitidas para un grupo de instantáneas.
+
+
+
+ a| 
+Planificación de SnapVault
+ a| 
+Este campo indica si hay una planificación asociada con el grupo de coherencia de snapshot.
+
+
+
+ a| 
+*Objetos asociados*
+
+
+
+ a| 
+Volúmenes miembro
+ a| 
+Puedes ver la cantidad de volúmenes miembro asociados con el grupo de coherencia de instantáneas.
+
+|===
+====
+. Haz clic en *Guardar*.
+

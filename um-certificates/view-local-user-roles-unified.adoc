@@ -1,0 +1,38 @@
+---
+permalink: um-certificates/view-local-user-roles-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, view, local, user, roles 
+summary: 'En la pestaña Roles de usuario locales, puedes ver las asignaciones de los usuarios a los roles predeterminados. Estas asignaciones son parte de los RBAC (role-based access controls) aplicados en el Web Services Proxy para SANtricity Unified Manager.' 
+---
+= Ver los roles de los usuarios locales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En la pestaña Roles de usuario locales, puedes ver las asignaciones de los usuarios a los roles predeterminados. Estas asignaciones son parte de los RBAC (role-based access controls) aplicados en el Web Services Proxy para SANtricity Unified Manager.
+
+.Antes de empezar
+Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+
+.Acerca de esta tarea
+Los usuarios y las asignaciones no se pueden cambiar. Solo se pueden modificar las contraseñas.
+
+.Pasos
+. Selecciona *Access Management*.
+. Selecciona la pestaña *Local User Roles*.
++
+Los usuarios se muestran en la tabla:
+
++
+** *admin* -- Superadministrador que tiene acceso a todas las funciones del sistema. Este usuario incluye todos los roles.
+** *storage* -- El administrador responsable de todo el aprovisionamiento de almacenamiento. Este usuario incluye los siguientes roles: Storage Admin, Support Admin y Monitor.
+** *security* -- El usuario responsable de la configuración de seguridad, incluido Access Management y Certificate Management. Este usuario incluye los siguientes roles: Security Admin y Monitor.
+** *support* -- El usuario responsable de los recursos de hardware, datos de fallos y actualizaciones de firmware. Este usuario incluye los siguientes roles: Support Admin y Monitor.
+** *monitor* -- Un usuario con acceso de solo lectura al sistema. Este usuario incluye solo el rol Monitor.
+** *rw* (lectura/escritura) -- Este usuario incluye los siguientes roles: Storage Admin, Support Admin y Monitor.
+** *ro* (sólo lectura) -- Este usuario incluye sólo el rol Monitor.
+
+
+

@@ -1,0 +1,45 @@
+---
+permalink: um-manage/faq-import-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la importación de ajustes para SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué ajustes se importarán?
+
+La función Import Settings es una operación por lotes que carga configuraciones de una matriz de almacenamiento a varias matrices de almacenamiento. Las configuraciones que se importan durante esta operación dependen de cómo esté configurada la matriz de almacenamiento de origen en SANtricity System Manager.
+
+Las siguientes configuraciones pueden importarse a varias cabinas de almacenamiento:
+
+* *Alertas por correo electrónico* -- La configuración incluye una dirección de servidor de correo y las direcciones de correo electrónico de los destinatarios de las alertas.
+* *Alertas syslog* -- La configuración incluye una dirección de servidor syslog y un puerto UDP.
+* *Alertas SNMP* -- La configuración incluye un nombre de comunidad y una dirección IP para el servidor SNMP.
+* *AutoSupport* -- Los ajustes incluyen las funciones independientes (Basic AutoSupport, AutoSupport OnDemand y Remote Diagnostics), la ventana de mantenimiento, el método de entrega y el horario de envío.
+* *Servicios de directorio* -- La configuración incluye el nombre de dominio y la URL de un servidor LDAP (Lightweight Directory Access Protocol), junto con las asignaciones de los grupos de usuarios del servidor LDAP a las funciones predefinidas de la matriz de almacenamiento.
+* *Configuración de almacenamiento* -- Las configuraciones incluyen volúmenes (solo thick y solo volúmenes no repository), grupos de volúmenes, pools y asignaciones de unidades hot spare.
+* *Ajustes del sistema* -- Las configuraciones incluyen ajustes de escaneo de medios para un volumen, caché SSD para controladores y equilibrio de carga automático (no incluye conectividad de host).
+
+
+
+
+== ¿Por qué no se muestran todas las cabinas de almacenamiento?
+
+Durante la operación Importar configuración, es posible que algunas cabinas de almacenamiento no estén disponibles en el cuadro de diálogo de selección de objetivos.
+
+Que las cabinas de almacenamiento no aparezcan puede deberse a los siguientes motivos:
+
+* La versión de firmware es inferior a 8.50.
+* La cabina de almacenamiento se encuentra sin conexión.
+* El sistema no puede comunicarse con esa matriz (por ejemplo, la matriz tiene problemas de certificado, contraseña o de red).
+

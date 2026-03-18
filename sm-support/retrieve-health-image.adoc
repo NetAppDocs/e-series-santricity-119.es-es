@@ -1,0 +1,38 @@
+---
+permalink: sm-support/retrieve-health-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, retrieve, health, image 
+summary: Puedes revisar una imagen de salud del controlador. Una imagen de salud es un volcado de datos en bruto de la memoria del procesador del controlador que el soporte técnico puede usar para diagnosticar un problema con un controlador. 
+---
+= Recupera la imagen de salud en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes revisar una imagen de salud para el controlador. Una imagen de salud es un volcado de datos en bruto de la memoria del procesador del controlador que el soporte técnico puede usar para diagnosticar un problema con un controlador.
+
+.Acerca de esta tarea
+El firmware genera automáticamente una imagen de salud cuando detecta ciertos errores. Después de que se genera una imagen de salud, el controlador que tenía el error se reinicia y se registra un evento en el registro de eventos.
+
+Si tienes AutoSupport activado, la imagen de salud se envía automáticamente al soporte técnico. Si no tienes AutoSupport activado, necesitas ponerte en contacto con soporte técnico para recibir instrucciones sobre cómo recuperar la imagen de salud y enviársela para su análisis.
+
+[NOTE]
+====
+Realiza esta operación solo cuando te lo indique el soporte técnico.
+
+====
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *Recuperar imagen de salud*.
++
+Puedes consultar la sección de detalles para ver el tamaño de la imagen de estado antes de descargar el archivo.
+
+. Haz clic en *Recoger*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `health-image.7z`.
+
+. Sigue las instrucciones del soporte técnico para enviarles el archivo.
+

@@ -1,0 +1,379 @@
+---
+permalink: sm-interface/faq-management-interface.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la interfaz de gestión para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué exploradores son compatibles?
+
+SANtricity System Manager es compatible con estas versiones de navegador.
+
+[cols="1a,1a"]
+|===
+| Explorador | Versión mínima 
+
+
+ a| 
+Google Chrome
+ a| 
+89
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+80
+
+
+
+ a| 
+Safari
+ a| 
+14
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+90
+
+|===
+
+
+== ¿Cuáles son los atajos de teclado?
+
+Puedes navegar por SANtricity System Manager solo con el teclado.
+
+
+
+=== Navegación general
+
+[cols="1a,1a"]
+|===
+| Acción | Atajo de teclado 
+
+
+ a| 
+Pasa al siguiente elemento.
+ a| 
+Pestaña
+
+
+
+ a| 
+Mover al elemento anterior.
+ a| 
+Mayús + Tab
+
+
+
+ a| 
+Selecciona un elemento.
+ a| 
+Introduce
+
+
+
+ a| 
+Lista desplegable--pasa al elemento siguiente o anterior.
+ a| 
+Flecha abajo o flecha arriba
+
+
+
+ a| 
+Casilla de verificación: selecciona un elemento.
+ a| 
+Barra espaciadora
+
+
+
+ a| 
+Botones de radio--alternar entre elementos.
+ a| 
+Flecha abajo o flecha arriba
+
+
+
+ a| 
+Texto expansible--Expande o contrae el elemento.
+ a| 
+Introduce
+
+|===
+
+
+=== Navegación de la tabla
+
+[cols="1a,1a"]
+|===
+| Acción | Atajo de teclado 
+
+
+ a| 
+Selecciona una fila.
+ a| 
+Tab para seleccionar una fila, luego presiona Enter
+
+
+
+ a| 
+Desplázate hacia arriba o hacia abajo.
+ a| 
+Flecha abajo/flecha arriba o Página abajo/Página arriba
+
+
+
+ a| 
+Cambia el orden de clasificación de una columna.
+ a| 
+Tab para seleccionar un encabezado de columna, luego presiona Enter
+
+|===
+
+
+=== Navegación por el calendario
+
+[cols="1a,1a"]
+|===
+| Acción | Atajo de teclado 
+
+
+ a| 
+Ir al mes anterior.
+ a| 
+Re Pág
+
+
+
+ a| 
+Pasa al mes siguiente.
+ a| 
+Av Pág
+
+
+
+ a| 
+Moverse al año anterior.
+ a| 
+Control + Re Pág
+
+
+
+ a| 
+Pasa al año siguiente.
+ a| 
+Control + Av Pág
+
+
+
+ a| 
+Abre el selector de fecha si está cerrado.
+ a| 
+Control + Inicio
+
+
+
+ a| 
+Ir al mes actual.
+ a| 
+Control / Command + Inicio
+
+
+
+ a| 
+Mover al día anterior.
+ a| 
+Control / Command + Izquierda
+
+
+
+ a| 
+Pasa al día siguiente.
+ a| 
+Control / Command + Derecha
+
+
+
+ a| 
+Moverse a la semana anterior.
+ a| 
+Control / Command + Arriba
+
+
+
+ a| 
+Pasa a la semana siguiente.
+ a| 
+Control / Command + Abajo
+
+
+
+ a| 
+Selecciona la fecha enfocada.
+ a| 
+Introduce
+
+
+
+ a| 
+Cierra el selector de fecha y borra la fecha.
+ a| 
+Control / Command + Fin
+
+
+
+ a| 
+Cierra el selector de fecha sin selección.
+ a| 
+Escape
+
+|===
+
+
+== ¿Cómo se relacionan las estadísticas de rendimiento de los volúmenes individuales con el total?
+
+Las estadísticas de pools y grupos de volúmenes se calculan agregando todos los volúmenes, incluidos los volúmenes de capacidad reservada.
+
+La capacidad reservada es utilizada internamente por el sistema de almacenamiento para soportar volúmenes ligeros, instantáneas y reflejo asíncrono, y no son visibles para los hosts de I/O. Como resultado, las estadísticas del pool, el controlador y el storage array pueden no sumar la cantidad total de los volúmenes visibles.
+
+Sin embargo, para las estadísticas de aplicaciones y cargas de trabajo, solo se agregan los volúmenes visibles.
+
+
+
+== ¿Por qué los datos aparecen como cero en los gráficos y la tabla?
+
+Cuando se muestra un cero para un punto de datos en los gráficos y la tabla, significa que no hay actividad de I/O para el objeto en ese momento. Esta situación podría ocurrir porque el host no está iniciando I/O a ese objeto, o podría ser un problema con el objeto en sí.
+
+Los datos históricos del objeto siguen disponibles para ver. Los gráficos y la tabla mostrarán datos distintos de cero una vez que comience la actividad de I/O para el objeto.
+
+La siguiente tabla enumera las razones más comunes por las que el valor de un punto de datos podría ser cero para cualquier objeto.
+
+[cols="25h,~"]
+|===
+| Tipo de objeto a nivel de array | Razón por la que los datos se muestran como cero 
+
+
+ a| 
+Volumen
+ a| 
+* El volumen no tenía asignación de host.
+
+
+
+
+ a| 
+Grupo de volúmenes
+ a| 
+* Se está importando el grupo de volúmenes.
+* El grupo de volúmenes no contiene un volumen que esté asignado a un host, *_y_* el grupo de volúmenes no contiene ninguna capacidad reservada.
+
+
+
+
+ a| 
+Unidad
+ a| 
+* La unidad ha fallado.
+* La unidad ha sido retirada.
+* La unidad está en un estado desconocido.
+
+
+
+
+ a| 
+Controladora
+ a| 
+* El controlador está desconectado.
+* El controlador ha fallado.
+* Se ha eliminado el controlador.
+* El controlador está en un estado desconocido.
+
+
+
+
+ a| 
+Matriz de almacenamiento
+ a| 
+* La matriz de almacenamiento no contiene volúmenes.
+
+
+|===
+
+
+== ¿Qué muestra el gráfico de latencia?
+
+El gráfico de latencia proporciona estadísticas de latencia, en milisegundos (ms), para volúmenes, grupos de volúmenes, pools, aplicaciones y cargas de trabajo. Este gráfico aparece en las pestañas Logical View, Physical View y Applications & Workloads View.
+
+La latencia se refiere a cualquier retraso que ocurre al leer o escribir datos. Pasa el cursor sobre un punto en el gráfico para ver los siguientes valores, en milisegundos (ms), para ese momento:
+
+* Tiempo de lectura.
+* Tiempo de escritura.
+* Tamaño de I/O promedio.
+
+
+
+
+== ¿Qué muestra el gráfico de IOPS?
+
+El gráfico IOPS muestra estadísticas de operaciones de entrada/salida por segundo. En la página de inicio, este gráfico muestra estadísticas de la storage array. En las pestañas Logical View, Physical View y Applications & Workloads View del mosaico Performance, este gráfico muestra estadísticas de la storage array, volúmenes, grupos de volúmenes, pools, aplicaciones y cargas de trabajo.
+
+IOPS es la abreviatura de _operaciones de entrada/salida (I/O) por segundo_. Pasa el cursor sobre un punto del gráfico para ver los siguientes valores para ese momento:
+
+* Número de operaciones de lectura.
+* Número de operaciones de escritura.
+* Total de operaciones de lectura y escritura combinadas.
+
+
+
+
+== ¿Qué muestra el gráfico de MiB/s?
+
+El gráfico MiB/s muestra estadísticas de velocidad de transferencia en mebibytes por segundo. En la página de inicio, este gráfico muestra estadísticas para la matriz de almacenamiento. En las pestañas Vista lógica, Vista física y Vista de aplicaciones y cargas de trabajo del mosaico Rendimiento, este gráfico muestra estadísticas para la matriz de almacenamiento, los volúmenes, los grupos de volúmenes, los pools, las aplicaciones y las cargas de trabajo.
+
+MiB/s es la abreviatura de _mebibytes por segundo_, o 1,048,576 bytes por segundo. Pasa el cursor sobre un punto del gráfico para ver los siguientes valores para ese momento:
+
+* La cantidad de datos leídos.
+* La cantidad de datos escritos.
+* La cantidad total combinada de datos leídos y escritos.
+
+
+
+
+== ¿Qué muestra el gráfico de la CPU?
+
+El gráfico de CPU muestra estadísticas de capacidad de procesamiento para cada controlador (controlador A y controlador B). CPU es una abreviatura de _central processing unit_. En la página de inicio, este gráfico muestra estadísticas para la matriz de almacenamiento. En la pestaña vista física del mosaico de rendimiento, este gráfico muestra estadísticas para la matriz de almacenamiento y las unidades.
+
+El gráfico de la CPU muestra el porcentaje de capacidad de procesamiento de la CPU que se está utilizando en las operaciones de la matriz. Incluso cuando no se está produciendo ninguna E/S externa, el porcentaje de utilización de CPU puede ser distinto de cero porque el sistema operativo de almacenamiento puede estar realizando operaciones y monitorización en segundo plano. Pasa el cursor sobre un punto del gráfico para ver un porcentaje de capacidad de procesamiento que se está utilizando en ese momento.
+
+
+
+== ¿Qué muestra el gráfico Headroom?
+
+El gráfico Headroom está relacionado con la capacidad de rendimiento restante de los controladores de la matriz de almacenamiento. Este gráfico es visible en la página de inicio y en la pestaña Physical View del mosaico Performance.
+
+El gráfico Headroom muestra la capacidad de rendimiento restante de los objetos físicos en el sistema de almacenamiento. Pasa el cursor sobre un punto del gráfico para ver los porcentajes de capacidad de IOPS y MiB/s restantes para el controlador A y para el controlador B.
+
+
+
+== ¿Dónde puedo encontrar más información sobre las preferencias de visualización?
+
+Para encontrar información sobre las opciones de visualización disponibles:
+
+* Para leer más sobre las unidades predeterminadas para mostrar los valores de capacidad, consulta link:set-default-units-for-capacity-values.html["Establece las unidades predeterminadas para los valores de capacidad"].
+* Para leer más sobre el intervalo de tiempo predeterminado para mostrar gráficos de rendimiento, consulta link:set-default-time-frame-for-performance-graphs.html["Establece el periodo de tiempo predeterminado para los gráficos de rendimiento"].
+

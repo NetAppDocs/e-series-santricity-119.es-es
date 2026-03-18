@@ -1,0 +1,53 @@
+---
+permalink: sm-settings/view-imported-certificates.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, imported, certificate, information, 
+summary: Desde la página Certificates, puedes ver el tipo de certificado, la autoridad emisora y el rango de fechas de validez de los certificados para la storage array. 
+---
+= Ver la información del certificado importado en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Desde la página Certificates, puedes ver el tipo de certificado, la autoridad emisora y el rango de fechas de validez de los certificados para la storage array.
+
+.Antes de empezar
+Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de certificado no aparecen.
+
+.Pasos
+. Selecciona menú:Configuración[Certificados].
+. Selecciona una de las pestañas para ver información sobre los certificados.
++
+[cols="25h,~"]
+|===
+| Pestaña | Descripción 
+
+
+ a| 
+Gestión de cabinas
+ a| 
+Ver información sobre los certificados firmados por CA importados para cada controlador, incluyendo el archivo raíz, los archivos intermedios y los archivos del servidor.
+
+
+
+ a| 
+De confianza
+ a| 
+Ver información sobre todos los demás tipos de certificados importados para los controladores. Usa el campo de filtro en *Mostrar certificados que son...* para ver certificados instalados por el usuario o preinstalados.
+
+** *Instalado por el usuario* -- Certificados que un usuario cargó en la matriz de almacenamiento, que pueden incluir certificados de confianza cuando el controlador actúa como cliente (en lugar de servidor), certificados LDAPS y certificados de Identity Federation.
+** *Preinstalado* -- Certificados autofirmados incluidos con la storage array.
+
+
+
+
+ a| 
+Gestión de claves
+ a| 
+Ver información sobre los certificados firmados por CA importados para un servidor de gestión de claves externo.
+
+|===
+

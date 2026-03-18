@@ -1,0 +1,34 @@
+---
+permalink: sm-interface/home-page.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, home page 
+summary: La página de inicio proporciona una vista de consola para la gestión diaria de tu matriz de almacenamiento. Cuando inicias sesión en System Manager, la página de inicio es la primera pantalla que se muestra. 
+---
+= Conoce la página de inicio de SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La página de inicio proporciona una vista de consola para la administración diaria de tu matriz de almacenamiento. Cuando inicias sesión en SANtricity System Manager, la página de inicio es la primera pantalla que se muestra.
+
+La vista de consola comprende cuatro áreas de resumen que contienen información clave sobre el estado y la salud de tu matriz de almacenamiento. Puedes encontrar más información en el área de resumen.
+
+* *Notificaciones*
++
+El área Notificaciones muestra notificaciones de problemas que indican el estado de la matriz de almacenamiento y sus componentes. Además, este portlet muestra alertas automatizadas que pueden ayudarte a solucionar problemas antes de que afecten otras áreas de tu entorno de almacenamiento.
+
+* *Rendimiento*
++
+El área de Rendimiento te permite comparar y contrastar el uso de recursos a lo largo del tiempo. Puedes ver las métricas de rendimiento de una matriz de almacenamiento para el tiempo de respuesta (IOPS), las tasas de transferencia (MiB/s) y la cantidad de capacidad de procesamiento que se está utilizando (CPU).
+
+* *capacidad*
++
+El área Capacidad muestra un gráfico de la capacidad de almacenamiento asignada, la capacidad de almacenamiento libre y la capacidad de almacenamiento no asignada en tu matriz de almacenamiento.
+
+* *Jerarquía de almacenamiento*
++
+El área Jerarquía de almacenamiento proporciona una vista organizada de los distintos componentes de hardware y objetos de almacenamiento gestionados por tu matriz de almacenamiento. Haz clic en la flecha desplegable para realizar una acción en ese componente de hardware u objeto de almacenamiento.
+
+

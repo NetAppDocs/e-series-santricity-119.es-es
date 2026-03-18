@@ -1,0 +1,30 @@
+---
+permalink: sm-mirroring/view-unsynchronized-data-amount-between-mirror-consistency-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, unsynchronized, data, mirror, consistency, groups, 
+summary: Puedes ver la cantidad de datos no sincronizados entre los grupos de consistencia de réplica en la matriz de almacenamiento local y en la matriz de almacenamiento remota. Mientras el grupo de consistencia de réplica está en estado no sincronizado, no ocurre ninguna actividad de réplica. 
+---
+= Ver la cantidad de datos no sincronizados entre grupos de coherencia de réplica en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes ver la cantidad de datos no sincronizados entre los grupos de consistencia de réplica en la matriz de almacenamiento local y en la matriz de almacenamiento remota. Mientras el grupo de consistencia de réplica está en estado no sincronizado, no ocurre ninguna actividad de réplica.
+
+.Acerca de esta tarea
+Puedes realizar esta tarea cuando el grupo de coherencia de réplica seleccionado contiene pares replicados y cuando la sincronización no está en curso.
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Grupos de Consistencia Espejo*.
++
+Aparece la tabla de Mirror Consistency Group y muestra todos los mirror consistency groups asociados con la matriz de almacenamiento.
+
+. Haz clic en menú:Más[Ver cantidad de datos no sincronizados].
++
+Si existen datos no sincronizados, los valores de la tabla lo reflejan. La columna de cantidad de datos muestra la cantidad de datos no sincronizados en MiB.
+
+

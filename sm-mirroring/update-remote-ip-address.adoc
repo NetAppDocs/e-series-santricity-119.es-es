@@ -1,0 +1,34 @@
+---
+permalink: sm-mirroring/update-remote-ip-address.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, update, remote, ip, address, connection, 
+summary: Puedes actualizar la dirección IP iSCSI de tu matriz de almacenamiento remota para restablecer la conexión con la matriz de almacenamiento local. 
+---
+= Actualiza las direcciones IP de las matrices de almacenamiento remotas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes actualizar la dirección IP iSCSI de tu matriz de almacenamiento remota para restablecer la conexión con la matriz de almacenamiento local.
+
+.Antes de empezar
+Tanto la matriz de almacenamiento local como la matriz de almacenamiento remota deben estar configuradas para la duplicación asíncrona usando una conexión iSCSI.
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Grupos de Consistencia Espejo*.
++
+La tabla Mirror Consistency Group muestra todos los Mirror Consistency Group asociados con la matriz de almacenamiento.
+
+. Selecciona el grupo de coherencia de réplica que quieres actualizar y luego selecciona menú:Más[Actualizar dirección IP remota].
++
+El sistema muestra el cuadro de diálogo Actualizar dirección IP remota.
+
+. Selecciona *Actualizar* para actualizar la dirección IP iSCSI de tu matriz de almacenamiento remoto.
+
+
+.Resultados
+El sistema restablece la dirección IP de la matriz de almacenamiento remoto para restablecer la conexión con la matriz de almacenamiento local.

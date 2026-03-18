@@ -1,0 +1,195 @@
+---
+permalink: sm-support/upgrade-drive-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, upgrade, drive, firmware 
+summary: Puedes actualizar el firmware de tus unidades para asegurarte de que tienes todas las funciones y correcciones de errores más recientes. 
+---
+= Actualiza el firmware de la unidad en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes actualizar el firmware de tus unidades para asegurarte de que tienes todas las funciones más recientes y correcciones de errores.
+
+.Antes de empezar
+* Has hecho una copia de seguridad de tus datos usando copia de seguridad de disco a disco, copia de volumen (a un grupo de volúmenes que no se verá afectado por la actualización de firmware planificada) o un espejo remoto.
+* El array de almacenamiento tiene un estado óptimo.
+* Todas las unidades tienen un estado óptimo.
+* No se están ejecutando cambios de configuración en la matriz de almacenamiento.
+* Si las unidades sólo pueden realizar una actualización sin conexión, se detiene la actividad de E/S en todos los volúmenes asociados con las unidades.
+
+
+.Pasos
+. Selecciona el menú:Soporte[Upgrade Center].
+. Descarga los nuevos archivos desde el sitio de Support a tu cliente de gestión.
+. En actualización del firmware de la unidad, haz clic en *Iniciar actualización*.
++
+Aparece un cuadro de diálogo, que enumera los archivos de firmware de la unidad que se están utilizando actualmente.
+
+. Extrae (descomprime) los archivos que descargaste del sitio de Support.
+. Haz clic en *Browse* y selecciona los nuevos archivos de firmware de la unidad que descargaste del sitio de Support.
++
+Los archivos de firmware de la unidad tienen un nombre de archivo similar a `D_HUC101212CSS600_30602291_MS01_2800_0002` con la extensión de `.dlp`.
+
++
+Puedes seleccionar hasta cuatro archivos de firmware de unidad, uno a la vez. Si más de un archivo de firmware de unidad es compatible con la misma unidad, recibirás un error de conflicto de archivos. Decide qué archivo de firmware de unidad quieres usar para la actualización y elimina el otro.
+
+. Haz clic en *Siguiente*.
++
+Aparece el cuadro de diálogo *Seleccionar unidades*, que muestra las unidades que puedes actualizar con los archivos seleccionados.
+
++
+Solo aparecen las unidades compatibles.
+
++
+El firmware seleccionado para la unidad aparece en el área de información de firmware propuesto. Si tienes que cambiar el firmware, haz clic en *Back* para volver al cuadro de diálogo anterior.
+
+. Selecciona el tipo de actualización que quieres hacer:
++
+** *En línea (por defecto)* -- Muestra las unidades que pueden soportar una descarga de firmware _mientras la matriz de almacenamiento está procesando E/S_. No tienes que detener la E/S a los volúmenes asociados que usan estas unidades cuando eliges este método de actualización. Estas unidades se actualizan una a la vez mientras la matriz de almacenamiento está procesando E/S en esas unidades.
+** *Fuera de línea (paralelo)* -- Muestra las unidades que pueden soportar una descarga de firmware _solo mientras toda la actividad de E/S está detenida_ en cualquier volumen que use las unidades. Debes detener toda la actividad de E/S en cualquier volumen que use las unidades que estás actualizando cuando eliges este método de actualización. Las unidades que no tienen redundancia deben procesarse como una operación fuera de línea. Este requisito incluye cualquier unidad asociada con caché SSD, un grupo de volúmenes RAID 0 o cualquier pool o grupo de volúmenes que esté degradado. La actualización fuera de línea (paralela) suele ser más rápida que el método en línea (predeterminado).
+
+
+. En la primera columna de la tabla, selecciona la unidad o las unidades que quieres actualizar.
+. Haz clic en *Iniciar* y confirma que quieres realizar la operación.
++
+Si necesitas detener la actualización, haz clic en *Stop*. Cualquier descarga de firmware que esté en curso se completa. Cualquier descarga de firmware que no haya comenzado se cancela.
+
++
+[CAUTION]
+====
+Detener la actualización del firmware de la unidad puede provocar pérdida de datos o que las unidades no estén disponibles.
+
+====
+. *Opcional:* Para ver una lista de lo que se actualizó, haz clic en *Guardar registro*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `drive_upgrade_log-timestamp.txt`.
+
+. Si se produce alguno de los siguientes errores durante el procedimiento de actualización, toma las medidas recomendadas apropiadas.
+
+
+.Errores y acciones recomendadas
+[%collapsible]
+====
+[cols="40h,~"]
+|===
+| Si se encuentra con este error de descarga de firmware... | Realice lo siguiente... 
+
+
+ a| 
+Unidades asignadas con errores
+ a| 
+La causa de este error puede ser que la unidad no tenga la firma apropiada. Asegúrese de que la unidad afectada sea una unidad autorizada. Póngase en contacto con el soporte técnico para obtener más información.
+
+Al reemplazar una unidad, asegúrese de que la capacidad de la unidad de reemplazo sea igual o mayor que la de la unidad con error que desea reemplazar.
+
+Puede reemplazar la unidad con error mientras la cabina de almacenamiento recibe I/O.
+
+
+
+ a| 
+Comprobación de la cabina de almacenamiento
+ a| 
+* Asegúrese de que se haya asignado una dirección IP a cada controladora.
+* Asegúrese de que ninguno de los cables conectados a la controladora esté dañado.
+* Asegúrese de que todos los cables estén conectados firmemente.
+
+
+
+
+ a| 
+Unidades de repuesto integradas
+ a| 
+Esta condición de error debe corregirse antes de que puedas actualizar el firmware. Abre System Manager y usa Recovery Guru para resolver el problema.
+
+
+
+ a| 
+Grupos de volúmenes incompletos
+ a| 
+Si uno o más grupos de volúmenes o pools de discos están incompletos, debes corregir esta condición de error antes de poder actualizar el firmware. Abre System Manager y usa Recovery Guru para resolver el problema.
+
+
+
+ a| 
+Operaciones exclusivas (distintas de la exploración de medios/paridad en segundo plano) que se están ejecutando actualmente en cualquier grupo de volúmenes
+ a| 
+Si existe una o varias operaciones exclusivas en curso, es necesario completarlas para poder actualizar el firmware. Utilice System Manager para supervisar el progreso de las operaciones.
+
+
+
+ a| 
+Volúmenes faltantes
+ a| 
+Debes corregir la condición de volumen faltante antes de poder actualizar el firmware. Abre System Manager y usa Recovery Guru para resolver el problema.
+
+
+
+ a| 
+El estado de alguna de las controladoras no es óptimo
+ a| 
+Uno de los controladores de la matriz de almacenamiento necesita atención. Esta condición debe corregirse antes de que se pueda actualizar el firmware. Abre System Manager y usa Recovery Guru para resolver el problema.
+
+
+
+ a| 
+La información de partición de almacenamiento no coincide entre los gráficos de objetos de las controladoras
+ a| 
+Se produjo un error durante la validación de los datos en las controladoras. Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Error en la verificación de la controladora de base de datos de SPM
+ a| 
+Se produjo un error en la base de datos de asignación de particiones de almacenamiento de una controladora. Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Validación de la base de datos de configuración \(si es compatible con la versión del controlador de la matriz de almacenamiento\)
+ a| 
+Se produjo un error en la base de datos de configuración de una controladora. Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Comprobaciones relacionadas con MEL
+ a| 
+Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Se notificaron más de 10 eventos críticos MEL o informativos DDE en los últimos 7 días
+ a| 
+Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Se notificaron más de 2 eventos críticos MEL de página 2C en los últimos 7 días
+ a| 
+Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Se notificaron más de 2 eventos críticos MEL de canal de unidad degradado en los últimos 7 días
+ a| 
+Póngase en contacto con el soporte técnico para resolver este problema.
+
+
+
+ a| 
+Se notificaron más de 4 entradas cruciales MEL en los últimos 7 días
+ a| 
+Póngase en contacto con el soporte técnico para resolver este problema.
+
+|===
+====
+.Después de que termines
+La actualización del firmware de la unidad ha finalizado. Puedes reanudar las operaciones normales.

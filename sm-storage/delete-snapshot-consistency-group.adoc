@@ -1,0 +1,40 @@
+---
+permalink: sm-storage/delete-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, snapshot, consistency, group 
+summary: Puedes eliminar los grupos de coherencia de instantáneas que ya no necesitas. 
+---
+= Eliminar un grupo de coherencia de instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes eliminar los grupos de coherencia de instantáneas que ya no necesitas.
+
+.Antes de empezar
+Confirma que las imágenes de todos los volúmenes miembros ya no son necesarias para copias de seguridad o pruebas.
+
+.Acerca de esta tarea
+Esta operación elimina todas las imágenes de instantáneas o programaciones asociadas con el grupo de coherencia de instantáneas.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Selecciona la pestaña *Grupos de Consistencia de Instantáneas*.
+. Selecciona el grupo de coherencia de instantáneas que quieres eliminar y luego selecciona menú:Tareas no comunes[Eliminar].
++
+Aparece el cuadro de diálogo Confirm Delete Snapshot Consistency Group.
+
+. Confirma que quieres realizar esta operación y luego haz clic en *Borrar*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina todas las imágenes instantáneas y volúmenes instantáneos existentes del grupo de coherencia de snapshot.
+* Elimina todas las imágenes de instantánea asociadas que existen para cada volumen miembro en el grupo de consistencia de instantáneas.
+* Elimina todos los volúmenes de instantáneas asociados que existen para cada volumen miembro en el grupo de coherencia de instantáneas.
+* Elimina toda la capacidad reservada asociada para cada volumen miembro en el grupo de coherencia de instantáneas (si está seleccionado).
+

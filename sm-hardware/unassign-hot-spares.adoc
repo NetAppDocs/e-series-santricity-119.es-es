@@ -1,0 +1,43 @@
+---
+permalink: sm-hardware/unassign-hot-spares.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, hot, spare, unassign, 
+summary: Puedes cambiar un hot spare de nuevo a una unidad no asignada. 
+---
+= ${post_edited_translations.segment}
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar un hot spare de nuevo a una unidad no asignada.
+
+.Antes de empezar
+El hot spare debe estar en estado óptimo, Standby.
+
+.Acerca de esta tarea
+No puedes desasignar una unidad de repuesto en caliente que actualmente está reemplazando una unidad con error. Si la unidad de repuesto en caliente no está en estado Optimal, sigue los procedimientos de Recovery Guru para corregir cualquier problema antes de intentar desasignar la unidad.
+
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra los controladores, haz clic en la pestaña *Drives*.
++
+El gráfico cambia para mostrar las unidades en lugar de los controladores.
+
+. Selecciona la unidad hot spare (mostrada en rosa) que quieres desasignar.
++
+${post_edited_translations.segment}
+
++
+Se abre el menú contextual de la unidad.
+
+. ${post_edited_translations.segment}
++
+${post_edited_translations.segment}
+
+. ${post_edited_translations.segment}
+
+
+.Resultados
+La unidad vuelve a estar en Sin asignar (se muestra en gris).

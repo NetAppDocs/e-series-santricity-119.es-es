@@ -1,0 +1,89 @@
+---
+permalink: um-admin/overview-interface-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, interface, GUI 
+summary: Unified Manager es una interfaz basada en web que te permite gestionar varias matrices de almacenamiento en una sola vista. 
+---
+= Conoce SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity Unified Manager es una interfaz basada en web que te permite gestionar varias matrices de almacenamiento en una sola vista.
+
+
+
+== Página principal
+
+Cuando inicias sesión en Unified Manager, la página principal se abre en *Manage - All*. Desde esta página, puedes desplazarte por una lista de matrices de almacenamiento descubiertas en tu red, ver su estado y realizar operaciones en una sola matriz o en un grupo de matrices.
+
+
+
+== Barra lateral Navegación
+
+Puedes acceder a las características y funciones de Unified Manager desde la barra lateral de navegación.
+
+[cols="25h,~"]
+|===
+| Área | Descripción 
+
+
+ a| 
+Gestionar
+ a| 
+Descubre matrices de almacenamiento en tu red, inicia SANtricity System Manager para una matriz, importa configuraciones de una matriz a varias matrices y gestiona grupos de matrices. Selecciona las casillas de comprobación junto a los nombres de las matrices para realizar operaciones en ellas, como importar configuraciones y crear grupos de matrices. Las elipses al final de cada fila proporcionan un menú inline para operaciones en una sola matriz, como cambiarle el nombre.
+
+
+
+ a| 
+Operaciones
+ a| 
+Visualiza el progreso de las operaciones por lotes, como importar configuraciones de una matriz a otra.
+
+[NOTE]
+====
+Algunas operaciones no están disponibles si una cabina de almacenamiento no tiene un estado óptimo.
+
+====
+
+
+ a| 
+Gestión de certificados
+ a| 
+Gestiona certificados para autenticar entre navegadores y clientes.
+
+
+
+ a| 
+Gestión de accesos
+ a| 
+Establece la autenticación de usuario para la interfaz de Unified Manager.
+
+
+
+ a| 
+Soporte
+ a| 
+Ver opciones de soporte técnico, recursos y contactos.
+
+|===
+
+
+== Configuración de la interfaz y ayuda
+
+En la parte superior derecha de la interfaz, puedes acceder a Ayuda y a otra documentación. También puedes acceder a las opciones de administración, que están disponibles en el menú desplegable junto a tu nombre de usuario.
+
+
+
+== Inicios de sesión y contraseñas de usuario
+
+El usuario actual que ha iniciado sesión en el sistema se muestra en la parte superior derecha de la interfaz.
+
+Para más información sobre usuarios y contraseñas, consulta:
+
+* link:administrator-password-protection-unified.html["Configura la protección de la contraseña de administrador"]
+* link:change-admin-password-unified.html["Cambiar la contraseña de admin"]
+* link:../um-certificates/change-passwords-unified.html["Cambiar contraseñas para perfiles de usuario locales"]
+

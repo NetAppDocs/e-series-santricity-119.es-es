@@ -1,0 +1,48 @@
+---
+permalink: sm-hardware/solid-state-disks-ssds.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, solid, state, disk, SSD 
+summary: 'Los discos de estado sólido (SSD) son dispositivos de almacenamiento de datos que utilizan memoria de estado sólido (flash) para almacenar datos de forma persistente. Los SSD emulan los discos duros convencionales y están disponibles con las mismas interfaces que usan los discos duros.' 
+---
+= Conoce los discos de estado sólido (SSD) en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los discos de estado sólido (SSD) son dispositivos de almacenamiento de datos que utilizan memoria de estado sólido (flash) para almacenar datos de forma persistente. Los SSD emulan los discos duros convencionales y están disponibles con las mismas interfaces que usan los discos duros.
+
+
+
+== Ventajas de los SSD
+
+Las ventajas de las unidades SSD sobre los discos duros incluyen:
+
+* Arranque más rápido (sin spin up)
+* Menor latencia
+* Más operaciones de I/O por segundo (IOPS)
+* Mayor fiabilidad con menos piezas móviles
+* Menor consumo de energía
+* Menos calor producido y menos refrigeración necesaria
+
+
+
+
+== Identificación de SSDs
+
+Desde la página Hardware, puedes localizar las SSD en la vista frontal del estante. Busca las bahías de unidad que muestran un icono de rayo, lo que indica que hay una SSD instalada.
+
+
+
+== Grupos de volúmenes
+
+Todas las unidades de un grupo de volúmenes deben ser del mismo tipo de medio (todas SSD o todas unidades de disco duro). Los grupos de volúmenes no pueden tener una mezcla de tipos de medio o tipos de interfaz.
+
+
+
+== Caching
+
+La caché de escritura del controlador siempre está activada para los SSD. La caché de escritura mejora el rendimiento y prolonga la vida de los SSD.
+
+Además de la caché del controlador, puedes implementar la función de caché SSD para mejorar el rendimiento general del sistema. En la caché SSD, los datos se copian de los volúmenes y se almacenan en dos volúmenes RAID internos (uno por controlador).

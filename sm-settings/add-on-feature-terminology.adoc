@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/add-on-feature-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add-on, feature, terms 
+summary: Aprende cómo se aplican los términos de las funciones add-on a tu matriz de almacenamiento. 
+---
+= Conoce la terminología de las funciones complementarias en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprende cómo se aplican los términos de las funciones add-on a tu matriz de almacenamiento.
+
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+Identificador de activación de funciones
+ a| 
+Un identificador de habilitación de funciones es una cadena única que identifica la matriz de almacenamiento específica. Este identificador garantiza que cuando obtienes la función premium, solo se asocia con esa matriz de almacenamiento en particular. Esta cadena se muestra en Complementos en la página Sistema.
+
+
+
+ a| 
+Archivo de clave de función
+ a| 
+Un archivo de clave de función es un archivo que recibes para desbloquear y habilitar una función premium o un paquete de funciones.
+
+
+
+ a| 
+Paquete de funciones
+ a| 
+Un feature pack es un paquete que cambia los atributos de la matriz de almacenamiento (por ejemplo, cambiar el protocolo de Fibre Channel a iSCSI). Los feature packs requieren una clave especial para habilitarlos.
+
+
+
+ a| 
+Función premium
+ a| 
+Una función premium es una opción extra que requiere una clave para habilitarla. No está incluida en la configuración estándar de System Manager.
+
+|===

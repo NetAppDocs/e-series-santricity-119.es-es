@@ -1,0 +1,91 @@
+---
+permalink: sm-settings/drive-security-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, drive, security, terms, 
+summary: Aprende cómo se aplican los términos de seguridad de la unidad a tu matriz de almacenamiento. 
+---
+= Conoce la terminología de seguridad de las unidades en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprende cómo se aplican los términos de seguridad de la unidad a tu matriz de almacenamiento.
+
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+Función Drive Security
+ a| 
+Drive Security es una función de la matriz de almacenamiento que proporciona una capa adicional de seguridad con unidades Full Disk Encryption (FDE) o unidades Federal Information Processing Standard (FIPS). Cuando estas unidades se utilizan con la función Drive Security, requieren una clave de seguridad para acceder a sus datos. Cuando las unidades se retiran físicamente de la matriz, no pueden funcionar hasta que se instalan en otra matriz, momento en el que estarán en un estado de Security Locked hasta que se proporcione la clave de seguridad correcta.
+
+
+
+ a| 
+Unidades FDE
+ a| 
+Las unidades Full Disk Encryption (FDE) realizan el cifrado en la unidad de disco a nivel de hardware. El disco duro contiene un chip ASIC que cifra los datos durante las escrituras y luego los descifra durante las lecturas.
+
+
+
+ a| 
+Unidades FIPS
+ a| 
+Las unidades FIPS utilizan el nivel 2 de los Estándares Federales de Procesamiento de Información (FIPS) 140-2. Son básicamente unidades FDE que cumplen con los estándares del gobierno de Estados Unidos para asegurar algoritmos y métodos de cifrado fuertes. Las unidades FIPS tienen estándares de seguridad más altos que las unidades FDE.
+
+
+
+ a| 
+Cliente de gestión
+ a| 
+Un sistema local (ordenador, tablet, etc.) que incluye un navegador para acceder a System Manager.
+
+
+
+ a| 
+Frase de paso
+ a| 
+La frase de contraseña se usa para cifrar la clave de seguridad con fines de copia de seguridad. La misma frase de contraseña que se usó para cifrar la clave de seguridad debe proporcionarse cuando la clave de seguridad respaldada se importa como resultado de una migración de unidad o un intercambio de cabezales. Una frase de contraseña puede tener entre 8 y 32 caracteres.
+
+[NOTE]
+====
+La frase de contraseña para Drive Security es independiente de la contraseña de administrador de la matriz de almacenamiento.
+
+====
+
+
+ a| 
+Unidades compatibles con seguridad
+ a| 
+Las unidades con capacidad de seguridad pueden ser unidades Full Disk Encryption (FDE) o unidades Federal Information Processing Standard (FIPS), que cifran los datos durante las escrituras y los descifran durante las lecturas. Estas unidades se consideran con capacidad de seguridad porque pueden usarse para seguridad adicional usando la función Drive Security. Si la función Drive Security está habilitada para los grupos de volúmenes y pools usados con estas unidades, las unidades se vuelven secure-_enabled_.
+
+
+
+ a| 
+Unidades habilitadas para seguridad
+ a| 
+Las unidades habilitadas para seguridad se utilizan con la función Drive Security. Cuando habilitas la función Drive Security y luego aplicas Drive Security a un pool o grupo de volúmenes en unidades secure-_capable_, las unidades se vuelven secure__-enabled__. El acceso de lectura y escritura está disponible solo a través de un controlador configurado con la clave de seguridad correcta. Esta seguridad adicional evita el acceso no autorizado a los datos de una unidad que se retira físicamente de la matriz de almacenamiento.
+
+
+
+ a| 
+Clave de seguridad
+ a| 
+Una clave de seguridad es una cadena de caracteres que se comparte entre las unidades habilitadas para seguridad y los controladores en una matriz de almacenamiento. Cada vez que se apaga y enciende la alimentación de las unidades, las unidades habilitadas para seguridad cambian a un estado de bloqueo de seguridad hasta que el controlador aplica la clave de seguridad. Si se retira una unidad habilitada para seguridad de la matriz de almacenamiento, los datos de la unidad se bloquean. Cuando la unidad se vuelve a instalar en una matriz de almacenamiento diferente, busca la clave de seguridad antes de volver a permitir el acceso a los datos. Para desbloquear los datos, tienes que aplicar la clave de seguridad original. Puedes crear y gestionar claves de seguridad usando uno de los siguientes métodos:
+
+* Gestión de claves internas: crea y mantiene claves de seguridad en la memoria persistente del controlador.
+* Gestión externa de claves -- Crea y mantiene claves de seguridad en un servidor externo de gestión de claves.
+
+
+
+
+ a| 
+Identificador de clave de seguridad
+ a| 
+El identificador de la clave de seguridad es una cadena que se asocia con la clave de seguridad durante la creación de la clave. El identificador se almacena en el controlador y en todas las unidades asociadas con la clave de seguridad.
+
+|===

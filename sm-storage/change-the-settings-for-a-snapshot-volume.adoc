@@ -1,0 +1,93 @@
+---
+permalink: sm-storage/change-the-settings-for-a-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, settings, snapshot, volume 
+summary: 'Puedes cambiar la configuración de un volumen de instantánea o de un volumen de instantánea de grupo de coherencia de instantánea para cambiarle el nombre, activar o desactivar el almacenamiento en caché SSD, o cambiar la asignación de host, clúster de host o número de unidad lógica (LUN).' 
+---
+= Cambia la configuración de volumen para un volumen de instantánea en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración de un volumen de instantánea o de un volumen de instantánea de grupo de coherencia de instantánea para cambiarle el nombre, activar o desactivar el almacenamiento en caché SSD, o cambiar la asignación de host, clúster de host o número de unidad lógica (LUN).
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Volúmenes de instantánea*.
+. Selecciona el volumen de instantánea que quieres cambiar y luego haz clic en *Ver/Editar configuración*.
++
+Aparece el cuadro de diálogo Snapshot Volume Settings.
+
+. Visualiza o edita la configuración del volumen de snapshot según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Volumen Snapshot*
+
+
+
+ a| 
+Nombre
+ a| 
+Puedes cambiar el nombre del volumen de instantánea.
+
+
+
+ a| 
+Asignado a
+ a| 
+Puedes cambiar la asignación de host o clúster de host para el volumen de snapshot.
+
+
+
+ a| 
+LUN
+ a| 
+Puedes cambiar la asignación de LUN para el volumen de instantánea.
+
+
+
+ a| 
+Caché SSD
+ a| 
+Puedes activar o desactivar el almacenamiento en caché de solo lectura en discos de estado sólido (SSDs).
+
+
+
+ a| 
+*Objetos asociados*
+
+
+
+ a| 
+Imagen instantánea
+ a| 
+Puedes ver las imágenes de instantánea asociadas con el volumen de instantánea. Una imagen de instantánea es una copia lógica de los datos del volumen, capturada en un momento específico. Como un punto de restauración, las imágenes de instantánea te permiten volver a un conjunto de datos conocido y bueno. Aunque el host puede acceder a la imagen de instantánea, no puede leer ni escribir directamente en ella.
+
+
+
+ a| 
+Volumen base
+ a| 
+Puedes ver el volumen base asociado con el volumen de instantánea. Un volumen base es la fuente a partir de la cual se crea una imagen de instantánea. Puede ser un volumen grueso o fino y normalmente se asigna a un host. El volumen base puede residir en un grupo de volúmenes o en un pool de discos.
+
+
+
+ a| 
+Grupo de instantáneas
+ a| 
+Puedes ver el grupo de snapshot asociado al volumen de snapshot. Un grupo de snapshot es una colección de imágenes de snapshot de un único volumen base.
+
+|===
+====
+

@@ -1,0 +1,59 @@
+---
+permalink: sm-storage/initialize-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, initialize, volumes 
+summary: Un volumen se inicializa automáticamente cuando se crea por primera vez. Sin embargo, es posible que Recovery Guru recomiende inicializar manualmente un volumen para la recuperación de ciertas condiciones de fallo. Use esta opción solo bajo la supervisión del soporte técnico. Es posible seleccionar uno o varios volúmenes para su inicialización. 
+---
+= Inicializar volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un volumen se inicializa automáticamente cuando se crea por primera vez. Sin embargo, es posible que Recovery Guru recomiende inicializar manualmente un volumen para la recuperación de ciertas condiciones de fallo. Use esta opción solo bajo la supervisión del soporte técnico. Es posible seleccionar uno o varios volúmenes para su inicialización.
+
+.Antes de empezar
+* Todas las operaciones de I/O se detuvieron.
+* Todos los dispositivos o sistemas de archivos en los volúmenes que se desean inicializar están desmontados.
+* El volumen está en estado Óptima y no hay operaciones de modificación en curso en el volumen.
+
+
+[CAUTION]
+====
+No se puede cancelar la operación una vez iniciada. Se borran todos los datos del volumen. No intente esta operación a menos que Recovery Guru lo recomiende. Antes de comenzar este procedimiento, comuníquese con el soporte técnico.
+
+====
+.Acerca de esta tarea
+Cuando se inicializa un volumen, este conserva su configuración de WWN, asignaciones de hosts, capacidad asignada y capacidad reservada. También conserva la misma configuración de Data Assurance (DA) y de seguridad.
+
+Los siguientes tipos de volúmenes _no_ pueden ser inicializados:
+
+* Volumen base de un volumen Snapshot
+* Volumen primario en una relación de reflejo
+* Volumen secundario en una relación de reflejo
+* Volumen de origen en una copia de volumen
+* Volumen objetivo en una copia de volumen
+* Volumen que ya posee una inicialización en curso
+
+
+Este tema se aplica solo a volúmenes estándar creados a partir de pools o grupos de volúmenes.
+
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona cualquier volumen y luego selecciona menú:More[Initialize volumes].
++
+Aparece el cuadro de diálogo Inicializar volúmenes. Todos los volúmenes de la matriz de almacenamiento aparecen en este cuadro de diálogo.
+
+. Seleccione uno o varios volúmenes para inicializar y confirme que desea realizar la operación.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Borra todos los datos de los volúmenes que se inicializaron.
+* Borra los índices de bloque, lo que provoca que los bloques no escritos se lean como si estuvieran llenos de ceros (el volumen aparecerá como completamente vacío).
+
+
+Selecciona el menú:Home[View Operations in Progress] para ver el progreso de la operación de inicialización que se está ejecutando actualmente para el volumen seleccionado. Esta operación puede ser larga y podría afectar el rendimiento del sistema.

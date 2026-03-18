@@ -1,0 +1,64 @@
+---
+permalink: sm-hardware/erase-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, erase, drives, removal, 
+summary: Puedes usar la opción Borrar para preparar una unidad no asignada para quitarla del sistema. Este procedimiento elimina los datos de forma permanente, asegurando que no se puedan volver a leer. 
+---
+= Borra unidades en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes usar la opción Borrar para preparar una unidad no asignada para quitarla del sistema. Este procedimiento elimina los datos de forma permanente, asegurando que no se puedan volver a leer.
+
+.Antes de empezar
+La unidad debe estar en un estado Sin asignar.
+
+.Acerca de esta tarea
+Usa la opción Borrar solo si quieres eliminar permanentemente todos los datos de una unidad. Si la unidad está habilitada para seguridad, la opción Borrar realiza un borrado criptográfico y restablece los atributos de seguridad de la unidad a seguro-capaz.
+
+[NOTE]
+====
+La función Borrar no es compatible con algunos modelos de unidad antiguos. Si intentas borrar uno de estos modelos antiguos, aparece un mensaje de error.
+
+====
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra los controladores, haz clic en la pestaña *Drives*.
++
+El gráfico cambia para mostrar las unidades en lugar de los controladores.
+
+. Opcionalmente, puedes usar los campos de filtro para ver todas las unidades sin asignar en la estantería. En la lista desplegable *Mostrar unidades que están...*, selecciona *Sin asignar*.
++
+La vista de estantería muestra solo las unidades no asignadas; todas las demás aparecen en gris.
+
+. Para abrir el menú contextual de la unidad, haz clic en una unidad que quieras borrar. (si quieres seleccionar varias unidades, puedes hacerlo en el cuadro de diálogo Borrar unidades).
++
+[CAUTION]
+====
+*Posible pérdida de datos* -- La operación de borrado no puede deshacerse. Asegúrate de seleccionar las unidades correctas durante el procedimiento.
+
+====
+. En el menú contextual, selecciona *Borrar*.
++
+Se abre el cuadro de diálogo Borrar unidades, mostrando todas las unidades elegibles para una operación de borrado.
+
+. Si lo deseas, selecciona unidades adicionales de la tabla. No puedes seleccionar _todas_ las unidades; asegúrate de que una unidad quede sin seleccionar.
+. Confirma la operación escribiendo `erase`, y luego haz clic en *Borrar*.
++
+[CAUTION]
+====
+Asegúrate de que quieres continuar con esta operación. Una vez que hagas clic en Sí en el siguiente cuadro de diálogo, la operación no se podrá abortar.
+
+====
+. En el cuadro de diálogo Tiempo estimado de finalización, haz clic en *Sí* para continuar con la operación de borrado.
+
+
+.Resultados
+La operación de borrado puede tardar varios minutos o varias horas. Puedes ver el estado en menú:Inicio[Ver operaciones en curso]. Cuando finaliza la operación de borrado, las unidades están disponibles para usarlas en otro grupo de volúmenes o grupo de discos, o en otra matriz de almacenamiento.
+
+.Después de que termines
+Si quieres volver a usar la unidad, primero tienes que inicializarla. Para hacerlo, selecciona *Inicializar* en el menú contextual de la unidad.

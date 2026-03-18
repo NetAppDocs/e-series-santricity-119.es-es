@@ -1,0 +1,44 @@
+---
+permalink: sm-settings/enable-or-disable-resource-provisioning-for-new-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, disable, resource, provisioning, 
+summary: Si anteriormente desactivaste la función predeterminada para el aprovisionamiento de recursos, puedes ir a Configuración y volver a activarla para cualquier grupo o pool de volúmenes SSD nuevo que crees. También puedes desactivar la configuración de nuevo. 
+---
+= Activar o desactivar el aprovisionamiento de recursos para nuevos grupos o pools de volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si antes desactivaste la función predeterminada para el aprovisionamiento de recursos, puedes volver a activarla para cualquier grupo o pool de volúmenes SSD nuevo que crees. También puedes desactivar la configuración otra vez.
+
+El aprovisionamiento de recursos es una función disponible en las matrices de almacenamiento EF300 y EF600, que permite que los volúmenes se pongan en uso inmediatamente sin ningún proceso de inicialización en segundo plano. Todos los bloques de unidad asignados al volumen se desasignan (sin mapear), lo que puede mejorar la vida útil de la SSD y aumentar el rendimiento máximo de escritura.
+
+
+NOTE: Por defecto, el aprovisionamiento de recursos está habilitado en los sistemas donde las unidades admiten DULBE.
+
+.Antes de empezar
+* Debes tener una matriz de almacenamiento EF300 o EF600.
+* Debes tener grupos de volúmenes SSD o pools, donde todas las unidades sean compatibles con la capacidad de recuperación de errores NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE).
++
+
+NOTE: DULBE no es compatible con las matrices de almacenamiento EF300C o EF600C en este momento.
+
+
+
+.Acerca de esta tarea
+Cuando vuelvas a activar el aprovisionamiento de recursos para nuevos grupos de volúmenes o pools, solo se verán afectados los grupos de volúmenes y pools que se creen después. Cualquier grupo de volúmenes o pool existente con el aprovisionamiento de recursos activado permanecerá sin cambios.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. Desplázate hacia abajo hasta *Configuración adicional* y luego haz clic en *Habilitar/deshabilitar volúmenes aprovisionados con recursos*.
++
+La descripción de la configuración indica si el aprovisionamiento de recursos está habilitado o deshabilitado actualmente.
+
+. En el cuadro de diálogo, confirma la operación.
+
+
+.Resultados
+Habilitar o deshabilitar el aprovisionamiento de recursos solo afecta a los nuevos pools SSD o grupos de volúmenes que crees. Los pools o grupos de volúmenes existentes permanecen sin cambios.

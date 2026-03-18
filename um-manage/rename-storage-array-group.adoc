@@ -1,0 +1,31 @@
+---
+permalink: um-manage/rename-storage-array-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, rename, storage, array, group 
+summary: Puedes cambiar el nombre de un grupo de matrices de almacenamiento cuando el nombre actual ya no tenga sentido o no sea aplicable. 
+---
+= Cambiar el nombre de un grupo de arrays de almacenamiento en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el nombre de un grupo de matrices de almacenamiento cuando el nombre actual ya no tenga sentido o no sea aplicable.
+
+.Acerca de esta tarea
+Ten en cuenta estas directrices.
+
+* Un nombre puede estar formado por letras, números y los caracteres especiales guion bajo (_), guion (-) y almohadilla (#). Si eliges cualquier otro carácter, aparece un mensaje de error. Se te pedirá que elijas otro nombre.
+* Limita el nombre a 30 caracteres. Cualquier espacio al principio o al final del nombre se elimina.
+* Usa un nombre único y significativo que sea fácil de entender y recordar.
+* Evita nombres arbitrarios o que pierdan rápidamente su significado en el futuro.
+
+
+.Pasos
+. Desde la vista principal, selecciona *Manage* y luego selecciona el grupo de matrices de almacenamiento que quieres renombrar.
+. Selecciona el menú:Manage Groups[Rename storage array group].
+. En el campo *Nombre del grupo*, escribe un nuevo nombre para el grupo.
+. Haz clic en *Rename.*
+

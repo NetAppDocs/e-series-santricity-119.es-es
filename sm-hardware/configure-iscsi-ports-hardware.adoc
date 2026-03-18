@@ -1,0 +1,156 @@
+---
+permalink: sm-hardware/configure-iscsi-ports-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, iscsi, ports, 
+summary: Si la controladora incluye una conexión de host iSCSI, los ajustes del puerto iSCSI se pueden configurar desde la página Hardware. 
+---
+= Configura los puertos iSCSI en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la controladora incluye una conexión de host iSCSI, los ajustes del puerto iSCSI se pueden configurar desde la página Hardware.
+
+.Antes de empezar
+* La controladora debe incluir puertos iSCSI; de lo contrario, la configuración de iSCSI no está disponible.
+* Se debe conocer la velocidad de la red (la tasa de transferencia de datos entre los puertos y el host).
+
+
+[NOTE]
+====
+La configuración y las funciones iSCSI solamente aparecen si la cabina de almacenamiento es compatible con iSCSI.
+
+====
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra las unidades, haz clic en la pestaña *Controladores y componentes*.
++
+El gráfico cambia para mostrar los controladores en lugar de las unidades.
+
+. Haga clic en la controladora con los puertos iSCSI que desea configurar.
++
+Aparece el menú contextual de la controladora.
+
+. Selecciona *Configurar puertos iSCSI*.
++
+[NOTE]
+====
+La opción *Configurar puertos iSCSI* aparece solo si System Manager detecta puertos iSCSI en el controlador.
+
+====
++
+Se abre el cuadro de diálogo Configurar puertos iSCSI.
+
+. En la lista desplegable, selecciona el puerto que quieres configurar y luego haz clic en *Siguiente*.
+. Selecciona los ajustes del puerto de configuración y luego haz clic en *Siguiente*.
++
+Para ver todos los ajustes del puerto, haz clic en el enlace *Mostrar más ajustes del puerto* a la derecha del cuadro de diálogo.
+
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Opción de configuración de puertos | Descripción 
+
+
+ a| 
+Velocidad del puerto Ethernet configurada (aparece solo para ciertos tipos de tarjetas de interfaz del host)
+ a| 
+Seleccione la velocidad que coincida que la capacidad de velocidad del SFP en el puerto.
+
+
+
+ a| 
+Modo Forward Error Correction (FEC) (Aparece solo para ciertos tipos de tarjetas de interfaz del host)
+ a| 
+Si lo deseas, selecciona uno de los modos FEC para el puerto host especificado.
+
+
+NOTE: El modo Reed Solomon no es compatible con la velocidad de puerto de 25 Gbps.
+
+
+
+ a| 
+Habilitar IPv4/Habilitar IPv6
+ a| 
+Selecciona una o ambas opciones para activar la compatibilidad con redes IPv4 e IPv6.
+
+
+NOTE: Si desea deshabilitar el acceso al puerto, cancele la selección de las dos casillas de comprobación.
+
+
+
+ a| 
+Puerto de escucha TCP (disponible haciendo clic en *Mostrar más configuraciones de puerto*.)
+ a| 
+De ser necesario, introduzca un nuevo número de puerto.
+
+El puerto de escucha es el número de puerto TCP que usa la controladora para escuchar inicios de sesión iSCSI provenientes de iniciadores de iSCSI. El puerto de escucha predeterminado es 3260. Debe introducir 3260 o un valor entre 49 152 y 65 535.
+
+
+
+ a| 
+Tamaño de MTU (disponible haciendo clic en *Mostrar más ajustes de puerto*.)
+ a| 
+Si es necesario, ingresa un nuevo tamaño en bytes para la Unidad de Transmisión Máxima (MTU).
+
+El tamaño por defecto de la Unidad de Transmisión Máxima (MTU) es de 1500 bytes por trama. Tienes que ingresar un valor entre 1500 y 9000.
+
+
+
+ a| 
+Habilitar respuestas PING de ICMP PING
+ a| 
+Seleccione esta opción para habilitar el protocolo de mensajes de control de Internet (ICMP). Los sistemas operativos de equipos en red usan ese protocolo para enviar mensajes. Esos mensajes ICMP determinan si es posible acceder a un host y cuánto tiempo debe transcurrir para enviar y recibir los paquetes de ese host.
+
+|===
+====
++
+Si seleccionaste *Enable IPv4*, se abre un cuadro de diálogo para elegir la configuración de IPv4 después de que hagas clic en *Next*. Si seleccionaste *Enable IPv6*, se abre un cuadro de diálogo para elegir la configuración de IPv6 después de que hagas clic en *Next*. Si seleccionaste ambas opciones, primero se abre el cuadro de diálogo para la configuración de IPv4 y luego, después de hacer clic en *Next*, se abre el cuadro de diálogo para la configuración de IPv6.
+
+. Configura los ajustes IPv4 y/o IPv6, ya sea automáticamente o manualmente. Para ver todos los ajustes de los puertos, haz clic en el enlace *Mostrar más ajustes* a la derecha del cuadro de diálogo.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Opción de configuración de puertos | Descripción 
+
+
+ a| 
+Obtener configuración automáticamente
+ a| 
+Seleccione esta opción para obtener automáticamente la configuración.
+
+
+
+ a| 
+Especificar manualmente la configuración estática
+ a| 
+Selecciona esta opción y luego ingresa una dirección estática en los campos. (si quieres, puedes cortar y pegar direcciones en los campos) Para IPv4, incluye la máscara de subred y la puerta de enlace. Para IPv6, incluye la dirección IP enrutable y la dirección IP del router.
+
+
+
+ a| 
+Activar la compatibilidad con VLAN (disponible haciendo clic en *Mostrar más ajustes*.)
+ a| 
+Selecciona esta opción para activar una VLAN e ingresar su ID. Una VLAN es una red lógica que se comporta como si estuviera físicamente separada de otras redes de área local (LAN) físicas y virtuales admitidas por los mismos switches, los mismos routers o ambos.
+
+
+
+ a| 
+Activar prioridad Ethernet (Disponible pulsando *Mostrar más ajustes*.)
+ a| 
+Seleccione esta opción para habilitar el parámetro que determina la prioridad de acceso a la red. Use la barra deslizante para seleccionar una prioridad entre 1 (más baja) y 7 (más alta).
+
+En un entorno de red de área local (LAN) compartida, como Ethernet, muchas estaciones podrían competir por el acceso a la red. El acceso es por orden de llegada. Dos estaciones podrían intentar acceder a la red al mismo tiempo, lo que provoca que ambas estaciones retrocedan y esperen antes de intentarlo de nuevo. Este proceso se minimiza en Ethernet conmutada, donde solo una estación está conectada a un puerto del switch.
+
+|===
+====
+. Haz clic en *Finalizar*.
+

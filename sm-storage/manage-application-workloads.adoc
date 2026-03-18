@@ -1,0 +1,14 @@
+---
+permalink: sm-storage/manage-application-workloads.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, applications, workloads 
+summary: Puedes gestionar aplicaciones y cargas de trabajo para ver todos los volúmenes existentes en la matriz de almacenamiento agrupados por nombre de carga de trabajo y tipo de aplicación. También puedes agregar volúmenes a una carga de trabajo existente o nueva, cambiar la configuración de una carga de trabajo existente y crear nuevos volúmenes y cargas de trabajo. 
+---
+= Administra aplicaciones y cargas de trabajo en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes gestionar aplicaciones y cargas de trabajo para ver todos los volúmenes existentes en la matriz de almacenamiento agrupados por nombre de carga de trabajo y tipo de aplicación. También puedes agregar volúmenes a una carga de trabajo existente o nueva, cambiar la configuración de una carga de trabajo existente y crear nuevos volúmenes y cargas de trabajo.

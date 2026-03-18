@@ -1,0 +1,35 @@
+---
+permalink: sm-support/enable-autosupport-maintenance-window.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, autosupport, ASUP, maintenance window 
+summary: Habilita la ventana de mantenimiento AutoSupport para suprimir la creación automática de tickets en eventos de error. En el modo de funcionamiento normal, la matriz de almacenamiento usa AutoSupport para abrir un caso con Support si hay un problema. 
+---
+= Habilita la ventana de mantenimiento de AutoSupport en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Habilita la ventana de mantenimiento AutoSupport para suprimir la creación automática de tickets en eventos de error. En el modo de funcionamiento normal, la matriz de almacenamiento usa AutoSupport para abrir un caso con Support si hay un problema.
+
+.Pasos
+. Selecciona el menú:Support[Support Center > AutoSupport] tab.
+. Selecciona *Habilitar AutoSupport ventana de mantenimiento*.
+. Ingresa la dirección de correo electrónico para recibir una confirmación de que la solicitud de ventana de mantenimiento ha sido procesada.
++
+Dependiendo de tu configuración, puedes introducir hasta cinco direcciones de correo electrónico. Si quieres añadir más de una dirección, selecciona *Add another email* para abrir otro campo.
+
+. Especifica la duración (en horas) para habilitar la ventana de mantenimiento.
++
+La duración máxima admitida es de 72 horas.
+
+. Haz clic en *Sí*.
++
+AutoSupport la creación automática de tickets en eventos de error está temporalmente suprimida durante la ventana de duración especificada.
+
+
+
+.Después de que termines
+La ventana de mantenimiento no comienza hasta que la solicitud de la matriz de almacenamiento es procesada por los servidores de AutoSupport. Espera hasta que recibas un correo electrónico de confirmación antes de realizar cualquier actividad de mantenimiento en tu matriz de almacenamiento.

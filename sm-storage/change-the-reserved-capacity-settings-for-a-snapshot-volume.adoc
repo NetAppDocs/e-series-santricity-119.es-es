@@ -1,0 +1,44 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, snapshot, volume 
+summary: Puedes cambiar la configuración de un volumen de instantáneas para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un volumen de instantáneas está a punto de llenarse. 
+---
+= Cambiar la configuración de la capacidad reservada para un volumen de snapshot en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración de un volumen de instantáneas para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un volumen de instantáneas está a punto de llenarse.
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Haz clic en la pestaña *Capacidad reservada*.
+. Selecciona el volumen de instantáneas que quieres editar y luego haz clic en *View/Edit Settings*.
++
+Aparece el cuadro de diálogo de configuración de la capacidad reservada del volumen de Snapshot.
+
+. Cambia los ajustes de capacidad reservada para el volumen de instantánea según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un volumen miembro está a punto de llenarse.
+
+Cuando la capacidad reservada para el volumen de instantáneas supera el umbral especificado, el sistema envía una alerta, dándote tiempo para aumentar la capacidad reservada o eliminar objetos innecesarios.
+
+|===
+====
+. Haz clic en *Guardar* para aplicar tus cambios a la configuración de la capacidad reservada del volumen de instantáneas.
+

@@ -1,0 +1,80 @@
+---
+permalink: sm-settings/how-access-management-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, authentication, users, roles, access, Management, 
+summary: Access Management es un método para establecer la autenticación de usuario en SANtricity System Manager. 
+---
+= Cómo funciona el control de acceso en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Access Management es un método para establecer la autenticación de usuario en SANtricity System Manager.
+
+La configuración y autenticación de usuario funciona de la siguiente manera:
+
+. Un administrador inicia sesión en System Manager con un perfil de usuario que incluye permisos de Security Admin.
++
+[NOTE]
+====
+Para el primer inicio de sesión, el nombre de usuario `admin` se muestra automáticamente y no se puede cambiar. El `admin` usuario tiene acceso completo a todas las funciones del sistema.
+
+====
+. El administrador navega hasta Access Management en la interfaz de usuario. La matriz de almacenamiento está preconfigurada para utilizar roles de usuario locales, que son una implementación de las capacidades de RBAC (control de acceso basado en roles).
+. El administrador configura uno o más de los siguientes métodos de autenticación:
++
+** *Roles de usuario locales* -- la autenticación se gestiona mediante capacidades RBAC aplicadas en la matriz de almacenamiento. Los roles de usuario locales incluyen perfiles de usuario predefinidos y roles con permisos de acceso específicos. Los administradores pueden usar estos roles de usuario locales como el único método de autenticación o usarlos en combinación con un servicio de directorio. No es necesaria ninguna configuración, aparte de establecer contraseñas para los usuarios.
+** *Servicios de directorio* -- La autenticación se gestiona a través de un servidor LDAP (Lightweight Directory Access Protocol) y un servicio de directorio, como Microsoft's Active Directory. Un administrador se conecta al servidor LDAP y luego asigna los usuarios LDAP a los roles de usuario locales integrados en la matriz de almacenamiento.
+** *SAML* -- La autenticación se gestiona a través de un proveedor de identidades (IdP) que utiliza el Security Assertion Markup Language (SAML) 2.0. Un administrador establece la comunicación entre el sistema IdP y la matriz de almacenamiento, y luego asigna los usuarios IdP a los roles de usuario locales integrados en la matriz de almacenamiento.
+
+
+. El administrador proporciona a los usuarios las credenciales de inicio de sesión para System Manager.
+. Los usuarios inician sesión en el sistema introduciendo sus credenciales.
++
+[NOTE]
+====
+Si la autenticación se gestiona con SAML y un inicio de sesión único (SSO), el sistema podría omitir el cuadro de diálogo de inicio de sesión de System Manager.
+
+====
++
+Durante el inicio de sesión, el sistema realiza las siguientes tareas en segundo plano:
+
++
+** Autentica el nombre de usuario y la contraseña con la cuenta de usuario.
+** Determina los permisos del usuario según los roles asignados.
+** Proporciona al usuario acceso a tareas en la interfaz de usuario.
+** Muestra el nombre de usuario en la parte superior derecha de la interfaz.
+
+
+
+
+
+
+== Tareas disponibles en System Manager
+
+El acceso a las tareas depende de los roles asignados a un usuario, que incluyen lo siguiente:
+
+* *Storage admin* -- Acceso total de lectura/escritura a los objetos de almacenamiento (por ejemplo, volúmenes y grupos de discos), pero sin acceso a la configuración de seguridad.
+* *Security admin* -- Acceso a la configuración de seguridad en Access Management, gestión de certificados, gestión de registros de auditoría y la capacidad de activar o desactivar la interfaz de gestión heredada (SYMbol).
+* *Support admin* -- Acceso a todos los recursos de hardware en la matriz de almacenamiento, datos de fallos, eventos MEL y actualizaciones de firmware del controlador. Sin acceso a objetos de almacenamiento ni a la configuración de seguridad.
+* *Monitor* -- Acceso de solo lectura a todos los objetos de almacenamiento, pero sin acceso a la configuración de seguridad.
+
+
+Una tarea no disponible aparece en gris o no se muestra en la interfaz de usuario. Por ejemplo, un usuario con el rol Monitor puede ver toda la información sobre volúmenes, pero no puede acceder a funciones para modificar ese volumen. Las pestañas de funciones como *Copy Services* y *Add to Workload* aparecerán en gris; solo está disponible *View/Edit Settings*.
+
+
+
+== Limitaciones en Unified Manager y Storage Manager
+
+Si SAML está configurado para una matriz de almacenamiento, los usuarios no pueden descubrir ni gestionar el almacenamiento de esa matriz desde Unified Manager o las interfaces heredadas de Storage Manager.
+
+Cuando se configuran los roles de usuario locales y los servicios de directorio, los usuarios deben introducir las credenciales antes de realizar cualquiera de las siguientes funciones:
+
+* Cambiar el nombre de la matriz de almacenamiento
+* Actualizar el firmware del controlador
+* Cargando una configuración de matriz de almacenamiento
+* Ejecutar un script
+* Intentando realizar una operación activa cuando se ha agotado el tiempo de una sesión no utilizada
+

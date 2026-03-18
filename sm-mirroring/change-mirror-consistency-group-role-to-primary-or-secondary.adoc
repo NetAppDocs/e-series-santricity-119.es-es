@@ -1,0 +1,44 @@
+---
+permalink: sm-mirroring/change-mirror-consistency-group-role-to-primary-or-secondary.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, mirror, consistency group, primary, secondary 
+summary: Puedes cambiar el rol entre los grupos de coherencia de réplica por motivos administrativos o en caso de un desastre en la matriz de almacenamiento local. 
+---
+= Cambia la función del grupo de coherencia de réplica a primaria o secundaria en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el rol entre los grupos de coherencia de réplica por motivos administrativos o en caso de un desastre en la matriz de almacenamiento local.
+
+.Acerca de esta tarea
+Los grupos de consistencia de réplica creados en la matriz de almacenamiento local tienen el rol primario. Los grupos de consistencia de réplica creados en la matriz de almacenamiento remoto tienen el rol secundario. Puedes degradar el grupo de consistencia de réplica local a un rol secundario o promover el grupo de consistencia de réplica remoto a un rol primario.
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Grupos de Consistencia Espejo*.
++
+Aparece la tabla de Mirror Consistency Group y muestra todos los mirror consistency groups asociados con la matriz de almacenamiento.
+
+. Selecciona el grupo de coherencia de réplica para el que quieres cambiar el rol y luego selecciona menú:More[Change role to <Primary | Secondary>]*>*.
++
+El sistema muestra una confirmación.
+
+. Confirma que quieres cambiar la función del grupo de coherencia de réplica y luego haz clic en *Cambiar función*.
++
+[NOTE]
+====
+El sistema muestra el cuadro de diálogo Cannot Contact Storage Array cuando se solicita un cambio de rol, pero no se puede contactar con la matriz de almacenamiento remota. Haz clic en *Yes* para forzar el cambio de rol.
+
+====
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* La tabla de Mirror Consistency Group muestra el estado "pending" o "in-progress" junto al Mirror Consistency Group que está experimentando el cambio de rol. Puedes cancelar una operación de Role Change que esté pendiente haciendo clic en el enlace *Cancel* que se encuentra dentro de la celda de la tabla.
+* Si se puede contactar con el grupo de consistencia de réplica asociado, los roles entre los grupos de consistencia de réplica cambian. System Manager promueve el grupo de consistencia de réplica secundario a un rol primario o degrada el grupo de consistencia de réplica primario a un rol secundario (dependiendo de tu selección). El cambio de rol afecta a todos los pares de réplica dentro del grupo de consistencia de réplica seleccionado.
+

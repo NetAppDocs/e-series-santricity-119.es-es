@@ -1,0 +1,39 @@
+---
+permalink: sm-mirroring/remove-synchronous-mirror-relationship.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remove, synchronous, mirror, relationship, 
+summary: Eliminas un par reflejado para quitar la relación de espejo del volumen primario en la matriz de almacenamiento local y del volumen secundario en la matriz de almacenamiento remota. 
+---
+= Eliminar relaciones de espejo síncrono en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Eliminas un par reflejado para quitar la relación de espejo del volumen primario en la matriz de almacenamiento local y del volumen secundario en la matriz de almacenamiento remota.
+
+.Acerca de esta tarea
+También puedes eliminar un par reflejado para corregir un estado de par reflejado huérfano. Revisa la siguiente información sobre pares reflejados huérfanos:
+
+* Existe un par reflejado huérfano cuando se ha eliminado un volumen miembro en un lado (local/remoto) pero no en el otro lado.
+* Los pares reflejados huérfanos se detectan cuando se restablece la comunicación entre arrays.
+
+
+.Pasos
+. Selecciona el menú:Storage[Synchronous Mirroring].
+. Selecciona el par reflejado que quieres eliminar y luego selecciona el menú:Uncommon Tasks[Remove].
++
+Aparece el cuadro de diálogo Remove Mirror Relationship.
+
+. Confirma que quieres eliminar el par reflejado y luego haz clic en *Eliminar*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina la relación de reflejo del par reflejado en la matriz de almacenamiento local y en la matriz de almacenamiento remota.
+* Devuelve el volumen primario y el volumen secundario a volúmenes accesibles por el host y no reflejados.
+* Actualiza el mosaico de reflejo síncrono con la eliminación del par reflejado síncrono.
+

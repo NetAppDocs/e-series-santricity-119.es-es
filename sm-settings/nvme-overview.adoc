@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/nvme-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, nvme, 
+summary: 'Algunas controladoras incluyen un puerto para implementar NVMe (Non-Volatile Memory Express) over fabrics. NVMe permite una comunicación de alto rendimiento entre hosts y la storage array.' 
+---
+= Conoce NVMe y el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Algunas controladoras incluyen un puerto para implementar NVMe (Non-Volatile Memory Express) over fabrics. NVMe permite una comunicación de alto rendimiento entre hosts y la storage array.
+
+
+
+== ¿Qué es NVMe?
+
+_NVM_ significa "Non-Volatile Memory" (memoria no volátil) y es una memoria persistente usada en muchos tipos de dispositivos de almacenamiento. _NVMe_ (NVM Express) es una interfaz o protocolo estandarizado diseñado específicamente para la comunicación de alto rendimiento con múltiples colas con dispositivos NVM.
+
+
+
+== ¿Qué es NVMe over Fabrics?
+
+_NVMe over Fabrics (NVMe-oF)_ es una especificación tecnológica que permite que los comandos y datos basados en mensajes NVMe se transfieran entre un ordenador host y el almacenamiento a través de una red. Una matriz de almacenamiento NVMe (llamada _subsistema_) puede ser accedida por un host usando un fabric. Los comandos NVMe están habilitados y encapsulados en capas de abstracción de transporte tanto en el lado del host como en el lado del subsistema. Esto extiende la interfaz NVMe de alto rendimiento de extremo a extremo desde el host hasta el almacenamiento y estandariza y simplifica el conjunto de comandos.
+
+El almacenamiento NVMe-oF se presenta a un host como un dispositivo de almacenamiento en bloque local. El volumen (llamado _namespace_) se puede montar en un sistema de archivos como con cualquier otro dispositivo de almacenamiento en bloque. Puedes usar la API de REST, el SMcli o SANtricity System Manager para aprovisionar tu almacenamiento según lo necesites.
+
+
+
+== ¿Qué es un NVMe Qualified Name (NQN)?
+
+El nombre cualificado NVMe (NQN) se utiliza para identificar el destino de almacenamiento remoto. El nombre cualificado NVMe para la matriz de almacenamiento siempre lo asigna el subsistema y no puede modificarse. Solo hay un nombre cualificado NVMe para toda la matriz. El nombre cualificado NVMe está limitado a 223 caracteres de longitud. Puedes compararlo con un nombre cualificado iSCSI.
+
+
+
+== ¿Qué es un espacio de nombres y un identificador de espacio de nombres?
+
+Un espacio de nombres es el equivalente de una unidad lógica en SCSI, que se relaciona con un volumen en la matriz. El ID de espacio de nombres (NSID) es equivalente a un número de unidad lógica (LUN) en SCSI. Creas el NSID al momento de crear el espacio de nombres y puedes establecerlo en un valor entre 1 y 255.
+
+
+
+== ¿Qué es un controlador NVMe?
+
+De forma similar a un nexo SCSI I_T, que representa la ruta desde el iniciador del host hasta el destino del sistema de almacenamiento, un controlador NVMe creado durante el proceso de conexión al host proporciona una ruta de acceso entre un host y los espacios de nombres en la matriz de almacenamiento. Un NQN para el host más un identificador de puerto de host identifican de forma exclusiva un controlador NVMe. Aunque un controlador NVMe solo puede asociarse a un único host, puede acceder a varios espacios de nombres.
+
+Tú configuras qué hosts pueden acceder a qué espacios de nombres y estableces el ID del espacio de nombres para el host usando SANtricity System Manager. Luego, cuando se crea el controlador NVMe, se crea la lista de ID de espacios de nombres accesibles por el controlador NVMe y se usa para configurar las conexiones permitidas.

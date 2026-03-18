@@ -1,0 +1,23 @@
+---
+permalink: sm-interface/set-default-time-frame-for-performance-graphs.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, time, graphs 
+summary: Puedes cambiar el intervalo de tiempo predeterminado que muestran los gráficos de rendimiento. 
+---
+= Establece el marco temporal predeterminado para las gráficas de rendimiento en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el intervalo de tiempo predeterminado que muestran los gráficos de rendimiento.
+
+.Acerca de esta tarea
+Los gráficos de rendimiento que aparecen en la página de inicio y en la página de rendimiento muestran inicialmente un intervalo de tiempo de 1 hora. Las preferencias se guardan en el almacenamiento local del navegador, así que todos los usuarios pueden tener su propia configuración.
+
+.Pasos
+. Selecciona el menú:Preferencias[Establecer preferencias].
+. En la lista desplegable, selecciona *5 minutos*, *1 hora*, *8 horas*, *1 día* o *7 días* y confirma que quieres realizar la operación.
+

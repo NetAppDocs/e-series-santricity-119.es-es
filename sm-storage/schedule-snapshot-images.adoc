@@ -1,0 +1,223 @@
+---
+permalink: sm-storage/schedule-snapshot-images.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, schedule, snapshot, images 
+summary: Creas una programación de instantáneas para permitir la recuperación en caso de un problema con el volumen base y para hacer copias de seguridad programadas. Las instantáneas de volúmenes base o grupos de consistencia de instantáneas se pueden crear en una programación diaria, semanal o mensual, a cualquier hora del día. 
+---
+= Programa imágenes instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Creas una programación de instantáneas para permitir la recuperación en caso de un problema con el volumen base y para hacer copias de seguridad programadas. Las instantáneas de volúmenes base o grupos de consistencia de instantáneas se pueden crear en una programación diaria, semanal o mensual, a cualquier hora del día.
+
+.Antes de empezar
+El volumen base debe ser óptimo.
+
+.Acerca de esta tarea
+Esta tarea describe cómo crear una programación de instantáneas para un grupo de coherencia de instantáneas existente o un volumen base existente.
+
+[NOTE]
+====
+También puedes crear una programación de instantáneas al mismo tiempo que creas una imagen de instantánea de un volumen base o un grupo de coherencia de instantáneas.
+
+====
+.Pasos
+. Haz una de las siguientes acciones para crear una programación de instantáneas:
++
+** Selecciona el menú:Storage[Volumes].
++
+Selecciona el objeto (volumen o grupo de coherencia de instantáneas) para esta planificación de instantáneas y luego selecciona menu:Copy Services[Create snapshot schedule].
+
+** Selecciona el menú:Almacenamiento[Instantáneas].
++
+Selecciona la pestaña *Schedules* y luego haz clic en *Create*.
+
+
+
+. Selecciona el objeto (volumen o grupo de consistencia de instantáneas) para esta programación de instantáneas y luego haz clic en *Next*.
++
+Aparece el cuadro de diálogo Crear Snapshot Schedule.
+
+. Realice una de las siguientes acciones:
++
+** *Usa una planificación previamente definida de otro objeto de instantánea*.
++
+Asegúrate de que se muestran las opciones avanzadas. Haz clic en *Mostrar más opciones*. Haz clic en *Importar programación*, selecciona el objeto con la programación que quieres importar y luego haz clic en *Importar*.
+
+** *Modifica las opciones básicas o avanzadas*.
++
+En la parte superior derecha del cuadro de diálogo, haz clic en *Mostrar más opciones* para mostrar todas las opciones y luego consulta la siguiente tabla.
+
+
+
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+*Ajustes básicos*
+
+
+
+ a| 
+Selecciona días
+ a| 
+Selecciona días individuales de la semana para las imágenes de snapshot.
+
+
+
+ a| 
+Hora de inicio
+ a| 
+En la lista desplegable, selecciona una nueva hora de inicio para las instantáneas diarias (las opciones se muestran en incrementos de media hora). La hora de inicio predeterminada es media hora después de la hora actual.
+
+
+
+ a| 
+Zona horaria
+ a| 
+En la lista desplegable, selecciona la zona horaria de tu array.
+
+
+
+ a| 
+*Configuración avanzada*
+
+
+
+ a| 
+Día / mes
+ a| 
+Elige una de las siguientes opciones:
+
+** *Daily / Weekly* -- Selecciona días individuales para las instantáneas de sincronización. También puedes seleccionar la casilla de comprobación *Select all days* en la esquina superior derecha si quieres una programación diaria.
+** *Mensual / Anual* -- selecciona meses individuales para las instantáneas de sincronización. En el campo *En día(s)*, introduce los días del mes para que se realicen las sincronizaciones. Las entradas válidas son *1* a *31* y *Last*. Puedes separar varios días con una coma o punto y coma. Usa un guion para fechas inclusivas. Por ejemplo: 1,3,4,10-15,Last. También puedes seleccionar la casilla de comprobación *Select all months* en la parte superior derecha si quieres una programación mensual.
+
+
+
+
+ a| 
+Hora de inicio
+ a| 
+En la lista desplegable, selecciona una nueva hora de inicio para las instantáneas diarias (las opciones se muestran en incrementos de media hora). La hora de inicio predeterminada es media hora después de la hora actual.
+
+
+
+ a| 
+Zona horaria
+ a| 
+En la lista desplegable, selecciona la zona horaria de tu array.
+
+
+
+ a| 
+Instantáneas por día / Tiempo entre instantáneas
+ a| 
+Selecciona el número de imágenes instantáneas que quieres crear por día. Si seleccionas más de una, también elige el tiempo entre imágenes instantáneas. Para varias imágenes instantáneas, asegúrate de que tienes suficiente capacidad reservada.
+
+
+
+ a| 
+¿Crear imagen instantánea ahora mismo?
+ a| 
+Selecciona esta casilla de comprobación para crear una imagen instantánea además de las imágenes automáticas que estás programando.
+
+
+
+ a| 
+Fecha de inicio/finalización o sin fecha de finalización
+ a| 
+Introduce la fecha de inicio para que comiencen las sincronizaciones. También introduce una fecha de finalización o selecciona *Sin fecha de finalización*.
+
+|===
+====
+. Realice una de las siguientes acciones:
++
+** Si el objeto es un grupo de coherencia de instantáneas, haz clic en *Crear* para aceptar la configuración y crear la planificación.
+** Si el objeto es un volumen, haz clic en *Siguiente* para asignar capacidad reservada para las imágenes de snapshot.
++
+La tabla de candidatos a volumen solo muestra los candidatos que admiten la capacidad reservada especificada. La capacidad reservada es la capacidad física asignada que se usa para cualquier operación de servicio de copia y objeto de almacenamiento. No se puede leer directamente por el host.
+
+
+
+. Usa el cuadro giratorio para asignar la capacidad reservada para las imágenes instantáneas. Haz una de las siguientes acciones:
++
+** *Acepta la configuración predeterminada.*
++
+Usa esta opción recomendada para asignar la capacidad reservada para las imágenes de snapshot con la configuración predeterminada.
+
+** *Asigna tus propios ajustes de capacidad reservada para cubrir tus necesidades de almacenamiento de datos.*
++
+Si cambias la configuración predeterminada de capacidad reservada, haz clic en *Refrescar candidatos* para actualizar la lista de candidatos para la capacidad reservada que especificaste.
+
++
+Asigna la capacidad reservada usando las siguientes directrices:
+
++
+*** La configuración predeterminada para la capacidad reservada es el 40% de la capacidad del volumen base. Por lo general, esta capacidad es suficiente.
+*** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de E/S en los volúmenes y la cantidad y duración de la recopilación de imágenes snapshot.
+
+
+
+
+. Haz clic en *Siguiente*.
++
+Aparece el cuadro de diálogo Edit Settings.
+
+. Edita la configuración de la planificación de SnapVault según lo necesites y luego haz clic en *Finish*.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Límite de snapshot*
+
+
+
+ a| 
+Habilita el borrado automático de imágenes de snapshot cuando...
+ a| 
+Mantén la casilla de comprobación seleccionada si quieres que las imágenes de instantánea se eliminen automáticamente después del límite especificado; usa la casilla giratoria para cambiar el límite. Si desmarcas esta casilla de comprobación, la creación de imágenes de instantánea se detiene después de 32 imágenes.
+
+
+
+ a| 
+*Ajustes de capacidad reservada*
+
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para una planificación está a punto de llenarse.
+
+Cuando la capacidad reservada para la planificación supere el umbral especificado, usa el aviso anticipado para aumentar la capacidad reservada o eliminar objetos innecesarios antes de que se acabe el espacio restante.
+
+
+
+ a| 
+Política para la capacidad reservada completa
+ a| 
+Elige una de las siguientes políticas:
+
+** *Purge oldest snapshot image* -- El sistema purga automáticamente la imagen de instantánea más antigua, lo que libera la capacidad reservada de la imagen de instantánea para su reutilización dentro del grupo de instantáneas.
+** *Rechazar escrituras en el volumen base* -- Cuando la capacidad reservada alcanza su porcentaje máximo definido, el sistema rechaza cualquier solicitud de escritura de E/S en el volumen base que activó el acceso a la capacidad reservada.
+
+
+|===
+====
+

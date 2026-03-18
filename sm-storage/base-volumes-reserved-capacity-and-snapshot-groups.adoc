@@ -1,0 +1,48 @@
+---
+permalink: sm-storage/base-volumes-reserved-capacity-and-snapshot-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, base volumes, reserved capacity, snapshot groups 
+summary: La función de Snapshots hace uso de volúmenes base, capacidad reservada y grupos de instantáneas. 
+---
+= Conoce los volúmenes base, la capacidad reservada y los grupos de instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función de Snapshots hace uso de volúmenes base, capacidad reservada y grupos de instantáneas.
+
+
+
+== Volúmenes base
+
+Un _volumen base_ es el volumen utilizado como origen para una imagen snapshot. Un volumen base puede ser un volumen grueso o un volumen fino y puede residir en un pool o grupo de volúmenes.
+
+Para tomar instantáneas del volumen base, puedes crear una imagen instantánea en cualquier momento o puedes automatizar el proceso definiendo un calendario regular para las instantáneas.
+
+La siguiente figura muestra la relación entre los objetos de instantánea y el volumen base.
+
+image::../media/sam1130-dwg-snapshots-images-overview.gif[Objetos de instantánea y volumen base]
+
+^1^ Volumen base; ^2^ Objetos de instantánea en el grupo (imágenes y capacidad reservada); ^3^ Capacidad reservada para el grupo de instantáneas.
+
+
+
+== Capacidad reservada y grupos de instantáneas
+
+System Manager organiza las imágenes de instantáneas en _grupos de instantáneas_. Cuando System Manager establece el grupo de instantáneas, crea automáticamente _capacidad reservada_ asociada para almacenar las imágenes de instantáneas del grupo y para llevar un seguimiento de los cambios posteriores en instantáneas adicionales.
+
+Si el volumen base reside en un grupo de volúmenes, la capacidad reservada puede ubicarse en un pool o en un grupo de volúmenes. Si el volumen base reside en un pool, la capacidad reservada debe ubicarse en el mismo pool que el volumen base.
+
+Los grupos de instantáneas no requieren ninguna acción por parte del usuario, pero puedes ajustar la capacidad reservada en un grupo de instantáneas en cualquier momento. Además, puede que se te pida crear capacidad reservada cuando se cumplan las siguientes condiciones:
+
+* Cada vez que tomas una instantánea de un volumen base que aún no tiene un grupo de instantáneas, System Manager crea automáticamente un grupo de instantáneas. Esta acción también crea capacidad reservada para el volumen base que se usa para almacenar las imágenes de instantáneas posteriores.
+* Cada vez que creas una planificación de instantáneas para un volumen base, System Manager crea automáticamente un grupo de instantáneas.
+
+
+
+
+== Eliminación automática
+
+Cuando trabajes con instantáneas, usa la opción predeterminada para que la eliminación automática esté activada. La eliminación automática borra la imagen de instantánea más antigua cuando el grupo de instantáneas llega al límite de 32 imágenes. Si desactivas la eliminación automática, entonces los límites del grupo de instantáneas se superan eventualmente y tendrás que realizar acciones manuales para configurar los ajustes del grupo de instantáneas y gestionar la capacidad reservada.

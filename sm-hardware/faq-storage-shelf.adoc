@@ -1,0 +1,180 @@
+---
+permalink: sm-hardware/faq-storage-shelf.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre bandejas de almacenamiento para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué es la protección frente a la pérdida de bandeja y la protección frente a la pérdida de cajón?
+
+La protección contra pérdida de bandeja y la protección contra pérdida de cajón son atributos de los pools y grupos de volúmenes que te permiten mantener el acceso a los datos si falla una sola bandeja o cajón.
+
+
+
+=== Protección contra pérdida de bandeja
+
+Una bandeja es la caja que contiene las unidades o las unidades y el controlador. La protección contra pérdida de bandeja garantiza la accesibilidad a los datos de los volúmenes en un pool o grupo de volúmenes si ocurre una pérdida total de comunicación con una sola bandeja de unidades. Un ejemplo de pérdida total de comunicación podría ser la pérdida de alimentación de la bandeja de unidades o el fallo de ambos módulos de E/S (IOM).
+
+[NOTE]
+====
+La protección contra pérdida de bandeja no está garantizada si ya ha fallado una unidad en el pool o grupo de volúmenes. En esta situación, la pérdida de acceso a una bandeja de unidades y, en consecuencia, a otra unidad en el pool o grupo de volúmenes provoca la pérdida de datos.
+
+====
+Los criterios para la protección contra la pérdida de bandejas dependen del método de protección, como se describe en la siguiente tabla:
+
+[cols="1a,1a,1a"]
+|===
+| Nivel | Criterios para la protección contra la pérdida de bandejas | Número mínimo de bandejas necesarias 
+
+
+ a| 
+Pool
+ a| 
+El grupo debe incluir unidades de al menos cinco bandejas y debe haber el mismo número de unidades en cada bandeja. La protección contra pérdida de bandejas no es aplicable a las bandejas de gran capacidad; si tu sistema contiene bandejas de gran capacidad, consulta Drawer Loss Protection.
+ a| 
+5
+
+
+
+ a| 
+RAID 6
+ a| 
+El grupo de volúmenes no contiene más de dos unidades en una sola bandeja.
+ a| 
+3
+
+
+
+ a| 
+RAID 3 o RAID 5
+ a| 
+Cada unidad del grupo de volúmenes se encuentra en una bandeja independiente.
+ a| 
+3
+
+
+
+ a| 
+RAID 1
+ a| 
+Cada unidad de un par RAID 1 debe estar situada en una bandeja de expansión separada.
+ a| 
+2
+
+
+
+ a| 
+RAID 0
+ a| 
+No se puede lograr la protección contra pérdida de estantes.
+ a| 
+No aplicable
+
+|===
+
+
+=== Protección contra pérdida de cajón
+
+Un cajón es uno de los compartimentos de una estantería que se extrae para acceder a las unidades. Solo las estanterías de gran capacidad tienen cajones. La protección contra pérdida de cajón garantiza la accesibilidad a los datos de los volúmenes en un pool o grupo de volúmenes si ocurre una pérdida total de comunicación con un solo cajón. Un ejemplo de pérdida total de comunicación podría ser la pérdida de alimentación del cajón o el fallo de un componente interno dentro del cajón.
+
+[NOTE]
+====
+La protección contra la pérdida de cajones no está garantizada si ya ha fallado una unidad en el pool o grupo de volúmenes. En esta situación, perder el acceso a un cajón (y, en consecuencia, a otra unidad en el pool o grupo de volúmenes) causa la pérdida de datos.
+
+====
+Los criterios para la protección contra la pérdida de cajones dependen del método de protección, como se describe en la tabla siguiente:
+
+[cols="1a,1a,1a"]
+|===
+| Nivel | Criterios para la protección contra la pérdida de cajones | Número mínimo de cajones necesarios 
+
+
+ a| 
+Pool
+ a| 
+Los candidatos al pool deben incluir unidades de todos los cajones y debe haber el mismo número de unidades en cada cajón.
+
+El pool debe incluir unidades de al menos cinco cajones y debe haber el mismo número de unidades en cada cajón.
+
+Una estantería de 60 unidades puede conseguir Drawer Loss Protection cuando el pool contiene 15, 20, 25, 30, 35, 40, 45, 50, 55 o 60 unidades. Se pueden añadir incrementos en múltiplos de 5 al pool después de la creación inicial.
+ a| 
+5
+
+
+
+ a| 
+RAID 6
+ a| 
+El grupo de volúmenes contiene no más de dos unidades en un solo cajón.
+ a| 
+3
+
+
+
+ a| 
+RAID 3 o RAID 5
+ a| 
+Cada unidad en el grupo de volúmenes se encuentra en un cajón independiente.
+ a| 
+3
+
+
+
+ a| 
+RAID 1
+ a| 
+Cada unidad de un par reflejado debe estar ubicada en un cajón separado.
+ a| 
+2
+
+
+
+ a| 
+RAID 0
+ a| 
+No se puede lograr la protección contra pérdida de cajón.
+ a| 
+No aplicable
+
+|===
+
+
+== ¿Qué son los ciclos de aprendizaje de la batería?
+
+Un ciclo de aprendizaje es un ciclo automático para calibrar el medidor inteligente de la batería.
+
+Un ciclo de aprendizaje consta de estas fases:
+
+* Descarga controlada de batería
+* Período de descanso
+* Carga
+
+
+Las baterías se descargan hasta un umbral predeterminado. Durante esta fase, el medidor de la batería se calibra.
+
+Un ciclo de aprendizaje requiere estos parámetros:
+
+* Baterías completamente cargadas
+* Sin baterías sobrecalentadas
+
+
+Los ciclos de aprendizaje para los sistemas de controlador dúplex ocurren simultáneamente. Para los controladores que tienen alimentación de respaldo de más de una batería o conjunto de celdas de batería, los ciclos de aprendizaje ocurren secuencialmente.
+
+Los ciclos de aprendizaje se programan para que se inicien automáticamente a intervalos regulares, a la misma hora y el mismo día de la semana. El intervalo entre ciclos se describe en semanas.
+
+[NOTE]
+====
+Un ciclo de aprendizaje puede tardar varias horas en completarse.
+
+====

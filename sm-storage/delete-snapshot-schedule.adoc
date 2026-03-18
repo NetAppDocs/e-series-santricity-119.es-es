@@ -1,0 +1,27 @@
+---
+permalink: sm-storage/delete-snapshot-schedule.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, snapshot, schedule 
+summary: Si ya no quieres recopilar imágenes de instantáneas, puedes eliminar una programación de instantáneas existente. 
+---
+= Eliminar una programación de snapshot en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si ya no quieres recopilar imágenes de instantáneas, puedes eliminar una programación de instantáneas existente.
+
+.Acerca de esta tarea
+Cuando eliminas una planificación de instantáneas, las imágenes de instantáneas asociadas no se eliminan junto con ella. Si crees que la recopilación de imágenes de instantáneas podría reanudarse en algún momento, deberías suspender la planificación de instantáneas en lugar de eliminarla.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Schedules*.
+. Selecciona la programación de snapshots que quieres eliminar y confirma la operación.
+
+
+.Resultados
+El sistema elimina todos los atributos de planificación del volumen base o del grupo de coherencia de instantáneas.

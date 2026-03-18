@@ -1,0 +1,88 @@
+---
+permalink: sm-interface/faq-storage-system-setup.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la configuración del sistema de almacenamiento para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué pasa si no veo todos mis componentes de hardware?
+
+Si no ves todos los componentes de hardware en el cuadro de diálogo Verificar hardware, podría significar que un estante de unidades no está conectado correctamente o que hay un estante incompatible instalado en la matriz de almacenamiento.
+
+Verifica que todos los estantes de unidad estén conectados correctamente. Si no estás seguro de qué estantes de unidad son compatibles, contacta al soporte técnico.
+
+
+
+== ¿Qué pasa si no veo todos mis hosts?
+
+Si no ves tus hosts conectados, entonces la detección automática ha fallado, los hosts están conectados incorrectamente o no hay hosts conectados en este momento.
+
+Puedes configurar hosts más tarde, una vez que termines con la configuración. Puedes crear hosts manualmente de la siguiente manera:
+
+* Puedes crear hosts manualmente y asociar los identificadores de puerto de host adecuados yendo a menú:Storage[Hosts]. Los hosts que se han creado manualmente también se muestran en el asistente de *Initial Setup*.
+* El destino y el host deben estar configurados para el tipo de puerto del host (por ejemplo, iSCSI o NVMe sobre RoCE) y se debe establecer una sesión con el almacenamiento antes de que la detección automática funcione.
+
+
+
+
+== ¿Cómo me ayuda identificar aplicaciones a gestionar mi matriz de almacenamiento?
+
+Cuando identificas aplicaciones, SANtricity System Manager recomienda automáticamente una configuración de volúmenes que optimiza la capacidad de almacenamiento según el tipo de aplicación.
+
+Optimizar los volúmenes por aplicación puede hacer que las operaciones de almacenamiento de datos sean más eficientes. Características como el tipo de E/S, el tamaño del segmento, la propiedad del controlador y la caché de lectura y escritura se incluyen en la configuración del volumen. Además, puedes ver los datos de rendimiento por aplicación y por carga de trabajo para evaluar la latencia, las IOPS y los MiB/s de las aplicaciones y sus cargas de trabajo asociadas.
+
+
+
+== ¿Qué es una carga de trabajo?
+
+Para algunas aplicaciones en tu red, como SQL Server o Exchange, puedes definir una carga de trabajo que optimice el almacenamiento para esa aplicación.
+
+Una carga de trabajo es un objeto de almacenamiento que admite una aplicación. Puedes definir una o más cargas de trabajo, o instancias, por aplicación. Para algunas aplicaciones, el sistema configura la carga de trabajo para que contenga volúmenes con características de volumen subyacentes similares. Estas características de volumen se optimizan según el tipo de aplicación que admite la carga de trabajo. Por ejemplo, si creas una carga de trabajo que admite una aplicación de Microsoft SQL Server y luego creas volúmenes para esa carga de trabajo, las características de volumen subyacentes se optimizan para admitir Microsoft SQL Server.
+
+Durante la creación de volúmenes, el sistema te pide que respondas preguntas sobre el uso de una carga de trabajo. Por ejemplo, si estás creando volúmenes para Microsoft Exchange, te pregunta cuántos buzones necesitas, cuáles son tus requisitos promedio de capacidad de buzón y cuántas copias de la base de datos quieres. El sistema usa esta información para crear una configuración de volumen óptima para ti, la cual puedes editar según lo necesites.
+
+
+
+== ¿Cómo configuro el método de entrega para AutoSupport?
+
+Para acceder a las tareas de configuración de los métodos de entrega de AutoSupport, ve a menu:Support[Support Center] y luego haz clic en la pestaña *AutoSupport*.
+
+Los siguientes protocolos son compatibles: HTTPS y SMTP.
+
+
+
+== ¿Cómo sé si debo aceptar la configuración de pool recomendada?
+
+Si aceptas la configuración recomendada del pool depende de algunos factores.
+
+Determina el tipo de almacenamiento que mejor se adapta a tus necesidades respondiendo a las siguientes preguntas:
+
+* ¿Prefieres varios pools de menor capacidad en lugar de los pools más grandes posibles?
+* ¿Prefieres los grupos de volúmenes RAID o los pools?
+* ¿Prefieres aprovisionar manualmente tus unidades en lugar de que te recomienden una configuración?
+
+
+Si respondiste sí a alguna de estas preguntas, considera rechazar la configuración de pool recomendada.
+
+
+
+== SANtricity System Manager no ha detectado ningún host. ¿Qué hago?
+
+Si no ves tus hosts conectados, entonces la detección automática ha fallado, los hosts están conectados incorrectamente o no hay hosts conectados en este momento.
+
+Puedes configurar hosts más tarde, una vez que termines con la configuración. Puedes crear hosts manualmente de la siguiente manera:
+
+* Puedes crear hosts manualmente y asociar los identificadores de puerto de host adecuados yendo a menú:Storage[Hosts]. Los hosts que se han creado manualmente también se muestran en el asistente de *Initial Setup*.
+* El destino y el host deben estar configurados para el tipo de puerto del host (por ejemplo, iSCSI o NVMe sobre RoCE) y se debe establecer una sesión con el almacenamiento antes de que la detección automática funcione.
+

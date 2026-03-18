@@ -1,0 +1,36 @@
+---
+permalink: um-certificates/import-array-certificates-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, import, certificates, arrays 
+summary: 'Si es necesario, puedes importar certificados para las matrices de almacenamiento para que puedan autenticarse con el sistema que aloja SANtricity Unified Manager. Los certificados pueden estar firmados por una autoridad de certificación (CA) o pueden ser autofirmados.' 
+---
+= Importar certificados para arrays en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si es necesario, puedes importar certificados para las matrices de almacenamiento para que puedan autenticarse con el sistema que aloja SANtricity Unified Manager. Los certificados pueden estar firmados por una autoridad de certificación (CA) o pueden ser autofirmados.
+
+.Antes de empezar
+* Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de certificado no aparecen.
+* Si estás importando certificados de confianza, los certificados deben importarse para los controladores de la matriz de almacenamiento usando System Manager.
+
+
+.Pasos
+. Selecciona *Gestión de certificados*.
+. Selecciona la pestaña *Trusted*.
++
+Esta página muestra todos los certificados notificados para las cabinas de almacenamiento.
+
+. Selecciona el menú:Importar[Certificados] para importar un certificado de CA o el menú:Importar[Certificados autofirmados de matriz de almacenamiento] para importar un certificado autofirmado.
++
+Para limitar la vista, puedes usar el campo de filtrado *Mostrar certificados que son...* o puedes ordenar las filas de certificados haciendo clic en uno de los encabezados de columna.
+
+. En el cuadro de diálogo, selecciona el certificado y luego haz clic en *Importar*.
++
+El certificado se carga y se valida.
+
+

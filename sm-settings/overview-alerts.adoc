@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/overview-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, Alerts, 
+summary: Puedes configurar System Manager para que envíe alertas de la matriz de almacenamiento por correo electrónico, traps SNMP y mensajes syslog. 
+---
+= Conoce las alertas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes configurar SANtricity System Manager para enviar alertas de la matriz de almacenamiento por correo electrónico, traps SNMP y mensajes syslog.
+
+
+
+== ¿Qué son las alertas?
+
+_Alertas_ notifican a los administradores sobre eventos importantes que ocurren en la matriz de almacenamiento. Los eventos pueden incluir problemas como una falla de la batería, un componente que pasa de óptimo a fuera de línea o errores de redundancia en el controlador. Todos los eventos críticos se consideran "alertables", junto con algunos eventos de advertencia e informativos.
+
+Más información:
+
+* link:how-alerts-work.html["¿Cómo funcionan las alertas?"]
+* link:alerts-terminology.html["Terminología de alertas"]
+
+
+
+
+== ¿Cómo configuro alertas?
+
+Puedes configurar las alertas para que se envíen como mensaje a una o varias direcciones de correo electrónico, como trampa SNMP a un servidor SNMP o como mensaje a un servidor syslog. La configuración de alertas está disponible desde menú:Settings[Alerts].
+
+Más información:
+
+* link:configure-mail-server-and-recipients-for-alerts.html["Configurar servidores de correo y destinatarios para las alertas"]
+* link:configure-syslog-server-for-alerts.html["Configura el servidor syslog para alertas"]
+* link:configure-snmp-alerts.html["Configura alertas SNMP"]
+
+
+
+
+== Información relacionada
+
+Conoce más sobre conceptos relacionados con las alertas:
+
+* link:../sm-support/overview-event-log.html["Resumen del registro de eventos"]
+* link:why-are-timestamps-inconsistent-between-the-array-and-alerts.html["Marcas de tiempo incoherentes"]
+

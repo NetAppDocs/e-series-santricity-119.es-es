@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/rtv-remote-storage-requirements.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage, requirements 
+summary: Antes de usar la función de almacenamiento remoto, revisa los siguientes requisitos y restricciones. 
+---
+= Conoce los requisitos de la función de almacenamiento remoto en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de usar la función de almacenamiento remoto, revisa los siguientes requisitos y restricciones.
+
+
+
+== Protocolos compatibles
+
+Se admiten los siguientes protocolos:
+
+* iSCSI
+* IPv4
+
+
+Para obtener información actualizada sobre el soporte y la configuración de E-Series, consulta https://imt.netapp.com/matrix/#welcome["Herramienta NetApp Interoperability Matrix Tool"^].
+
+
+
+== Requisitos de hardware
+
+El sistema de almacenamiento E-Series debe incluir:
+
+* Dos controladores (modo doble)
+* conexiones iSCSI para que ambos controladores E-Series se comuniquen con el sistema de almacenamiento remoto a través de una o más conexiones iSCSI
+* SANtricity OS 11.71 o superior
+* Función Remote Storage activada en el Submodel ID (SMID)
+
+
+El sistema remoto puede ser un sistema de almacenamiento E-Series o un sistema de otro proveedor. Debe incluir:
+
+* interfaces compatibles con iSCSI
+
+
+
+
+== Restricciones
+
+La función de almacenamiento remoto tiene las siguientes restricciones:
+
+* El mirroring debe estar desactivado.
+* El volumen de destino en el sistema E-Series no debe tener snapshots.
+* El volumen de destino en el sistema E-Series no debe estar asignado a ningún host antes de que comience la importación.
+* El volumen de destino en el sistema E-Series debe tener desactivado el resource-provisioning.
+* No se admite la asignación directa del volumen de almacenamiento remoto a un host o a varios hosts.
+* Web Services Proxy no es compatible.
+* No se admiten los secretos iSCSI CHAP.
+* SMcli no es compatible.
+* VMware Datastore no es compatible.
+* Solo se puede actualizar un sistema de almacenamiento en el par de relación/importación a la vez cuando hay un par de importación presente.
+

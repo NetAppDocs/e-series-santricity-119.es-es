@@ -1,0 +1,72 @@
+---
+permalink: sm-settings/save-storage-array-configuration.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, save, storage array, configuration, 
+summary: Puedes guardar la información de configuración de una matriz de almacenamiento en un archivo de secuencia de comandos para ahorrar tiempo al configurar matrices de almacenamiento adicionales con la misma configuración. 
+---
+= Guarda la configuración de la matriz de almacenamiento en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes guardar la información de configuración de una matriz de almacenamiento en un archivo de secuencia de comandos para ahorrar tiempo al configurar matrices de almacenamiento adicionales con la misma configuración.
+
+.Antes de empezar
+La matriz de almacenamiento no debe estar sometida a ninguna operación que cambie sus ajustes de configuración lógica. Ejemplos de estas operaciones incluyen crear o eliminar volúmenes, descargar firmware del controlador, asignar o modificar unidades de reserva en caliente o agregar capacidad (unidades) a un grupo de volúmenes.
+
+.Acerca de esta tarea
+Al guardar la configuración de la matriz de almacenamiento se genera un script de línea de comandos (CLI) que contiene la configuración de la matriz de almacenamiento, la configuración del volumen, la configuración del host o las asignaciones de host a volumen para una matriz de almacenamiento. Puedes usar este script CLI generado para replicar una configuración en otra matriz de almacenamiento con exactamente la misma configuración de hardware.
+
+Sin embargo, no deberías usar este script CLI generado para la recuperación de desastres. En su lugar, para hacer una restauración del sistema, usa el archivo de copia de backup de la base de datos de configuración que crees manualmente o contacta al soporte técnico para obtener estos datos de los datos más recientes de Auto-Support.
+
+Esta operación _no_ guarda estos ajustes:
+
+* La duración de la batería
+* La hora del controlador
+* La configuración de la memoria estática de acceso aleatorio no volátil (NVSRAM)
+* Cualquier función premium
+* La contraseña de la matriz de almacenamiento
+* El estado de funcionamiento y los estados de los componentes de hardware
+* El estado de funcionamiento (excepto Optimal) y los estados de los grupos de volúmenes
+* Servicios de copia, como la duplicación y la copia de volúmenes
+
+
+[CAUTION]
+====
+*Riesgo de errores de aplicación* -- No uses esta opción si la matriz de almacenamiento está realizando una operación que cambiará cualquier ajuste de configuración lógica. Ejemplos de estas operaciones incluyen crear o eliminar volúmenes, descargar firmware del controlador, asignar o modificar unidades de repuesto en caliente o agregar capacidad (unidades) a un grupo de volúmenes.
+
+====
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. Selecciona *Guardar configuración de matriz de almacenamiento*.
+. Selecciona los elementos de la configuración que quieres guardar:
++
+** Configuración de la matriz de almacenamiento
+** Configuración del volumen
+** Configuración del host
+** Asignaciones de host a volumen
+
+
++
+[NOTE]
+====
+Si seleccionas el elemento *Asignaciones de host a volumen*, también se seleccionan por defecto el elemento *Configuración de volumen* y el elemento *Configuración de host*. No puedes guardar las "Asignaciones de host a volumen" sin guardar también la "Configuración de volumen" y la "Configuración de host".
+
+====
+. Haz clic en *Guardar*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `storage-array-configuration.cfg`.
+
+
+
+.Después de que termines
+Para cargar la configuración guardada de la matriz de almacenamiento en otra matriz de almacenamiento, usa la interfaz de línea de comandos de SANtricity (SMcli) con la opción  `-f` para aplicar el archivo  `.cfg`.
+
+[NOTE]
+====
+También puedes cargar una configuración de matriz de almacenamiento en otras matrices de almacenamiento usando la interfaz de Unified Manager (selecciona menú:Manage[Import Settings]).
+
+====

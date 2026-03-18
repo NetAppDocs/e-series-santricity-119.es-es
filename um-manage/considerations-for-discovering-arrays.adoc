@@ -1,0 +1,59 @@
+---
+permalink: um-manage/considerations-for-discovering-arrays.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, considerations, discovering, arrays 
+summary: Antes de que Unified Manager pueda mostrar y gestionar los recursos de almacenamiento, debe descubrir las matrices de almacenamiento que quieres gestionar en la red de tu organización. Puedes descubrir varias matrices o puedes descubrir una sola matriz. 
+---
+= Conoce cómo descubrir matrices de almacenamiento en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de que SANtricity Unified Manager pueda mostrar y gestionar los recursos de almacenamiento, debe descubrir las matrices de almacenamiento que quieres gestionar en la red de tu organización. Puedes descubrir varias matrices o puedes descubrir una sola matriz.
+
+
+
+== Detección de varias cabinas de almacenamiento
+
+Si decides detectar varias matrices, introduces un intervalo de direcciones IP de red y luego Unified Manager intenta establecer conexiones individuales con cada dirección IP de ese intervalo. Cualquier matriz de almacenamiento a la que se acceda correctamente aparece en la página Discover y puede añadirse a tu dominio de gestión.
+
+
+
+== Detección de una sola cabina de almacenamiento
+
+Si decide detectar una sola cabina de almacenamiento, debe introducir la dirección IP única para una de las controladoras de la cabina de almacenamiento. A continuación, se añade la cabina de almacenamiento individual.
+
+[NOTE]
+====
+Unified Manager solo descubre y muestra la dirección IP única o la dirección IP dentro de un rango asignado a un controlador. Si hay controladores alternativos o direcciones IP asignadas a estos controladores que quedan fuera de esta dirección IP única o rango de direcciones IP, entonces Unified Manager no los descubrirá ni los mostrará. Sin embargo, una vez que agregues la matriz de almacenamiento, todas las direcciones IP asociadas se descubrirán y se mostrarán en la vista Manage.
+
+====
+
+
+== Credenciales de usuario
+
+Como parte del proceso de detección, debe suministrar la contraseña de administrador para cada cabina de almacenamiento que desee añadir.
+
+
+
+== Certificados de servicios web
+
+Como parte del proceso de descubrimiento, Unified Manager verifica que las matrices de almacenamiento descubiertas están usando certificados de una fuente de confianza. Unified Manager usa dos tipos de autenticación basada en certificados para todas las conexiones que establece con el navegador:
+
+* *Certificados de confianza*
++
+Para las arrays detectadas por Unified Manager, puede que necesites instalar certificados de confianza adicionales proporcionados por la Certificate Authority.
+
++
+Usa el botón *Import* para importar estos certificados. Si te has conectado a esta array antes, uno o ambos certificados del controlador están caducados, revocados o falta un certificado raíz o intermedio en su cadena de certificados. Debes reemplazar el certificado caducado o revocado o añadir el certificado raíz o intermedio que falta antes de gestionar la storage array.
+
+* *Certificados autofirmados*
++
+También se pueden usar certificados autofirmados. Si el administrador intenta descubrir arrays sin importar certificados firmados, Unified Manager muestra un cuadro de diálogo de error que permite al administrador aceptar el certificado autofirmado. El certificado autofirmado del storage array se marcará como de confianza y el storage array se agregará a Unified Manager.
+
++
+Si no confías en las conexiones a la matriz de almacenamiento, selecciona *Cancelar* y valida la estrategia de certificados de seguridad de la matriz de almacenamiento antes de añadir la matriz de almacenamiento a Unified Manager.
+
+

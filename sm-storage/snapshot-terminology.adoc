@@ -1,0 +1,96 @@
+---
+permalink: sm-storage/snapshot-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, terms 
+summary: Aprende cómo se aplican los términos de instantánea a tu matriz de almacenamiento. 
+---
+= Conoce la terminología de las instantáneas en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprende cómo se aplican los términos de instantánea a tu matriz de almacenamiento.
+
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+Función de instantáneas
+ a| 
+La función de Snapshots se utiliza para crear y gestionar imágenes de volúmenes.
+
+
+
+ a| 
+Imagen instantánea
+ a| 
+Una imagen de instantánea es una copia lógica de los datos de un volumen, capturada en un momento específico. Al igual que un punto de restauración, las imágenes de instantánea te permiten volver a un conjunto de datos en buen estado conocido. Aunque el host puede acceder a la imagen de instantánea, no puede leer ni escribir directamente en ella.
+
+
+
+ a| 
+Volumen base
+ a| 
+Un volumen base es la fuente a partir de la cual se crea una imagen snapshot. Puede ser un volumen grueso o fino y normalmente se asigna a un host. El volumen base puede residir en un grupo de volúmenes o en un pool de discos.
+
+
+
+ a| 
+Volumen de snapshot
+ a| 
+Un volumen de instantánea permite al host acceder a los datos de la imagen de instantánea. El volumen de instantánea contiene su propia capacidad reservada, que guarda cualquier modificación en el volumen base sin afectar la imagen de instantánea original.
+
+
+
+ a| 
+Grupo de instantáneas
+ a| 
+Un grupo de instantáneas es una colección de imágenes instantáneas de un solo volumen base.
+
+
+
+ a| 
+Volumen de capacidad reservada
+ a| 
+Un volumen de capacidad reservada realiza un seguimiento de qué bloques de datos del volumen base se sobrescriben y del contenido conservado de esos bloques.
+
+
+
+ a| 
+Planificación de SnapVault
+ a| 
+Una planificación de SnapVault es un calendario para crear imágenes de instantáneas de forma automática. A través de la planificación, puedes controlar la frecuencia con la que se crean las imágenes.
+
+
+
+ a| 
+Grupo de coherencia de snapshots
+ a| 
+Un grupo de coherencia de instantáneas es una colección de volúmenes que se tratan como una sola entidad cuando se crea una imagen de instantánea. Cada uno de estos volúmenes tiene su propia imagen de instantánea, pero todas las imágenes se crean al mismo tiempo.
+
+
+
+ a| 
+Volumen miembro del grupo de consistencia de snapshot
+ a| 
+Cada volumen que pertenece a un grupo de coherencia de instantáneas se denomina volumen miembro. Cuando añades un volumen a un grupo de coherencia de instantáneas, System Manager crea automáticamente un nuevo grupo de instantáneas que corresponde a este volumen miembro.
+
+
+
+ a| 
+Revertir
+ a| 
+Un rollback es el proceso de devolver los datos en un volumen base a un momento específico anterior.
+
+
+
+ a| 
+Capacidad reservada
+ a| 
+La capacidad reservada es la capacidad física asignada que se usa para cualquier operación de servicio de copia y objeto de almacenamiento. No es directamente legible por el host.
+
+|===

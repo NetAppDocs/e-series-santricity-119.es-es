@@ -1,0 +1,148 @@
+---
+permalink: um-manage/create-synchronous-mirrored-pair-um.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, create, synchronous, mirrored, pair 
+summary: Para configurar el mirroring síncrono, debe crear una pareja reflejada que incluya un volumen primario en la cabina local y un volumen secundario en la cabina remota. 
+---
+= Crea un par duplicado síncrono en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar el mirroring síncrono, debe crear una pareja reflejada que incluya un volumen primario en la cabina local y un volumen secundario en la cabina remota.
+
+[NOTE]
+====
+Esta función no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+.Antes de empezar
+Antes de crear un par reflejado, cumple con los siguientes requisitos para Unified Manager:
+
+* El proxy de servicios web se encuentra en ejecución.
+* Unified Manager debe estar ejecutándose en tu host local a través de una conexión HTTPS.
+* Unified Manager debe mostrar certificados SSL válidos para la matriz de almacenamiento. Puedes aceptar un certificado autofirmado o instalar tu propio certificado de seguridad usando Unified Manager y navegando hasta menu:Certificate[Certificate Management].
+
+
+Asegúrate también de cumplir con los siguientes requisitos para las matrices y volúmenes de almacenamiento:
+
+* Las dos matrices de almacenamiento que planeas usar para la duplicación se detectan en Unified Manager.
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Tus cabinas de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel.
+* Creó el volumen primario y el volumen secundario que desea usar en la relación de reflejo síncrono.
+* El volumen primario debe ser un volumen estándar. No puede ser un volumen thin ni un volumen snapshot.
+* El volumen secundario debe ser un volumen estándar. No puede ser un volumen thin ni un volumen snapshot.
+* El volumen secundario debe ser al menos tan grande como el volumen primario.
+
+
+.Acerca de esta tarea
+El proceso para crear parejas reflejadas síncronas es un procedimiento de varios pasos.
+
+
+
+== Paso 1: selecciona el volumen primario
+
+En este paso, seleccionas el volumen primario que se usará en la relación de réplica sincrónica. Cuando seleccionas un volumen primario en la matriz de almacenamiento local, el sistema muestra una lista de todos los volúmenes elegibles para ese par de réplica. Cualquier volumen que no sea elegible para usarse no aparece en esa lista. El volumen que seleccionas tiene el rol primario en la relación de réplica.
+
+.Pasos
+. Desde la página *Manage*, selecciona la matriz de almacenamiento local que quieres usar como origen.
+. Selecciona menú:Actions[Create Synchronous Mirrored Pair].
++
+Se abre el asistente Create Synchronous Mirrored Pair.
+
+. En la lista de volúmenes elegibles, selecciona un volumen que quieras usar como volumen primario en el mirror.
+. Selecciona *Siguiente* y ve a <<Paso 2: selecciona el volumen secundario>>.
+
+
+
+
+== Paso 2: selecciona el volumen secundario
+
+En este paso, tú seleccionas el volumen secundario que se va a usar en la relación de mirror. Cuando seleccionas un volumen secundario en la matriz de almacenamiento remota, el sistema muestra una lista de todos los volúmenes elegibles para ese par de mirror. Cualquier volumen que no sea elegible para usarse no aparece en esa lista. El volumen que selecciones tendrá el rol secundario en la relación de mirror.
+
+.Pasos
+. Selecciona la matriz de almacenamiento remota en la que quieres establecer una relación de espejo con la matriz de almacenamiento local.
++
+[NOTE]
+====
+Si tu matriz de almacenamiento remoto está protegida por contraseña, el sistema te pedirá una contraseña.
+
+====
++
+** Las matrices de almacenamiento se enumeran por su nombre de matriz de almacenamiento. Si no has nombrado una matriz de almacenamiento, aparecerá como "unnamed".
+** Si la matriz de almacenamiento que quieres usar no está en la lista, asegúrate de que se haya detectado en Unified Manager.
+
+
+. En la lista de volúmenes elegibles, selecciona un volumen que quieras usar como volumen secundario en el mirror.
++
+[NOTE]
+====
+Si se elige un volumen secundario con una capacidad mayor que la del volumen primario, la capacidad utilizable se restringe al tamaño del volumen primario.
+
+====
+. Haz clic en *Siguiente* y ve a <<Paso 3: selecciona los ajustes de sincronización>>.
+
+
+
+
+== Paso 3: selecciona los ajustes de sincronización
+
+En este paso, seleccionas los ajustes que determinan cómo se sincronizan los datos después de una interrupción de la comunicación. Puedes establecer la prioridad con la que el controlador propietario del volumen primario resincroniza los datos con el volumen secundario después de una interrupción de la comunicación. También debes seleccionar la política de resincronización, ya sea manual o automática.
+
+.Pasos
+. Usa la barra deslizante para establecer la prioridad de sincronización.
++
+La prioridad de sincronización determina cuántos recursos del sistema se usan para completar la sincronización inicial y la operación de resincronización después de una interrupción de la comunicación, en comparación con las solicitudes de E/S de servicio.
+
++
+La prioridad establecida en este cuadro de diálogo se aplica tanto al volumen primario como al volumen secundario. Puedes modificar la tasa en el volumen primario más adelante yendo a System Manager y seleccionando menu:Storage[Synchronous Mirroring > More > Edit Settings].
+
++
+Hay cinco tasas de prioridad de sincronización:
+
++
+** Más bajo
+** Bajo
+** Medio
+** Alta
+** Más alto
++
+Si la prioridad de sincronización se establece en la tasa más baja, se da prioridad a la actividad de E/S y la operación de resincronización tarda más. Si la prioridad de sincronización se establece en la tasa más alta, se da prioridad a la operación de resincronización, pero la actividad de E/S para la storage array podría verse afectada.
+
+
+
+. Elige si quieres resincronizar los pares reflejados en la matriz de almacenamiento remota de forma manual o automática.
++
+** *Manual* (la opción recomendada) -- selecciona esta opción para requerir que la sincronización se reanude manualmente después de restablecer la comunicación con un par reflejado. Esta opción ofrece la mejor oportunidad para recuperar datos.
+** *Automático* -- selecciona esta opción para iniciar la resincronización automáticamente después de que se restablezca la comunicación con un par reflejado.
++
+Para reanudar manualmente la sincronización, ve a System Manager y selecciona menu:Storage[Synchronous Mirroring], resalta el par duplicado en la tabla y selecciona *Resume* en *More*.
+
+
+
+. Haz clic en *Finalizar* para completar la secuencia de duplicación sincrónica.
+
+
+.Resultados
+Una vez activada la duplicación, el sistema realiza las siguientes acciones:
+
+* Comienza la sincronización inicial entre la matriz de almacenamiento local y la matriz de almacenamiento remota.
+* Establece la prioridad de sincronización y la política de resincronización.
+* Reserva el puerto de mayor numeración del HIC del controlador para la transmisión de datos de espejo.
++
+Las solicitudes de E/S recibidas en este puerto se aceptan solo del controlador remoto preferido propietario del volumen secundario en el par reflejado. (Se permiten reservas en el volumen primario.)
+
+* Crea dos volúmenes de capacidad reservada, uno para cada controlador, que se usan para registrar información de escritura y poder recuperarse de reinicios del controlador y otras interrupciones temporales.
++
+La capacidad de cada volumen es de 128 MiB. Sin embargo, si los volúmenes se colocan en un pool, se reservarán 4 GiB para cada volumen.
+
+
+
+.Después de que termines
+Ve a System Manager y selecciona menú:Home[View Operations in Progress] para ver el progreso de la operación de duplicación sincrónica. Esta operación puede ser larga y podría afectar el rendimiento del sistema.

@@ -1,0 +1,27 @@
+---
+permalink: sm-settings/turn-on-storage-array-locator-lights.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, locator, lights, 
+summary: 'Para encontrar la ubicación física de una matriz de almacenamiento en un armario, puedes encender sus luces localizadoras (LED).' 
+---
+= Enciende las luces del localizador de la matriz de almacenamiento en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para encontrar la ubicación física de una matriz de almacenamiento en un armario, puedes encender sus luces localizadoras (LED).
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *General*, haz clic en *Activar luces de localización de matrices de almacenamiento*.
++
+Se abre el cuadro de diálogo Turn On Storage Array Locator Lights y se encienden las luces del localizador de la matriz de almacenamiento correspondiente.
+
+. Cuando hayas localizado físicamente la matriz de almacenamiento, vuelve al cuadro de diálogo y selecciona *Apagar*.
+
+
+.Resultados
+Las luces del localizador se apagan y el cuadro de diálogo se cierra.

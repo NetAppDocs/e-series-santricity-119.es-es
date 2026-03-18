@@ -1,0 +1,49 @@
+---
+permalink: sm-storage/delete-host-or-host-cluster.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, host, host cluster 
+summary: Puedes eliminar un host o un cluster de hosts. 
+---
+= Eliminar un host o clúster de host en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes eliminar un host o un cluster de hosts.
+
+.Acerca de esta tarea
+Tenga en cuenta lo siguiente al eliminar un host o un clúster de hosts:
+
+* Se eliminan todas las asignaciones de volúmenes específicas, y los volúmenes asociados están disponibles para una nueva asignación.
+* Si el host forma parte de un clúster de hosts que posee sus propias asignaciones específicas, el clúster de hosts no se ve afectado. Sin embargo, si el host forma parte de un clúster de hosts que no tiene ninguna otra asignación, el clúster de hosts y todos los demás hosts o identificadores de puertos de hosts asociados heredan las asignaciones predeterminadas.
+* Todos los identificadores de puertos de hosts que se asociaron con el host quedan sin definir.
+
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Hosts].
+. Selecciona el host o el clúster de hosts que quieres eliminar y luego haz clic en *Eliminar*.
++
+Se muestra un cuadro de diálogo de confirmación.
+
+. Confirma que quieres realizar la operación y luego haz clic en *Borrar*.
+
+
+.Resultados
+Si eliminó un host, el sistema realiza las siguientes acciones:
+
+* Elimina el host y, si corresponde, lo elimina del clúster de hosts.
+* Elimina el acceso a todos los volúmenes asignados.
+* Vuelve a colocar los volúmenes asociados en el estado Unassigned.
+* Vuelve a colocar todos los identificadores de puerto de host asociados con el host en el estado Unassociated.
+
+
+Si eliminó un clúster de hosts, el sistema realiza las siguientes acciones:
+
+* Elimina el clúster de hosts y sus hosts asociados (si los hubiera).
+* Elimina el acceso a todos los volúmenes asignados.
+* Vuelve a colocar los volúmenes asociados en el estado Unassigned.
+* Vuelve a colocar todos los identificadores de puerto de host asociados con los hosts en un estado sin asociación.
+

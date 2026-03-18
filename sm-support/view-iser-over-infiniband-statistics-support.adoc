@@ -1,0 +1,34 @@
+---
+permalink: sm-support/view-iser-over-infiniband-statistics-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, iser, over, infiniband, statistics 
+summary: Si el controlador de tu matriz de almacenamiento incluye un puerto iSER a través de InfiniBand, puedes ver datos sobre las conexiones del host. 
+---
+= Ver estadísticas de iSER sobre InfiniBand en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si el controlador de tu matriz de almacenamiento incluye un puerto iSER a través de InfiniBand, puedes ver datos sobre las conexiones del host.
+
+.Acerca de esta tarea
+System Manager muestra los siguientes tipos de estadísticas iSER sobre InfiniBand. Todas las estadísticas son de solo lectura y no se pueden establecer.
+
+* *Local Target (Protocol) statistics* -- Proporciona estadísticas para el destino iSER sobre InfiniBand, que muestra el acceso a nivel de bloque a sus medios de almacenamiento.
+* *iSER over InfiniBand Interface statistics* -- Proporciona estadísticas para todos los puertos iSER en la interfaz InfiniBand, que incluyen estadísticas de rendimiento e información de errores de enlace asociadas a cada puerto del switch.
+
+
+Puedes ver cada una de estas estadísticas como estadísticas sin procesar o como estadísticas de línea de base. Las estadísticas sin procesar son todas las estadísticas que se han recopilado desde que se iniciaron los controladores. Las estadísticas de línea de base son estadísticas de un momento específico que se han recopilado desde que estableciste la hora de línea de base.
+
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *Ver iSER over InfiniBand Statistics*.
+. Haz clic en una pestaña para ver los diferentes conjuntos de estadísticas.
+. Para fijar la línea de base, haz clic en *Fijar nueva línea de base*.
++
+Configurar la línea de base establece un nuevo punto de partida para la recopilación de las estadísticas. La misma línea de base se usa para todas las estadísticas de iSER sobre InfiniBand.
+
+

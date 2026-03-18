@@ -1,0 +1,36 @@
+---
+permalink: sm-storage/enable-security.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, security, pool, volume group 
+summary: Es posible habilitar Drive Security para un pool o grupo de volúmenes con el fin de evitar el acceso no autorizado a los datos en las unidades contenidas en un pool o un grupo de volúmenes. El acceso de lectura y escritura para las unidades solo está disponible a través de una controladora que está configurada con una clave de seguridad. 
+---
+= Habilita la seguridad para un pool o grupo de volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible habilitar Drive Security para un pool o grupo de volúmenes con el fin de evitar el acceso no autorizado a los datos en las unidades contenidas en un pool o un grupo de volúmenes. El acceso de lectura y escritura para las unidades solo está disponible a través de una controladora que está configurada con una clave de seguridad.
+
+.Antes de empezar
+* Se debe habilitar la función Drive Security.
+* Debe crearse una clave de seguridad.
+* El pool o el grupo de volúmenes deben tener el estado Óptima.
+* Todas las unidades del pool o grupo de volúmenes deben ser unidades compatibles con la función de seguridad.
+
+
+.Acerca de esta tarea
+Si quieres usar Drive Security, selecciona un pool o grupo de volúmenes que tenga capacidad de seguridad. Un pool o grupo de volúmenes puede contener tanto unidades con capacidad de seguridad como unidades sin capacidad de seguridad, pero todas las unidades deben ser con capacidad de seguridad para poder usar sus funciones de cifrado.
+
+Después de habilitar la seguridad, solo es posible deshabilitarla si se elimina el pool o el grupo de volúmenes y, a continuación, se borran las unidades.
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Selecciona el pool o grupo de volúmenes en el que quieres activar la seguridad y luego haz clic en menú:More[Enable security].
++
+Aparece el cuadro de diálogo Confirm Enable Security.
+
+. Confirma que quieres habilitar la seguridad para el pool o grupo de volúmenes seleccionado y luego haz clic en *Habilitar*.
+

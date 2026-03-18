@@ -1,0 +1,95 @@
+---
+permalink: sm-settings/automatic-load-balancing-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, automatic, load, balancing, 
+summary: El equilibrio automático de carga proporciona una mejor gestión de recursos de E/S al reaccionar dinámicamente a los cambios de carga a lo largo del tiempo y ajustar automáticamente la propiedad de los controladores de volumen para corregir cualquier problema de desequilibrio de carga cuando las cargas de trabajo se desplazan entre los controladores. 
+---
+= Conoce el equilibrio de carga automático en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El equilibrio automático de carga proporciona una mejor gestión de recursos de E/S al reaccionar dinámicamente a los cambios de carga a lo largo del tiempo y ajustar automáticamente la propiedad de los controladores de volumen para corregir cualquier problema de desequilibrio de carga cuando las cargas de trabajo se desplazan entre los controladores.
+
+La carga de trabajo de cada controlador se supervisa continuamente y, con la cooperación de los controladores multivía instalados en los hosts, se puede equilibrar automáticamente siempre que sea necesario. Cuando la carga de trabajo se reequilibra automáticamente entre los controladores, el administrador de almacenamiento se libera de la carga de ajustar manualmente la propiedad del controlador de volumen para adaptarse a los cambios de carga en la matriz de almacenamiento.
+
+Cuando el Balanceo de Carga Automático está activado, realiza las siguientes funciones:
+
+* Supervisa y equilibra automáticamente la utilización de recursos del controlador.
+* Ajusta automáticamente la propiedad del controlador de volumen cuando es necesario, optimizando así el ancho de banda de E/S entre los hosts y la storage array.
+
+
+
+
+== Habilitar y deshabilitar el equilibrio de carga automático
+
+La función Automatic Load Balancing está habilitada de forma predeterminada en todas las cabinas de almacenamiento.
+
+Es posible que quieras desactivar el equilibrio de carga automático en tu matriz de almacenamiento por las siguientes razones:
+
+* No quieres cambiar automáticamente la propiedad del controlador de un volumen concreto para equilibrar la carga de trabajo.
+* Estás operando en un entorno altamente sintonizado donde la distribución de carga se configura a propósito para lograr una distribución específica entre los controladores.
+
+
+
+
+== Tipos de host que admiten la función de equilibrio de carga automático
+
+Aunque el Balanceo de Carga Automático está habilitado a nivel de la matriz de almacenamiento, el tipo de host que elijas para un host o clúster de host influye directamente en cómo funciona la función.
+
+Al equilibrar la carga de trabajo de la matriz de almacenamiento entre controladores, la función Automatic Load Balancing intenta mover los volúmenes a los que pueden acceder ambos controladores y que están asignados únicamente a un host o clúster de host capaz de admitir la función Automatic Load Balancing.
+
+Este comportamiento evita que un host pierda el acceso a un volumen debido al proceso de equilibrado de carga; sin embargo, la presencia de volúmenes asignados a hosts que no admiten Automatic Load Balancing afecta la capacidad de la matriz de almacenamiento para equilibrar la carga de trabajo. Para que Automatic Load Balancing equilibre la carga de trabajo, el controlador multivía debe admitir TPGS y el tipo de host debe estar incluido en la siguiente tabla.
+
+[NOTE]
+====
+Para que un grupo de hosts se considere capaz de Automatic Load Balancing, todos los hosts de ese grupo deben ser capaces de soportar Automatic Load Balancing.
+
+====
+[cols="1a,1a"]
+|===
+| Tipo de host compatible con el equilibrio de carga automático | Con este controlador multivía 
+
+
+ a| 
+Windows o Windows Clustered
+ a| 
+MPIO con NetApp E-Series DSM
+
+
+
+ a| 
+Linux DM-MP (Kernel 3.10 o posterior)
+ a| 
+DM-MP con  `scsi_dh_alua` controlador de dispositivos
+
+
+
+ a| 
+VMware
+ a| 
+Native Multipathing Plugin (NMP) con  `VMW_SATP_ALUA Storage Array Type` plug-in
+
+|===
+[NOTE]
+====
+Con pequeñas excepciones, los tipos de host que no son compatibles con Automatic Load Balancing siguen funcionando con normalidad, esté o no activada la función. Una excepción es que si un sistema tiene una conmutación por error, las matrices de almacenamiento mueven los volúmenes no mapeados o no asignados de vuelta al controlador propietario cuando la ruta de datos vuelve. Cualquier volumen que esté mapeado o asignado a hosts que no son Automatic Load Balancing no se mueve.
+
+====
+Consulta la  https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad"^] para obtener información de compatibilidad sobre controladores multivía específicos, nivel de sistema operativo y compatibilidad de bandejas de controladores.
+
+
+
+== Verificando la compatibilidad del sistema operativo con la función de equilibrio de carga automático
+
+Verifica la compatibilidad del sistema operativo con la función de equilibrio de carga automático antes de configurar un sistema nuevo (o migrar uno existente).
+
+. Ve a https://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad"^] para encontrar tu solución y verificar el soporte.
++
+Si tu sistema está ejecutando Red Hat Enterprise Linux 6 o SUSE Linux Enterprise Server 11, contacta al soporte técnico.
+
+. Actualiza y configura el `/etc/multipath.conf file`.
+. Asegúrate de que tanto `retain_attached_device_handler` como `detect_prio` estén configurados en `yes` para el proveedor y producto correspondientes, o usa la configuración predeterminada.
+

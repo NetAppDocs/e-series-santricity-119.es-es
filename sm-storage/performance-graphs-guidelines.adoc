@@ -1,0 +1,103 @@
+---
+permalink: sm-storage/performance-graphs-guidelines.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance, 
+summary: La página Rendimiento proporciona gráficos y tablas de datos que te permiten evaluar el rendimiento de la matriz de almacenamiento en varias áreas clave. 
+---
+= Conoce los gráficos de rendimiento y las directrices en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La página Rendimiento te muestra gráficos y tablas de datos que te permiten evaluar el rendimiento de la matriz de almacenamiento en varias áreas clave.
+
+Las funciones de rendimiento te permiten realizar estas tareas:
+
+* Consulta los datos de rendimiento casi en tiempo real para ayudarte a determinar si una matriz de almacenamiento está teniendo problemas.
+* Exporta datos de rendimiento para construir una vista histórica de una matriz de almacenamiento e identificar cuándo comenzó un problema o qué lo causó.
+* Selecciona los objetos, las métricas de rendimiento y el periodo de tiempo que quieres ver.
+* Compara métricas.
+
+
+Puedes ver los datos de rendimiento en tres formatos:
+
+* *Gráfico en tiempo real* -- Muestra los datos de rendimiento en un gráfico en tiempo real.
+* *Tabular en tiempo casi real* -- Muestra datos de rendimiento en una tabla en tiempo casi real.
+* *Archivo CSV exportado* -- Permite guardar datos tabulares de rendimiento en un archivo de valores separados por comas para verlos y analizarlos después.
+
+
+
+
+== Características de los formatos de datos de rendimiento
+
+[cols="1a,1a,1a,1a,1a"]
+|===
+| *Tipo de supervisión del rendimiento* | *Intervalo de muestreo* | *Duración mostrada* | *Número máximo de objetos mostrados* | *Posibilidad de guardar datos* 
+
+
+ a| 
+Gráficos en tiempo real, en vivo
+
+Gráficos en tiempo real, históricos
+ a| 
+10 seg (en vivo)
+
+5 min (histórico)
+
+Los puntos de datos mostrados dependen del marco temporal seleccionado
+ a| 
+El intervalo de tiempo predeterminado es 1 hora.
+
+Opciones:
+
+* 5 minutos
+* 1 hora
+* 8 horas
+* 1 día
+* 7 días
+* 30 días
+
+ a| 
+5
+ a| 
+No
+
+
+
+ a| 
+Vista tabular casi en tiempo real (vista de tabla)
+ a| 
+10 segundos -1 hora
+ a| 
+Valor más reciente
+ a| 
+Ilimitada
+ a| 
+Sí
+
+
+
+ a| 
+Archivo de valores separados por comas (CSV)
+ a| 
+Depende del periodo seleccionado
+ a| 
+Depende del periodo seleccionado
+ a| 
+Ilimitada
+ a| 
+Sí
+
+|===
+
+
+== Pautas para ver los datos de rendimiento
+
+* La recopilación de datos de rendimiento está siempre activada. No hay opción para desactivarla.
+* Cada vez que transcurre el intervalo de muestreo, se consulta la storage array y se actualizan los datos.
+* Para los datos gráficos, el marco temporal de 5 minutos admite actualizaciones cada 10 segundos, promediadas durante 5 minutos. Todos los demás marcos temporales se actualizan cada 5 minutos, promediados durante el marco temporal seleccionado.
+* Los datos de rendimiento en las vistas gráficas se actualizan en tiempo real. Los datos de rendimiento en la vista de tabla se actualizan en tiempo casi real.
+* Si un objeto supervisado cambia durante el tiempo en que se recopilan los datos, es posible que el objeto no tenga un conjunto completo de puntos de datos que abarquen el marco temporal seleccionado. Por ejemplo, los conjuntos de volúmenes pueden cambiar a medida que se crean, eliminan, asignan o desasignan volúmenes, o las unidades se pueden añadir, eliminar o averiar.
+

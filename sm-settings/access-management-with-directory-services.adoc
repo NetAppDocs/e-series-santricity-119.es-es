@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/access-management-with-directory-services.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access management, directory services, 
+summary: 'Para Access Management, los administradores pueden usar un servidor LDAP (Lightweight Directory Access Protocol) y un servicio de directorio, como Microsoft’s Active Directory.' 
+---
+= Configura la gestión de acceso con servicios de directorio en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para Access Management, los administradores pueden usar un servidor LDAP (Lightweight Directory Access Protocol) y un servicio de directorio, como Active Directory de Microsoft.
+
+
+
+== Flujo de trabajo de configuración
+
+Si en la red se utiliza un servidor LDAP y un servicio de directorio, la configuración funciona así:
+
+. Un administrador inicia sesión en System Manager con un perfil de usuario que incluye permisos de Security Admin.
++
+[NOTE]
+====
+El `admin` usuario tiene acceso completo a todas las funciones del sistema.
+
+====
+. El administrador introduce los ajustes de configuración para el servidor LDAP. Los ajustes incluyen el nombre de dominio, la URL y la información de la cuenta Bind.
+. Si el servidor LDAP utiliza un protocolo seguro (LDAPS), el administrador sube una cadena de certificados de autoridad de certificación (CA) para la autenticación entre el servidor LDAP y la storage array.
+. Después de que se establece la conexión con el servidor, el administrador asigna los grupos de usuarios a los roles de la matriz de almacenamiento. Estos roles están predefinidos y no se pueden modificar.
+. El administrador prueba la conexión entre el servidor LDAP y la storage array.
+. Los usuarios inician sesión en el sistema con sus credenciales asignadas de LDAP/Directory Services.
+
+
+
+
+== Gestión
+
+Cuando se utilizan servicios de directorio para la autenticación, los administradores pueden realizar las siguientes tareas de gestión:
+
+* Agrega un servidor de directorio.
+* Edita la configuración del servidor de directorio.
+* Asigna usuarios LDAP a roles de usuario locales.
+* Eliminar un servidor de directorio.
+

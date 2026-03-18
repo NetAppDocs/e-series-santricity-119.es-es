@@ -1,0 +1,66 @@
+---
+permalink: sm-mirroring/change-synchronization-settings-for-a-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, synchronization, settings, mirror, consistency, group, 
+summary: Puedes cambiar la configuración de sincronización y los umbrales de advertencia que el grupo de consistencia de réplica de la matriz de almacenamiento local usa cuando los datos se sincronizan inicialmente o cuando los datos se vuelven a sincronizar durante las operaciones de réplica asíncrona. 
+---
+= Cambiar la configuración de sincronización para un grupo de consistencia de mirror en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración de sincronización y los umbrales de advertencia que el grupo de consistencia de réplica de la matriz de almacenamiento local usa cuando los datos se sincronizan inicialmente o cuando los datos se vuelven a sincronizar durante las operaciones de réplica asíncrona.
+
+.Acerca de esta tarea
+Cambiar la configuración de sincronización afecta las operaciones de sincronización de todos los pares reflejados dentro del grupo de consistencia de reflejo.
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Grupos de Consistencia Espejo*.
++
+Aparece la tabla de Mirrored Consistency Group y muestra todos los mirror consistency groups asociados con la storage array.
+
+. Selecciona el grupo de coherencia de espejo que quieres editar y luego selecciona menú:Más[Editar configuración].
++
+El sistema muestra el cuadro de diálogo Edit Settings.
+
+. Edita la configuración de sincronización y alertas según corresponda y luego haz clic en *Guardar*.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Sincronizar las parejas reflejadas...
+ a| 
+Especifica si quieres sincronizar los pares reflejados en la matriz de almacenamiento remota de forma manual o automática.
+
+** **Manualmente** – Selecciona esta opción para sincronizar manualmente los pares reflejados en la matriz de almacenamiento remota.
+** **Automatically, every** – Selecciona esta opción para sincronizar automáticamente los pares reflejados en la matriz de almacenamiento remota especificando el intervalo de tiempo desde el inicio de la actualización anterior hasta el inicio de la siguiente actualización. El intervalo predeterminado es 10 minutos.
+
+
+
+
+ a| 
+Enviarme una alerta...
+ a| 
+Si configura el método de sincronización para que se produzca automáticamente, configure las siguientes alertas:
+
+** **Sincronización** – Establece el tiempo después del cual System Manager envía una alerta de que la sincronización no se ha completado.
+** **Punto de recuperación remoto** – Establece un límite de tiempo después del cual System Manager envía una alerta indicando que los datos del punto de recuperación en la matriz de almacenamiento remoto son más antiguos que el límite de tiempo que definiste. Define el límite de tiempo desde el final de la actualización anterior.
+** **Umbral de capacidad reservada** – Define una cantidad de capacidad reservada a partir de la cual System Manager te envía una alerta de que te estás acercando al umbral de capacidad reservada. Define el umbral por porcentaje de la capacidad restante.
+
+
+|===
+====
+
+
+.Resultados
+System Manager cambia la configuración de sincronización para cada par reflejado en el grupo de coherencia de reflejo.

@@ -1,0 +1,114 @@
+---
+permalink: sm-interface/setup-wizard-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, setup wizard 
+summary: Usa el asistente de configuración para configurar tu matriz de almacenamiento, incluyendo hardware, hosts, aplicaciones, cargas de trabajo, pools, alertas y AutoSupport. 
+---
+= Conoce el asistente de configuración de SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Usa el asistente de configuración para configurar tu matriz de almacenamiento, incluyendo hardware, hosts, aplicaciones, cargas de trabajo, pools, alertas y AutoSupport.
+
+
+
+== Configuración inicial
+
+Cuando abres System Manager por primera vez, se inicia el asistente de configuración. El asistente de configuración te pide que realices tareas básicas de configuración, como ponerle nombre a tu storage array, configurar tus hosts, seleccionar aplicaciones y crear pools de almacenamiento.
+
+
+NOTE: Antes de continuar con la configuración inicial, ve al Upgrade Center (menú:Support[Upgrade Center]) y asegúrate de que tu software SANtricity OS está actualizado. Si es necesario, actualiza a la última versión y actualiza tu navegador para seguir con la configuración. Para más información, consulta link:../sm-support/overview-upgrade-center.html["Descripción general de Upgrade Center"].
+
+Si cancelas el asistente, no puedes volver a iniciarlo manualmente. El asistente se vuelve a iniciar automáticamente cuando abres System Manager o actualizas tu navegador y se cumple _al menos una_ de las siguientes condiciones:
+
+* No se detectan pools ni grupos de volúmenes.
+* No se detectan cargas de trabajo.
+* No hay notificaciones configuradas.
+
+
+
+
+== Terminología
+
+El asistente de configuración usa los siguientes términos.
+
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+Aplicación
+ a| 
+Una aplicación es un programa de software, como Microsoft SQL Server o Microsoft Exchange.
+
+
+
+ a| 
+Alerta
+ a| 
+Las alertas notifican a los administradores sobre eventos importantes que ocurren en las matrices de almacenamiento. Las alertas pueden enviarse por correo electrónico, SNMP traps o syslog.
+
+
+
+ a| 
+AutoSupport
+ a| 
+La función AutoSupport supervisa la salud de una matriz de almacenamiento y envía automáticamente mensajes al soporte técnico.
+
+
+
+ a| 
+Hardware
+ a| 
+El hardware del sistema de almacenamiento incluye matrices de almacenamiento, controladores y unidades.
+
+
+
+ a| 
+Host
+ a| 
+Un host es un servidor que envía E/S a un volumen en una matriz de almacenamiento.
+
+
+
+ a| 
+Objeto
+ a| 
+Un objeto es cualquier componente de almacenamiento lógico o físico. Los objetos lógicos incluyen grupos de volúmenes, pools y volúmenes. Los objetos físicos incluyen la storage array, los array controllers, los hosts y las drives.
+
+
+
+ a| 
+Pool
+ a| 
+Un pool es un conjunto de unidades agrupadas lógicamente. Puedes usar un pool para crear uno o más volúmenes accesibles a un host. (Creas volúmenes a partir de un pool o de un grupo de volúmenes.)
+
+
+
+ a| 
+Volumen
+ a| 
+Un volumen es un contenedor en el que las aplicaciones, bases de datos y sistemas de archivos almacenan datos. Es el componente lógico creado para que el host acceda al almacenamiento en la storage array.
+
+Un volumen se crea a partir de la capacidad disponible en un pool o un grupo de volúmenes. Un volumen tiene una capacidad definida. Aunque un volumen puede constar de más de una unidad, un volumen aparece como un solo componente lógico para el host.
+
+
+
+ a| 
+Grupo de volúmenes
+ a| 
+Un grupo de volúmenes es un contenedor para volúmenes con características compartidas. Un grupo de volúmenes tiene una capacidad y un nivel RAID definidos. Puedes usar un grupo de volúmenes para crear uno o más volúmenes accesibles para un host. (Creas volúmenes a partir de un grupo de volúmenes o de un pool.)
+
+
+
+ a| 
+Carga de trabajo
+ a| 
+Una carga de trabajo es un objeto de almacenamiento que admite una aplicación. Puedes definir una o más cargas de trabajo, o instancias, por aplicación. Para algunas aplicaciones, el sistema configura la carga de trabajo para que contenga volúmenes con características de volumen subyacentes similares. Estas características de volumen se optimizan según el tipo de aplicación que admite la carga de trabajo. Por ejemplo, si creas una carga de trabajo que admite una aplicación de Microsoft SQL Server y luego creas volúmenes para esa carga de trabajo, las características de volumen subyacentes se optimizan para admitir Microsoft SQL Server.
+
+|===

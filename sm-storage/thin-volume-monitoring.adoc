@@ -1,0 +1,36 @@
+---
+permalink: sm-storage/thin-volume-monitoring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, thin, volume, monitoring 
+summary: Puedes supervisar los volúmenes ligeros para el espacio y generar las alertas adecuadas para evitar situaciones de falta de capacidad. 
+---
+= Conoce la supervisión de volúmenes ligeros en el software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes supervisar los volúmenes ligeros para el espacio y generar las alertas adecuadas para evitar situaciones de falta de capacidad.
+
+Los entornos con Thin-Provisioning pueden asignar más espacio lógico del que disponen de almacenamiento físico subyacente. Puedes seleccionar la pestaña menu:Storage[Volumes > Thin Volume Monitoring] para supervisar cuánto crecen tus volúmenes thin antes de que alcancen el límite máximo de capacidad asignada.
+
+Puedes usar la vista Thin Monitoring para realizar las siguientes acciones:
+
+* Define el límite que restringe la capacidad asignada a la que un volumen fino puede expandirse automáticamente.
+* Establece el punto porcentual en el que se envía una alerta (umbral de aviso superado) al área de Notificaciones en la página de inicio cuando un volumen fino está cerca del límite máximo de capacidad asignada.
+
+
+Para aumentar la capacidad de un volumen delgado, aumenta su capacidad declarada.
+
+[NOTE]
+====
+System Manager no proporciona una opción para crear volúmenes delgados. Si quieres crear volúmenes delgados, usa la Command Line Interface (CLI).
+
+====
+[NOTE]
+====
+Los volúmenes thin no están disponibles en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====

@@ -1,0 +1,141 @@
+---
+permalink: sm-storage/copy-volume-function.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: La función Copiar Volumen te permite crear una copia de un momento específico de un volumen al crear dos volúmenes separados, el volumen de origen y el volumen de destino, en la misma matriz de almacenamiento. 
+---
+= Conoce la copia de volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función Copiar Volumen te permite crear una copia de un momento específico de un volumen al crear dos volúmenes separados, el volumen de origen y el volumen de destino, en la misma matriz de almacenamiento.
+
+Esta función realiza una copia byte por byte del volumen de origen al volumen de destino, haciendo que los datos en el volumen de destino sean idénticos a los datos en el volumen de origen.
+
+
+
+== Copia de datos para un mayor acceso
+
+A medida que cambian tus requisitos de almacenamiento para un volumen, puedes usar la función Copy Volume para copiar datos de pools o grupos de volúmenes que usan unidades de menor capacidad a pools o grupos de volúmenes que usan unidades de mayor capacidad. Por ejemplo, puedes usar la función Copy Volume para hacer lo siguiente:
+
+* Mueve los datos a unidades más grandes.
+* Cambia a unidades con una mayor tasa de transferencia de datos.
+* Cambia a unidades con nuevas tecnologías para un mayor rendimiento.
+* Cambia un volumen fino a un volumen grueso.
+
+
+Los volúmenes de origen y destino de la copia deben tener los mismos tamaños de bloque lógicos direccionables por el host (tamaño de sector).
+
+Los tamaños de bloques de volúmenes reportados son:
+
+* *Tamaño de bloque nativo* – el tamaño de bloque del volumen coincide con el tamaño de bloque de la unidad, ya sea 512 o 4K.
+* *Tamaño de bloque 512 emulado* - las unidades son 4K pero el tamaño de bloque indicado es 512.
+
+
+
+
+== Cambiar un volumen fino a un volumen grueso
+
+Si quieres cambiar un volumen delgado a un volumen grueso, usa la operación Copy Volume para crear una copia del volumen delgado. El destino de una operación Copy Volume es siempre un volumen grueso.
+
+[NOTE]
+====
+System Manager no proporciona una opción para crear volúmenes delgados. Si quieres crear volúmenes delgados, usa la Command Line Interface (CLI).
+
+====
+
+
+== Copia de seguridad de datos
+
+La función Copiar Volumen te permite hacer una copia de seguridad de un volumen copiando datos de un volumen a otro volumen en la misma matriz de almacenamiento. Puedes usar el volumen de destino como respaldo del volumen de origen, para pruebas del sistema o para hacer una copia de seguridad en otro dispositivo, como una unidad de cinta.
+
+
+
+== Restaura los datos del volumen de instantáneas al volumen base
+
+Si necesitas restaurar datos al volumen base desde su volumen de instantánea asociado, puedes usar la función Copy Volume para copiar datos del volumen de instantánea al volumen base. Puedes crear una copia de volumen de los datos del volumen de instantánea y luego copiar los datos al volumen base.
+
+
+
+== Volúmenes de origen y destino
+
+La siguiente tabla especifica los tipos de volúmenes que se pueden usar como volúmenes de origen y destino con la función Copy Volume.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Tipo de volumen | Volumen origen de copia sin conexión | Volumen de origen de copia en línea de volumen | Volumen objetivo en línea y sin conexión 
+
+
+ a| 
+Volumen thick en un pool
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+Volumen thick en un grupo de volúmenes
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+Volumen fino
+ a| 
+Sí^1^
+ a| 
+Sí
+ a| 
+No
+
+
+
+ a| 
+Volumen de snapshot
+ a| 
+Sí^2^
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
+Volumen base de snapshot
+ a| 
+Sí
+ a| 
+Sí
+ a| 
+No
+
+
+
+ a| 
+Volumen primario de espejo remoto
+ a| 
+Sí^3^
+ a| 
+Sí
+ a| 
+No
+
+|===
+^1^ El volumen de destino debe tener una capacidad igual o superior a la capacidad informada del volumen delgado.
+
+^2^ No puedes usar la copia de volumen de snapshot hasta que termine la operación de copia en línea.
+
+^3^ Si el volumen de origen es un volumen primario, la capacidad del volumen de destino debe ser igual o mayor que la capacidad utilizable del volumen de origen.

@@ -1,0 +1,74 @@
+---
+permalink: um-certificates/access-management-with-saml.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, saml 
+summary: 'Para Access Management, los administradores pueden usar las capacidades de Security Assertion Markup Language (SAML) 2.0 integradas en la matriz.' 
+---
+= Gestión de acceso con SAML en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para Access Management, los administradores pueden usar las capacidades de Security Assertion Markup Language (SAML) 2.0 integradas en la matriz.
+
+
+
+== Flujo de trabajo de configuración
+
+La configuración de SAML funciona de la siguiente manera:
+
+. Un administrador inicia sesión en Unified Manager con un perfil de usuario que incluye permisos de Security Admin.
++
+[NOTE]
+====
+El `admin` usuario tiene acceso completo a todas las funciones en System Manager.
+
+====
+. El administrador va a la pestaña *SAML* en control de acceso.
+. Un administrador configura las comunicaciones con el proveedor de identidades (IdP). Un IdP es un sistema externo que se utiliza para solicitar credenciales a un usuario y determinar si el usuario se autenticó correctamente. Para configurar las comunicaciones con la matriz de almacenamiento, el administrador descarga el archivo de metadatos del IdP desde el sistema IdP y luego usa Unified Manager para subir el archivo a la matriz de almacenamiento.
+. Un administrador establece una relación de confianza entre el Service Provider y el IdP. Un Service Provider controla la autorización de los usuarios; en este caso, el controlador de la matriz de almacenamiento actúa como el Service Provider. Para configurar las comunicaciones, el administrador usa Unified Manager para exportar un archivo de metadatos de Service Provider para el controlador. Desde el sistema IdP, el administrador importa el archivo de metadatos al IdP.
++
+[NOTE]
+====
+Los administradores también deben asegurarse de que el IdP admite la capacidad de devolver un Name ID en la autenticación.
+
+====
+. El administrador asigna las funciones de la matriz de almacenamiento a los atributos de usuario definidos en el IdP. Para hacer esto, el administrador usa Unified Manager para crear las asignaciones.
+. El administrador prueba el inicio de sesión de SSO en la URL del IdP. Esta prueba garantiza que la matriz de almacenamiento y el IdP pueden comunicarse.
++
+[CAUTION]
+====
+Una vez que SAML está activado, _no_ puedes desactivarlo a través de la interfaz de usuario, ni tampoco puedes editar la configuración del IdP. Si necesitas desactivar o editar la configuración de SAML, contacta al soporte técnico para que te ayuden.
+
+====
+. Desde Unified Manager, el administrador habilita SAML para la storage array.
+. Los usuarios inician sesión en el sistema con sus credenciales SSO.
+
+
+
+
+== Gestión
+
+Cuando usas SAML para la autenticación, los administradores pueden realizar las siguientes tareas de gestión:
+
+* Modificar o crear nuevas asignaciones de roles
+* Exportar archivos de Service Provider
+
+
+
+
+== Restricciones de acceso
+
+Cuando SAML está activado, los usuarios no pueden descubrir ni gestionar almacenamiento para esa matriz desde la interfaz heredada de Storage Manager.
+
+Además, los siguientes clientes no pueden acceder a los servicios y recursos de almacenamiento de la matriz:
+
+* Ventana de gestión empresarial (EMW)
+* Interfaz de línea de comandos (CLI)
+* Clientes de kits de desarrollo de software (SDK)
+* Clientes en banda
+* Clientes de API de REST con autenticación básica HTTP
+* Inicia sesión usando el endpoint estándar de la API de REST
+

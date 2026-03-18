@@ -1,0 +1,39 @@
+---
+permalink: sm-mirroring/change-role-between-volumes-in-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, role, volumes, mirrored, pair, 
+summary: Puedes realizar una inversión de roles entre los dos volúmenes de un par reflejado que participan en la duplicación síncrona con fines administrativos o en caso de desastre en la matriz de almacenamiento local. 
+---
+= Cambiar el rol entre volúmenes en un par reflejado en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes realizar una inversión de roles entre los dos volúmenes de un par reflejado que están participando en la duplicación síncrona. Esta tarea podría ser necesaria para fines administrativos o en caso de un desastre en la matriz de almacenamiento local.
+
+.Acerca de esta tarea
+Puedes degradar el volumen primario al rol secundario o promover el volumen secundario al rol primario. Cualquier host que acceda al volumen primario tiene acceso de lectura/escritura al volumen. Cuando el volumen primario se convierte en un volumen secundario, solo las escrituras remotas iniciadas por el controlador primario se escriben en el volumen.
+
+.Pasos
+. Selecciona el menú:Storage[Synchronous Mirroring].
+. Selecciona el par reflejado que contiene los volúmenes para los que quieres cambiar la función y luego selecciona menu:More[Change Role].
++
+El sistema muestra una confirmación.
+
+. Confirma que quieres cambiar el rol de los volúmenes y luego selecciona *Change Role*.
++
+[NOTE]
+====
+Si la matriz de almacenamiento local no puede comunicarse con la matriz de almacenamiento remota, el sistema muestra el cuadro de diálogo Cannot Contact Storage Array cuando se solicita un cambio de rol, pero no se puede contactar con la matriz de almacenamiento remota. Haz clic en *Yes* para forzar el cambio de rol.
+
+====
+
+
+.Resultados
+System Manager realiza la siguiente acción:
+
+* Si se puede contactar con el volumen asociado en el par reflejado, los roles entre los volúmenes cambian. System Manager promueve el volumen secundario en el par reflejado al rol primario o degrada el volumen primario en el par reflejado al rol secundario (dependiendo de tu selección).
+

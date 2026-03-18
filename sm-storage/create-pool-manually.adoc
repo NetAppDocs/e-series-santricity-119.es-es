@@ -1,0 +1,144 @@
+---
+permalink: sm-storage/create-pool-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, pool, manually 
+summary: 'Puedes crear una agrupación manualmente (a partir de un conjunto de candidatos) si la función de configuración automática de agrupaciones no proporciona una agrupación que satisfaga tus necesidades.' 
+---
+= Crea un pool manualmente en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes crear una agrupación manualmente (a partir de un conjunto de candidatos) si la función de configuración automática de agrupaciones no proporciona una agrupación que satisfaga tus necesidades.
+
+Un pool proporciona la capacidad de almacenamiento lógico necesaria a partir de la cual puedes crear volúmenes individuales que luego puedes usar para alojar tus aplicaciones.
+
+.Antes de empezar
+* Debes tener un mínimo de 11 unidades del mismo tipo de unidad (HDD o SSD).
+* La protección contra pérdida de estanterías requiere que las unidades que componen el pool estén ubicadas en al menos seis estanterías de unidades diferentes y que no haya más de dos unidades en una sola estantería de unidades.
+* La protección contra pérdida de cajones requiere que las unidades que componen el pool estén ubicadas en al menos cinco cajones diferentes y que el pool incluya el mismo número de estantes de unidades de cada cajón.
+* Cuando configures una matriz de almacenamiento EF600 o EF300, asegúrate de que cada controlador tenga acceso al mismo número de unidades en las primeras 12 ranuras y al mismo número de unidades en las últimas 12 ranuras. Esta configuración ayuda a los controladores a usar ambos buses PCIe del lado de la unidad de manera más eficaz. Actualmente, System Manager permite seleccionar unidades en la función avanzada al crear un grupo de volúmenes. Para la creación de pools, se recomienda usar todas las unidades de la matriz de almacenamiento.
+
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Haz clic en menú:Crear[Pool].
++
+Aparece el cuadro de diálogo Create Pool.
+
+. Escriba un nombre para el pool.
+. *Opcional:* Si tienes más de un tipo de unidad en tu matriz de almacenamiento, selecciona el tipo de unidad que quieres usar.
++
+En la tabla de resultados, se muestra una lista de todos los pools posibles que se pueden crear.
+
+. Selecciona el candidato a pool que quieres usar según las siguientes características y luego haz clic en *Crear*.
++
+[cols="25h,~"]
+|===
+| Característica | Uso 
+
+
+ a| 
+Capacidad libre
+ a| 
+Muestra la capacidad libre del pool candidato en GiB. Selecciona un pool candidato con la capacidad para las necesidades de almacenamiento de tu aplicación.
+
+La capacidad de preservación (spare) también se distribuye por el pool y no forma parte de la cantidad de capacidad libre.
+
+
+
+ a| 
+Total de unidades
+ a| 
+Indica la cantidad de unidades disponibles en el candidato de pool.
+
+System Manager reserva automáticamente tantas unidades como sea posible para la capacidad de preservación (por cada seis unidades en un pool, System Manager reserva una unidad para la capacidad de preservación).
+
+Cuando se produce un fallo de unidad, la capacidad de preservación se usa para contener los datos reconstruidos.
+
+
+
+ a| 
+Tamaño del bloque de unidad (EF300 y EF600 solamente)
+ a| 
+Muestra el tamaño de bloque (tamaño de sector) que las unidades del pool pueden escribir. Los valores pueden incluir:
+
+** 512 -- tamaño de sector de 512 bytes.
+** 4K -- tamaño de sector de 4,096 bytes.
+
+
+
+
+ a| 
+Compatible con la función de seguridad
+ a| 
+Indica si este pool candidato está compuesto en su totalidad por unidades con capacidad de seguridad, que pueden ser unidades Full Disk Encryption (FDE) o unidades Federal Information Processing Standard (FIPS).
+
+** Puedes proteger tu pool con Drive Security, pero todas las unidades deben ser compatibles con seguridad para usar esta función.
+** Si quieres crear un pool solo FDE, busca *Sí - FDE* en la columna Secure-Capable. Si quieres crear un pool solo FIPS, busca *Sí - FIPS* o *Sí - FIPS (Mixto)*. "Mixto" indica una mezcla de unidades de nivel 140-2 y 140-3. Si usas una mezcla de estos niveles, ten en cuenta que el pool funcionará con el nivel de seguridad más bajo (140-2).
+** Puedes crear un pool compuesto por unidades que pueden o no ser compatibles con seguridad o que son una mezcla de niveles de seguridad. Si las unidades del pool incluyen unidades que no son compatibles con seguridad, no puedes hacer que el pool sea seguro.
+
+
+
+
+ a| 
+¿Habilitar seguridad?
+ a| 
+Ofrece la opción de activar la función de seguridad de la unidad con unidades con capacidad de seguridad. Si el pool tiene capacidad de seguridad y has creado una clave de seguridad, puedes activar la seguridad seleccionando la casilla de comprobación.
+
+[NOTE]
+====
+La única forma de eliminar Drive Security después de que esté activado es borrar el pool y borrar las unidades.
+
+====
+
+
+ a| 
+Compatible con DA
+ a| 
+Indica si está disponible la función de garantía de datos (DA) para este candidato de pool. DA comprueba y corrige los errores que se pueden producir durante la transferencia de datos a través de las controladoras hasta las unidades.
+
+DA está activado si todas las unidades son aptas para DA. DA puede desactivarse después de que se crea el volumen seleccionando menu:Storage[Volumes > View/Edit Settings > Advanced > Permanently disable data assurance]. Si DA está desactivado en un volumen, no se puede volver a activar.
+
+
+
+ a| 
+Aprovisionamiento de recursos habilitado (solo EF300 y EF600)
+ a| 
+Muestra si el aprovisionamiento de recursos está disponible para este candidato a pool. El aprovisionamiento de recursos es una función disponible en las matrices de almacenamiento EF300 y EF600, que permite poner en uso los volúmenes de inmediato sin proceso de inicialización en segundo plano.
+
+
+
+ a| 
+Protección contra pérdida de bandeja
+ a| 
+Indica si la protección contra pérdida de bandeja está disponible.
+
+La protección contra pérdida de estantería garantiza la accesibilidad a los datos en los volúmenes de un pool si ocurre una pérdida total de comunicación con una sola estantería de unidades.
+
+
+
+ a| 
+Protección contra pérdida de cajón
+ a| 
+Muestra si la protección contra pérdida de cajones está disponible, la cual solo se proporciona si usas una estantería de unidades que contiene cajones.
+
+La protección contra la pérdida de drawer garantiza la accesibilidad a los datos en los volúmenes de un pool si ocurre una pérdida total de comunicación con un solo drawer en un drive shelf.
+
+
+
+ a| 
+Tamaños de bloque de volúmenes admitidos (EF300 y EF600 solamente)
+ a| 
+Muestra los tamaños de bloque que pueden crearse para los volúmenes en el pool:
+
+** 512n -- 512 bytes nativo.
+** 512e -- 512 bytes emulados.
+** 4K -- 4,096 bytes.
+
+
+|===
+

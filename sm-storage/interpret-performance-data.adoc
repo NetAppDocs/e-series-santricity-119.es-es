@@ -1,0 +1,92 @@
+---
+permalink: sm-storage/interpret-performance-data.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, interpret, performance data 
+summary: Los datos de rendimiento pueden guiarte para ajustar el rendimiento de tu matriz de almacenamiento. 
+---
+= Interpretar datos de rendimiento en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los datos de rendimiento pueden guiarte para ajustar el rendimiento de tu matriz de almacenamiento.
+
+Al interpretar los datos de rendimiento, ten en cuenta que varios factores afectan el rendimiento de tu matriz de almacenamiento. La siguiente tabla describe las principales áreas a considerar.
+
+[cols="25h,~"]
+|===
+| Datos de rendimiento | Implicaciones para el ajuste del rendimiento 
+
+
+ a| 
+Latencia (milisegundos o ms)
+ a| 
+Supervisa la actividad de I/O de un objeto específico.
+
+Identifica potencialmente los objetos que son cuellos de botella:
+
+* Si un grupo de volúmenes se comparte entre varios volúmenes, los volúmenes individuales podrían necesitar sus propios grupos de volúmenes para mejorar el rendimiento secuencial de las unidades y disminuir la latencia.
+* Con los pools, se introducen mayores latencias y pueden existir cargas de trabajo desiguales entre las unidades, haciendo que los valores de latencia sean menos significativos y, en general, más altos.
+* El tipo de unidad y la velocidad influyen en la latencia. Con la I/O aleatoria, las unidades que giran más rápido pasan menos tiempo yendo y viniendo de diferentes ubicaciones en el disco.
+* Muy pocas unidades resultan en más comandos en cola y un mayor período de tiempo para que la unidad procese el comando, aumentando la latencia general del sistema.
+* Las I/O más grandes tienen mayor latencia debido al tiempo adicional que implica transferir datos.
+* Una latencia más alta podría indicar que el patrón de I/O es de naturaleza aleatoria. Las unidades con I/O aleatoria tendrán mayor latencia que aquellas con flujos secuenciales.
+* Una disparidad en la latencia entre unidades o volúmenes de un grupo de volúmenes común podría indicar una unidad lenta.
+
+
+
+
+ a| 
+IOPS
+ a| 
+Los factores que afectan a las operaciones de entrada/salida por segundo (IOPS o IOs/sec) incluyen estos elementos:
+
+* Patrón de acceso (aleatorio o secuencial)
+* Tamaño de I/O
+* Nivel de RAID
+* Tamaño de bloque de caché
+* Si la caché de lectura está activada
+* Si la caché de escritura está activada
+* Captura previa de lectura de caché dinámica
+* Tamaño de los segmentos
+* El número de unidades en los grupos de volúmenes o en la matriz de almacenamiento
+
+
+Cuanto mayor sea la tasa de aciertos de la caché, mayores serán las tasas de I/O. Se experimentan mayores tasas de I/O de escritura con la caché de escritura habilitada en comparación con la deshabilitada. Al decidir si habilitar la caché de escritura para un volumen individual, fíjate en las IOPS actuales y las IOPS máximas. Deberías ver tasas más altas para patrones de I/O secuenciales que para patrones de I/O aleatorios. Independientemente de tu patrón de I/O, habilita la caché de escritura para maximizar la tasa de I/O y acortar el tiempo de respuesta de la aplicación.
+
+Puedes ver las mejoras de rendimiento causadas por cambiar el tamaño del segmento en las estadísticas de IOPS de un volumen. Experimenta para determinar el tamaño óptimo del segmento o usa el tamaño del sistema de archivos o el tamaño de bloque de la base de datos.
+
+
+
+ a| 
+MiB/s
+ a| 
+Las tasas de transferencia o de rendimiento se determinan por el tamaño de I/O de la aplicación y la tasa de I/O. En general, las solicitudes de I/O de aplicaciones pequeñas resultan en una tasa de transferencia más baja, pero ofrecen una tasa de I/O más rápida y un tiempo de respuesta más corto. Con solicitudes de I/O de aplicaciones más grandes, son posibles tasas de rendimiento más altas.
+
+Comprender los patrones de I/O típicos de tu aplicación puede ayudarte a determinar las tasas máximas de transferencia de I/O para una matriz de almacenamiento específica.
+
+
+
+ a| 
+CPU
+ a| 
+Este valor es un porcentaje de la capacidad de procesamiento que se está utilizando.
+
+Puede que notes una disparidad en el uso de la CPU de los mismos tipos de objetos. Por ejemplo, el uso de la CPU de un controlador es alto o está aumentando con el tiempo, mientras que el del otro controlador es más bajo o más estable. En este caso, podrías querer cambiar la propiedad del controlador de uno o más volúmenes al controlador con el porcentaje de CPU más bajo.
+
+Quizá quieras monitorear la CPU en toda la matriz de almacenamiento. Si la CPU sigue aumentando con el tiempo mientras el rendimiento de la aplicación disminuye, puede que necesites añadir matrices de almacenamiento. Al añadir matrices de almacenamiento a tu empresa, puedes seguir cubriendo las necesidades de las aplicaciones con un nivel de rendimiento aceptable.
+
+
+
+ a| 
+Espacio libre
+ a| 
+El margen se refiere a la capacidad de rendimiento restante de los controladores, los canales host de los controladores y los canales de unidades de los controladores. Este valor se expresa como un porcentaje y representa la diferencia entre el máximo rendimiento posible que estos objetos pueden ofrecer y los niveles de rendimiento actuales.
+
+* Para los controladores, el headroom es un porcentaje del máximo posible de IOPS.
+* Para los canales, el headroom es un porcentaje del rendimiento máximo o MiB/s. En el cálculo se incluye el rendimiento de lectura, el rendimiento de escritura y el rendimiento bidireccional.
+
+
+|===

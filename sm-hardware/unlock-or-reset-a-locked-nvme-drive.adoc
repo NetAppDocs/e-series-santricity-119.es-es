@@ -1,0 +1,64 @@
+---
+permalink: sm-hardware/unlock-or-reset-a-locked-nvme-drive.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, unlock, reset, locked, fips, nvme, drives, 
+summary: 'Si insertas una o más unidades NVMe o FIPS bloqueadas en una matriz de almacenamiento, puedes desbloquear los datos de la unidad agregando el archivo de clave de seguridad asociado con las unidades. Si no tienes una clave de seguridad, puedes realizar un restablecimiento en cada unidad bloqueada ingresando su ID de seguridad física (PSID) para restablecer sus atributos de seguridad y borrar los datos de la unidad.' 
+---
+= Desbloquea o restablece unidades NVMe o FIPS bloqueadas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si insertas una o más unidades NVMe o FIPS bloqueadas en una matriz de almacenamiento, puedes desbloquear los datos de la unidad agregando el archivo de clave de seguridad asociado con las unidades. Si no tienes una clave de seguridad, puedes realizar un restablecimiento en cada unidad bloqueada ingresando su ID de seguridad física (PSID) para restablecer sus atributos de seguridad y borrar los datos de la unidad.
+
+.Antes de empezar
+* Para la opción de desbloquear, asegúrate de que el archivo de la clave de seguridad (con una extensión de `.slk`) esté disponible en el cliente de gestión (el sistema con un navegador que usas para acceder a System Manager). También tienes que saber la frase de contraseña asociada con la clave.
+* Para la opción Restablecer, debe encontrar el PSID en cada unidad que desea restablecer. Para ubicar el PSID, retire físicamente la unidad y ubique la cadena de PSID (máximo de 32 caracteres) en la etiqueta de la unidad y, luego, reinstale la unidad.
+
+
+.Acerca de esta tarea
+Esta tarea describe cómo desbloquear datos en unidades NVMe o FIPS importando un archivo de clave de seguridad en la matriz de almacenamiento. Para situaciones donde la clave de seguridad no está disponible, esta tarea también describe cómo realizar un restablecimiento en una unidad bloqueada.
+
+[NOTE]
+====
+Si la unidad se bloqueó mediante un servidor externo de gestión de claves, selecciona menú:Configuración[Sistema > Gestión de claves de seguridad] en System Manager para configurar la gestión de claves externas y desbloquear la unidad.
+
+====
+Puedes acceder a la función Desbloquear desde la página Hardware o desde menú:Settings[System > Security key management]. La tarea siguiente proporciona instrucciones desde la página Hardware.
+
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra los controladores, haz clic en la pestaña *Drives*.
++
+El gráfico cambia para mostrar las unidades en lugar de los controladores.
+
+. Selecciona la unidad NVMe o FIPS que quieres desbloquear o restablecer.
++
+Se abre el menú contextual de la unidad.
+
+. Selecciona *Desbloquear* para aplicar el archivo de clave de seguridad o *Restablecer* si no tienes un archivo de clave de seguridad.
++
+Estas opciones solo aparecen si seleccionas una unidad NVMe o FIPS bloqueada.
+
++
+[CAUTION]
+====
+Durante una operación de restablecimiento, se borran todos los datos. Realiza un restablecimiento solo si no tienes una clave de seguridad. Restablecer una unidad bloqueada elimina permanentemente todos los datos de la unidad y restablece sus atributos de seguridad a "secure-capable", pero no habilitado. *Esta operación no es reversible.*
+
+====
+. Debe realizar una de las siguientes acciones:
++
+.. *Desbloquear*: En el cuadro de diálogo *Unlock Secure Drive*, haz clic en *Browse* y luego selecciona el archivo de clave de seguridad que corresponde a la unidad que quieres desbloquear. Después, introduce la frase de contraseña y haz clic en *Unlock*.
+.. *Restablecer*: en el cuadro de diálogo *Reset Locked Drive*, introduce la cadena PSID en el campo y luego escribe `RESET` para confirmar. Haz clic en *Reset*.
++
+Para una operación de desbloqueo, solo tienes que realizar esta operación una vez para desbloquear todas las unidades NVMe o FIPS. Para una operación de restablecimiento, tienes que seleccionar individualmente cada unidad que quieras restablecer.
+
+
+
+
+
+.Resultados
+Ahora la unidad está disponible para usar en otro grupo de volúmenes o pool de discos, o bien en otra cabina de almacenamiento.

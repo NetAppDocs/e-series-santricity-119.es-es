@@ -1,0 +1,114 @@
+---
+permalink: sm-storage/change-the-reserved-capacity-settings-for-a-snapshot-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, reserved capacity, settings, snapshot, group 
+summary: Puedes cambiar la configuración de un grupo de instantáneas para cambiar su nombre, la configuración de eliminación automática, el número máximo de imágenes de instantáneas permitidas, el punto porcentual en el que System Manager envía una notificación de alerta de capacidad reservada o la política que se usa cuando la capacidad reservada alcanza su porcentaje máximo definido. 
+---
+= Cambia la configuración de la capacidad reservada para un grupo de instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración de un grupo de instantáneas para cambiar su nombre, la configuración de eliminación automática, el número máximo de imágenes de instantáneas permitidas, el punto porcentual en el que SANtricity System Manager envía una notificación de alerta de capacidad reservada o la política que se usará cuando la capacidad reservada alcance su porcentaje máximo definido.
+
+Durante la creación de un grupo de instantáneas, se crea capacidad reservada para almacenar los datos de todas las imágenes de instantáneas contenidas en el grupo.
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Haz clic en la pestaña *Capacidad reservada*.
+. Selecciona el grupo de instantáneas que quieres editar y luego haz clic en *Ver/Editar configuración*.
++
+Aparece el cuadro de diálogo Snapshot Group Settings.
+
+. Cambia la configuración del grupo de instantáneas según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Ajustes del grupo de snapshots*
+
+
+
+ a| 
+Nombre
+ a| 
+El nombre del grupo de instantáneas. Es necesario especificar un nombre para el grupo de instantáneas.
+
+
+
+ a| 
+Eliminación automática
+ a| 
+Un ajuste que mantiene el número total de imágenes instantáneas en el grupo en o por debajo de un máximo definido por el usuario. Cuando esta opción está activada, System Manager elimina automáticamente la imagen instantánea más antigua del grupo cada vez que se crea una nueva imagen instantánea, para cumplir con el número máximo de imágenes instantáneas permitidas para el grupo.
+
+
+
+ a| 
+Límite de imágenes snapshot
+ a| 
+Un valor configurable que especifica el número máximo de imágenes de instantánea permitidas para un grupo de instantáneas.
+
+
+
+ a| 
+Planificación de SnapVault
+ a| 
+Si la respuesta es sí, se establece una planificación para crear instantáneas automáticamente.
+
+
+
+ a| 
+*Ajustes de capacidad reservada*
+
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que System Manager envía una notificación de alerta cuando la capacidad reservada para un grupo de instantáneas está a punto de llenarse.
+
+Cuando la capacidad reservada para el grupo de instantáneas supera el umbral especificado, System Manager envía una alerta, dándote tiempo para aumentar la capacidad reservada o eliminar objetos innecesarios.
+
+
+
+ a| 
+Política para la capacidad reservada completa
+ a| 
+Puedes elegir una de las siguientes políticas:
+
+** *Purge oldest snapshot image* -- System Manager purga automáticamente la imagen de instantánea más antigua del grupo de instantáneas, lo que libera la capacidad reservada de la imagen de instantánea para su reutilización dentro del grupo.
+** *Rechazar escrituras en el volumen base* -- Cuando la capacidad reservada alcanza su porcentaje máximo definido, System Manager rechaza cualquier solicitud de escritura de I/O en el volumen base que desencadenó el acceso a la capacidad reservada.
+
+
+
+
+ a| 
+*Objetos asociados*
+
+
+
+ a| 
+Volumen base
+ a| 
+El nombre del volumen base utilizado para el grupo. Un volumen base es la fuente a partir de la cual se crea una imagen de snapshot. Puede ser un volumen grueso o fino y normalmente se asigna a un host. El volumen base puede residir en un grupo de volúmenes o en un pool de discos.
+
+
+
+ a| 
+Imágenes snapshot
+ a| 
+El número de imágenes creadas a partir de este grupo. Una imagen de instantánea es una copia lógica de los datos del volumen, capturada en un momento específico. Como un punto de restauración, las imágenes de instantánea te permiten volver a un conjunto de datos en buen estado. Aunque el host puede acceder a la imagen de instantánea, no puede leerla ni escribir en ella directamente.
+
+|===
+====
+. Haz clic en *Guardar* para aplicar los cambios a la configuración del grupo de instantáneas.
+

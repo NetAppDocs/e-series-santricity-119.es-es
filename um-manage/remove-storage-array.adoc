@@ -1,0 +1,29 @@
+---
+permalink: um-manage/remove-storage-array.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, remove, storage, arrays, 
+summary: Puedes eliminar una o varias matrices de almacenamiento si ya no quieres gestionarlas desde SANtricity Unified Manager. 
+---
+= Eliminar arrays de almacenamiento de SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes eliminar una o varias matrices de almacenamiento si ya no quieres gestionarlas desde SANtricity Unified Manager.
+
+.Acerca de esta tarea
+No es posible acceder a ninguna de las cabinas de almacenamiento que se quiten. Sin embargo, puede establecerse una conexión con cualquiera de las cabinas de almacenamiento eliminadas si se apunta un explorador directamente a su dirección IP o nombre de host.
+
+Al quitar una cabina de almacenamiento, ni ella ni sus datos se ven afectados de forma alguna. Si una cabina de almacenamiento se quita por error, es posible volver a añadirla.
+
+.Pasos
+. Selecciona la página *Manage*.
+. Selecciona una o más matrices de almacenamiento que quieras eliminar.
+. Selecciona el menú:Tareas no habituales[Remove storage array].
++
+La matriz de almacenamiento se elimina de todas las vistas en SANtricity Unified Manager.
+
+

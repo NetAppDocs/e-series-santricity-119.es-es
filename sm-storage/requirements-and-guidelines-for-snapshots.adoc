@@ -1,0 +1,110 @@
+---
+permalink: sm-storage/requirements-and-guidelines-for-snapshots.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, requirements, guidelines, snapshots 
+summary: Al crear y usar instantáneas, revisa los siguientes requisitos y directrices. 
+---
+= Requisitos y directrices para las instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al crear y usar instantáneas, revisa los siguientes requisitos y directrices.
+
+
+
+== Imágenes de instantáneas y grupos de instantáneas
+
+* Cada imagen de instantánea está asociada exactamente a un grupo de instantáneas.
+* Un grupo de instantáneas se crea la primera vez que creas una imagen de instantánea programada o instantánea para un objeto asociado. Esto crea capacidad reservada.
++
+Puedes ver los grupos de instantáneas desde la página Pools & Volume Groups.
+
+* Las imágenes de instantáneas programadas no se producen cuando la storage array está desconectada o apagada.
+* Si eliminas un grupo de instantáneas que tiene una programación de instantáneas, la programación de instantáneas también se elimina.
+* Si tienes un volumen de instantánea que ya no necesitas, puedes reutilizarlo junto con cualquier capacidad reservada asociada en vez de eliminarlo. Esto crea un volumen de instantánea diferente del mismo volumen base. Puedes volver a asociar el volumen de instantánea o el volumen de instantánea del grupo de coherencia de instantáneas con la misma imagen de instantánea o con una imagen de instantánea diferente, siempre que la imagen de instantánea esté en el mismo volumen base.
+
+
+
+
+== Grupo de coherencia de snapshots
+
+* Un grupo de consistencia de instantáneas contiene un grupo de instantáneas para cada volumen que es miembro del grupo de consistencia de instantáneas.
+* Puedes asociar un grupo de coherencia de instantáneas con solo una programación.
+* Si eliminas un grupo de coherencia de instantáneas que tiene una planificación de instantáneas, la planificación de instantáneas también se elimina.
+* No puedes gestionar individualmente un grupo de instantáneas que está asociado a un grupo de coherencia de instantáneas. En cambio, debes realizar las operaciones de gestión (crear imagen de instantánea, eliminar imagen de instantánea o grupo de instantáneas, y revertir imagen de instantánea) en el nivel del grupo de coherencia de instantáneas.
+
+
+
+
+== Volumen base
+
+* Un volumen de instantánea debe tener la misma configuración de Data Assurance (DA) y seguridad que el volumen base asociado.
+* No puedes crear un volumen snapshot de un volumen base fallido.
+* Si el volumen base reside en un grupo de volúmenes, los volúmenes miembro de cualquier grupo de coherencia de instantáneas asociado pueden residir en un pool o grupo de volúmenes.
+* Si un volumen base reside en un pool, todos los volúmenes miembro de cualquier grupo de consistencia de snapshot asociado deben residir en el mismo pool que el volumen base.
+
+
+
+
+== Capacidad reservada
+
+* La capacidad reservada está asociada a un único volumen base.
+* El uso de una programación puede dar lugar a un gran número de imágenes de instantáneas. Asegúrate de que tienes suficiente capacidad reservada para las instantáneas programadas.
+* El volumen de capacidad reservada para un grupo de coherencia de instantáneas debe tener la misma configuración de Data Assurance (DA) y seguridad que su volumen base asociado para el volumen miembro del grupo de coherencia de instantáneas.
+
+
+
+
+== Imágenes instantáneas pendientes
+
+La creación de imágenes instantáneas puede permanecer en estado pendiente en las siguientes condiciones:
+
+* El volumen base que contiene esta imagen snapshot es miembro de un grupo espejo asíncrono.
+* El volumen base está actualmente en una operación de sincronización. La creación de la imagen snapshot se completa en cuanto finaliza la operación de sincronización.
+
+
+
+
+== Número máximo de imágenes instantáneas
+
+* Si un volumen es miembro de un grupo de coherencia de instantáneas, System Manager crea un grupo de instantáneas para ese volumen miembro. Este grupo de instantáneas cuenta para el número máximo permitido de grupos de instantáneas por volumen base.
+* Si intentas crear una imagen de instantánea en un grupo de instantáneas o en un grupo de coherencia de instantáneas, pero el grupo asociado ha alcanzado su número máximo de imágenes de instantánea, tienes dos opciones:
++
+** Activa la eliminación automática para el grupo de instantáneas o el grupo de coherencia de instantáneas.
+** Elimina manualmente una o más imágenes de instantánea del grupo de instantáneas o del grupo de coherencia de instantáneas y vuelve a intentar la operación.
+
+
+
+
+
+
+== Eliminación automática
+
+Si el grupo de instantáneas o el grupo de coherencia de instantáneas está habilitado para el borrado automático, System Manager elimina la imagen de instantánea más antigua cuando el sistema crea una nueva para el grupo.
+
+
+
+== Operación de rollback
+
+* No puedes realizar las siguientes acciones cuando una operación de reversión está en curso:
++
+** Elimina la imagen de instantánea que se está usando para el rollback.
+** Crea una nueva imagen de instantánea para un volumen base que participa en una operación de rollback.
+** Cambia la política Repository-Full del grupo de instantáneas asociado.
+
+
+* No puedes iniciar una operación de reversión cuando alguna de estas operaciones está en curso:
++
+** Ampliación de capacidad (agregar capacidad a un pool o grupo de volúmenes)
+** Ampliación de volumen (incrementar la capacidad de un volumen)
+** Cambio de nivel RAID para un grupo de volúmenes
+** Cambio de tamaño de segmento para un volumen
+
+
+* No puedes iniciar una operación de rollback si el volumen base está participando en una copia de volumen.
+* No puedes iniciar una operación de rollback si el volumen base es un volumen secundario en un sistema remota.
+* Una operación de reversión falla si cualquiera de la capacidad utilizada en el volumen de repositorio de instantáneas asociado tiene sectores ilegibles.
+

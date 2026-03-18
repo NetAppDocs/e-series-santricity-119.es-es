@@ -1,0 +1,43 @@
+---
+permalink: sm-mirroring/workflow-for-mirroring-a-volume-synchronously.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, workflow, mirroring, synchronously, 
+summary: Configuras la replicación síncrona usando el siguiente flujo de trabajo. 
+---
+= Duplicar un volumen de forma síncrona en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configuras la replicación síncrona usando el siguiente flujo de trabajo.
+
+[NOTE]
+====
+Esta función no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+. Realiza la configuración inicial en Unified Manager:
++
+.. Seleccione una cabina de almacenamiento local como el origen de la transferencia de datos.
+.. Selecciona un volumen primario de la matriz de almacenamiento local.
+.. Selecciona una matriz de almacenamiento remoto como destino para la transferencia de datos y luego selecciona un volumen secundario.
+.. Selecciona las prioridades de sincronización y resincronización.
+.. Comienza la transferencia de datos inicial del volumen primario al volumen secundario. Dependiendo del tamaño del volumen, esta transferencia inicial podría tardar varias horas.
+
+
+. Comprueba el progreso de la sincronización inicial:
++
+.. En Unified Manager, abre System Manager para la matriz local.
+.. En System Manager, consulta el estado de la operación de duplicación. Cuando la duplicación se completa, el estado del par duplicado es "Óptimo". Las dos matrices intentan mantenerse sincronizadas durante las operaciones normales. Solo los bloques nuevos y modificados se transfieren del volumen primario al volumen secundario.
+
+
+. *Opcional:* Puedes cambiar la configuración de sincronización en System Manager.
++
+[NOTE]
+====
+Dado que la replicación síncrona es continua, el enlace de replicación entre los dos sitios debe proporcionar suficiente ancho de banda.
+
+====
+

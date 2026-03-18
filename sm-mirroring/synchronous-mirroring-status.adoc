@@ -1,0 +1,53 @@
+---
+permalink: sm-mirroring/synchronous-mirroring-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, synchronous, mirroring, status, 
+summary: El estado de un par reflejado síncrono indica si los datos del volumen primario y del volumen secundario están sincronizados. El estado de un espejo es independiente del estado de los componentes de los volúmenes en el par reflejado. 
+---
+= Conoce el estado de la duplicación síncrona en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El estado de un par reflejado síncrono indica si los datos del volumen primario y del volumen secundario están sincronizados. El estado del espejo es independiente del estado de los componentes de los volúmenes en el par reflejado.
+
+[NOTE]
+====
+Esta función no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+Los pares reflejados síncronos pueden tener uno de los siguientes estados:
+
+* *Óptimo*
++
+Indica que los volúmenes del par reflejado están sincronizados, lo que significa que la conexión de fabric entre las matrices de almacenamiento está operativa y cada volumen se encuentra en la condición de funcionamiento deseada.
+
+* *Sincronizando*
++
+Muestra el progreso de la sincronización de datos entre los pares reflejados. Este estado también se mostrará durante la sincronización inicial.
+
++
+Después de una interrupción del enlace de comunicación, solo se copian al volumen secundario los bloques de datos que han cambiado en el volumen primario durante la interrupción del enlace.
+
+* *Sin sincronizar*
++
+Indica que la matriz de almacenamiento del volumen primario no puede escribir los datos entrantes en la matriz remota. El host local puede seguir escribiendo en el volumen primario, pero las escrituras remotas no tienen lugar. Diferentes condiciones pueden impedir que la matriz de almacenamiento del volumen primario escriba los datos entrantes en el volumen secundario, como:
+
++
+** El volumen secundario no está accesible.
+** La matriz de almacenamiento remoto no es accesible.
+** La conexión de fabric entre las matrices de almacenamiento no es accesible.
+** El volumen secundario no puede actualizarse con un nuevo World Wide Identifier (WWID).
+
+
+* *Suspendido*
++
+Indica que la operación de mirroring síncrono ha sido suspendida por el usuario. Cuando un par reflejado está suspendido, no se intenta contactar el volumen secundario. Cualquier escritura en el volumen primario se registra de forma persistente en los volúmenes de capacidad reservada del mirror.
+
+* *Error*
++
+Indica que la operación de mirroring síncrono no puede funcionar normalmente debido a una falla en el volumen primario, el volumen secundario o la capacidad reservada del mirror.
+
+

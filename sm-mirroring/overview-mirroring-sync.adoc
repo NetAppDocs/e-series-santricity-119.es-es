@@ -1,0 +1,59 @@
+---
+permalink: sm-mirroring/overview-mirroring-sync.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, RVM, synchronous, mirroring, controllers, 
+summary: La función de replicación síncrona proporciona replicación de datos en línea y en tiempo real entre matrices de almacenamiento a distancia. 
+---
+= Conoce la duplicación síncrona en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función de replicación síncrona proporciona replicación de datos en línea y en tiempo real entre matrices de almacenamiento a distancia.
+
+[NOTE]
+====
+Esta función no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+
+
+== ¿Qué es la replicación síncrona?
+
+_Synchronous mirroring_ replica los volúmenes de datos en tiempo real para garantizar una disponibilidad continua. Los controladores de matrices de almacenamiento gestionan la operación de mirroring, que es transparente para las máquinas host y las aplicaciones de software.
+
+Este tipo de mirroring es ideal para fines de continuidad de negocio, como la recuperación de desastres.
+
+Más información:
+
+* link:how-synchronous-mirroring-works.html["Cómo funciona la replicación síncrona"]
+* link:synchronous-mirroring-terminology.html["Terminología de la duplicación síncrona"]
+* link:synchronous-mirroring-status.html["Estado de la duplicación síncrona"]
+* link:volume-ownership-sync.html["Propiedad del volumen"]
+* link:role-change-of-volumes-in-a-mirrored-pair.html["Cambio de rol entre volúmenes en un par reflejado"]
+
+
+
+
+== ¿Cómo configuro la replicación síncrona?
+
+Debes usar la interfaz de Unified Manager para realizar la configuración inicial de reflejo entre las arrays. Una vez que esté configurado, puedes gestionar los pares reflejados en System Manager.
+
+Más información:
+
+* link:requirements-for-using-synchronous-mirroring.html["Requisitos para usar la duplicación síncrona"]
+* link:workflow-for-mirroring-a-volume-synchronously.html["Flujo de trabajo para reflejar un volumen de forma sincrónica"]
+* link:../um-manage/create-synchronous-mirrored-pair-um.html["Crear un par reflejado síncrono (en Unified Manager)"]
+
+
+
+
+== Información relacionada
+
+Conoce más sobre conceptos relacionados con la duplicación síncrona:
+
+* link:synchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair.html["Lo que necesitas saber antes de crear un par reflejado"]
+* link:how-does-asynchronous-mirroring-differ-from-synchronous-mirroring-async.html["Cómo la replicación asíncrona se diferencia de la replicación síncrona"]
+

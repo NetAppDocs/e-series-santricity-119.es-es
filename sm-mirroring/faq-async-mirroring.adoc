@@ -1,0 +1,315 @@
+---
+permalink: sm-mirroring/faq-async-mirroring.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la duplicación asíncrona para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿En qué se diferencia la replicación asíncrona de la replicación síncrona?
+
+La función de Asynchronous Mirroring difiere de la de Synchronous Mirroring en un aspecto esencial: captura el estado del volumen de origen en un momento determinado y copia solo los datos que han cambiado desde la última captura de imagen.
+
+Con la replicación síncrona, el estado del volumen primario no se captura en un momento específico, sino que refleja todos los cambios que se hicieron en el volumen primario al volumen secundario. El volumen secundario es idéntico al volumen primario en todo momento porque, con este tipo de espejo, cada vez que se hace una escritura en el volumen primario, se hace una escritura en el volumen secundario. El host no recibe una confirmación de que la escritura fue exitosa hasta que el volumen secundario se actualiza correctamente con los cambios que se hicieron en el volumen primario.
+
+Con la duplicación asíncrona, la matriz de almacenamiento remota no está totalmente sincronizada con la matriz de almacenamiento local, así que si la aplicación necesita pasar a la matriz de almacenamiento remota debido a una pérdida de la matriz de almacenamiento local, algunas transacciones podrían perderse.
+
+Comparación entre las funciones de mirroring:
+
+[cols="1a,1a"]
+|===
+| Replicación asíncrona | Mirroring síncrono 
+
+
+ a| 
+*Método de replicación*
+
+
+
+ a| 
+* *Punto en el tiempo*
++
+La duplicación se realiza bajo demanda o automáticamente de acuerdo con una programación definida por el usuario. Las programaciones pueden definirse con granularidad de minutos. El tiempo mínimo entre sincronizaciones es 10 minutos.
+
+
+ a| 
+* *Continuo*
++
+La replicación se ejecuta automáticamente de forma continua, copiando datos de cada escritura del host.
+
+
+
+
+
+ a| 
+*Capacidad reservada*
+
+
+
+ a| 
+* *Múltiple*
++
+Se requiere un volumen de capacidad reservada para cada par reflejado.
+
+
+ a| 
+* *Único*
++
+Se requiere un único volumen de capacidad reservada para todos los volúmenes reflejados.
+
+
+
+
+
+ a| 
+*Comunicación*
+
+
+
+ a| 
+* *iSCSI y Fibre Channel*
++
+Admite interfaces iSCSI y Fibre Channel entre storage arrays.
+
+
+ a| 
+* *Canal de fibra*
++
+Solo admite interfaces Fibre Channel entre matrices de almacenamiento.
+
+
+
+
+
+ a| 
+*Distancia*
+
+
+
+ a| 
+* *Ilimitado*
++
+Soporte para distancias virtualmente ilimitadas entre la matriz de almacenamiento local y la matriz de almacenamiento remota, con la distancia típicamente limitada solo por las capacidades de la red y la tecnología de extensión de canal.
+
+
+ a| 
+* *Restringido*
++
+Normalmente debe estar a unos 10 km (6.2 millas) de la matriz de almacenamiento local para cumplir los requisitos de latencia y rendimiento de la aplicación.
+
+
+
+|===
+
+
+== ¿Por qué no puedo acceder a la función de mirroring que elegiste?
+
+El mirroring se configura en la interfaz de SANtricity Unified Manager.
+
+[NOTE]
+====
+La duplicación síncrona no está disponible en la matriz de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+Para activar y configurar la duplicación entre dos matrices, verifica lo siguiente:
+
+* El servicio Web Services Proxy debe estar en ejecución. (Unified Manager está instalado en un sistema host junto con Web Services Proxy.)
+* Unified Manager debe estar ejecutándose en tu host local a través de una conexión HTTPS.
+* Las dos matrices de almacenamiento que quieres usar para la duplicación deben descubrirse en Unified Manager.
+* Unified Manager debe disponer de certificados SSL válidos para las matrices de almacenamiento. Puedes aceptar un certificado autofirmado o instalar certificados firmados por CA desde Unified Manager.
+
+
+Para obtener instrucciones de configuración, mira lo siguiente:
+
+* link:../um-manage/create-asynchronous-mirrored-pair-um.html["Crear par reflejado asíncrono (en Unified Manager)"]
+* link:../um-manage/create-synchronous-mirrored-pair-um.html["Crear un par reflejado síncrono (en Unified Manager)"]
+
+
+
+
+== ¿Qué debo saber antes de crear un grupo de coherencia de reflejos?
+
+Siga estas directrices para poder crear un grupo de coherencia de reflejos.
+
+[NOTE]
+====
+La duplicación síncrona no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+Creas un grupo de coherencia en Unified Manager en el asistente Crear pares duplicados.
+
+Cumple con los siguientes requisitos para Unified Manager:
+
+* El proxy de servicios web se encuentra en ejecución.
+* Unified Manager debe estar ejecutándose en tu host local a través de una conexión HTTPS.
+* Unified Manager debe mostrar certificados SSL válidos para la matriz de almacenamiento. Puedes aceptar un certificado autofirmado o instalar tu propio certificado de seguridad usando Unified Manager y navegando hasta menu:Certificate[Certificate Management].
+
+
+También debe cumplir con los siguientes requisitos para las cabinas de almacenamiento:
+
+* Las dos matrices de almacenamiento deben descubrirse en Unified Manager.
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Tus matrices de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel o una interfaz iSCSI.
+
+
+
+
+== Replicación asíncrona: ¿qué debo saber antes de crear un par reflejado?
+
+Configuras los pares reflejados en la interfaz de SANtricity Unified Manager y luego gestionas los pares en SANtricity System Manager.
+
+Antes de crear una pareja reflejada, siga estas directrices.
+
+* Debes tener dos matrices de almacenamiento.
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Tus matrices de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel o una interfaz iSCSI.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Debes tener suficiente capacidad libre en la matriz de almacenamiento remota para crear un volumen secundario igual o mayor que el volumen primario que quieres reflejar.
+* Has instalado el Web Services Proxy y Unified Manager. Los pares reflejados se configuran en la interfaz de Unified Manager.
+* Las dos matrices de almacenamiento se descubren en Unified Manager.
+* Tu matriz de almacenamiento debe contener al menos un grupo de consistencia de réplica. Creas un grupo de consistencia en Unified Manager en el asistente Create Mirrored Pairs.
+
+
+
+
+== ¿Qué debo saber antes de aumentar mi capacidad reservada en un volumen de par reflejado?
+
+Normalmente, deberías aumentar la capacidad reservada cuando recibas un aviso de que la capacidad reservada de un par duplicado se está llenando. Solo puedes aumentar la capacidad reservada en incrementos de 8 GiB.
+
+Para las operaciones de duplicación asíncrona, la capacidad reservada suele ser el 20 por ciento del volumen base. Elige una capacidad mayor para la capacidad reservada si se da una o ambas de estas condiciones:
+
+* Tienes intención de conservar la pareja de espejos durante un largo periodo de tiempo.
+* Un gran porcentaje de bloques de datos cambiarán en el volumen primario debido a una gran actividad de E/S. Usa datos históricos de rendimiento u otras utilidades del sistema operativo para ayudarte a determinar la actividad típica de E/S en el volumen primario.
+
+
+Puedes aumentar la capacidad reservada para un par duplicado realizando una de estas acciones:
+
+* Ajusta el porcentaje de capacidad de un volumen reflejado en pares seleccionando menú:Storage[Pools and Volumes Groups] y luego haciendo clic en la pestaña *Reserved Capacity*.
+* Crea un nuevo volumen usando la capacidad libre que está disponible en un pool o grupo de volúmenes.
++
+Si no existe capacidad libre en ningún pool o grupo de volúmenes, puedes añadir capacidad no configurada en forma de unidades no utilizadas a un pool o grupo de volúmenes.
+
+
+
+
+
+== ¿Por qué no puedo aumentar la capacidad reservada con la cantidad que pedí?
+
+Puedes aumentar la capacidad reservada solo en incrementos de 4 GiB.
+
+Revise las siguientes directrices:
+
+* Debes tener suficiente capacidad libre en el pool o grupo de volúmenes para que pueda ampliarse si es necesario.
++
+Si no existe capacidad libre en ningún pool o grupo de volúmenes, puedes añadir capacidad no asignada en forma de unidades no utilizadas a un pool o grupo de volúmenes.
+
+* El volumen en el pool o grupo de volúmenes debe tener un estado óptimo y no debe estar en ningún estado de modificación.
+* Debe existir capacidad libre en el pool o grupo de volúmenes que quieres usar para aumentar la capacidad.
+
+
+Para las operaciones de duplicación asíncrona, la capacidad reservada suele ser el 20 por ciento del volumen base. Usa un porcentaje mayor si crees que el volumen base va a sufrir muchos cambios o si la esperanza de vida estimada de la operación de servicio de copia de un objeto de almacenamiento va a ser muy larga.
+
+
+
+== ¿Por qué debería cambiar este porcentaje?
+
+La capacidad reservada suele ser el 40 por ciento del volumen base para las operaciones de instantánea y el 20 por ciento del volumen base para las operaciones de mirroring asíncrono.
+
+Normalmente esta capacidad es suficiente. La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de E/S en el volumen base y cuánto tiempo planees usar la operación de servicio de copia del objeto de almacenamiento.
+
+En general, elige un porcentaje mayor para la capacidad reservada si se da una o ambas de estas condiciones:
+
+* Si la vida útil de la operación de servicio de copia de un objeto de almacenamiento concreto va a ser muy larga.
+* Si un gran porcentaje de bloques de datos va a cambiar en el volumen base debido a una gran actividad de E/S. Usa datos históricos de rendimiento u otras utilidades del sistema operativo para ayudarte a determinar la actividad típica de E/S en el volumen base.
+
+
+
+
+== ¿Por qué veo más de un candidato de capacidad reservada?
+
+Si hay más de un volumen en un pool o grupo de volúmenes que cumple con el porcentaje de capacidad que seleccionaste para el objeto de almacenamiento, verás varios candidatos.
+
+Puedes actualizar la lista de candidatos recomendados cambiando el porcentaje de espacio de la unidad física que quieres reservar en el volumen base para las operaciones del servicio de copia. Los mejores candidatos se muestran según tu selección.
+
+
+
+== ¿Por qué veo valores No disponibles en la tabla?
+
+La tabla muestra valores No disponible cuando los datos ubicados en la matriz de almacenamiento remoto no están disponibles para mostrarse.
+
+Para visualizar los datos de la matriz de almacenamiento remota, inicia System Manager desde Unified Manager.
+
+
+
+== ¿Por qué no veo todos mis pools y grupos de volúmenes?
+
+Cuando creas un volumen secundario para el par reflejado asíncrono, el sistema muestra una lista de todos los pools y grupos de volúmenes elegibles para ese par reflejado asíncrono. Cualquier pool o grupo de volúmenes que no sea elegible para usarse no aparece en esa lista.
+
+Los pools o grupos de volúmenes pueden no ser elegibles por cualquiera de las siguientes razones.
+
+* Las funcionalidades de seguridad de un pool o grupo de volúmenes no coinciden.
+* Un pool o grupo de volúmenes está en un estado no óptimo.
+* La capacidad de un pool o grupo de volúmenes es demasiado pequeña.
+
+
+
+
+== Replicación asíncrona: ¿por qué no veo todos mis volúmenes?
+
+Cuando estás seleccionando un volumen primario para un par reflejado, una lista muestra todos los volúmenes elegibles.
+
+Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista. Los volúmenes pueden no ser elegibles por alguna de las siguientes razones:
+
+* El volumen no está en estado óptimo.
+* El volumen ya participa en una relación de mirroring.
+* Para volúmenes finos, la expansión automática debe estar habilitada.
+
+
+
+NOTE: Para las controladoras EF600 y EF300, los volúmenes primario y secundario de un par reflejado asíncrono deben coincidir en el mismo protocolo, nivel de bandeja, tamaño de segmento, tipo de seguridad y nivel de RAID. Los pares reflejados asíncronos no elegibles no aparecerán en la lista de volúmenes disponibles.
+
+
+
+== Replicación asíncrona: ¿por qué no veo todos los volúmenes en la matriz de almacenamiento remota?
+
+Cuando estás seleccionando un volumen secundario en la matriz de almacenamiento remota, una lista muestra todos los volúmenes elegibles para ese par reflejado.
+
+Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista. Los volúmenes pueden no ser elegibles por alguna de las siguientes razones:
+
+* El volumen no está en estado óptimo.
+* El volumen ya participa en una relación de mirroring.
+* Los atributos del volumen delgado entre el volumen primario y el volumen secundario no coinciden.
+* Si estás usando Data Assurance (DA), el volumen primario y el volumen secundario deben tener la misma configuración de DA.
++
+** Si el volumen primario está habilitado para DA, el volumen secundario también debe estar habilitado para DA.
+** Si el volumen primario no está habilitado para DA, el volumen secundario no debe estar habilitado para DA.
+
+
+
+
+
+
+== ¿Por qué actualizaría la dirección IP de mi almacenamiento remoto?
+
+Actualizas la dirección IP de la matriz de almacenamiento remota cuando cambia la dirección IP de un puerto iSCSI y la matriz de almacenamiento local no puede comunicarse con la matriz de almacenamiento remota.
+
+Cuando se establece una relación de duplicación asíncrona con una conexión iSCSI, tanto la matriz de almacenamiento local como la remota almacenan un registro de la dirección IP de la matriz de almacenamiento remota en la configuración de duplicación asíncrona. Si la dirección IP de un puerto iSCSI cambia, la matriz de almacenamiento remota que intenta usar ese puerto encuentra un error de comunicación.
+
+La matriz de almacenamiento con la dirección IP modificada envía un mensaje a cada matriz de almacenamiento remota asociada con los grupos de coherencia de réplica que están configurados para replicar a través de una conexión iSCSI. Las matrices de almacenamiento que reciben este mensaje actualizan automáticamente su dirección IP de destino remota.
+
+Si la matriz de almacenamiento con la dirección IP cambiada no puede enviar su mensaje entre matrices a una matriz de almacenamiento remota, el sistema te envía una alerta del problema de conectividad. Usa la opción Actualizar dirección IP remota para restablecer la conexión con la matriz de almacenamiento local.

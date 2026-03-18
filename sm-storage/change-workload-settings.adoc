@@ -1,0 +1,29 @@
+---
+permalink: sm-storage/change-workload-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, workload, settings 
+summary: Puedes cambiar el nombre de una carga de trabajo y ver su tipo de aplicación asociado. Cambia el nombre de una carga de trabajo cuando el nombre actual ya no tenga sentido o no sea aplicable. 
+---
+= Cambiar la configuración de la carga de trabajo en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el nombre de una carga de trabajo y ver su tipo de aplicación asociado. Cambia el nombre de una carga de trabajo cuando el nombre actual ya no tenga sentido o no sea aplicable.
+
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona la pestaña *Aplicaciones y cargas de trabajo*.
++
+Se muestra la vista Aplicaciones y cargas de trabajo.
+
+. Selecciona la carga de trabajo que quieres cambiar y luego selecciona *Ver/Editar configuración*.
++
+Aparece el cuadro de diálogo Applications & Workloads Settings.
+
+. *Opcional:* Cambia el nombre proporcionado por el usuario de la carga de trabajo.
+. Haz clic en *Guardar*.
+

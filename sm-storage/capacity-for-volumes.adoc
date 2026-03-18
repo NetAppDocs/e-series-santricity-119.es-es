@@ -1,0 +1,104 @@
+---
+permalink: sm-storage/capacity-for-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, capacity, volumes, 
+summary: Las unidades de la cabina de almacenamiento proporcionan capacidad de almacenamiento físico para los datos. Antes de comenzar a almacenar datos, es necesario configurar la capacidad asignada a los componentes lógicos conocidos como pools o grupos de volúmenes. Estos objetos de almacenamiento se utilizan para configurar, almacenar, mantener y conservar los datos en la cabina de almacenamiento. 
+---
+= Cómo se asigna la capacidad a los volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las unidades de la cabina de almacenamiento proporcionan capacidad de almacenamiento físico para los datos. Antes de comenzar a almacenar datos, es necesario configurar la capacidad asignada a los componentes lógicos conocidos como pools o grupos de volúmenes. Estos objetos de almacenamiento se utilizan para configurar, almacenar, mantener y conservar los datos en la cabina de almacenamiento.
+
+
+
+== Usar la capacidad para crear y expandir volúmenes
+
+Es posible crear volúmenes a partir de la capacidad sin asignar o libre de un pool o grupo de volúmenes.
+
+* Cuando se crea un volumen a partir de capacidad sin asignar, es posible crear un pool o grupo de volúmenes y el volumen al mismo tiempo.
+* Cuando se crea un volumen a partir de capacidad libre, se crea un volumen adicional en un pool o grupo de volúmenes existente.
+
+
+Después de ampliar la capacidad del volumen, tienes que aumentar manualmente el tamaño del sistema de archivos para que coincida. Cómo hacerlo depende del sistema de archivos que estés usando. Consulta la documentación de tu sistema operativo host para más detalles.
+
+
+
+== Tipos de capacidad para volúmenes thick y volúmenes thin
+
+Puedes crear volúmenes gruesos o volúmenes finos. La capacidad informada y la capacidad asignada son las mismas para los volúmenes gruesos, pero son diferentes para los volúmenes finos.
+
+* En un volumen grueso, la Capacidad notificada del volumen es igual a la cantidad de capacidad de almacenamiento físico asignada. Se debe presentar la cantidad de capacidad de almacenamiento físico completa. El espacio asignado físicamente es igual al espacio que se notifica al host.
++
+Normalmente, la Capacidad notificada de un volumen grueso se establece como la capacidad máxima hasta la que se cree que el volumen se extenderá. Los volúmenes gruesos brindan un rendimiento alto y previsible para las aplicaciones. Esto se debe principalmente a que toda la capacidad del usuario se reserva y se asigna en la creación.
+
+* Para un volumen delgado, la capacidad informada es la capacidad que se informa a los hosts, mientras que la capacidad asignada es la cantidad de espacio de la unidad que está asignada actualmente para escribir datos.
++
+La capacidad informada puede ser mayor que la capacidad asignada en la matriz de almacenamiento. Los volúmenes thin pueden dimensionarse para adaptarse al crecimiento sin tener en cuenta los recursos disponibles actualmente.
+
+
+
+[NOTE]
+====
+SANtricity System Manager no proporciona una opción para crear volúmenes delgados. Si quieres crear volúmenes delgados, usa la Command Line Interface (CLI).
+
+====
+
+
+== Límites de capacidad para volúmenes thick
+
+La capacidad mínima para un volumen grueso es 1 MiB y la capacidad máxima se determina en función de la cantidad de unidades en el pool o el grupo de volúmenes y su capacidad.
+
+Al aumentar la Capacidad notificada para un volumen grueso, tenga en cuenta las siguientes directrices:
+
+* Puede especificar hasta tres espacios decimales (por ejemplo, 65 375 GiB).
+* La capacidad debe ser menor (o igual) que el máximo disponible en el grupo de volúmenes.
++
+Al crear un volumen, se asigna previamente algo de capacidad adicional para la migración del tamaño de segmentos dinámico (DSS). La migración DSS es una función del software que permite cambiar el tamaño de los segmentos de un volumen.
+
+* Algunos sistemas operativos host admiten volúmenes de más de 2 TiB (el sistema operativo host determina la Capacidad notificada máxima). De hecho, algunos sistemas operativos host admiten volúmenes de hasta 128 TiB. Consulte la documentación del sistema operativo host para obtener más detalles.
+
+
+
+
+== Límites de capacidad para volúmenes finos
+
+Puedes crear volúmenes delgados con una gran capacidad declarada y una capacidad asignada relativamente pequeña, lo que es beneficioso para la utilización y eficiencia del almacenamiento. Los volúmenes delgados pueden ayudar a simplificar la administración del almacenamiento porque la capacidad asignada puede aumentar a medida que cambian las necesidades de la aplicación sin interrumpir la aplicación, permitiendo un mejor uso del almacenamiento.
+
+Además de la capacidad notificada y la capacidad asignada, los volúmenes finos también contienen capacidad escrita. La capacidad escrita es la cantidad de capacidad que se ha escrito de la capacidad reservada asignada para volúmenes finos.
+
+La siguiente tabla muestra los límites de capacidad para un volumen fino.
+
+[cols="3*"]
+|===
+| Tipo de capacidad | Tamaño mínimo | Tamaño máximo 
+
+
+ a| 
+Reportado
+ a| 
+32 MiB
+ a| 
+256 TiB
+
+
+
+ a| 
+Asignado
+ a| 
+4 MiB
+ a| 
+64 TiB
+
+|===
+Para un volumen fino, si se ha alcanzado la capacidad máxima informada de 256 TiB, no puedes aumentar su capacidad. Asegúrate de que la capacidad reservada del volumen fino esté configurada en un tamaño mayor que la capacidad máxima informada.
+
+El sistema amplía automáticamente la capacidad asignada según el límite de capacidad asignada. El límite de capacidad asignada te permite limitar el crecimiento automático del volumen delgado por debajo de la capacidad informada. Cuando la cantidad de datos escritos se acerca a la capacidad asignada, puedes cambiar el límite de capacidad asignada.
+
+Para cambiar el límite de capacidad asignada, selecciona el menú:Storage[Volumes > Thin Volume Monitoring tab > Change Limit].
+
+Debido a que System Manager no asigna toda la capacidad cuando crea un volumen delgado, es posible que no exista suficiente capacidad libre en el pool. El espacio insuficiente puede bloquear las escrituras en el pool, no solo para los volúmenes delgados, sino también para otras operaciones que requieren capacidad del pool (por ejemplo, imágenes snapshot o volúmenes snapshot). Sin embargo, todavía puedes realizar operaciones de lectura desde el pool. Si ocurre esta situación, recibes una advertencia de umbral de alerta.

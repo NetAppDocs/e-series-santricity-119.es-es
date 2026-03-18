@@ -1,0 +1,135 @@
+---
+permalink: sm-hardware/drive-states.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, drive, states, 
+summary: System Manager informa de varios estados de las unidades. 
+---
+= Conoce los estados de las unidades en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager informa varios estados para las unidades.
+
+
+
+== Estados de accesibilidad
+
+[cols="25h,~"]
+|===
+| Estado | Definición 
+
+
+ a| 
+Desviado
+ a| 
+La unidad está físicamente presente, pero el controlador no puede comunicarse con ella en ninguno de los puertos.
+
+
+
+ a| 
+Incompatible
+ a| 
+Se da una de las siguientes condiciones:
+
+* La unidad no está certificada para su uso en la matriz de almacenamiento.
+* La unidad tiene un tamaño de sector diferente.
+* La unidad tiene datos de configuración inutilizables de una versión de firmware anterior o posterior.
+
+
+
+
+ a| 
+Eliminado
+ a| 
+La unidad se ha extraído incorrectamente de la matriz de almacenamiento.
+
+
+
+ a| 
+Presente
+ a| 
+El controlador puede comunicarse con la unidad en ambos puertos.
+
+
+
+ a| 
+No responde
+ a| 
+La unidad no responde a los comandos.
+
+|===
+
+
+== Estados de rol
+
+[cols="25h,~"]
+|===
+| Estado | Definición 
+
+
+ a| 
+Asignado
+ a| 
+La unidad es miembro de un pool o grupo de volúmenes.
+
+
+
+ a| 
+Repuesto en uso
+ a| 
+La unidad se está utilizando actualmente como sustituta de una unidad que ha fallado. Los repuestos en caliente se utilizan solo en grupos de volúmenes, no en pools.
+
+
+
+ a| 
+Repuesto en espera (hot spare)
+ a| 
+La unidad está lista para utilizarse como sustituta de una unidad que ha fallado. Los repuestos en caliente solo se utilizan en grupos de volúmenes, no en pools.
+
+
+
+ a| 
+Sin asignar
+ a| 
+La unidad no es miembro de un pool o grupo de volúmenes.
+
+|===
+
+
+== Estados de disponibilidad
+
+[cols="25h,~"]
+|===
+| Estado | Definición 
+
+
+ a| 
+Con errores
+ a| 
+La unidad no funciona. Los datos de la unidad no están disponibles.
+
+
+
+ a| 
+Fallo inminente
+ a| 
+Se ha detectado que la unidad podría fallar en breve. Los datos de la unidad aún están disponibles.
+
+
+
+ a| 
+Sin conexión
+ a| 
+La unidad no está disponible para almacenar datos normalmente porque forma parte de un grupo de volúmenes que se está exportando o está pasando por una actualización de firmware.
+
+
+
+ a| 
+Óptimo
+ a| 
+La unidad está funcionando normalmente.
+
+|===

@@ -1,0 +1,71 @@
+---
+permalink: sm-interface/problem-notification.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, notifications 
+summary: System Manager utiliza iconos y varios otros métodos para notificarte que existen problemas con la matriz de almacenamiento. 
+---
+= Conoce las notificaciones de problemas de SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity System Manager utiliza iconos y varios otros métodos para avisarte que existen problemas con la matriz de almacenamiento.
+
+
+
+== Iconos
+
+System Manager utiliza estos iconos para indicar el estado de la matriz de almacenamiento y sus componentes.
+
+[cols="1a,1a"]
+|===
+| Icono | Descripción 
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-success.gif["Óptimo"]
+ a| 
+Óptimo
+
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-failure.gif["No óptimo o fallido"]
+ a| 
+No óptimo o fallido
+
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-service.gif["Necesita atención o arreglo"]
+ a| 
+Necesita atención o arreglo
+
+
+
+ a| 
+image:../media/sam1130-ss-icon-status-caution.gif["Precaución"]
+ a| 
+Precaución
+
+|===
+System Manager muestra estos iconos en varias ubicaciones.
+
+* El área de notificaciones en la página de inicio muestra el icono de error y un mensaje.
+* El icono de la página de inicio en el área de navegación muestra el icono de fallo.
+* En la página Components, los gráficos de las unidades y controladores muestran el icono de error.
+
+
+
+
+== Alertas y LEDs
+
+Además, System Manager te notifica de los problemas de otras formas.
+
+* System Manager envía notificaciones SNMP o mensajes de error por correo electrónico.
+* Se encienden los LED de Service Action Required del hardware.
+
+
+Cuando recibas la notificación de un problema, usa el Recovery Guru para ayudarte a solucionarlo. Donde sea necesario, usa la documentación del hardware junto con los pasos de recuperación para reemplazar los componentes averiados.

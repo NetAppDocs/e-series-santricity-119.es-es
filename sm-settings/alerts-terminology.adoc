@@ -1,0 +1,89 @@
+---
+permalink: sm-settings/alerts-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, alerts, terms, 
+summary: Aprende cómo se aplican los términos de las alertas a tu matriz de almacenamiento. 
+---
+= Conoce la terminología de las alertas en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprende cómo se aplican los términos de las alertas a tu matriz de almacenamiento.
+
+[cols="25h,~"]
+|===
+| Componente | Descripción 
+
+
+ a| 
+Monitor de eventos
+ a| 
+El monitor de eventos reside en la matriz de almacenamiento y se ejecuta como una tarea en segundo plano. Cuando el monitor de eventos detecta anomalías en la matriz de almacenamiento, escribe información sobre los problemas en el registro de eventos. Los problemas pueden incluir eventos como un fallo de la batería, un componente que pasa de óptimo a fuera de línea o errores de redundancia en el controlador. Si el monitor de eventos determina que el evento es "alertable", entonces envía una notificación usando los métodos de alerta configurados (email, SNMP y/o syslog). Todos los eventos críticos son considerados "alertables", junto con algunos eventos de advertencia e informativos.
+
+
+
+ a| 
+Servidor de correo
+ a| 
+El servidor de correo se utiliza para enviar y recibir alertas por correo electrónico. El servidor utiliza el protocolo para la transferencia simple de correo electrónico (SMTF).
+
+
+
+ a| 
+SNMP
+ a| 
+Simple Network Management Protocol (SNMP) es un protocolo estándar de Internet que se usa para gestionar y compartir información entre dispositivos en redes IP.
+
+
+
+ a| 
+Trampa SNMP
+ a| 
+Una trampa SNMP es una notificación enviada a un servidor SNMP. La trampa contiene información sobre problemas importantes con la storage array.
+
+
+
+ a| 
+Destino de trap SNMP
+ a| 
+Un destino de trap SNMP es una dirección IPv4 o IPv6 del servidor que ejecuta un servicio SNMP.
+
+
+
+ a| 
+Nombre de la comunidad
+ a| 
+Un nombre de comunidad es una cadena que actúa como una contraseña para el o los servidores de red en un entorno SNMP.
+
+
+
+ a| 
+archivo MIB
+ a| 
+El archivo de base de información de gestión (MIB) define los datos que se supervisan y gestionan en la matriz de almacenamiento. Debe copiarse y compilarse en el servidor con la aplicación de servicio SNMP. Este archivo MIB está disponible con el software System Manager en el sitio de soporte.
+
+
+
+ a| 
+variables MIB
+ a| 
+Las variables de la Management Information Base (MIB) pueden devolver valores como el nombre de la matriz de almacenamiento, la ubicación de la matriz y una persona de contacto en respuesta a SNMP GetRequests.
+
+
+
+ a| 
+Syslog
+ a| 
+Syslog es un protocolo utilizado por los dispositivos de red para enviar mensajes de eventos a un servidor de registro.
+
+
+
+ a| 
+UDP
+ a| 
+El Protocolo de Datagramas de Usuario (UDP) es un protocolo de capa de transporte que especifica un número de puerto de origen y de destino en los encabezados de sus paquetes.
+
+|===

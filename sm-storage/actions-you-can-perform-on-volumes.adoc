@@ -1,0 +1,135 @@
+---
+permalink: sm-storage/actions-you-can-perform-on-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volumes 
+summary: 'Puedes realizar varias acciones diferentes en un volumen: aumentar la capacidad, borrar, copiar, inicializar, redistribuir, cambiar la propiedad, cambiar la configuración de la caché y cambiar la configuración del escaneo de medios.' 
+---
+= Acciones que puedes realizar en los volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes realizar varias acciones diferentes en un volumen: aumentar la capacidad, borrar, copiar, inicializar, redistribuir, cambiar la propiedad, cambiar la configuración de la caché y cambiar la configuración del escaneo de medios.
+
+
+
+== Aumenta la capacidad
+
+Puedes ampliar la capacidad de un volumen de dos formas:
+
+* Usar la capacidad libre que está disponible en el pool o el grupo de volúmenes.
++
+Añades capacidad a un volumen seleccionando menú:Almacenamiento[Pools y grupos de volúmenes > Añadir capacidad].
+
+* Agrega capacidad no asignada (en forma de discos sin usar) al pool o grupo de volúmenes del volumen. Usa esta opción cuando no exista capacidad libre en el pool o grupo de volúmenes.
++
+Añades capacidad no asignada al pool o grupo de volúmenes seleccionando menú:Storage[Pools and Volume Groups > Add Capacity].
+
++
+Si no hay capacidad libre disponible en el pool o grupo de volúmenes, no puedes aumentar la capacidad del volumen. Primero debes aumentar el tamaño del pool o grupo de volúmenes o eliminar los volúmenes no utilizados.
+
+
+
+Después de ampliar la capacidad del volumen, tienes que aumentar manualmente el tamaño del sistema de archivos para que coincida. Cómo hacerlo depende del sistema de archivos que estés usando. Consulta la documentación de tu sistema operativo host para más detalles.
+
+
+
+== Borrar
+
+Normalmente, eliminas volúmenes si se crearon con los parámetros o la capacidad incorrectos, ya no cumplen con las necesidades de configuración de almacenamiento, o son imágenes snapshot que ya no necesitas para backup o pruebas de aplicaciones. Eliminar un volumen aumenta la capacidad libre en el pool o grupo de volúmenes.
+
+Eliminar volúmenes provoca la pérdida de todos los datos de esos volúmenes. Eliminar un volumen también eliminará cualquier imagen de snapshot, programación y volumen de snapshot asociado, y eliminará cualquier relación de mirroring.
+
+
+
+== Copiar
+
+Cuando copias volúmenes, creas una copia de un momento específico de dos volúmenes separados, el volumen de origen y el volumen de destino, en la misma matriz de almacenamiento. Puedes copiar volúmenes seleccionando menu:Storage[Volumes > Copy Services > Copy volume].
+
+
+
+== Inicializar
+
+Al inicializar un volumen se borran todos los datos del volumen. Un volumen se inicializa automáticamente cuando se crea por primera vez. Sin embargo, el Recovery Guru podría aconsejarte que inicialices manualmente un volumen para recuperarte de ciertas condiciones de fallo. Cuando inicializas un volumen, el volumen mantiene su WWN, asignaciones de host, capacidad asignada y configuración de capacidad reservada. También mantiene la misma configuración de Data Assurance (DA) y de seguridad.
+
+Puedes inicializar los volúmenes seleccionando menú:Storage[Volumes > More > Initialize volumes].
+
+
+
+== Redistribuir
+
+Redistribuyes volúmenes para moverlos de vuelta a sus propietarios de controladores preferidos. Normalmente, los controladores multivía mueven volúmenes de su propietario de controlador preferido cuando se produce un problema a lo largo de la ruta de datos entre el host y la matriz de almacenamiento.
+
+La mayoría de los controladores de multivía de host intentan acceder a cada volumen en una ruta a su propietario de controlador preferido. Sin embargo, si esta ruta preferida no está disponible, el controlador de multivía en el host cambia a una ruta alternativa. Esta conmutación por error puede hacer que la propiedad del volumen cambie al controlador alternativo. Después de que resuelvas la condición que causó la conmutación por error, algunos hosts pueden mover automáticamente la propiedad del volumen de vuelta al propietario del controlador preferido, pero en algunos casos, puede que tengas que redistribuir manualmente los volúmenes.
+
+Puedes redistribuir volúmenes seleccionando el menú:Almacenamiento[Volúmenes > Más > Redistribuir volúmenes].
+
+
+
+== Cambiar la titularidad del volumen
+
+Cambiar la propiedad de un volumen cambia la propiedad del controlador preferido del volumen. El propietario del controlador preferido de un volumen aparece en menu:Storage[Volumes > View/Edit Settings > Advanced tab].
+
+Puedes cambiar la propiedad de un volumen seleccionando menú:Storage[Volumes > More > Change ownership].
+
+
+
+=== Replicación y propiedad del volumen
+
+Si el volumen primario del par reflejado es propiedad del controlador A, entonces el volumen secundario también será propiedad del controlador A del array de almacenamiento remoto. Cambiar el propietario del volumen primario cambiará automáticamente el propietario del volumen secundario para asegurar que ambos volúmenes sean propiedad del mismo controlador. Los cambios de propiedad actuales en el lado primario se propagan automáticamente a los cambios de propiedad actuales correspondientes en el lado secundario.
+
+Si un grupo de consistencia de réplica contiene un volumen secundario local y se cambia la propiedad del controlador, el volumen secundario se transfiere automáticamente de nuevo a su propietario original del controlador en la primera operación de escritura. No puedes cambiar la propiedad del controlador de un volumen secundario usando la opción *Change ownership*.
+
+
+
+=== Copiar volumen y propiedad de volumen
+
+Durante una operación de copia de volumen, el mismo controlador debe ser propietario tanto del volumen de origen como del volumen de destino. A veces, ambos volúmenes no tienen el mismo controlador preferido cuando empieza la operación de copia de volumen. Por eso, la propiedad del volumen de destino se transfiere automáticamente al controlador preferido del volumen de origen. Cuando la copia de volumen se completa o se detiene, la propiedad del volumen de destino se restaura a su controlador preferido.
+
+Si se cambia la propiedad del volumen de origen durante la operación de copia del volumen, también se cambia la propiedad del volumen de destino. En ciertos entornos de sistema operativo, podría ser necesario reconfigurar el controlador de host multivía antes de que se pueda usar una ruta de E/S. (Algunos controladores multivía requieren una edición para reconocer la ruta de E/S. Consulta la documentación de tu controlador para más información.)
+
+
+
+== Cambiar la configuración de caché
+
+La memoria caché es un área de almacenamiento volátil temporal (RAM) en el controlador que tiene un tiempo de acceso más rápido que el medio de la unidad. Si usas memoria caché, puedes aumentar el rendimiento general de E/S por estas razones:
+
+* Los datos solicitados al host para una lectura pueden estar ya en la caché de una operación anterior, eliminando así la necesidad de acceso a la unidad.
+* Los datos de escritura se escriben inicialmente en la caché, lo que libera a la aplicación para continuar en lugar de esperar a que los datos se escriban en la unidad.
+
+
+Selecciona el menú:Storage[Volumes > More > Change cache settings] para cambiar la siguiente configuración de caché:
+
+* *Caché de lectura y escritura* -- La caché de lectura es un búfer que almacena datos que se han leído de las unidades. Los datos para una operación de lectura pueden estar ya en la caché de una operación anterior, lo que elimina la necesidad de acceder a las unidades. Los datos permanecen en la caché de lectura hasta que se vacían.
++
+La caché de escritura es un búfer que almacena datos del host que aún no se han escrito en las unidades. Los datos permanecen en la caché de escritura hasta que se escriben en las unidades. La caché de escritura puede aumentar el rendimiento de I/O.
+
+* *Almacenamiento en caché de escritura con duplicación* -- El almacenamiento en caché de escritura con duplicación ocurre cuando los datos escritos en la memoria caché de un controlador también se escriben en la memoria caché del otro controlador. Por lo tanto, si un controlador falla, el otro puede completar todas las operaciones de escritura pendientes. La duplicación de la caché de escritura solo está disponible si el almacenamiento en caché de escritura está activado y hay dos controladores presentes. El almacenamiento en caché de escritura con duplicación es la configuración predeterminada al crear el volumen.
+* *Almacenamiento en caché de escritura sin baterías* -- La opción de almacenamiento en caché de escritura sin baterías permite que el almacenamiento en caché de escritura continúe incluso cuando las baterías faltan, fallan, están completamente descargadas o no están completamente cargadas. No se suele recomendar elegir el almacenamiento en caché de escritura sin baterías, porque los datos podrían perderse si se pierde la energía. Normalmente, el almacenamiento en caché de escritura se desactiva temporalmente por el controlador hasta que las baterías se cargan o se reemplaza una batería defectuosa.
++
+Esta opción solo está disponible si activaste la caché de escritura. Esta opción no está disponible para volúmenes thin.
+
+* *Prefetch dinámico de lectura en caché* -- El prefetch dinámico de lectura en caché permite al controlador copiar bloques de datos secuenciales adicionales en la caché mientras está leyendo bloques de datos de una unidad a la caché. Este almacenamiento en caché aumenta la posibilidad de que futuras solicitudes de datos puedan ser satisfechas desde la caché. El prefetch dinámico de lectura en caché es importante para aplicaciones multimedia que usan I/O secuencial. La velocidad y la cantidad de datos que se precargan en la caché se ajustan automáticamente según la velocidad y el tamaño de la solicitud de las lecturas del host. El acceso aleatorio no hace que los datos se precarguen en la caché. Esta función no se aplica cuando la caché de lectura está desactivada.
++
+Para un volumen delgado, la lectura anticipada de caché dinámica siempre está desactivada y no se puede cambiar.
+
+
+
+
+
+== Cambiar la configuración de escaneo de soportes
+
+Las exploraciones de soportes detectan y reparan errores de soportes en bloques de disco que las aplicaciones leen con poca frecuencia. Esta exploración puede evitar la pérdida de datos si fallan otras unidades en el pool o grupo de volúmenes, ya que los datos de las unidades con fallo se reconstruyen usando información de redundancia y datos de otras unidades en el pool o grupo de volúmenes.
+
+Los escaneos de medios se ejecutan continuamente a un ritmo constante basado en la capacidad a escanear y la duración del escaneo. Los escaneos en segundo plano pueden suspenderse temporalmente por una tarea en segundo plano de mayor prioridad (por ejemplo, reconstruction), pero se reanudarán al mismo ritmo constante.
+
+Puedes activar y establecer la duración de la exploración de soportes seleccionando menú:Almacenamiento[Volúmenes > Más > Cambiar configuración de exploración de soportes].
+
+Un volumen solo se analiza cuando está habilitada la opción de análisis de medios para la cabina de almacenamiento y para ese volumen. Si también se habilita la verificación de redundancia para ese volumen, la información de redundancia del volumen se verifica para ver si coincide con los datos, siempre y cuando el volumen tenga redundancia. El análisis de medios con verificación de redundancia está habilitado de forma predeterminada para cada volumen cuando se crea.
+
+Si se encuentra un error de medio irrecuperable durante el análisis, los datos se repararán mediante el uso de la información de redundancia, si estuviera disponible. Por ejemplo, la información de redundancia está disponible en volúmenes RAID 5 óptimos o en volúmenes RAID 6 que son óptimos o que solo tienen una sola unidad con fallos. Si el error irrecuperable no puede repararse mediante el uso de la información de redundancia, el bloque de datos se añade al registro de sectores ilegibles. Tanto los errores de medios que pueden corregirse como los que no pueden corregirse se informan en el registro de eventos.
+
+Si se encuentra una incoherencia entre los datos y la información de redundancia en la verificación de redundancia, se informa en el registro de eventos.

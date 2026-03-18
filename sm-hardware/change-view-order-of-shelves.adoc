@@ -1,0 +1,19 @@
+---
+permalink: sm-hardware/change-view-order-of-shelves.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, view, order, shelves 
+summary: Puedes cambiar el orden de las baldas que se muestran en la página Hardware para que coincida con el orden físico de las baldas en un armario. 
+---
+= Cambia el orden de visualización de las estanterías en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el orden de las baldas que se muestran en la página Hardware para que coincida con el orden físico de las baldas en un armario.
+
+.Pasos
+. Selecciona *Hardware*.
+. En la parte superior derecha de la vista de una estantería, selecciona las flechas arriba o abajo para reorganizar el orden de las estanterías que se muestran en la página Hardware.
+

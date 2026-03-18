@@ -1,0 +1,55 @@
+---
+permalink: sm-mirroring/overview-mirroring-async.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ARVM, asynchronous, mirroring, firmware, 
+summary: La función de Mirroring asíncrono proporciona un mecanismo a nivel de controlador, basado en firmware, para la replicación de datos entre una matriz de almacenamiento local y una matriz de almacenamiento remota. 
+---
+= Conoce la duplicación asíncrona en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función de Mirroring asíncrono proporciona un mecanismo a nivel de controlador, basado en firmware, para la replicación de datos entre una matriz de almacenamiento local y una matriz de almacenamiento remota.
+
+
+
+== ¿Qué es el mirroring asíncrono?
+
+_La replicación asíncrona_ captura el estado del volumen primario en un momento específico y copia solo los datos que han cambiado desde la última captura de imagen. El sitio primario puede actualizarse inmediatamente y el sitio secundario puede actualizarse a medida que lo permite el ancho de banda. La información se almacena en caché y se envía más tarde, a medida que los recursos de red están disponibles.
+
+La replicación asíncrona se crea por volumen pero se gestiona a nivel de grupo, lo que te permite asociar un volumen reflejado remoto distinto con cualquier volumen primario en una matriz de almacenamiento determinada. Este tipo de replicación es ideal para satisfacer la demanda de operaciones ininterrumpidas y, en general, es mucho más eficiente en cuanto a recursos de red para procesos periódicos.
+
+Más información:
+
+* link:how-asynchronous-mirroring-works.html["Cómo funciona el mirroring asíncrono"]
+* link:asynchronous-terminology.html["Terminología de la replicación asíncrona"]
+* link:asynchronous-mirror-status.html["Estado del espejo asíncrono"]
+* link:volume-ownership-sync.html["Propiedad del volumen"]
+* link:role-change-of-a-mirror-consistency-group.html["Cambio de rol de un grupo de coherencia espejo"]
+
+
+
+
+== ¿Cómo configuro el mirroring asíncrono?
+
+Debes usar la interfaz de Unified Manager para realizar la configuración inicial de mirroring entre las arrays. Una vez que esté configurado, puedes gestionar los mirrored pairs y los consistency groups en System Manager.
+
+Más información:
+
+* link:requirements-for-using-asynchronous-mirroring.html["Requisitos para usar la duplicación asíncrona"]
+* link:workflow-for-mirroring-a-volume-asynchronously.html["Flujo de trabajo para reflejar un volumen de forma asíncrona"]
+* link:../um-manage/create-asynchronous-mirrored-pair-um.html["Crear par reflejado asíncrono (en Unified Manager)"]
+
+
+
+
+== Información relacionada
+
+Conoce más sobre conceptos relacionados con la replicación asíncrona:
+
+* link:what-do-i-need-to-know-before-creating-a-mirror-consistency-group.html["Lo que necesitas saber antes de crear un grupo de coherencia de réplica"]
+* link:asynchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair.html["Lo que necesitas saber antes de crear un par reflejado"]
+* link:how-does-asynchronous-mirroring-differ-from-synchronous-mirroring-async.html["Cómo la replicación asíncrona se diferencia de la replicación síncrona"]
+

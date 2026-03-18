@@ -1,0 +1,58 @@
+---
+permalink: um-certificates/how-certificates-work-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, ca certificates, csr file, 
+summary: Los certificados son archivos digitales que identifican entidades en línea, como los sitios web y los servidores, para establecer comunicaciones seguras en Internet. 
+---
+= Cómo funcionan los certificados en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los certificados son archivos digitales que identifican entidades en línea, como los sitios web y los servidores, para establecer comunicaciones seguras en Internet.
+
+
+
+== Certificados firmados
+
+Los certificados garantizan que las comunicaciones web se transmitan de forma cifrada, privada e inalterada, solo entre el servidor y el cliente especificados. Usando Unified Manager, puedes gestionar certificados para el navegador en un sistema de administración de host y los controladores en las matrices de almacenamiento descubiertas.
+
+Un certificado puede estar firmado por una autoridad de confianza o puede estar autofirmado. "Firmar" simplemente significa que alguien validó la identidad del propietario y determinó que sus dispositivos pueden ser de confianza. Las matrices de almacenamiento se entregan con un certificado autofirmado generado automáticamente en cada controlador. Puedes seguir usando los certificados autofirmados, o puedes obtener certificados firmados por CA para una conexión más segura entre los controladores y los sistemas host.
+
+[NOTE]
+====
+Si bien los certificados firmados por CA aumentan la protección de seguridad (por ejemplo, evitan los ataques de tipo "man in the middle"), también aplican tarifas que pueden ser costosas si la red es extensa. En cambio, los certificados autofirmados son menos seguros, pero son gratuitos. Por lo tanto, los certificados autofirmados se utilizan con mayor frecuencia en los entornos de prueba internos, no en los entornos de producción.
+
+====
+Un certificado firmado es validado por una entidad de certificación (CA), que es una organización de terceros de confianza. Los certificados firmados incluyen detalles sobre el propietario de la entidad (generalmente, un servidor o sitio web), la fecha de emisión y de vencimiento del certificado, los dominios válidos de la entidad, y una firma digital compuesta por letras y números.
+
+Al abrir un explorador y escribir una dirección web, el sistema ejecuta un proceso de comprobación de certificados en segundo plano para determinar si el usuario se está conectando a un sitio web que incluye un certificado válido firmado por una CA. En general, un sitio protegido con un certificado firmado contiene un icono de candado y una designación https en la dirección. Si el usuario intenta conectarse a un sitio web que no contiene un certificado firmado por CA, el explorador mostrará una advertencia para indicar que el sitio no es seguro.
+
+La CA toma las medidas necesarias para verificar las identidades durante el proceso de solicitud. La entidad puede enviar un correo electrónico a la empresa registrada, verificar la dirección empresarial, y realizar una verificación de HTTP o DNS. Una vez completado el proceso de solicitud, la CA envía los archivos digitales para cargar en el sistema de gestión host. Normalmente, estos archivos contienen una cadena de confianza como la siguiente:
+
+* *Raíz* -- En la parte superior de la jerarquía se encuentra el certificado raíz, que contiene una clave privada utilizada para firmar otros certificados. La raíz identifica a una organización de CA concreta. Si usas la misma CA para todos tus dispositivos de red, solo necesitas un certificado raíz.
+* *Intermedios* -- Los certificados intermedios se ramifican a partir de la raíz. La CA emite uno o más certificados intermedios para que actúen como intermediarios entre una raíz protegida y los certificados del servidor.
+* *Servidor* -- En la parte inferior de la cadena se encuentra el certificado de servidor, que identifica tu entidad específica, como un sitio web u otro dispositivo. Cada controlador en una matriz de almacenamiento requiere un certificado de servidor independiente.
+
+
+
+
+== Certificados autofirmados
+
+Cada controladora de la cabina de almacenamiento incluye un certificado autofirmado preinstalado. Un certificado autofirmado es similar a un certificado firmado por CA, excepto que es validado por el propietario de la entidad y no por un tercero. Al igual que un certificado firmado por CA, un certificado autofirmado contiene su propia clave privada, y también garantiza que los datos se cifren y se envíen a través de una conexión HTTPS entre un servidor y un cliente.
+
+Los certificados autofirmados no son "confiables" para los navegadores. Cada vez que intentas conectarte a un sitio web que solo tiene un certificado autofirmado, el navegador muestra un mensaje de advertencia. Tienes que hacer clic en un enlace del mensaje de advertencia que te permite continuar al sitio web; al hacerlo, básicamente estás aceptando el certificado autofirmado.
+
+
+
+== Certificados para Unified Manager
+
+La interfaz de Unified Manager se instala con el Web Services Proxy en un sistema host. Cuando abres un navegador e intentas conectarte a Unified Manager, el navegador intenta verificar que el host es una fuente de confianza comprobando un certificado digital. Si el navegador no encuentra un certificado firmado por una CA para el servidor, muestra un mensaje de advertencia. Desde ahí, puedes continuar al sitio web para aceptar el certificado autofirmado para esa sesión. O puedes obtener certificados digitales firmados por una CA para que ya no veas el mensaje de advertencia.
+
+
+
+== Certificados para controladores
+
+Durante una sesión de Unified Manager, es posible que veas mensajes de seguridad adicionales cuando intentes acceder a un controlador que no tenga un certificado firmado por CA. En este caso, puedes confiar permanentemente en el certificado autofirmado o importar los certificados firmados por CA para los controladores, así el servidor Web Services Proxy podrá autenticar las solicitudes entrantes de los clientes de estos controladores.

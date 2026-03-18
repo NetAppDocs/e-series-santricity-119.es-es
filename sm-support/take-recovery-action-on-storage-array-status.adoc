@@ -1,0 +1,14 @@
+---
+permalink: sm-support/take-recovery-action-on-storage-array-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, take, recovery, action, storage, array, status 
+summary: Puedes actuar sobre el estado actual de tu matriz de almacenamiento revisando el registro de sectores ilegibles, volviendo a habilitar los puertos de la unidad y borrando el modo de recuperación. 
+---
+= Toma medidas de recuperación sobre el estado de la matriz de almacenamiento en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes actuar sobre el estado actual de tu matriz de almacenamiento revisando el registro de sectores ilegibles, volviendo a habilitar los puertos de la unidad y borrando el modo de recuperación.

@@ -1,0 +1,101 @@
+---
+permalink: sm-storage/types-of-copy-volume-operations.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: Puedes realizar una operación de copia de volumen sin conexión o una operación de copia de volumen en línea. Una operación sin conexión lee datos de un volumen de origen y los copia a un volumen de destino. Una operación en línea usa un volumen de instantánea como origen y copia sus datos a un volumen de destino. 
+---
+= Conoce los tipos de operaciones de copia de volumen en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes realizar una operación Copy Volume _offline_ o una operación Copy Volume _online_. Una operación offline lee datos de un volumen de origen y los copia en un volumen de destino. Una operación online utiliza un volumen snapshot como origen y copia sus datos en un volumen de destino.
+
+Para garantizar la integridad de los datos, toda la actividad de E/S en el volumen de destino se suspende durante cualquiera de los dos tipos de operación de Copy Volume. Esta suspensión ocurre porque el estado de los datos en el volumen de destino es inconsistente hasta que se completa el procedimiento.
+
+A continuación se describen las operaciones de Copy Volume offline y online.
+
+
+
+== Operación de copia de volumen sin conexión
+
+La relación de copia de volumen sin conexión es entre un volumen de origen y un volumen de destino. Una copia sin conexión lee datos del volumen de origen y los copia en un volumen de destino, mientras suspende todas las actualizaciones del volumen de origen con la copia en curso. Todas las actualizaciones del volumen de origen se suspenden para evitar que se creen incoherencias cronológicas en el volumen de destino.
+
+[cols="25h,~"]
+|===
+2+| Lo que necesitas saber sobre las operaciones de copia fuera de línea 
+
+
+ a| 
+Peticiones de lectura y escritura
+ a| 
+* Los volúmenes fuente que están participando en una copia sin conexión están disponibles para actividad de E/S de solo lectura mientras una operación de Copy Volume tiene un estado de In Progress o Pending.
+* Se permiten las solicitudes de escritura después de que la copia offline haya finalizado.
+* Para evitar mensajes de error de protección contra escritura, no accedas a un volumen fuente que esté participando en una operación de Copiar Volumen con un estado de En Proceso.
+
+
+
+
+ a| 
+Sistema de archivos de registro en diario
+ a| 
+* Si el volumen de origen se ha formateado con un sistema de archivos de registro en diario, cualquier intento de emitir una solicitud de lectura al volumen de origen podría ser rechazado por los controladores de la matriz de almacenamiento y podría aparecer un mensaje de error.
+* El controlador del sistema de archivos de registro en diario emite una solicitud de escritura antes de intentar emitir la solicitud de lectura. El controlador rechaza la solicitud de escritura y es posible que la solicitud de lectura no se emita debido a la solicitud de escritura rechazada. Esta condición puede provocar que aparezca un mensaje de error que indica que el volumen de origen está protegido contra escritura.
+* Para evitar que se produzca este problema, no intentes acceder a un volumen de origen que esté participando en una copia sin conexión mientras la operación Copy Volume tenga el estado En curso.
+
+
+|===
+
+
+== Operación de copia de volumen en línea
+
+La relación de Copy Volume en línea es entre un volumen de snapshot y un volumen de destino. Puedes iniciar una operación de Copy Volume mientras el volumen fuente está en línea y disponible para escrituras de datos. Esta función se logra creando un snapshot del volumen y usando el snapshot como el volumen fuente real para la copia.
+
+Cuando inicias una operación de Copy Volume para un volumen de origen, System Manager crea una imagen de un momento específico del volumen base y una relación de copia entre la imagen de un momento específico del volumen base y un volumen de destino. Usar la imagen de un momento específico como volumen de origen permite que la cabina de almacenamiento siga escribiendo en el volumen de origen mientras la copia está en curso.
+
+Durante una operación de copia en línea, se experimenta un impacto en el rendimiento debido al procedimiento de copia en escritura. Después de que la copia en línea se completa, el rendimiento del volumen base se restaura.
+
+[cols="25h,~"]
+|===
+2+| Lo que necesitas saber sobre las operaciones de copia en línea 
+
+
+ a| 
+¿Qué tipo de volúmenes se pueden usar?
+ a| 
+* El volumen para el que se crea la imagen de un momento específico se conoce como volumen base y debe ser un volumen estándar o un volumen fino en la matriz de almacenamiento.
+* Un volumen de destino puede ser un volumen estándar en un grupo de volúmenes o un volumen estándar en un pool. Un volumen de destino no puede ser un volumen delgado o un volumen base en un grupo de instantáneas.
+* Puedes usar la función Copiar Volumen en línea para copiar datos de un volumen delgado a un volumen estándar en un pool que está dentro del mismo arreglo de almacenamiento. Pero no puedes usar la función Copiar Volumen para copiar datos de un volumen estándar a un volumen delgado.
+
+
+
+
+ a| 
+Rendimiento del volumen base
+ a| 
+* Si el volumen de instantánea que se utiliza como origen de la copia está activo, el rendimiento del volumen base se degrada debido a las operaciones de copia en escritura. Cuando la copia se completa, la instantánea se desactiva y se restaura el rendimiento del volumen base. Aunque la instantánea está desactivada, el volumen de capacidad reservada y la relación de copia permanecen intactos.
+
+
+
+
+ a| 
+Tipos de volúmenes creados
+ a| 
+* Se crean un volumen snapshot y un volumen de capacidad reservada durante la operación de copia en línea.
+* El volumen de instantánea no es un volumen real que contenga datos, sino una referencia a los datos que estaban en un volumen en un momento específico.
+* Para cada instantánea que se toma, se crea un volumen de capacidad reservada para contener los datos de la instantánea. El volumen de capacidad reservada se utiliza solo para gestionar la imagen de la instantánea.
+
+
+
+
+ a| 
+Volumen de capacidad reservada
+ a| 
+* Antes de que se modifique un bloque de datos en el volumen de origen, el contenido del bloque que se va a modificar se copia en el volumen de capacidad reservada para su custodia.
+* Dado que el volumen de capacidad reservada almacena copias de los datos originales en esos bloques de datos, los cambios posteriores en esos bloques de datos escriben solo en el volumen de origen.
+* La operación de copia en línea utiliza menos espacio en disco que una copia física completa porque los únicos bloques de datos que se almacenan en el volumen de capacidad reservada son los que han cambiado desde el momento de la instantánea.
+
+
+|===

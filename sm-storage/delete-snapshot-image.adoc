@@ -1,0 +1,39 @@
+---
+permalink: sm-storage/delete-snapshot-image.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, snapshot, image 
+summary: Eliminas imágenes de instantánea para limpiar la imagen de instantánea más antigua de un grupo de instantáneas o de un grupo de coherencia de instantáneas. 
+---
+= Eliminar una imagen de snapshot en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Eliminas imágenes de instantánea para limpiar la imagen de instantánea más antigua de un grupo de instantáneas o de un grupo de coherencia de instantáneas.
+
+.Acerca de esta tarea
+Puedes eliminar una sola imagen de instantánea o puedes eliminar imágenes de instantáneas de grupos de coherencia de instantáneas que tengan la misma marca de hora de creación. También puedes eliminar imágenes de instantáneas de un grupo de instantáneas.
+
+No puedes eliminar una imagen de instantánea si no es la imagen de instantánea más antigua para el volumen base o el grupo de coherencia de instantáneas asociado.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Snapshot Images*.
+. Selecciona la imagen instantánea que quieres eliminar y confirma que quieres realizar la operación.
++
+Si seleccionaste una imagen de instantánea de un grupo de coherencia de instantáneas, selecciona cada volumen miembro que quieras eliminar y confirma que quieres realizar la operación.
+
+. Haz clic en *Delete*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina la imagen de instantánea del array de almacenamiento.
+* Libera la capacidad reservada para reutilizarla dentro del grupo de instantáneas o del grupo de coherencia de instantáneas.
+* Desactiva todos los volúmenes de instantáneas asociados que existen para la imagen de instantánea eliminada.
+* Desde la eliminación de un grupo de coherencia de instantáneas, mueve cualquier volumen miembro asociado con la imagen de instantánea eliminada a un estado detenido.
+

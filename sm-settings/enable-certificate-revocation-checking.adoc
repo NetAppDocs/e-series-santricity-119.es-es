@@ -1,0 +1,45 @@
+---
+permalink: sm-settings/enable-certificate-revocation-checking.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, certificate, revocation checking, 
+summary: 'Puedes activar comprobaciones automáticas de certificados revocados, así un servidor de Online Certificate Status Protocol (OCSP) bloquea a los usuarios para que no hagan conexiones no seguras.' 
+---
+= Habilita la comprobación de revocación de certificados en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes activar comprobaciones automáticas de certificados revocados, así un servidor de Online Certificate Status Protocol (OCSP) bloquea a los usuarios para que no hagan conexiones no seguras.
+
+.Antes de empezar
+* Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de certificado no aparecen.
+* Se configura un servidor DNS en ambos controladores, lo que permite usar un dominio completo para el servidor OCSP. Esta tarea está disponible en la página Hardware.
+* Si quieres especificar tu propio servidor OCSP, debes conocer la URL de ese servidor.
+
+
+.Acerca de esta tarea
+La comprobación automática de revocación es útil en casos en los que la CA emite un certificado de forma incorrecta o una clave privada está comprometida.
+
+Durante esta tarea, puedes configurar un servidor OCSP o usar el servidor especificado en el archivo de certificados. El servidor OCSP determina si la CA ha revocado algún certificado antes de su fecha de caducidad programada y luego bloquea al usuario para que no acceda a un sitio si el certificado está revocado.
+
+.Pasos
+. Selecciona menú:Configuración[Certificados].
+. Selecciona la pestaña *Trusted*.
++
+[NOTE]
+====
+También puedes activar la comprobación de revocación desde la pestaña *Key Management*.
+
+====
+. Haz clic en *Tareas no comunes* y luego selecciona *Activar comprobación de revocación* en el menú desplegable.
+. Selecciona *I want to enable revocation checking*, para que aparezca una marca de verificación en la casilla de verificación y aparezcan campos adicionales en el cuadro de diálogo.
+. En el campo *OCSP responder address*, puedes introducir opcionalmente una URL para un servidor de respuesta OCSP. Si no introduces una dirección, el sistema usa la URL del servidor OCSP del archivo de certificado.
+. Haz clic en *Test Address* para asegurarte de que el sistema puede abrir una conexión a la URL especificada.
+. Haz clic en *Guardar*.
+
+
+.Resultados
+Si la matriz de almacenamiento intenta conectarse a un servidor con un certificado revocado, se deniega la conexión y se registra un evento.

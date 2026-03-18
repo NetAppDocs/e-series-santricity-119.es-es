@@ -1,0 +1,132 @@
+---
+permalink: sm-storage/faq-snapshots.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre snapshots para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Por qué no veo todos mis volúmenes, hosts o host clusters?
+
+Los volúmenes Snapshot que incluyen un volumen base con la función DA habilitada no son aptos para asignarse a un host que no es compatible con la función Data Assurance (DA). Debe deshabilitar DA en el volumen base para poder asignar un volumen Snapshot a un host que no es compatible con DA.
+
+Tenga en cuenta las siguientes directrices para el host al cual planea asignar el volumen Snapshot:
+
+* Un host no es compatible con DA si está conectado a la cabina de almacenamiento a través de una interfaz de I/O que no es compatible con DA.
+* Un clúster de hosts no es compatible con DA si tiene al menos un miembro de host que no es compatible con DA.
+
+
+[NOTE]
+====
+No se puede deshabilitar la DA en un volumen asociado con Snapshot (grupos de coherencia, grupos Snapshot, imágenes Snapshot y volúmenes Snapshot), copias de volumen y reflejos. Toda la capacidad reservada y los objetos Snapshot asociados deben eliminarse para poder deshabilitar DA en el volumen base.
+
+====
+
+
+== ¿Qué es una imagen snapshot?
+
+Una imagen instantánea es una copia lógica del contenido de un volumen, capturada en un momento específico. Las imágenes instantáneas usan un espacio de almacenamiento mínimo.
+
+Los datos de la imagen snapshot se almacenan de la siguiente manera:
+
+* Cuando se crea una imagen de snapshot, coincide exactamente con el volumen base. Después de tomar la snapshot, cuando ocurre la primera solicitud de escritura para cualquier bloque o conjunto de bloques en el volumen base, los datos originales se copian en la capacidad reservada de la snapshot antes de que los nuevos datos se escriban en el volumen base.
+* Las instantáneas posteriores incluyen solo los bloques de datos que han cambiado desde que se creó la primera imagen de instantánea. Cada operación de copia sobre escritura posterior guarda los datos originales que están a punto de sobrescribirse en el volumen base en la capacidad reservada de la instantánea antes de que los nuevos datos se escriban en el volumen base.
+
+
+
+
+== ¿Por qué usar imágenes instantáneas?
+
+Puedes usar instantáneas para protegerte y permitir la recuperación ante la pérdida o corrupción accidental o malintencionada de datos.
+
+Selecciona un volumen base o un grupo de volúmenes base, llamado grupo de consistencia de instantáneas, y luego captura imágenes de instantáneas de una o más de las siguientes maneras:
+
+* Puedes crear una imagen de snapshot de un único volumen base o un grupo de coherencia de snapshot formado por varios volúmenes base.
+* Puedes tomar instantáneas manualmente o crear una programación para un volumen base o un grupo de consistencia de instantáneas para capturar automáticamente imágenes de instantáneas periódicas.
+* Puedes crear un volumen de instantánea accesible por el host a partir de una imagen de instantánea.
+* Puedes realizar una operación de rollback para restaurar una imagen instantánea.
+
+
+El sistema conserva varias imágenes instantáneas como puntos de restauración que puedes usar para volver a conjuntos de datos en buen estado en momentos específicos. La posibilidad de volver atrás ofrece protección contra el borrado accidental de datos y la corrupción de datos.
+
+
+
+== ¿Qué tipos de volúmenes se pueden usar para las instantáneas?
+
+Los volúmenes estándar y los volúmenes thin son los únicos tipos de volúmenes que se pueden usar para almacenar imágenes snapshot. No se pueden usar volúmenes non-standard. El volumen base puede residir en un pool o en un grupo de volúmenes.
+
+
+
+== ¿Por qué crearías un grupo de coherencia de instantáneas?
+
+Creas un grupo de coherencia de instantáneas cuando quieres asegurarte de que las imágenes de instantáneas se toman en varios volúmenes al mismo tiempo.
+
+Por ejemplo, una base de datos compuesta por varios volúmenes que necesitan mantenerse coherentes para fines de recuperación requeriría un grupo de coherencia de instantáneas para recopilar instantáneas coordinadas de todos los volúmenes y usarlas para restaurar toda la base de datos.
+
+Los volúmenes incluidos en un grupo de coherencia de instantáneas se llaman _volúmenes miembros_.
+
+Puedes realizar las siguientes operaciones de instantánea en un grupo de coherencia de instantáneas:
+
+* Crea una imagen de instantánea de un grupo de coherencia de instantáneas para obtener imágenes simultáneas de los volúmenes miembros.
+* Crea una programación para que el grupo de coherencia de instantáneas capture automáticamente imágenes simultáneas periódicas de los volúmenes miembros.
+* Crea un volumen de instantánea accesible por el host de una imagen de grupo de consistencia de instantáneas.
+* Realiza una operación de rollback para un grupo de consistencia de instantáneas.
+
+
+
+
+== ¿Qué es un volumen snapshot y cuándo necesita capacidad reservada?
+
+Un volumen de instantánea permite al host acceder a los datos de la imagen de instantánea. El volumen de instantánea contiene su propia capacidad reservada, que guarda cualquier modificación en el volumen base sin afectar la imagen de instantánea original. Las imágenes de instantánea no son accesibles para lectura ni escritura por los hosts. Si quieres leer o escribir datos de instantánea, crea un volumen de instantánea y asígnalo a un host.
+
+Puedes crear dos tipos de volúmenes instantáneos. El tipo de volumen instantáneo determina si usa capacidad reservada.
+
+* *Sólo lectura* -- Un volumen de instantánea creado como solo lectura le da a una aplicación host acceso de lectura a una copia de los datos contenidos en la imagen de instantánea. Un volumen de instantánea de solo lectura no usa capacidad reservada.
+* *Lectura-escritura* -- Un volumen de instantánea que se crea como lectura-escritura te permite hacer cambios en el volumen de instantánea sin afectar la imagen de instantánea de referencia. Un volumen de instantánea de lectura-escritura usa capacidad reservada para guardar estos cambios. Puedes convertir un volumen de instantánea de solo lectura en lectura-escritura en cualquier momento.
+
+
+
+
+== ¿Qué es un grupo de instantáneas?
+
+Un grupo de instantáneas es una colección de imágenes de instantáneas de un momento específico de un único volumen base asociado.
+
+System Manager organiza las imágenes snapshot en _snapshot groups_. Los snapshot groups no requieren ninguna acción por parte del usuario, pero puedes ajustar la capacidad reservada en un snapshot group en cualquier momento. Además, puede que se te pida crear capacidad reservada cuando se cumplan las siguientes condiciones:
+
+* Cada vez que tomas una instantánea de un volumen base que todavía no tiene un grupo de instantáneas, System Manager crea automáticamente un grupo de instantáneas. Esto crea capacidad reservada para el volumen base que se usa para almacenar las imágenes de instantáneas posteriores.
+* Cada vez que creas una planificación de instantáneas para un volumen base, System Manager crea automáticamente un grupo de instantáneas.
+
+
+
+
+== ¿Por qué deshabilitar un volumen snapshot?
+
+Desactivas un volumen de instantánea cuando quieres asignar un volumen de instantánea diferente a la imagen de instantánea. Puedes reservar el volumen de instantánea desactivado para usarlo más tarde.
+
+Si ya no necesitas el volumen de instantánea o el volumen de instantánea del grupo de consistencia y no tienes intención de volver a crearlo más adelante, deberías eliminar el volumen en lugar de desactivarlo.
+
+
+
+== ¿Qué es el estado Disabled?
+
+Un volumen de instantánea en estado Deshabilitado no está actualmente asignado a una imagen de instantánea. Para habilitar el volumen de instantánea, tienes que usar la operación de recrear para asignar una nueva imagen de instantánea al volumen de instantánea deshabilitado.
+
+Las características del volumen de instantánea están definidas por la imagen de instantánea que se le asigna. La actividad de lectura y escritura se suspende en un volumen de instantánea en estado Disabled.
+
+
+
+== ¿Por qué suspendería una programación de snapshots?
+
+Cuando se suspende una programación, no se crean las imágenes de instantáneas programadas. Puedes pausar una programación de instantáneas para conservar espacio de almacenamiento y luego reanudar las instantáneas programadas más tarde.
+
+Si no necesitas la programación de instantáneas, deberías eliminar la programación en lugar de suspenderla.

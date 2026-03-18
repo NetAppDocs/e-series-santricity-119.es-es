@@ -1,0 +1,63 @@
+---
+permalink: sm-storage/create-pool-automatically.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, pool, automatically 
+summary: La creación de pools se inicia automáticamente cuando System Manager detecta unidades sin asignar en la matriz de almacenamiento. Puedes usar la creación automática de pools para configurar fácilmente todas las unidades sin asignar de la matriz de almacenamiento en un solo pool y para añadir unidades a pools existentes. 
+---
+= Crea un pool automáticamente en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La creación de pools se inicia automáticamente cuando SANtricity System Manager detecta unidades sin asignar en la matriz de almacenamiento. Puedes usar la creación automática de pools para configurar fácilmente todas las unidades sin asignar de la matriz de almacenamiento en un solo pool y para añadir unidades a pools existentes.
+
+.Antes de empezar
+Puedes iniciar el cuadro de diálogo Configuración automática de la piscina cuando se cumple una de estas condiciones:
+
+* Se ha detectado al menos una unidad sin asignar que puede añadirse a un pool existente con tipos de unidad similares.
+* Se han detectado once (11) o más unidades no asignadas que pueden usarse para crear un nuevo pool (si no pueden añadirse a un pool existente debido a tipos de unidad diferentes).
+
+
+.Acerca de esta tarea
+Se debe recordar lo siguiente:
+
+* Cuando añades unidades a una matriz de almacenamiento, System Manager detecta automáticamente las unidades y te pide que crees un solo grupo o varios grupos según el tipo de unidad y la configuración actual.
+* Si se han definido pools previamente, System Manager te muestra automáticamente la opción de añadir las unidades compatibles a un pool existente. Cuando añades nuevas unidades a un pool existente, System Manager redistribuye automáticamente los datos en la nueva capacidad, que ahora incluye las nuevas unidades que añadiste.
+* Cuando configures una matriz de almacenamiento EF600 o EF300, asegúrate de que cada controlador tenga acceso al mismo número de unidades en las primeras 12 ranuras y al mismo número de unidades en las últimas 12 ranuras. Esta configuración ayuda a los controladores a usar ambos buses PCIe del lado de la unidad de manera más efectiva.
+
+
+Puedes iniciar el cuadro de diálogo Configuración automática de la piscina usando cualquiera de los siguientes métodos:
+
+* Cuando se detecta capacidad no asignada, la recomendación de Configuración automática del grupo aparece en la página de inicio en el área de notificaciones. Haz clic en *Ver configuración automática del grupo* para abrir el cuadro de diálogo.
+* También puedes abrir el cuadro de diálogo de configuración automática de grupos desde la página Pools y grupos de volúmenes, como se describe en la siguiente tarea.
+
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Selecciona menú:Más[Lanzar la autoconfiguración del pool].
++
+La tabla de resultados muestra los nuevos pools, los pools existentes con unidades añadidas o ambos. Una nueva pool se nombra con un número secuencial por defecto.
+
++
+System Manager realiza las siguientes tareas:
+
++
+** Crea un único pool si hay un número suficiente de unidades con el mismo tipo de unidad (HDD o SSD) y tienen una capacidad similar.
+** Crea múltiples pools si la capacidad no asignada consiste en diferentes tipos de unidades.
+** Agrega las unidades a un pool existente si ya hay un pool definido en el arreglo de almacenamiento y agregas nuevas unidades del mismo tipo al pool.
+** Agrega las unidades del mismo tipo de unidad al pool existente y usa los otros tipos de unidad para crear pools diferentes si las nuevas unidades son de tipos de unidad diferentes.
+
+
+. Para cambiar el nombre de un nuevo pool, haz clic en el icono *Editar* (el lápiz).
+. Para ver características adicionales del pool, coloca el cursor sobre o toca el icono *Details* (la página).
++
+Se muestra información acerca del tipo de unidad, la función de seguridad, la funcionalidad Data Assurance (DA), la protección contra pérdida de bandeja y la protección contra pérdida de cajón.
+
++
+Para las matrices de almacenamiento EF600 y EF300, también se muestran los ajustes para el aprovisionamiento de recursos y los tamaños de bloques de volúmenes.
+
+. Haz clic en *Aceptar*.
+

@@ -1,0 +1,39 @@
+---
+permalink: sm-settings/faq-storage-system-alerts.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre alertas del sistema de almacenamiento para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué pasa si las alertas están desactivadas?
+
+Si quieres que los administradores reciban notificaciones sobre eventos importantes que ocurran en la matriz de almacenamiento, debes configurar un método de alerta.
+
+Para las matrices de almacenamiento gestionadas con SANtricity System Manager, configuras las alertas desde la página Alertas. Las notificaciones de alerta se pueden enviar por correo electrónico, trampas SNMP o mensajes syslog. Además, las alertas por correo electrónico se pueden configurar desde el asistente de configuración inicial.
+
+
+
+== ¿Cómo configuro alertas SNMP o syslog?
+
+Además de las alertas por correo electrónico, puedes configurar alertas para que se envíen mediante trampas de Simple Network Management Protocol (SNMP) o por mensajes de syslog.
+
+Para configurar las alertas SNMP o syslog, ve al menú:Settings[Alerts].
+
+
+
+== ¿Por qué las marcas de tiempo son incoherentes entre la array y las alertas?
+
+Cuando la matriz de almacenamiento envía alertas, no corrige la zona horaria del servidor o host de destino que recibe las alertas. En lugar de eso, la matriz de almacenamiento usa la hora local (GMT) para crear la marca de tiempo que se utiliza para el registro de la alerta. Como resultado, podrías ver incoherencias entre las marcas de tiempo de la matriz de almacenamiento y el servidor o host que recibe una alerta.
+
+Dado que la matriz de almacenamiento no corrige la zona horaria al enviar alertas, la marca de hora de las alertas es relativa a GMT, lo que significa que tiene un desfase horario de cero. Para calcular una marca de hora adecuada a tu zona horaria local, debes determinar tu desfase horario con respecto a GMT y luego sumar o restar ese valor a las marcas de hora.

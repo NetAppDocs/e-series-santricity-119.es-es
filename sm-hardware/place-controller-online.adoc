@@ -1,0 +1,32 @@
+---
+permalink: sm-hardware/place-controller-online.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, place, controller, online 
+summary: Si un controlador está en estado desconectado o en modo de servicio, puedes volver a ponerlo en línea. 
+---
+= Poner un controlador en línea en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si un controlador está en estado desconectado o en modo de servicio, puedes volver a ponerlo en línea.
+
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra las unidades, haz clic en la pestaña *Controladores y componentes*.
++
+El gráfico cambia para mostrar los controladores en lugar de las unidades.
+
+. Haz clic en un controlador que esté en estado offline o en modo de servicio.
++
+Aparece el menú contextual de la controladora.
+
+. Selecciona *Poner en línea* y confirma que quieres realizar la operación.
+
+
+.Resultados
+La detección de una ruta preferida restaurada por el controlador multivía puede tardar hasta 10 minutos.
+
+Todos los volúmenes que originalmente pertenecían a este controlador se mueven automáticamente de vuelta al controlador a medida que se reciben solicitudes de E/S para cada volumen. En algunos casos, podrías necesitar redistribuir manualmente los volúmenes con el comando *Redistribuir volúmenes*.

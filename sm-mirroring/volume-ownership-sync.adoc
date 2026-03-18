@@ -1,0 +1,33 @@
+---
+permalink: sm-mirroring/volume-ownership-sync.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, ownership, sync, change, preferred, controller, owner, mirrored, pair, 
+summary: Puedes cambiar el propietario preferido del controlador en un par reflejado. 
+---
+= Conoce la propiedad del volumen en la replicación síncrona en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el propietario preferido del controlador en un par reflejado.
+
+[NOTE]
+====
+Esta función no está disponible para la replicación síncrona en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+Si el volumen primario del par reflejado es propiedad del controlador A, entonces el volumen secundario también será propiedad del controlador A del array de almacenamiento remoto. Cambiar el propietario del volumen primario cambiará automáticamente el propietario del volumen secundario para asegurar que ambos volúmenes sean propiedad del mismo controlador. Los cambios de propiedad actuales en el lado primario se propagan automáticamente a los cambios de propiedad actuales correspondientes en el lado secundario.
+
+Por ejemplo, un volumen primario es propiedad de la controladora A y luego cambias el propietario de la controladora a la controladora B. En este caso, la siguiente escritura remota cambia el propietario de la controladora del volumen secundario de la controladora A a la B. Como los cambios de propiedad de la controladora en el lado secundario están controlados por el lado primario, no requieren ninguna intervención especial por parte del administrador de almacenamiento.
+
+
+
+== Reinicios del controlador
+
+Un reinicio del controlador provoca un cambio de propiedad del volumen en el lado primario, pasando del propietario del controlador preferido al controlador alternativo en la matriz de almacenamiento.
+
+A veces, una escritura remota se interrumpe por un reinicio del controlador o un ciclo de alimentación de la matriz de almacenamiento antes de que se pueda escribir en el volumen secundario. El controlador no necesita realizar una sincronización completa del par reflejado en este caso.
+
+Cuando se ha interrumpido una escritura remota durante un reinicio del controlador, el nuevo propietario del controlador en el lado primario lee la información almacenada en un archivo de registro en el volumen de capacidad reservada del propietario preferido del controlador. Luego, el nuevo propietario del controlador copia los bloques de datos afectados del volumen primario al volumen secundario, eliminando la necesidad de una sincronización completa de los volúmenes reflejados.

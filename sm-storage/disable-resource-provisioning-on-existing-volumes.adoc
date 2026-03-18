@@ -1,0 +1,49 @@
+---
+permalink: sm-storage/disable-resource-provisioning-on-existing-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, disable, resource provisioning, 
+summary: Puedes activar o desactivar el aprovisionamiento de recursos en un pool o grupo de volúmenes existente. 
+---
+= Habilita o deshabilita el aprovisionamiento de recursos en grupos de volúmenes y pools existentes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para cualquier unidad compatible con DULBE, puedes activar o desactivar el aprovisionamiento de recursos en volúmenes existentes en un pool o grupo de volúmenes.
+
+El aprovisionamiento de recursos es una función disponible en las matrices de almacenamiento EF300 y EF600, que permite que los volúmenes se pongan en uso inmediatamente sin ningún proceso de inicialización en segundo plano. Todos los bloques de unidad asignados al volumen se desasignan (sin mapear), lo que puede mejorar la vida útil de la SSD y aumentar el rendimiento máximo de escritura.
+
+Por defecto, el aprovisionamiento de recursos está activado en los sistemas en los que las unidades admiten DULBE. No es necesario activar el aprovisionamiento de recursos a menos que lo hayas desactivado antes.
+
+.Antes de empezar
+* Debes tener una matriz de almacenamiento EF300 o EF600.
++
+
+NOTE: DULBE no es compatible con las matrices de almacenamiento EF300C o EF600C en este momento.
+
+* Debes tener grupos o pools de volúmenes SSD, donde todas las unidades admitan la capacidad de recuperación de errores NVMe Deallocated or Unwritten Logical Block Error Enable (DULBE). De lo contrario, la opción de aprovisionamiento de recursos no está disponible.
+
+
+.Acerca de esta tarea
+Cuando habilitas el aprovisionamiento de recursos para grupos de volúmenes y pools existentes, todos los volúmenes en el grupo de volúmenes o pool seleccionado se cambian para permitir que los bloques se desasignen. Este proceso puede implicar una operación en segundo plano para asegurar una asignación coherente en la granularidad de desasignación. Esta operación no desasigna ningún espacio. Una vez que la operación en segundo plano termina, el sistema operativo necesita desasignar cualquier bloque no usado para crear espacio libre.
+
+Cuando desactivas el aprovisionamiento de recursos para los grupos de volúmenes o pools existentes, una operación en segundo plano reescribe todos los bloques lógicos en cada volumen. Los datos existentes permanecen intactos. Las escrituras asignarán o aprovisionarán los bloques en las unidades asociadas con el grupo de volúmenes o pool.
+
+
+NOTE: Para los nuevos grupos de volúmenes y pools, puedes activar o desactivar el aprovisionamiento de recursos desde menú:Configuración[Sistema > Configuración adicional > Activar/Desactivar volúmenes con aprovisionamiento de recursos].
+
+.Pasos
+. Selecciona el menú:Storage[Pools & Volume Groups].
+. Seleccione un pool o un grupo de volúmenes de la lista.
++
+Solo puede seleccionar un pool o un grupo de volúmenes a la vez. Desplácese hacia abajo en la lista para ver pools o grupos de volúmenes adicionales.
+
+. Selecciona *Tareas no comunes* y luego *Activar aprovisionamiento de recursos* o *Desactivar aprovisionamiento de recursos*.
+. En el cuadro de diálogo, confirma la operación.
+
+
+
+NOTE: *Si volviste a activar DULBE* -- Después de que termine la operación en segundo plano, puede que necesites reiniciar el host para que detecte los cambios de configuración de DULBE y luego volver a montar todos los sistemas de archivos.

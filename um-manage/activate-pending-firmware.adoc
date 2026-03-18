@@ -1,0 +1,45 @@
+---
+permalink: um-manage/activate-pending-firmware.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, activate, staged, os, software 
+summary: Puede optar por activar el archivo de actualización inmediatamente o esperar hasta un momento más conveniente. Este procedimiento entiende que se optó por activar el archivo de software más adelante. 
+---
+= Activa el software de SO por etapas en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede optar por activar el archivo de actualización inmediatamente o esperar hasta un momento más conveniente. Este procedimiento entiende que se optó por activar el archivo de software más adelante.
+
+.Acerca de esta tarea
+Puede transferir los archivos del firmware sin activarlos. Puede optar por activarlos más tarde por los siguientes motivos:
+
+* *Hora del día* -- Activar el software puede llevar mucho tiempo, así que quizá quieras esperar hasta que las cargas de E/S sean más ligeras. Los controladores se reinician y hacen failover durante la activación, así que el rendimiento puede ser más bajo de lo normal hasta que termine la actualización.
+* *Tipo de paquete* -- Puede que quieras probar el nuevo software y firmware en una matriz de almacenamiento antes de actualizar los archivos en otras matrices de almacenamiento.
+
+
+[NOTE]
+====
+No se puede detener el proceso de activación una vez iniciado.
+
+====
+.Pasos
+. En la vista principal, selecciona *Administrar*. Si es necesario, haz clic en la columna Estado para ordenar, en la parte superior de la página, todas las matrices de almacenamiento con el estado "OS Upgrade (awaiting activation)".
+. Selecciona una o más matrices de almacenamiento para las que quieras activar software y luego selecciona menú:Upgrade Center[Activate Staged OS Software].
++
+Durante la operación de actualización, ocurren las siguientes acciones:
+
++
+** Como parte del proceso de activación, se ejecuta una comprobación de estado previa a la actualización. La comprobación de estado previa a la actualización evalúa todos los componentes de la matriz de almacenamiento para asegurarse de que la activación pueda continuar.
+** Si falla alguna comprobación de estado de una matriz de almacenamiento, la activación se detiene. Puedes hacer clic en la elipsis (...) y seleccionar *Guardar registro* para revisar los errores. También puedes elegir omitir el error de comprobación de estado y luego hacer clic en *Continuar* para seguir con la activación.
+** Puedes cancelar la operación de activación después de la comprobación de estado previa a la actualización. Cuando la comprobación de estado previa a la actualización se completa correctamente, se activa. El tiempo que tarda en activarse depende de la configuración de tu matriz de almacenamiento y de los componentes que estés activando.
+
+
+. *Opcional:* Después de que se complete la activación, puedes ver una lista de lo que se activó para una matriz de almacenamiento específica haciendo clic en la elipsis (...) y luego seleccionando *Guardar registro*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `activate_log-<date>.json`.
+
+

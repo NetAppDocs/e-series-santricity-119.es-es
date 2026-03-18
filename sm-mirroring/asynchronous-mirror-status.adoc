@@ -1,0 +1,159 @@
+---
+permalink: sm-mirroring/asynchronous-mirror-status.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, asynchronous, mirror, status, consistency, group, 
+summary: El estado de la réplica define el estado de los grupos de consistencia de volúmenes reflejados y los pares de volúmenes reflejados. 
+---
+= Ver el estado del espejo asíncrono en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El estado de la réplica define el estado de los grupos de consistencia de volúmenes reflejados y los pares de volúmenes reflejados.
+
+
+
+== Estado de los grupos de coherencia de espejo
+
+[cols="25h,~"]
+|===
+| Estado | Descripción 
+
+
+ a| 
+Sincronizando (sincronización inicial)
+ a| 
+El progreso de la sincronización inicial de datos que se ha completado entre los pares de volúmenes reflejados.
+
+Durante una sincronización inicial, los volúmenes pueden pasar a los siguientes estados: Degradado/Fallido/Optimal/Unknown.
+
+
+
+ a| 
+Sincronizando (sincronización a intervalos)
+ a| 
+El progreso de la sincronización periódica de datos que se ha completado entre los pares de volúmenes reflejados.
+
+
+
+ a| 
+Sistema suspendido
+ a| 
+Sincronización de datos suspendida por el sistema de almacenamiento en todos los pares reflejados a nivel de grupo de coherencia de espejo.
+
+Al menos un par reflejado en el grupo de coherencia de reflejo está en estado detenido o fallido.
+
+
+
+ a| 
+Usuario suspendido
+ a| 
+Sincronización de datos suspendida por el usuario en todos los pares reflejados a nivel de grupo de consistencia de espejo.
+
+Este estado ayuda a reducir cualquier impacto en el rendimiento para la aplicación host que pueda ocurrir mientras los datos modificados en la matriz de almacenamiento local se copian a la matriz de almacenamiento remota.
+
+
+
+ a| 
+Paused
+ a| 
+El proceso de sincronización de datos se ha pausado temporalmente debido a un error al acceder a la matriz de almacenamiento remoto.
+
+
+
+ a| 
+Huérfano
+ a| 
+Existe un volumen reflejado huérfano cuando un volumen miembro de un grupo de reflejo de consistencia ha sido eliminado en un lado del grupo de reflejo de consistencia (ya sea el lado primario o el secundario) pero no en el otro lado.
+
+Los volúmenes de pares reflejados huérfanos se detectan cuando se restablece la comunicación entre matrices y los dos lados de la configuración de espejo reconcilian los parámetros de espejo.
+
+Puedes eliminar un par reflejado para corregir un estado de par reflejado huérfano.
+
+
+
+ a| 
+Cambio de rol pendiente/en curso
+ a| 
+Un cambio de rol entre los grupos de coherencia de réplica está pendiente o en curso.
+
+El cambio de inversión de roles (a rol primario o rol secundario) afecta a todos los pares reflejados asíncronos dentro del grupo de coherencia de reflejo seleccionado.
+
+Puedes cancelar un cambio de rol pendiente, pero no un cambio de rol en curso.
+
+
+
+ a| 
+Conflicto de roles
+ a| 
+Se produjo un conflicto de roles entre grupos de consistencia de mirror debido a un problema de comunicación entre la matriz de almacenamiento local y la matriz de almacenamiento remota durante una operación de cambio de roles.
+
+Cuando se ha resuelto el problema de comunicación, se produce un Conflicto de Funciones. Usa el Recovery Guru para recuperarte de este error.
+
+No se permite una promoción forzada cuando se resuelve un conflicto de roles.
+
+|===
+
+
+== Estado de los pares reflejados
+
+El estado de un par reflejado indica si los datos del volumen primario y del volumen secundario están sincronizados.
+
+[cols="25h,~"]
+|===
+| Estado | Descripción 
+
+
+ a| 
+Sincronizando
+ a| 
+El progreso de la sincronización de datos inicial o periódica que se ha completado entre los pares reflejados.
+
+Existen dos tipos de sincronización: sincronización inicial y sincronización periódica. El progreso de la sincronización inicial también se muestra en el cuadro de diálogo Long Running Operations.
+
+
+
+ a| 
+Óptimo
+ a| 
+Los volúmenes del par reflejado están sincronizados, lo que indica que la conexión entre las matrices de almacenamiento está operativa y cada volumen está en la condición de funcionamiento deseada.
+
+
+
+ a| 
+Incompleto
+ a| 
+El par reflejado asíncrono está incompleto en la matriz de almacenamiento remota porque la secuencia de creación del par reflejado se inició en una matriz de almacenamiento que no es compatible con System Manager y el par reflejado no se ha completado en el volumen secundario.
+
+El proceso de creación del par reflejado se completa cuando se añade un volumen al grupo de consistencia de reflejo en la matriz de almacenamiento remota. Este volumen se convierte en el volumen secundario en el par reflejado asíncrono.
+
+El par reflejado se completa automáticamente si la matriz de almacenamiento remota está gestionada por System Manager.
+
+
+
+ a| 
+Con errores
+ a| 
+La operación de duplicación asíncrona no puede funcionar con normalidad debido a un fallo con los volúmenes primarios, los volúmenes secundarios o la capacidad reservada del espejo.
+
+
+
+ a| 
+Huérfano
+ a| 
+Existe un volumen reflejado huérfano cuando un volumen miembro de un grupo de reflejo de consistencia ha sido eliminado en un lado del grupo de reflejo de consistencia (ya sea el lado primario o el secundario) pero no en el otro lado.
+
+Los volúmenes de pares reflejados huérfanos se detectan cuando se restablece la comunicación entre las dos matrices de almacenamiento y los dos lados de la configuración de espejo reconcilian los parámetros de espejo.
+
+Puedes eliminar un par reflejado para corregir un estado de par reflejado huérfano.
+
+
+
+ a| 
+Detenido
+ a| 
+El par reflejado está en estado detenido porque el grupo de consistencia del reflejo está en estado suspendido del sistema.
+
+|===

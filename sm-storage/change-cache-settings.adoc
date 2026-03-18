@@ -1,0 +1,101 @@
+---
+permalink: sm-storage/change-cache-settings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, cache settings 
+summary: Es posible modificar la configuración de la caché de lectura y la caché de escritura para afectar el rendimiento de I/O general de un volumen. 
+---
+= Cambiar la configuración de caché de un volumen en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible modificar la configuración de la caché de lectura y la caché de escritura para afectar el rendimiento de I/O general de un volumen.
+
+.Acerca de esta tarea
+Tenga en cuenta estas directrices al cambiar la configuración de caché de un volumen:
+
+* Después de abrir el cuadro de diálogo Cambiar configuración de caché, puede que veas un icono junto a las propiedades de caché seleccionadas. Este icono indica que el controlador ha suspendido temporalmente las operaciones de caché.
++
+Esta acción puede ser tomada cuando se carga una nueva batería, se elimina una controladora o la controladora detecta que los tamaños de caché no coinciden. Una vez despejada la condición, las propiedades de caché seleccionadas en el cuadro de diálogo se mostrarán activas. Si las propiedades de caché seleccionadas no se activan, póngase en contacto con el soporte técnico.
+
+* Puedes cambiar la configuración de la caché para un solo volumen o para varios volúmenes en una matriz de almacenamiento. Puedes cambiar la configuración de la caché para todos los volúmenes estándar o todos los volúmenes delgados al mismo tiempo.
+
+
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona cualquier volumen y luego selecciona menú:Más[Cambiar configuración de caché].
++
+Aparece el cuadro de diálogo Cambiar configuración de caché. Todos los volúmenes de la matriz de almacenamiento aparecen en este cuadro de diálogo.
+
+. Selecciona la pestaña *Básico* para cambiar la configuración de la caché de lectura y la caché de escritura.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Configuración de caché | Descripción 
+
+
+ a| 
+Almacenamiento en caché de lectura
+ a| 
+La caché de lectura es un búfer que almacena datos que se han leído de las unidades. Los datos para una operación de lectura pueden estar ya en la caché por una operación anterior, lo que elimina la necesidad de acceder a las unidades. Los datos permanecen en la caché de lectura hasta que se vacían.
+
+
+
+ a| 
+Almacenamiento en caché de escritura
+ a| 
+La caché de escritura es un búfer que almacena datos del host que aún no se han escrito en las unidades. Los datos permanecen en la caché de escritura hasta que se escriben en las unidades. La caché de escritura puede aumentar el rendimiento de I/O.
+
+
+NOTE: La caché se vacía automáticamente después de desactivar la *escritura en caché* para un volumen.
+
+|===
+====
+. Selecciona la pestaña *Advanced* para cambiar la configuración avanzada de los volúmenes thick. La configuración avanzada de la caché solo está disponible para los volúmenes thick.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Configuración de caché | Descripción 
+
+
+ a| 
+Captura previa de caché de lectura dinámica
+ a| 
+La precarga dinámica de lectura en caché permite que el controlador copie bloques de datos secuenciales adicionales en la caché mientras está leyendo bloques de datos de una unidad a la caché. Esta caché aumenta la probabilidad de que las futuras solicitudes de datos puedan ser satisfechas desde la caché. La precarga dinámica de lectura en caché es importante para aplicaciones multimedia que usan E/S secuencial. La velocidad y la cantidad de datos que se precargan en la caché se ajustan automáticamente según la velocidad y el tamaño de la solicitud de las lecturas del host. El acceso aleatorio no hace que los datos se precarguen en la caché. Esta función no se aplica cuando la caché de lectura está desactivada.
+
+Para un volumen delgado, la lectura anticipada de caché dinámica siempre está desactivada y no se puede cambiar.
+
+
+
+ a| 
+Almacenamiento en caché de escritura sin baterías
+ a| 
+La configuración de almacenamiento en caché de escritura sin baterías permite que el almacenamiento en caché de escritura continúe incluso cuando las baterías faltan, fallan, se descargan por completo o no están completamente cargadas. No se recomienda normalmente elegir el almacenamiento en caché de escritura sin baterías, porque los datos podrían perderse si se pierde la energía. Normalmente, el almacenamiento en caché de escritura se desactiva temporalmente por el controlador hasta que las baterías se cargan o se reemplaza una batería fallida.
+
+
+CAUTION: *Posible pérdida de datos* -- Si seleccionas esta opción y no tienes una fuente de alimentación universal para protección, podrías perder datos. Además, podrías perder datos si no tienes baterías para el controlador y activas la opción *Write caching without batteries*.
+
+Esta opción solo está disponible si activaste la caché de escritura. Esta opción no está disponible para volúmenes thin.
+
+
+
+ a| 
+Almacenamiento en caché de escritura con mirroring
+ a| 
+El almacenamiento en caché de escritura con duplicación se produce cuando los datos escritos en la memoria caché de un controlador también se escriben en la memoria caché del otro controlador. Por lo tanto, si un controlador falla, el otro puede completar todas las operaciones de escritura pendientes. La duplicación de la caché de escritura solo está disponible si el almacenamiento en caché de escritura está activado y hay dos controladores presentes. El almacenamiento en caché de escritura con duplicación es la configuración predeterminada al crear el volumen.
+
+Esta opción solo está disponible si activaste la caché de escritura. Esta opción no está disponible para volúmenes thin.
+
+|===
+====
+. Haz clic en *Guardar* para cambiar la configuración de la caché.
+

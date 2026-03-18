@@ -1,0 +1,231 @@
+---
+permalink: sm-mirroring/faq-sync-mirroring.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la sincronización de reflejo para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿En qué se diferencia la replicación asíncrona de la replicación síncrona?
+
+La función de Asynchronous Mirroring difiere de la de Synchronous Mirroring en un aspecto esencial: captura el estado del volumen de origen en un momento determinado y copia solo los datos que han cambiado desde la última captura de imagen.
+
+Con la replicación síncrona, el estado del volumen primario no se captura en un momento específico, sino que refleja todos los cambios que se hicieron en el volumen primario al volumen secundario. El volumen secundario es idéntico al volumen primario en todo momento porque, con este tipo de espejo, cada vez que se hace una escritura en el volumen primario, se hace una escritura en el volumen secundario. El host no recibe una confirmación de que la escritura fue exitosa hasta que el volumen secundario se actualiza correctamente con los cambios que se hicieron en el volumen primario.
+
+Con la duplicación asíncrona, la matriz de almacenamiento remota no está totalmente sincronizada con la matriz de almacenamiento local, así que si la aplicación necesita pasar a la matriz de almacenamiento remota debido a una pérdida de la matriz de almacenamiento local, algunas transacciones podrían perderse.
+
+Comparación entre las funciones de mirroring:
+
+[cols="1a,1a"]
+|===
+| Replicación asíncrona | Mirroring síncrono 
+
+
+ a| 
+*Método de replicación*
+
+
+
+ a| 
+* *Punto en el tiempo*
++
+La duplicación se realiza bajo demanda o automáticamente de acuerdo con una programación definida por el usuario. Las programaciones pueden definirse con granularidad de minutos. El tiempo mínimo entre sincronizaciones es 10 minutos.
+
+
+ a| 
+* *Continuo*
++
+La replicación se ejecuta automáticamente de forma continua, copiando datos de cada escritura del host.
+
+
+
+
+
+ a| 
+*Capacidad reservada*
+
+
+
+ a| 
+* *Múltiple*
++
+Se requiere un volumen de capacidad reservada para cada par reflejado.
+
+
+ a| 
+* *Único*
++
+Se requiere un único volumen de capacidad reservada para todos los volúmenes reflejados.
+
+
+
+
+
+ a| 
+*Comunicación*
+
+
+
+ a| 
+* *iSCSI y Fibre Channel*
++
+Admite interfaces iSCSI y Fibre Channel entre storage arrays.
+
+
+ a| 
+* *Canal de fibra*
++
+Solo admite interfaces Fibre Channel entre matrices de almacenamiento.
+
+
+
+
+
+ a| 
+*Distancia*
+
+
+
+ a| 
+* *Ilimitado*
++
+Soporte para distancias virtualmente ilimitadas entre la matriz de almacenamiento local y la matriz de almacenamiento remota, con la distancia típicamente limitada solo por las capacidades de la red y la tecnología de extensión de canal.
+
+
+ a| 
+* *Restringido*
++
+Normalmente debe estar a unos 10 km (6.2 millas) de la matriz de almacenamiento local para cumplir los requisitos de latencia y rendimiento de la aplicación.
+
+
+
+|===
+
+
+== Synchronous mirroring - ¿por qué no veo todos mis volúmenes?
+
+Cuando estás seleccionando un volumen primario para un par reflejado, una lista muestra todos los volúmenes elegibles.
+
+Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista. Los volúmenes pueden no ser elegibles por alguna de las siguientes razones:
+
+* El volumen es un volumen no estándar, como un volumen snapshot o un volumen thin.
+* El volumen no está en estado óptimo.
+* El volumen ya participa en una relación de mirroring.
+
+
+
+
+== Replicación síncrona: ¿por qué no veo todos los volúmenes en la matriz de almacenamiento remota?
+
+Cuando estás seleccionando un volumen secundario en la matriz de almacenamiento remota, una lista muestra todos los volúmenes elegibles para ese par reflejado.
+
+Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista. Los volúmenes pueden no ser elegibles por alguna de las siguientes razones:
+
+* El volumen es un volumen no estándar, como un volumen snapshot o un volumen thin.
+* El volumen no está en estado óptimo.
+* El volumen ya participa en una relación de mirroring.
+* Si estás usando Data Assurance (DA), el volumen primario y el volumen secundario deben tener la misma configuración de DA.
++
+** Si el volumen primario está habilitado para DA, el volumen secundario también debe estar habilitado para DA.
+** Si el volumen primario no está habilitado para DA, el volumen secundario no debe estar habilitado para DA.
+
+
+
+
+
+
+== Replicación síncrona: ¿qué debo saber antes de crear un par reflejado?
+
+Configuras los pares reflejados en la interfaz de SANtricity Unified Manager y luego gestionas los pares en SANtricity System Manager.
+
+Antes de crear un par duplicado, sigue estas directrices:
+
+* Debes tener dos matrices de almacenamiento.
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Tus cabinas de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Debes tener suficiente capacidad libre en la matriz de almacenamiento remota para crear un volumen secundario igual o mayor que el volumen primario que quieres reflejar.
+* Has instalado el Web Services Proxy y Unified Manager. Los pares reflejados se configuran en la interfaz de Unified Manager.
+* Las dos matrices de almacenamiento se descubren en Unified Manager.
+
+
+
+
+== ¿Qué impacto tiene la prioridad de sincronización en las tasas de sincronización?
+
+La prioridad de sincronización define cuánto tiempo de procesamiento se asigna a las actividades de sincronización en relación con el rendimiento del sistema.
+
+El controlador propietario del volumen primario realiza esta operación en segundo plano. Al mismo tiempo, el controlador propietario procesa las escrituras locales de E/S en el volumen primario y las escrituras remotas asociadas en el volumen secundario. Debido a que la resincronización desvía los recursos de procesamiento del controlador de la actividad de E/S, la resincronización puede tener un impacto en el rendimiento de la aplicación host.
+
+Ten en cuenta estas directrices para ayudarte a determinar cuánto tiempo puede tardar una prioridad de sincronización y cómo las prioridades de sincronización pueden afectar el rendimiento del sistema.
+
+.Acerca de las tasas de prioridad de sincronización
+[%collapsible]
+====
+Estas tarifas prioritarias están disponibles:
+
+* Más bajo
+* Bajo
+* Medio
+* Alta
+* Más alto
+
+
+La tasa de prioridad más baja favorece el rendimiento del sistema, pero la resincronización tarda más. La tasa de prioridad más alta favorece la resincronización, pero el rendimiento del sistema podría verse comprometido.
+
+====
+Estas directrices aproximan de forma aproximada las diferencias entre las prioridades.
+
+[cols="35h,~"]
+|===
+| Tasa de prioridad para la sincronización completa | Tiempo transcurrido en comparación con la tasa de sincronización más alta 
+
+
+ a| 
+Más bajo
+ a| 
+Aproximadamente ocho veces más largo que con la tasa de prioridad más alta.
+
+
+
+ a| 
+Bajo
+ a| 
+Aproximadamente seis veces más tiempo que con la tasa de prioridad más alta.
+
+
+
+ a| 
+Medio
+ a| 
+Aproximadamente tres veces y media más que a la tasa de mayor prioridad.
+
+
+
+ a| 
+Alta
+ a| 
+Aproximadamente el doble de tiempo que con la tasa de prioridad más alta.
+
+|===
+El tamaño del volumen y las cargas de la tasa de E/S del host afectan el tiempo de comparación de la sincronización.
+
+
+
+== ¿Por qué se recomienda usar una política de sincronización manual?
+
+Se recomienda la resincronización manual porque te permite gestionar el proceso de resincronización de una manera que ofrece la mejor oportunidad para recuperar datos.
+
+Si usas una política de resincronización automática y ocurren problemas de comunicación intermitentes durante la resincronización, los datos en el volumen secundario podrían corromperse temporalmente. Cuando la resincronización termina, los datos se corrigen.

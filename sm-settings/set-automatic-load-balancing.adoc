@@ -1,0 +1,49 @@
+---
+permalink: sm-settings/set-automatic-load-balancing.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, set, automatic, load, balancing, 
+summary: La función Automatic Load Balancing garantiza que el tráfico de E/S entrante de los hosts se gestione y equilibre dinámicamente en ambos controladores. Esta función está activada por defecto, pero puedes desactivarla desde System Manager. 
+---
+= Configura el equilibrio de carga automático en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función Automatic Load Balancing garantiza que el tráfico de E/S entrante de los hosts se gestione y equilibre dinámicamente entre ambos controladores. Esta función está activada de forma predeterminada, pero puedes desactivarla desde SANtricity System Manager.
+
+.Acerca de esta tarea
+Cuando el Balanceo de Carga Automático está activado, realiza las siguientes funciones:
+
+* Supervisa y equilibra automáticamente la utilización de recursos del controlador.
+* Ajusta automáticamente la propiedad del controlador de volumen cuando es necesario, optimizando así el ancho de banda de E/S entre los hosts y la storage array.
+
+
+Es posible que quieras desactivar el equilibrio de carga automático en tu matriz de almacenamiento por las siguientes razones:
+
+* No quieres cambiar automáticamente la propiedad del controlador de un volumen concreto para equilibrar la carga de trabajo.
+* Estás operando en un entorno altamente sintonizado donde la distribución de carga se configura a propósito para lograr una distribución específica entre los controladores.
+
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. Desplázate hasta *Configuración adicional* y luego haz clic en *Activar/desactivar el equilibrio de carga automático*.
++
+El texto debajo de esta opción indica si la función está activada o desactivada.
+
++
+Se abre un cuadro de diálogo de confirmación.
+
+. Confirma haciendo clic en *Sí* para continuar.
++
+Al seleccionar esta opción, alternas la función entre activada y desactivada.
+
++
+[NOTE]
+====
+Si esta función pasa de desactivada a activada, la función de conectividad de host también se activa automáticamente.
+
+====
+

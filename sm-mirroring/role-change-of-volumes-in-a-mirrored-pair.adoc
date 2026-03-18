@@ -1,0 +1,58 @@
+---
+permalink: sm-mirroring/role-change-of-volumes-in-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, role, change, between, volume, mirrored, pair, 
+summary: Puedes cambiar el rol entre volúmenes en un par reflejado. Puedes hacer esto degradando el volumen primario al rol secundario o promoviendo el volumen secundario al rol primario. 
+---
+= Conoce los cambios de rol de volumen en un par reflejado en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el rol entre volúmenes en un par reflejado. Puedes hacer esto degradando el volumen primario al rol secundario o promoviendo el volumen secundario al rol primario.
+
+[NOTE]
+====
+La duplicación síncrona no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+Revisa la siguiente información sobre la operación de cambio de rol:
+
+* Cuando un volumen primario es degradado al rol secundario, el volumen secundario en ese par reflejado es promovido al rol primario y viceversa.
+* Cuando el volumen primario es degradado al rol secundario, los hosts que han sido asignados a ese volumen ya no tienen acceso de escritura a él.
+* Cuando el volumen secundario es promovido al rol primario, cualquier host que esté accediendo a ese volumen ahora puede escribir en él.
+* Si el array de almacenamiento local no puede comunicarse con el array de almacenamiento remoto, puedes forzar el cambio de rol en el array de almacenamiento local.
+
+
+
+
+== Forzar cambio de rol
+
+Puedes forzar un cambio de rol entre volúmenes en un par reflejado cuando un problema de comunicación entre el array de almacenamiento local y el array de almacenamiento remoto impide la promoción del volumen secundario o la degradación del volumen primario.
+
+Puedes forzar que el volumen en el lado secundario pase al rol primario. Luego, el host de recuperación puede acceder al volumen recién promocionado y las operaciones de negocio pueden continuar.
+
+[NOTE]
+====
+Cuando la matriz de almacenamiento remoto se ha recuperado y se ha resuelto cualquier problema de comunicación, se produce una condición de Synchronous Mirroring - Primary Volume Conflict. Los pasos de recuperación incluyen resincronizar los volúmenes. Usa el Recovery Guru para recuperarte de este error.
+
+====
+
+
+== ¿Cuándo se permite y cuándo no una promoción forzosa?
+
+La promoción forzada de un volumen en un par reflejado no está permitida bajo las siguientes condiciones:
+
+* Cualquiera de los volúmenes en un par reflejado está en proceso de una sincronización inicial.
+* El par reflejado está en los estados Failed, Role-Change-Pending o Role-Change-In-Progress, o si alguno de los volúmenes de capacidad reservada asociados está fallido.
+
+
+
+
+== Cambio de rol en curso
+
+Si dos matrices de almacenamiento en una configuración de mirroring se desconectan, y el volumen primario de un par de volúmenes reflejados es degradado a la fuerza a un rol secundario, y el volumen secundario de un par de volúmenes reflejados es promovido a la fuerza a un rol primario, entonces cuando se restablece la comunicación, los volúmenes en ambas matrices de almacenamiento se colocan en el estado Role-Change-In-Progress.
+
+El sistema completará el proceso de cambio de rol transfiriendo los registros de cambios, resincronizando, devolviendo el estado del par reflejado a un estado operativo normal y continuando con las sincronizaciones.

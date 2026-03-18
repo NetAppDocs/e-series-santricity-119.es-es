@@ -1,0 +1,87 @@
+---
+permalink: sm-settings/change-saml-role-mappings.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, saml, role, mappings, 
+summary: Si previamente configuraste SAML para Access Management, puedes cambiar las asignaciones de roles entre los grupos de IdP y los roles predefinidos de la matriz de almacenamiento. 
+---
+= Cambiar las asignaciones de roles SAML en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si previamente configuraste SAML para Access Management, puedes cambiar las asignaciones de roles entre los grupos de IdP y los roles predefinidos de la storage array.
+
+.Antes de empezar
+* Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+* Un administrador de IdP ha configurado los atributos de usuario y la pertenencia a grupos en el sistema IdP.
+* SAML está configurado y habilitado.
+
+
+.Pasos
+. Selecciona el menú:Configuración[Gestión de acceso].
+. Selecciona la pestaña *SAML*.
+. Selecciona *Role Mapping*.
++
+Se abre el cuadro de diálogo Role Mapping.
+
+. Asigne los grupos y atributos de usuario IdP a los roles predefinidos. Un grupo puede tener varios roles asignados.
++
+[CAUTION]
+====
+Ten cuidado de no eliminar tus permisos mientras SAML esté activado, o perderás el acceso a System Manager.
+
+====
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Asignaciones*
+
+
+
+ a| 
+Atributo de usuario
+ a| 
+Especifique un atributo (por ejemplo, "miembro de") para el grupo SAML que será asignado.
+
+
+
+ a| 
+Valor de atributo
+ a| 
+Especifique el valor de atributo para el grupo que será asignado.
+
+
+
+ a| 
+Roles
+ a| 
+Haz clic en el campo y selecciona uno de los roles de la matriz de almacenamiento que se asignará al atributo. Debes seleccionar individualmente cada rol que quieras incluir para este grupo. El rol Monitor se requiere en combinación con los otros roles para iniciar sesión en System Manager. Se debe asignar un rol Security Admin al menos a un grupo. Los roles asignados incluyen los siguientes permisos:
+
+** *Storage admin* -- Acceso total de lectura/escritura a los objetos de almacenamiento (por ejemplo, volúmenes y grupos de discos), pero sin acceso a la configuración de seguridad.
+** *Security admin* -- Acceso a la configuración de seguridad en Access Management, gestión de certificados, gestión de registros de auditoría y la capacidad de activar o desactivar la interfaz de gestión heredada (SYMbol).
+** *Support admin* -- Acceso a todos los recursos de hardware en la matriz de almacenamiento, datos de fallos, eventos MEL y actualizaciones de firmware del controlador. Sin acceso a objetos de almacenamiento ni a la configuración de seguridad.
+** *Monitor* -- Acceso de solo lectura a todos los objetos de almacenamiento, pero sin acceso a la configuración de seguridad.
+
+
+|===
+====
++
+
+NOTE: La función Monitor es necesaria para todos los usuarios, incluido el administrador. System Manager no funcionará correctamente para ningún usuario sin la función Monitor presente.
+
+. Opcionalmente, haz clic en *Add another mapping* para ingresar más asignaciones de grupo a rol.
+. Haz clic en *Guardar*.
+
+
+.Resultados
+Después de que completes esta tarea, se terminan todas las sesiones de usuario activas. Solo se conserva tu sesión de usuario actual.

@@ -1,0 +1,66 @@
+---
+permalink: sm-settings/faq-certificates.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre certificados firmados por CA y autofirmados para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Por qué aparece el cuadro de diálogo Cannot Access Other Controller?
+
+Cuando realizas ciertas operaciones relacionadas con los certificados CA (por ejemplo, importar un certificado), puede que veas un cuadro de diálogo que te pide aceptar un certificado autofirmado para el segundo controlador.
+
+En matrices de almacenamiento con dos controladores (configuraciones dúplex), este cuadro de diálogo aparece a veces si SANtricity System Manager no puede comunicarse con el segundo controlador o si tu navegador no puede aceptar el certificado durante un cierto punto en una operación.
+
+Si se abre este cuadro de diálogo, haz clic en *Aceptar certificado autofirmado* para continuar. Si otro cuadro de diálogo te pide una contraseña, ingresa tu contraseña de administrador que usas para acceder a System Manager.
+
+Si este cuadro de diálogo vuelve a aparecer y no puedes completar una tarea de certificado, prueba uno de los siguientes procedimientos:
+
+* Usa otro tipo de navegador para acceder a este controlador, acepta el certificado y continúa.
+* Accede al segundo controlador withSystem Manager, acepta el certificado autofirmado y luego vuelve al primer controlador y continúa.
+
+
+
+
+== ¿Cómo sé qué certificados deben cargarse en SANtricity System Manager para la administración de claves externas?
+
+Para la gestión externa de claves, importas dos tipos de certificados para la autenticación entre la matriz de almacenamiento y el servidor de gestión de claves, así ambas entidades pueden confiar entre sí.
+
+Un certificado de cliente valida los controladores de la matriz de almacenamiento, así que el servidor de gestión de claves puede confiar en sus solicitudes de Key Management Interoperability Protocol (KMIP).
+
+Para obtener un certificado de cliente, usas System Manager para completar una CSR para la matriz de almacenamiento. También puedes generar una CSR externamente usando un par de claves privada y pública.
+
+Luego puedes cargar la CSR en un servidor de gestión de claves y generar un certificado de cliente desde ahí. Una vez que tengas un certificado de cliente, copia ese archivo en el host donde estás accediendo a System Manager.
+
+Un certificado de servidor de gestión de claves valida el servidor de gestión de claves, así que la matriz de almacenamiento puede confiar en su dirección IP. Recupera el archivo de certificado de servidor desde el servidor de gestión de claves y luego copia ese archivo en el host desde donde accedes a System Manager.
+
+
+
+== ¿Qué debo saber sobre la comprobación de revocación de certificados?
+
+SANtricity System Manager te permite comprobar si hay certificados revocados usando un servidor de Online Certificate Status Protocol (OCSP), en vez de cargar Certificate Revocation Lists (CRLs).
+
+Los certificados revocados ya no deben ser de confianza. Un certificado puede ser revocado por varias razones; por ejemplo, si la Certificate Authority (CA) emitió el certificado de forma incorrecta, se comprometió una clave privada o la entidad identificada no cumplió con los requisitos de la política.
+
+Después de que estableces una conexión con un servidor OCSP en System Manager, la matriz de almacenamiento realiza la comprobación de revocación cada vez que se conecta a un servidor AutoSupport, a un servidor External Key Management Server (EKMS), a un servidor Lightweight Directory Access Protocol over SSL (LDAPS) o a un servidor Syslog. La matriz de almacenamiento intenta validar los certificados de estos servidores para asegurarse de que no han sido revocados. Luego, el servidor devuelve un valor de "good", "revoked" o "unknown" para ese certificado. Si el certificado está revocado o la matriz no puede contactar con el servidor OCSP, se rechaza la conexión.
+
+[NOTE]
+====
+Especificar una dirección de respondedor OCSP en System Manager o en la línea de comandos (CLI) reemplaza la dirección OCSP que se encuentra en el archivo de certificado.
+
+====
+
+
+== ¿Para qué tipos de servidores se habilitará la comprobación de revocación?
+
+La matriz de almacenamiento realiza una comprobación de revocación siempre que se conecta a un servidor AutoSupport, un servidor External Key Management Server (EKMS), un servidor Lightweight Directory Access Protocol over SSL (LDAPS) o un servidor Syslog.

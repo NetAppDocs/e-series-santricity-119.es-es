@@ -1,0 +1,82 @@
+---
+permalink: um-certificates/access-management-terminology-unified.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, access management, terminology 
+summary: Aprende cómo se aplican los términos de control de acceso a SANtricity Unified Manager. 
+---
+= Conoce la terminología de gestión de acceso de SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprende cómo se aplican los términos de control de acceso a SANtricity Unified Manager.
+
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+Active Directory
+ a| 
+Active Directory (AD) es un servicio de directorio de Microsoft que usa LDAP para redes de dominio de Windows.
+
+
+
+ a| 
+Vinculación
+ a| 
+Las operaciones de enlace se utilizan para autenticar clientes en el servidor de directorio. El enlace normalmente requiere credenciales de cuenta y contraseña, pero algunos servidores permiten operaciones de enlace anónimas.
+
+
+
+ a| 
+CA
+ a| 
+Una autoridad de certificación (CA) es una entidad de confianza que emite documentos electrónicos, llamados certificados digitales, para la seguridad en Internet. Estos certificados identifican a los propietarios de sitios web, lo que permite conexiones seguras entre clientes y servidores.
+
+
+
+ a| 
+Certificado
+ a| 
+Un certificado identifica al propietario de un sitio por motivos de seguridad, lo que impide que los atacantes suplanten la identidad del sitio. El certificado contiene información sobre el propietario del sitio y la identidad de la entidad de confianza que certifica (firma) esta información.
+
+
+
+ a| 
+LDAP
+ a| 
+El Protocolo Ligero de Acceso a Directorios (LDAP) es un protocolo de aplicación para acceder y mantener servicios de información de directorios distribuidos. Este protocolo permite que muchas aplicaciones y servicios diferentes se conecten al servidor LDAP para validar usuarios.
+
+
+
+ a| 
+RBAC
+ a| 
+El control de acceso basado en roles (RBAC) es un método para regular el acceso a recursos informáticos o de red según los roles de los usuarios individuales. Unified Manager incluye roles predefinidos.
+
+
+
+ a| 
+SAML
+ a| 
+Security Assertion Markup Language (SAML) es un estándar basado en XML para la autenticación y autorización entre dos entidades. SAML permite la autenticación multifactor, en la que los usuarios deben proporcionar dos o más elementos para demostrar su identidad (por ejemplo, una contraseña y una huella dactilar). La función SAML integrada de la matriz de almacenamiento cumple con SAML2.0 para la afirmación de identidad, autenticación y autorización.
+
+
+
+ a| 
+SSO
+ a| 
+El inicio de sesión único (SSO) es un servicio de autenticación que permite usar un solo conjunto de credenciales de inicio de sesión para acceder a varias aplicaciones.
+
+
+
+ a| 
+Proxy de servicios web
+ a| 
+El Web Services Proxy, que proporciona acceso a través de mecanismos HTTPS estándar, permite a los administradores configurar servicios de gestión para matrices de almacenamiento. El proxy puede instalarse en hosts Windows o Linux. La interfaz de Unified Manager está disponible con el Web Services Proxy.
+
+|===

@@ -1,0 +1,38 @@
+---
+permalink: sm-mirroring/workflow-for-mirroring-a-volume-asynchronously.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, workflow, mirroring, asynchronously, 
+summary: Configuras la duplicación asíncrona usando el siguiente flujo de trabajo. 
+---
+= Refleja un volumen de forma asíncrona en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configuras la duplicación asíncrona usando el siguiente flujo de trabajo.
+
+. Realiza la configuración inicial en Unified Manager:
++
+.. Selecciona la matriz de almacenamiento local como fuente para la transferencia de datos.
+.. Crea o selecciona un grupo de consistencia espejo existente, que es un contenedor para el volumen primario en la matriz local y el volumen secundario en la matriz remota. A los volúmenes primario y secundario se les llama el "mirrored pair". Si estás creando el grupo de consistencia espejo por primera vez, especifica si quieres realizar sincronizaciones manuales o programadas.
+.. Selecciona un volumen primario de la matriz de almacenamiento local y luego determina su capacidad reservada. La capacidad reservada es la capacidad física asignada que se usará para la operación de copia.
+.. Selecciona una matriz de almacenamiento remoto como destino de la transferencia, un volumen secundario y luego determina su capacidad reservada.
+.. Comienza la transferencia de datos inicial del volumen primario al volumen secundario. Dependiendo del tamaño del volumen, esta transferencia inicial podría tardar varias horas.
+
+
+. Comprueba el progreso de la sincronización inicial:
++
+.. En Unified Manager, abre System Manager para la matriz local.
+.. En System Manager, visualiza el estado de la operación de duplicación. Cuando la duplicación termine, el estado del par duplicado es "Óptimo".
+
+
+. *Opcional:* puedes reprogramar o realizar manualmente transferencias de datos posteriores en System Manager. Solo los bloques nuevos y modificados se transfieren del volumen primario al volumen secundario.
++
+[NOTE]
+====
+Dado que la replicación asíncrona es periódica, el sistema puede consolidar los bloques modificados y conservar el ancho de banda de red. Hay un impacto mínimo en el rendimiento de escritura y la latencia de escritura.
+
+====
+

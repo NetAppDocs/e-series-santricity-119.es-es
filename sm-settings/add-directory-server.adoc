@@ -1,0 +1,174 @@
+---
+permalink: sm-settings/add-directory-server.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, directory, server, 
+summary: Para configurar la autenticación para Access Management, puedes establecer comunicaciones entre la matriz de almacenamiento y un servidor LDAP, y luego mapear los grupos de usuarios LDAP a los roles predefinidos de la matriz. 
+---
+= Añade un servidor de directorio LDAP en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar la autenticación para Access Management, puedes establecer comunicaciones entre la matriz de almacenamiento y un servidor LDAP, y luego asignar los grupos de usuarios LDAP a los roles predefinidos de la matriz.
+
+.Antes de empezar
+* Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+* Los grupos de usuarios deben estar definidos en tu servicio de directorio.
+* Las credenciales del servidor LDAP deben estar disponibles, incluido el nombre de dominio, la URL del servidor y, opcionalmente, el nombre de usuario y la contraseña de la cuenta bind.
+* Para los servidores LDAPS que usan un protocolo seguro, la cadena de certificados del servidor LDAP debe estar instalada en tu máquina local.
+
+
+.Acerca de esta tarea
+Agregar un servidor de directorio es un proceso de dos pasos. Primero introduces el nombre de dominio y la URL. Si tu servidor usa un protocolo seguro, también debes subir un certificado de CA para la autenticación si está firmado por una autoridad de firma no estándar. Si tienes credenciales para una cuenta de bind, también puedes ingresar el nombre de tu cuenta de usuario y la contraseña. Después, asignas los grupos de usuarios del servidor LDAP a los roles predefinidos de la matriz de almacenamiento.
+
+[NOTE]
+====
+Durante el procedimiento para añadir un servidor LDAP, se desactivará la interfaz de gestión heredada. La interfaz de gestión heredada (SYMbol) es un método de comunicación entre la matriz de almacenamiento y el cliente de gestión. Cuando está desactivada, la matriz de almacenamiento y el cliente de gestión usan un método de comunicación más seguro (API de REST sobre https).
+
+====
+.Pasos
+. Selecciona el menú:Configuración[Gestión de acceso].
+. En la pestaña Servicios de directorio, selecciona *Add Directory Server*.
++
+Se abre el cuadro de diálogo Add Directory Server.
+
+. En la pestaña Configuración del servidor, introduce las credenciales del servidor LDAP.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Configuración*
+
+
+
+ a| 
+Dominios
+ a| 
+Introduce el nombre de dominio del servidor LDAP. Para varios dominios, introduce los dominios en una lista separada por comas. El nombre de dominio se usa en el inicio de sesión (_username_@_domain_) para especificar con qué servidor de directorio autenticarse.
+
+
+
+ a| 
+URL del servidor
+ a| 
+Introduce la URL para acceder al servidor LDAP en la forma de `ldap[s]://*host*:*port*`.
+
+
+
+ a| 
+Cargar certificado (opcional)
+ a| 
+
+NOTE: Este campo aparece solo si se especifica un protocolo LDAPS en el campo URL del servidor de arriba.
+
+Haz clic en *Browse* y selecciona un certificado CA para subir. Este es el certificado de confianza o la cadena de certificados que se usa para autenticar el servidor LDAP.
+
+
+
+ a| 
+Enlazar cuenta (opcional)
+ a| 
+Ingresa una cuenta de usuario de solo lectura para las consultas de búsqueda contra el servidor LDAP y para buscar dentro de los grupos. Ingresa el nombre de la cuenta en un formato tipo LDAP. Por ejemplo, si el usuario bind se llama "bindacct", podrías ingresar un valor como "CN=bindacct,CN=Users,DC=cpoc,DC=local".
+
+
+
+ a| 
+Enlazar contraseña (opcional)
+ a| 
+
+NOTE: Este campo aparece cuando introduce una cuenta de enlace arriba.
+
+Introduzca la contraseña de la cuenta de enlace.
+
+
+
+ a| 
+Probar conexión del servidor antes de añadir
+ a| 
+Selecciona esta casilla si quieres asegurarte de que la matriz de almacenamiento puede comunicarse con la configuración del servidor LDAP que ingresaste. La prueba ocurre después de que hagas clic en *Add* en la parte inferior del cuadro de diálogo. Si esta casilla está seleccionada y la prueba falla, la configuración no se añade. Debes resolver el error o desmarcar la casilla para omitir la prueba y añadir la configuración.
+
+
+
+ a| 
+**Configuración de privilegios**
+
+
+
+ a| 
+DN base de búsqueda
+ a| 
+Introduce el contexto LDAP para buscar usuarios, normalmente en forma de `CN=Users, DC=cpoc, DC=local`.
+
+
+
+ a| 
+Atributo de nombre de usuario
+ a| 
+Introduzca el atributo vinculado al ID de usuario para los fines de autenticación. Por ejemplo:  `sAMAccountName`.
+
+
+
+ a| 
+Atributo(s) de grupo
+ a| 
+Introduce una lista de atributos de grupo en el usuario, que se usa para la asignación de grupo a función. Por ejemplo: `memberOf, managedObjects`.
+
+|===
+====
+. Haz clic en la pestaña **Asignación de funciones**.
+. Asigne grupos LDAP a los roles predefinidos. Un grupo puede tener varios roles asignados.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Asignaciones*
+
+
+
+ a| 
+DN de grupo
+ a| 
+Especifica el nombre distintivo (DN) de grupo para el grupo de usuarios LDAP que se va a asignar. Se admiten expresiones regulares. Estos caracteres especiales de expresión regular deben escaparse con una barra invertida (`\`) si no forman parte de un patrón de expresión regular: \.[]{}()<>*+-=!?^$|
+
+
+
+ a| 
+Roles
+ a| 
+Haz clic en el campo y selecciona uno de los roles de la matriz de almacenamiento que se asignará al nombre distintivo de grupo. Debes seleccionar individualmente cada rol que quieras incluir para este grupo. El rol Monitor se requiere en combinación con los otros roles para iniciar sesión en SANtricity System Manager. Los roles asignados incluyen los siguientes permisos:
+
+** *Storage admin* -- Acceso total de lectura/escritura a los objetos de almacenamiento (por ejemplo, volúmenes y grupos de discos), pero sin acceso a la configuración de seguridad.
+** *Security admin* -- Acceso a la configuración de seguridad en Access Management, gestión de certificados, gestión de registros de auditoría y la capacidad de activar o desactivar la interfaz de gestión heredada (SYMbol).
+** *Support admin* -- Acceso a todos los recursos de hardware en la matriz de almacenamiento, datos de fallos, eventos MEL y actualizaciones de firmware del controlador. Sin acceso a objetos de almacenamiento ni a la configuración de seguridad.
+** *Monitor* -- Acceso de solo lectura a todos los objetos de almacenamiento, pero sin acceso a la configuración de seguridad.
+
+
+|===
+====
++
+[NOTE]
+====
+La función Monitor es necesaria para todos los usuarios, incluido el administrador. System Manager no funcionará correctamente para ningún usuario sin la función Monitor presente.
+
+====
+. Si lo deseas, haz clic en *Add another mapping* para introducir más asignaciones de grupo a función.
+. Cuando termines con las asignaciones, haz clic en *Add*.
++
+El sistema realiza una validación, asegurándose de que la matriz de almacenamiento y el servidor LDAP pueden comunicarse. Si aparece un mensaje de error, revisa las credenciales que ingresaste en el cuadro de diálogo y vuelve a ingresar la información si es necesario.
+
+

@@ -1,0 +1,32 @@
+---
+permalink: sm-mirroring/deactivate-synchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, deactivate, synchronous, mirroring, adapter, host, bus, 
+summary: 'Puedes desactivar la función de Synchronous Mirroring en una matriz de almacenamiento para restablecer el uso normal del puerto 4 del host bus adapter (HBA), que estaba reservado para la transmisión de datos de espejo.' 
+---
+= Desactiva la duplicación síncrona en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes desactivar la función de Synchronous Mirroring en una matriz de almacenamiento para restablecer el uso normal del puerto 4 del host bus adapter (HBA), que estaba reservado para la transmisión de datos de espejo.
+
+.Antes de empezar
+Debes haber eliminado todas las relaciones de espejo síncrono. Verifica que se hayan eliminado todos los pares de espejo de la matriz de almacenamiento.
+
+.Pasos
+. Selecciona el menú:Storage[Synchronous Mirroring].
+. Selecciona el menú:Tareas no habituales[Desactivar].
++
+El sistema muestra una confirmación.
+
+. Selecciona *Sí* para confirmar.
+
+
+.Resultados
+* El puerto de host 4 del HBA del controlador, que estaba dedicado para la comunicación de mirroring síncrono, ahora puede aceptar solicitudes de lectura y escritura del host.
+* Se eliminan los volúmenes de capacidad reservada en la matriz de almacenamiento.
+

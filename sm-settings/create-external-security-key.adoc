@@ -1,0 +1,127 @@
+---
+permalink: sm-settings/create-external-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, external, security, key, 
+summary: Para usar la función Drive Security con un servidor de gestión de claves, se debe crear una clave externa que se compartirá con el servidor de gestión de claves y las unidades compatibles con la función de seguridad de la cabina de almacenamiento. 
+---
+= Crea una clave de seguridad externa en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para usar la función Drive Security con un servidor de gestión de claves, se debe crear una clave externa que se compartirá con el servidor de gestión de claves y las unidades compatibles con la función de seguridad de la cabina de almacenamiento.
+
+.Antes de empezar
+* Se deben instalar unidades compatibles con la función de seguridad en la cabina. Estas unidades pueden ser de cifrado de disco completo (FDE) o de estándar de procesamiento de información federal (FIPS).
++
+[NOTE]
+====
+Si se instalan unidades FDE y FIPS en la cabina de almacenamiento, ambas compartirán la misma clave de seguridad.
+
+====
+* La función de seguridad de la unidad debe estar activada. De lo contrario, se abre un cuadro de diálogo No se puede crear la clave de seguridad durante esta tarea. Si es necesario, contacta a tu proveedor de almacenamiento para obtener instrucciones sobre cómo activar la función de seguridad de la unidad.
+* Tienes un archivo de certificado de cliente firmado para los controladores de la matriz de almacenamiento y lo has copiado al host desde donde accedes a System Manager. Un certificado de cliente valida los controladores de la matriz de almacenamiento, así que el servidor de gestión de claves puede confiar en sus solicitudes de Key Management Interoperability Protocol (KMIP).
+* Debes recuperar un archivo de certificado del servidor de gestión de claves y luego copiar ese archivo en el host desde donde accedes a System Manager. Un certificado de servidor de gestión de claves valida el servidor de gestión de claves, así que la cabina de almacenamiento puede confiar en su dirección IP. Puedes usar un certificado raíz, intermedio o de servidor para el servidor de gestión de claves.
++
+[NOTE]
+====
+Para más información sobre el certificado del servidor, consulta la documentación de tu servidor de gestión de claves.
+
+====
+
+
+.Acerca de esta tarea
+En esta tarea, se deben definir la dirección IP del servidor de gestión de claves y el número de puerto que utiliza y, luego, cargar los certificados para la gestión de claves externas.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *Gestión de claves de seguridad*, selecciona *Crear clave externa*.
++
+[NOTE]
+====
+Si está configurada actualmente la gestión de claves internas, se muestra un cuadro de diálogo para solicitar la confirmación de que se desea cambiar a la gestión de claves externas.
+
+====
++
+Se abre el cuadro de diálogo Create External Security Key.
+
+. En *Connect to Key Server*, ingresa la información en los siguientes campos.
++
+** *Dirección del servidor de gestión de claves* -- Ingresa el dominio completo o la dirección IP (IPv4 o IPv6) del servidor usado para la gestión de claves.
+** *Número de puerto de gestión de claves* -- Ingresa el número de puerto usado para las comunicaciones KMIP. El número de puerto más común usado para las comunicaciones del servidor de gestión de claves es 5696.
++
+*Opcional:* Si quieres configurar un servidor de claves de respaldo, haz clic en *Add Key Server* y luego ingresa la información de ese servidor. El segundo servidor de claves se usará si no se puede acceder al servidor de claves principal. Asegúrate de que cada servidor de claves tenga acceso a la misma base de datos de claves; de lo contrario, la cabina mostrará errores y no podrá usar el servidor de respaldo.
+
++
+
+NOTE: Sólo se utiliza un servidor de claves a la vez. Si la matriz de almacenamiento no puede llegar al servidor de claves primario, la matriz se pondrá en contacto con el servidor de claves de respaldo. Ten en cuenta que debes mantener la paridad en ambos servidores; si no lo haces, pueden producirse errores.
+
+** *Seleccionar certificado de cliente* -- Haz clic en el primer botón *Browse* para seleccionar el archivo de certificado para los controladores de la matriz de almacenamiento.
+** *Selecciona el archivo de clave privada* -- Si lo necesitas, haz clic en el segundo botón *Browse* para seleccionar un archivo de clave privada para los controladores de la matriz de almacenamiento.
+** *Selecciona el certificado del servidor de gestión de claves* -- Haz clic en el tercer botón *Browse* para seleccionar el archivo de certificado para el servidor de gestión de claves. Puedes elegir un certificado raíz, intermedio o de servidor para el servidor de gestión de claves.
+
+
+. Haz clic en *Siguiente*.
+. En *Crear/clave de copia de seguridad*, puedes crear una clave de copia de seguridad por motivos de seguridad.
++
+** (Recomendado) Para crear una clave de seguridad, mantén seleccionada la casilla de verificación y luego introduce y confirma una frase de contraseña. El valor puede tener entre 8 y 32 caracteres y debe incluir cada uno de los siguientes:
++
+*** Una letra mayúscula (o varias). Se debe tener en cuenta que la frase de contraseña distingue mayúsculas de minúsculas.
+*** Un número (o varios).
+*** Un carácter no alfanumérico, como !, *, @ (o varios).
+
+
+
+
++
+[CAUTION]
+====
+*Asegúrate de anotar tus entradas para usarlas más adelante*. Si necesitas mover una unidad habilitada para seguridad de la matriz de almacenamiento, debes conocer la frase de contraseña para desbloquear los datos de la unidad.
+
+====
++
+** Si no quieres crear una clave de respaldo, desmarca la casilla.
++
+[CAUTION]
+====
+Ten en cuenta que si pierdes el acceso al servidor de claves externo y no tienes una clave de copia de seguridad, perderás el acceso a los datos de las unidades si se migran a otra matriz de almacenamiento. Esta opción es el único método para crear una clave de copia de seguridad en System Manager.
+
+====
+
+
+. Haz clic en *Finalizar*.
++
+El sistema se conecta al servidor de gestión de claves con las credenciales introducidas. Luego, se almacena una copia de la clave de seguridad en el sistema local.
+
++
+[NOTE]
+====
+La ruta del archivo descargado podría depender de la ubicación predeterminada de las descargas del explorador.
+
+====
+. Anota tu frase de contraseña y la ubicación del archivo de clave descargado, y luego haz clic en *Cerrar*.
++
+En la página, se muestra el siguiente mensaje con enlaces adicionales para la gestión de claves externas.
+
++
+`Current key management method: External`
+
+. Prueba la conexión entre la matriz de almacenamiento y el servidor de gestión de claves seleccionando *Test Communication*.
++
+Los resultados de la prueba se muestran en el cuadro de diálogo.
+
+
+
+.Resultados
+Cuando se habilita la gestión de claves externas, se pueden crear grupos de volúmenes o pools con la función de seguridad habilitada, o bien se puede habilitar la función de seguridad en los grupos de volúmenes y pools existentes.
+
+[NOTE]
+====
+Cada vez que se apagan y se vuelven a encender las unidades, todas las unidades con la función de seguridad habilitada cambian al estado Security Locked. En este estado, no se puede acceder a los datos hasta que la controladora aplica la clave de seguridad indicada durante la inicialización de la unidad. Si alguien quita físicamente la unidad bloqueada y la instala en otro sistema, el estado Security Locked evita el acceso no autorizado de los datos.
+
+====
+.Después de que termines
+Debe validar la clave de seguridad para asegurarse de que no se haya dañado el archivo de claves.

@@ -1,0 +1,38 @@
+---
+permalink: sm-storage/redistribute-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, redistribute, volumes 
+summary: Redistribuyes volúmenes para moverlos de vuelta a sus propietarios de controladores preferidos. Normalmente, los controladores multivía mueven volúmenes de su propietario de controlador preferido cuando se produce un problema a lo largo de la ruta de datos entre el host y la matriz de almacenamiento. 
+---
+= Redistribuye volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Redistribuyes volúmenes para moverlos de vuelta a sus propietarios de controladores preferidos. Normalmente, los controladores multivía mueven volúmenes de su propietario de controlador preferido cuando se produce un problema a lo largo de la ruta de datos entre el host y la matriz de almacenamiento.
+
+.Antes de empezar
+* Los volúmenes que se desean redistribuir no se encuentran en uso. De lo contrario, se producirán errores de I/O.
+* Se ha instalado un controlador multivía en todos los hosts que utilizan los volúmenes. De lo contrario, se producirán errores de I/O.
++
+Si quieres redistribuir volúmenes sin un controlador multivía en los hosts, toda la actividad de E/S a los volúmenes _mientras la operación de redistribución está en curso_ debe detenerse para evitar errores de aplicación.
+
+
+
+.Acerca de esta tarea
+La mayoría de los controladores de multivía de host intentan acceder a cada volumen en una ruta a su propietario de controlador preferido. Sin embargo, si esta ruta preferida no está disponible, el controlador de multivía en el host cambia a una ruta alternativa. Esta conmutación por error puede hacer que la propiedad del volumen cambie al controlador alternativo. Después de que resuelvas la condición que causó la conmutación por error, algunos hosts pueden mover automáticamente la propiedad del volumen de vuelta al propietario del controlador preferido, pero en algunos casos, puede que tengas que redistribuir manualmente los volúmenes.
+
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona menú:Más[Redistribuir volúmenes].
++
+Aparece el cuadro de diálogo Redistribute Volumes. En este cuadro de diálogo aparecen todos los volúmenes de la storage array cuyo propietario de controlador preferido no coincide con su propietario actual.
+
+. Seleccione el o los volúmenes que desea redistribuir y confirme que desea ejecutar la operación.
+
+
+.Resultados
+System Manager mueve los volúmenes seleccionados a sus propietarios de controladores preferidos o puede que veas un cuadro de diálogo Redistribuir volúmenes innecesario.

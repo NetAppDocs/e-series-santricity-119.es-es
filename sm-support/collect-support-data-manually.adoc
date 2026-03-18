@@ -1,0 +1,40 @@
+---
+permalink: sm-support/collect-support-data-manually.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, collect, support, data, manually 
+summary: Puedes recopilar varios tipos de datos de inventario, estado y rendimiento sobre tu matriz de almacenamiento en un solo archivo. El soporte técnico puede usar el archivo para solucionar problemas y hacer análisis adicionales. 
+---
+= Recopila datos de soporte manualmente en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes recopilar varios tipos de datos de inventario, estado y rendimiento sobre tu matriz de almacenamiento en un solo archivo. El soporte técnico puede usar el archivo para solucionar problemas y hacer análisis adicionales.
+
+.Acerca de esta tarea
+++ ++
+
+[NOTE]
+====
+Si la función AutoSupport está activada, también puedes recopilar estos datos yendo a la pestaña *AutoSupport* y seleccionando *Send AutoSupport Dispatch*.
+
+====
+Sólo puedes ejecutar una operación de recogida a la vez. Si intentas iniciar otra operación, recibes un mensaje de error.
+
+[NOTE]
+====
+Realiza esta operación solo cuando te lo indique el soporte técnico.
+
+====
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *Recoger datos de soporte*.
+. Haz clic en *Recoger*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `support-data.7z`. Si tu estantería contiene cajones, los datos de diagnóstico de esa estantería se archivan en un archivo comprimido independiente llamado `tray-component-state-capture.7z`.
+
+. Sigue las instrucciones del soporte técnico para enviarles el archivo.
+

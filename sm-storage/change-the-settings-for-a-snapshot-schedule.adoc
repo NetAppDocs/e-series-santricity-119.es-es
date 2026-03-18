@@ -1,0 +1,92 @@
+---
+permalink: sm-storage/change-the-settings-for-a-snapshot-schedule.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, settings, snapshot, schedule 
+summary: Para una planificación de SnapVault, puedes cambiar los horarios de recopilación automática o la frecuencia de recopilación. 
+---
+= Cambiar la configuración de una planificación de SnapVault en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para una planificación de SnapVault, puedes cambiar los horarios de recopilación automática o la frecuencia de recopilación.
+
+.Acerca de esta tarea
+Puedes importar la configuración de una planificación de SnapVault existente o modificar la configuración según lo necesites.
+
+Como una planificación de SnapVault está asociada a un grupo de instantáneas o a un grupo de coherencia de instantáneas, la capacidad reservada podría verse afectada por cambios en la configuración de la planificación.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Schedules*.
+. Selecciona la planificación de SnapVault que quieres cambiar y luego haz clic en *Editar*.
++
+Aparece el cuadro de diálogo Editar planificación de SnapVault.
+
+. Debe realizar una de las siguientes acciones:
++
+** *Utiliza una planificación previamente definida de otro objeto de instantánea* -- Haz clic en *Importar planificación*, selecciona el objeto con la planificación que quieres importar y luego haz clic en *Importar*.
+** *Edita los ajustes de programación* -- Consulta detalles de campo más abajo.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Día / mes
+ a| 
+Elige una de las siguientes opciones:
+
+*** *Daily / Weekly* -- Selecciona días individuales para las instantáneas de sincronización. También puedes seleccionar la casilla de comprobación *Select all days* en la esquina superior derecha si quieres una programación diaria.
+*** *Mensual / Anual* -- selecciona meses individuales para las instantáneas de sincronización. En el campo *En día(s)*, introduce los días del mes para que se realicen las sincronizaciones. Las entradas válidas son *1* a *31* y *Last*. Puedes separar varios días con una coma o punto y coma. Usa un guion para fechas inclusivas. Por ejemplo: 1,3,4,10-15,Last. También puedes seleccionar la casilla de comprobación *Select all months* en la parte superior derecha si quieres una programación mensual.
+
+
+
+
+ a| 
+Hora de inicio
+ a| 
+En la lista desplegable, selecciona una nueva hora de inicio para las instantáneas diarias. Las opciones se muestran en incrementos de media hora. La hora de inicio predeterminada es media hora después de la hora actual.
+
+
+
+ a| 
+Zona horaria
+ a| 
+En la lista desplegable, selecciona la zona horaria de tu matriz de almacenamiento.
+
+
+
+ a| 
+Instantáneas por día
+
+Tiempo entre instantáneas
+ a| 
+Selecciona el número de imágenes instantáneas que quieres crear por día.
+
+Si seleccionas más de uno, selecciona también el tiempo entre los puntos de restauración. Para varios puntos de restauración, asegúrate de que tienes suficiente capacidad reservada.
+
+
+
+ a| 
+Fecha de inicio
+
+Fecha final
+
+Sin fecha de finalización
+ a| 
+Introduce la fecha de inicio para que comiencen las sincronizaciones. También introduce una fecha de finalización o selecciona *Sin fecha de finalización*.
+
+|===
+====
+
+
+. Haz clic en *Guardar*.
+

@@ -1,0 +1,81 @@
+---
+permalink: sm-storage/how-ssd-cache-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, ssd cache, 
+summary: 'La función de caché SSD es una solución basada en controladores que almacena en caché los datos a los que se accede con más frecuencia (datos "calientes") en unidades de estado sólido (SSD) de baja latencia para acelerar dinámicamente el rendimiento del sistema. SSD Cache se utiliza exclusivamente para lecturas del host.' 
+---
+= Cómo funciona la caché SSD en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función de caché SSD es una solución basada en controladores que almacena en caché los datos a los que se accede con más frecuencia (datos "calientes") en unidades de estado sólido (SSD) de baja latencia para acelerar dinámicamente el rendimiento del sistema. La caché SSD se utiliza exclusivamente para lecturas del host.
+
+
+
+== Caché SSD versus caché primaria
+
+La caché SSD es una caché secundaria que se usa junto con la caché primaria en la memoria de acceso aleatorio dinámica (DRAM) del controlador.
+
+La caché SSD opera de manera diferente a la caché primaria:
+
+* Para la caché primaria, cada operación de I/O debe preparar datos a través de la caché para realizar la operación.
++
+En la caché primaria, los datos se almacenan en DRAM después de una lectura del host.
+
+* La caché SSD se usa solo si es beneficioso colocar los datos en caché para mejorar el rendimiento del sistema.
++
+En la caché SSD, los datos se copian de los volúmenes y se almacenan en dos volúmenes RAID internos (uno por controladora) que se crean automáticamente cuando creas una caché SSD.
+
+
+
+Los volúmenes RAID internos se utilizan para fines de procesamiento de caché interno. Estos volúmenes no son accesibles ni se muestran en la interfaz de usuario. Sin embargo, estos dos volúmenes sí cuentan para el número total de volúmenes permitidos en la matriz de almacenamiento.
+
+
+
+== Cómo se utiliza la caché SSD
+
+El almacenamiento en caché inteligente coloca los datos en una unidad de baja latencia para que las respuestas a futuras solicitudes de esos datos puedan ocurrir mucho más rápido. Si un programa solicita datos que están en la caché (llamado un "`cache hit`"), entonces la unidad de baja latencia puede atender esa transacción. De lo contrario, ocurre un "`cache miss`" y se debe acceder a los datos desde la unidad original, más lenta. A medida que ocurren más cache hits, el rendimiento general mejora.
+
+Cuando un programa host accede a las unidades de la cabina de almacenamiento, los datos se almacenan en la caché SSD. Cuando el programa host vuelve a acceder a los mismos datos, se lee desde la caché SSD y no desde las unidades de disco duro. Los datos de acceso común se almacenan en la caché SSD. Solo se accede a los discos duros cuando no pueden leerse los datos desde la caché SSD.
+
+La caché SSD se usa solo cuando es beneficioso colocar los datos en caché para mejorar el rendimiento general del sistema.
+
+Cuando la CPU necesita procesar datos de lectura, sigue estos pasos:
+
+. Comprueba la caché de DRAM.
+. Si no los encuentra en la caché de DRAM, revisa la caché SSD.
+. Si no los encuentra en la caché SSD, los obtiene del disco duro. Si los datos se consideran valiosos para estar en la caché, los copia en caché SSD.
+
+
+
+
+== Mejor rendimiento
+
+Copiar los datos a los que más se accede (hot spot) a la caché SSD permite un funcionamiento más eficiente del disco duro, reduce la latencia y acelera las velocidades de lectura y escritura. Usar SSDs de alto rendimiento para almacenar en caché datos de volúmenes HDD mejora el rendimiento de I/O y los tiempos de respuesta.
+
+Se utilizan mecanismos sencillos de I/O de volumen para mover datos hacia y desde la caché SSD. Después de que los datos se almacenan en los SSD, las lecturas posteriores de esos datos se realizan en la caché SSD, eliminando así la necesidad de acceder al volumen del disco duro.
+
+
+
+== Caché SSD y la función Drive Security
+
+Para usar la caché SSD en un volumen que también utiliza Drive Security (está habilitado para seguridad), las capacidades de Drive Security del volumen y de la caché SSD deben coincidir. Si no coinciden, el volumen no estará habilitado para seguridad.
+
+
+
+== Implementar caché SSD
+
+Para implementar la caché SSD, haga lo siguiente:
+
+. Cree la caché SSD.
+. Asocia la caché SSD con los volúmenes para los que quieres implementar la caché de lectura SSD.
+
+
+[NOTE]
+====
+Cualquier volumen asignado para usar la caché SSD de un controlador no es elegible para una transferencia automática de equilibrio de carga.
+
+====

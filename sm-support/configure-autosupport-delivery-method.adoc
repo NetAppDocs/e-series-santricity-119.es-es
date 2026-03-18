@@ -1,0 +1,66 @@
+---
+permalink: sm-support/configure-autosupport-delivery-method.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, autosupport, ASUP, delivery, method 
+summary: La función AutoSupport admite los protocolos HTTPS y SMTP para enviar despachos al soporte técnico. 
+---
+= Configura el método de entrega de AutoSupport en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función AutoSupport admite los protocolos HTTPS y SMTP para enviar despachos al soporte técnico.
+
+.Antes de empezar
+* La función AutoSupport debe estar activada. Puedes ver si está activada en la página AutoSupport.
+* Debe haber un servidor DNS instalado y configurado en tu red. La dirección del servidor DNS debe estar configurada en System Manager (esta tarea está disponible desde la página Hardware).
+
+
+.Acerca de esta tarea
+Revise los diferentes protocolos:
+
+* *HTTPS* -- Te permite conectarte directamente al servidor de soporte técnico de destino usando HTTPS. Si quieres activar AutoSupport OnDemand o Remote Diagnostics, el método de entrega de AutoSupport debe estar configurado como HTTPS.
+* *Correo electrónico* -- Te permite usar un servidor de correo electrónico como método de entrega para enviar los despachos de AutoSupport.
+
+
+[NOTE]
+====
+*Diferencias entre los métodos HTTPS y Email*. El método de entrega Email, que utiliza SMTP, tiene algunas diferencias importantes respecto al método de entrega HTTPS. Primero, el tamaño de los envíos para el método Email está limitado a 5MB, lo que significa que algunas colecciones de datos ASUP no serán enviadas. Segundo, la función AutoSupport OnDemand solo está disponible en el método de entrega HTTPS.
+
+====
+.Pasos
+. Selecciona el menú:Support[Support Center > AutoSupport] tab.
+. Selecciona *Configurar método de entrega de AutoSupport*.
++
+Se muestra un cuadro de diálogo con una lista de los métodos de entrega de mensajes.
+
+. Seleccione el método de entrega deseado y los parámetros para ese método. Debe realizar una de las siguientes acciones:
++
+** Si seleccionaste HTTPS, elige uno de los siguientes parámetros de entrega:
++
+*** *Directamente* -- Este parámetro de entrega es la selección por defecto. Si eliges esta opción, puedes conectarte directamente al sistema de soporte técnico de destino usando el protocolo HTTPS.
+*** *Vía servidor proxy* -- Elegir esta opción te permite especificar los detalles del servidor proxy HTTP necesarios para establecer conexión con el sistema de soporte técnico de destino. Debes especificar la dirección del host y el número de puerto. Sin embargo, solo necesitas ingresar los detalles de autenticación del host (nombre de usuario y contraseña) si se requiere.
+*** *Vía Proxy auto-configuration script (PAC)* -- Especifica la ubicación de un archivo Proxy Auto-Configuration (PAC) Script. Un archivo PAC permite que el sistema elija automáticamente el servidor proxy apropiado para establecer una conexión con el sistema de soporte técnico de destino.
+
+
+** Si seleccionó Correo electrónico, introduzca la siguiente información:
++
+*** La dirección del servidor de correo como un dominio completo, dirección IPv4 o dirección IPv6.
+*** La dirección de correo electrónico que se muestra en el campo De del correo electrónico de mensaje de AutoSupport.
+*** *Opcional; si quieres realizar una prueba de configuración*: La dirección de correo electrónico a la que se envía una confirmación cuando el sistema AutoSupport recibe el envío de prueba.
+*** Si quieres cifrar los mensajes, selecciona *SMTPS* o *STARTTLS* para el tipo de cifrado y luego selecciona el número de puerto para los mensajes cifrados. De lo contrario, selecciona *None*.
+*** Si es necesario, introduce un nombre de usuario y una contraseña para la autenticación con el remitente saliente y el servidor de correo.
+
+
+
+
+. Si tienes un cortafuegos que bloquea la entrega de estos envíos ASUP, añade la siguiente URL a tu lista blanca: `\https://support.netapp.com/put/AsupPut/`
+. Haz clic en *Probar configuración* para probar la conexión al servidor de soporte técnico usando los parámetros de entrega especificados. Si habilitaste la función AutoSupport On-Demand, el sistema también probará la conexión para la entrega de envío de AutoSupport OnDemand.
++
+Si la prueba de configuración presenta un error, revise la configuración y vuelva a ejecutar la prueba. Si la prueba continúa presentando errores, póngase en contacto con el soporte técnico.
+
+. Haz clic en *Guardar*.
+

@@ -1,0 +1,28 @@
+---
+permalink: sm-storage/snapshot-rollback.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, rollback 
+summary: Una operación de rollback devuelve un volumen base a un estado anterior, determinado por la snapshot seleccionada. 
+---
+= Conoce la reversión de instantáneas en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una operación de rollback devuelve un volumen base a un estado anterior, determinado por la snapshot seleccionada.
+
+Para la reversión, puedes seleccionar una imagen de instantánea de cualquiera de las siguientes fuentes:
+
+* *Snapshot image rollback*, para una restauración completa de un volumen base.
+* *Reversión de grupo de coherencia de instantáneas*, que puede usarse para revertir uno o más volúmenes.
+
+
+Durante la reversión, la función Snapshots conserva todas las imágenes snapshot del grupo. También permite al host acceder al volumen base durante este proceso, si es necesario para operaciones de I/O.
+
+Cuando se inicia un rollback, un proceso en segundo plano barre las direcciones lógicas de bloque (LBAs) del volumen base y luego encuentra los datos de copia sobre escritura en la imagen de snapshot del rollback que se va a restaurar. Porque el volumen base es accesible desde el host para lecturas y escrituras, y todos los datos escritos anteriormente están disponibles inmediatamente, el volumen de capacidad reservada debe ser lo suficientemente grande como para contener todos los cambios mientras se procesa el rollback. La transferencia de datos continúa como una operación en segundo plano hasta que finaliza el rollback.
+
+image::../media/sam1130-dwg-snapshots-rollback-overview.gif[Descripción general de la reversión de instantáneas]
+
+^1^ Volumen base; ^2^ Objetos de Snapshot en un grupo; ^3^ Capacidad reservada del grupo de Snapshots

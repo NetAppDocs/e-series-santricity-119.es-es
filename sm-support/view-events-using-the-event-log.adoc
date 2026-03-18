@@ -1,0 +1,167 @@
+---
+permalink: sm-support/view-events-using-the-event-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, events, 
+summary: Puedes ver el registro de eventos, que proporciona un registro histórico de los eventos que han ocurrido en la matriz de almacenamiento. 
+---
+= Ver eventos usando el registro de eventos en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes ver el registro de eventos, que proporciona un registro histórico de los eventos que han ocurrido en la matriz de almacenamiento.
+
+.Pasos
+. Selecciona el menú:Support[Registro de sucesos].
++
+Aparece la página Event Log.
+
++
+.Detalles de la página
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Artículo | Descripción 
+
+
+ a| 
+Ver todos los campos
+ a| 
+Alterna entre todos los eventos y solo los eventos críticos y de advertencia.
+
+
+
+ a| 
+Campo de filtro
+ a| 
+Filtra los eventos. Útil para mostrar solo los eventos relacionados con un componente específico, un evento concreto, etc.
+
+
+
+ a| 
+Selecciona el icono de columnas.
+ a| 
+Te permite seleccionar otras columnas para ver. Otras columnas te dan información adicional sobre el evento.
+
+
+
+ a| 
+Casillas de comprobación
+ a| 
+Te permite seleccionar los eventos que quieres guardar. La casilla de comprobación en el encabezado de la tabla selecciona todos los eventos.
+
+
+
+ a| 
+Columna Fecha/Hora
+ a| 
+La fecha y la hora del evento, según el reloj del controlador.
+
+
+NOTE: El registro de eventos ordena inicialmente los eventos en función del número de secuencia. Normalmente, esta secuencia corresponde a la fecha y la hora. Sin embargo, los dos relojes del controlador en la matriz de almacenamiento podrían no estar sincronizados. En este caso, podrían aparecer algunas incoherencias percibidas en el registro de eventos en relación con los eventos y la fecha y hora mostradas.
+
+
+
+ a| 
+Columna de prioridad
+ a| 
+Estos valores de prioridad existen:
+
+** *Crítico* -- Existe un problema con la matriz de almacenamiento. Sin embargo, si tomas medidas inmediatas, podrías evitar perder el acceso a los datos. Los eventos críticos se usan para notificaciones de alerta. Todos los eventos críticos se envían a cualquier cliente de gestión de red (a través de SNMP traps) o al destinatario de correo electrónico que configuraste.
+** *Advertencia* -- Se ha producido un error que ha degradado el rendimiento y la capacidad de la matriz de almacenamiento para recuperarse de otro error.
+** *Informational* -- Información no crítica relacionada con la matriz de almacenamiento.
+
+
+
+
+ a| 
+Columna Tipo de componente
+ a| 
+El componente que está afectado por el evento. El componente puede ser hardware, como una unidad o un controlador, o puede ser software, como el firmware del controlador.
+
+
+
+ a| 
+Columna ubicación de los componentes
+ a| 
+La ubicación física del componente en la matriz de almacenamiento.
+
+
+
+ a| 
+Columna de descripción
+ a| 
+Una descripción del acontecimiento.
+
+*Ejemplo* -- `Drive write failure - retries exhausted`
+
+
+
+ a| 
+Columna de número de secuencia
+ a| 
+Un número de 64 bits que identifica de forma exclusiva una entrada de registro específica para una matriz de almacenamiento. Este número se incrementa en uno con cada nueva entrada de registro de eventos. Para mostrar esta información, haz clic en el icono *Seleccionar columnas*.
+
+
+
+ a| 
+Columna de tipo de evento
+ a| 
+Un número de 4 dígitos que identifica cada tipo de evento registrado. Para mostrar esta información, haz clic en el icono *Seleccionar columnas*.
+
+
+
+ a| 
+Columna de códigos específicos de eventos
+ a| 
+Esta información es utilizada por soporte técnico. Para mostrar esta información, haz clic en el icono *Seleccionar columnas*.
+
+
+
+ a| 
+Columna de categoría de evento
+ a| 
+** **Fallo** – Un componente de la matriz de almacenamiento ha fallado; por ejemplo, fallo de unidad o fallo de batería.
+** **Cambio de estado** – Un elemento de la matriz de almacenamiento que ha cambiado de estado; por ejemplo, un volumen pasó al estado Óptimo o un controlador pasó al estado Fuera de línea.
+** **Internal** – Operaciones internas del controlador que no requieren la acción del usuario; por ejemplo, el controlador ha completado el inicio del día.
+** **Command** – Un comando que se ha emitido a la matriz de almacenamiento; por ejemplo, se ha asignado un hot spare.
+** **Error** – Se ha detectado una condición de error en la matriz de almacenamiento; por ejemplo, un controlador es incapaz de sincronizar y purgar la caché o se detecta un error de redundancia en la matriz de almacenamiento.
+** **General** – Cualquier evento que no encaje bien en ninguna otra categoría. Para mostrar esta información, haz clic en el icono **Select columns**.
+
+
+
+
+ a| 
+Columna Logged By
+ a| 
+El nombre del controlador que registró el evento. Para mostrar esta información, haz clic en el icono **Select columns**.
+
+|===
+====
+. Para recuperar nuevos eventos de la matriz de almacenamiento, haz clic en **Refresh**.
++
+Puede tardar varios minutos en que un evento se registre y se haga visible en la página de registro de eventos.
+
+. Para guardar el registro de eventos en un archivo:
++
+.. Selecciona la casilla de comprobación junto a cada evento que quieras guardar.
+.. Haz clic en *Guardar*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `major-event-log-timestamp.log`.
+
+
+
+. Para borrar eventos del registro de eventos:
++
+El registro de sucesos almacena aproximadamente 8,000 sucesos antes de reemplazar un suceso por uno nuevo. Si quieres conservar los sucesos, puedes guardarlos y borrarlos del registro de sucesos.
+
++
+.. Primero, guarda el registro de eventos.
+.. Haz clic en *Borrar todo* y confirma que quieres realizar la operación.
+
+
+

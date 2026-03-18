@@ -1,0 +1,496 @@
+---
+permalink: sm-hardware/hardware-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, terms 
+summary: Aprende cómo se aplican los términos de hardware a tu matriz de almacenamiento. 
+---
+= Conoce la terminología de hardware utilizada en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los siguientes términos de hardware se aplican a las matrices de almacenamiento.
+
+.Términos generales de hardware:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Componente | Descripción 
+
+
+ a| 
+Bahía
+ a| 
+Una bahía es una ranura en la bandeja donde se instala una unidad u otro componente.
+
+
+
+ a| 
+Controladora
+ a| 
+Un controlador consta de una placa, firmware y software. Controla las unidades e implementa las funciones de System Manager.
+
+
+
+ a| 
+Bandeja de controladoras
+ a| 
+Una bandeja de controladora contiene un conjunto de unidades y uno o más contenedores de controladora. Un contenedor de controladora contiene los controladores, las tarjetas de interfaz del host (HIC) y las baterías.
+
+
+
+ a| 
+Unidad
+ a| 
+Una unidad es un dispositivo mecánico electromagnético o un dispositivo de memoria de estado sólido que proporciona el medio físico de almacenamiento para los datos.
+
+
+
+ a| 
+Bandeja de unidades
+ a| 
+Una bandeja de expansión, también llamada drive shelf, contiene un conjunto de unidades y dos módulos de entrada/salida (IOM). Los IOM contienen puertos SAS que conectan una bandeja de expansión a una bandeja de controladores o a otras bandejas de expansión.
+
+
+
+ a| 
+IOM (ESM)
+ a| 
+Un IOM es un módulo de entrada/salida que incluye puertos SAS para conectar la bandeja de unidades al estante del controlador. En modelos de controladores anteriores, el IOM se denominaba environmental service module (ESM).
+
+
+
+ a| 
+Canister de alimentación/ventilador
+ a| 
+Un contenedor de alimentación/ventilador es un conjunto que se desliza en una bandeja. Incluye una fuente de alimentación y un ventilador integrado.
+
+
+
+ a| 
+SFP
+ a| 
+Un SFP es un transceptor de factor de forma pequeño (SFP).
+
+
+
+ a| 
+Bandeja
+ a| 
+Una estantería es una caja instalada en un armario o bastidor. Contiene los componentes de hardware para la matriz de almacenamiento. Hay dos tipos de estanterías: una estantería de controladores y una estantería de unidades. Una estantería de controladores incluye controladores y unidades. Una estantería de unidades incluye módulos de entrada/salida (IOM) y unidades.
+
+
+
+ a| 
+Matriz de almacenamiento
+ a| 
+Una matriz de almacenamiento incluye las estanterías, los controladores, las unidades, el software y el firmware.
+
+|===
+====
+.Términos del controlador:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Componente | Descripción 
+
+
+ a| 
+Controladora
+ a| 
+Un controlador consta de una placa, firmware y software. Controla las unidades e implementa las funciones de System Manager.
+
+
+
+ a| 
+Bandeja de controladoras
+ a| 
+Una bandeja de controladora contiene un conjunto de unidades y uno o más contenedores de controladora. Un contenedor de controladora contiene los controladores, las tarjetas de interfaz del host (HIC) y las baterías.
+
+
+
+ a| 
+DHCP
+ a| 
+Dynamic Host Configuration Protocol (DHCP) es un protocolo usado en redes de Protocolo de Internet (IP) para distribuir dinámicamente parámetros de configuración de red, como direcciones IP.
+
+
+
+ a| 
+DNS
+ a| 
+El Sistema de Nombres de Dominio (DNS) es un sistema de nomenclatura para dispositivos conectados a Internet o a una red privada. El servidor DNS mantiene un directorio de nombres de dominio y los traduce a direcciones de Protocolo de Internet (IP).
+
+
+
+ a| 
+Configuraciones dúplex
+ a| 
+Duplex es una configuración de módulo de dos controladores dentro de la matriz de almacenamiento. Los sistemas Duplex son totalmente redundantes con respecto a los controladores, las rutas de volúmenes lógicos y las rutas de disco. Si un controlador falla, el otro controlador se hace cargo de su E/S para mantener la disponibilidad. Los sistemas Duplex también tienen ventiladores y fuentes de alimentación redundantes.
+
+
+
+ a| 
+Conexiones full-duplex / half-duplex
+ a| 
+Full-duplex y half-duplex se refieren a los modos de conexión. En modo full-duplex, dos dispositivos pueden comunicarse simultáneamente en ambas direcciones. En modo half-duplex, los dispositivos pueden comunicarse en una dirección a la vez (un dispositivo envía un mensaje, mientras que el otro dispositivo lo recibe).
+
+
+
+ a| 
+HIC
+ a| 
+Opcionalmente, se puede instalar una tarjeta de interfaz del host (HIC) dentro de un canister de controlador. Los puertos del host que están integrados en el controlador se llaman puertos del host de placa base. Los puertos del host que están integrados en la HIC se llaman puertos de HIC.
+
+
+
+ a| 
+respuesta ICMP PING
+ a| 
+Internet Control Message Protocol (ICMP) es un protocolo que usan los sistemas operativos de los ordenadores conectados en red para enviar mensajes. Los mensajes ICMP determinan si un host es accesible y cuánto tiempo tarda en llegar y regresar paquetes a ese host.
+
+
+
+ a| 
+Dirección MAC
+ a| 
+Los identificadores de control de acceso a los medios (direcciones MAC) son utilizados por Ethernet para distinguir entre canales lógicos independientes que conectan dos puertos en la misma interfaz de red de transporte física.
+
+
+
+ a| 
+cliente de gestión
+ a| 
+Un cliente de gestión es el ordenador donde se instala un navegador para acceder a System Manager.
+
+
+
+ a| 
+MTU
+ a| 
+Una unidad de transmisión máxima (MTU) es el paquete o el marco de mayor tamaño que se pueden enviar en una red.
+
+
+
+ a| 
+NTP
+ a| 
+Network Time Protocol (NTP) es un protocolo de red para la sincronización del reloj entre sistemas informáticos en redes de datos.
+
+
+
+ a| 
+Configuraciones simplex
+ a| 
+Simplex es una configuración de módulo de controlador único dentro de la storage array. Un sistema simplex no ofrece redundancia de controlador ni de ruta de disco, pero sí tiene ventiladores y fuentes de alimentación redundantes.
+
+
+
+ a| 
+VLAN
+ a| 
+Una red de área local virtual (VLAN) es una red lógica que se comporta como si estuviera físicamente separada de otras redes soportadas por los mismos dispositivos (switches, routers, etc.).
+
+|===
+====
+.Términos de unidad:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Componente | Descripción 
+
+
+ a| 
+DA
+ a| 
+Data Assurance (DA) es una función que comprueba y corrige los errores que puedan producirse a medida que los datos se transfieren a través de los controladores hasta las unidades. Data Assurance puede activarse a nivel de pool o grupo de volúmenes, con hosts que usan una interfaz de E/S compatible con DA, como Fibre Channel.
+
+
+
+ a| 
+Función Drive Security
+ a| 
+Drive Security es una función de la matriz de almacenamiento que proporciona una capa adicional de seguridad con unidades Full Disk Encryption (FDE) o unidades Federal Information Processing Standard (FIPS). Cuando estas unidades se utilizan con la función Drive Security, requieren una clave de seguridad para acceder a sus datos. Cuando las unidades se retiran físicamente de la matriz, no pueden funcionar hasta que se instalan en otra matriz, momento en el que estarán en un estado de Security Locked hasta que se proporcione la clave de seguridad correcta.
+
+
+
+ a| 
+Bandeja de unidades
+ a| 
+Una bandeja de expansión, también llamada drive shelf, contiene un conjunto de unidades y dos módulos de entrada/salida (IOM). Los IOM contienen puertos SAS que conectan una bandeja de expansión a una bandeja de controladores o a otras bandejas de expansión.
+
+
+
+ a| 
+DULBE
+ a| 
+El error de bloque lógico desasignado o no escrito (DULBE) es una opción en las unidades NVMe que permite que la matriz de almacenamiento EF300 o EF600 admita volúmenes aprovisionados de recursos.
+
+
+
+ a| 
+Unidades FDE
+ a| 
+Las unidades Full Disk Encryption (FDE) realizan el cifrado en la unidad de disco a nivel de hardware. El disco duro contiene un chip ASIC que cifra los datos durante las escrituras y luego los descifra durante las lecturas.
+
+
+
+ a| 
+Unidades FIPS
+ a| 
+Las unidades FIPS utilizan el nivel 2 de los Estándares Federales de Procesamiento de Información (FIPS) 140-2. Son básicamente unidades FDE que cumplen con los estándares del gobierno de Estados Unidos para asegurar algoritmos y métodos de cifrado fuertes. Las unidades FIPS tienen estándares de seguridad más altos que las unidades FDE.
+
+
+
+ a| 
+HDD
+ a| 
+Las unidades de disco duro (HDD) son dispositivos de almacenamiento de datos que usan platos metálicos giratorios con un recubrimiento magnético.
+
+
+
+ a| 
+Unidades de repuesto en caliente
+ a| 
+Los repuestos en caliente actúan como unidades de reserva en grupos de volúmenes RAID 1, RAID 5 o RAID 6. Son unidades totalmente funcionales que no contienen datos. Si falla una unidad en el grupo de volúmenes, la controladora reconstruye automáticamente los datos de la unidad con error en un repuesto en caliente.
+
+
+
+ a| 
+NVMe
+ a| 
+Non-Volatile Memory Express (NVMe) es una interfaz diseñada para dispositivos de almacenamiento basados en flash, como las unidades SSD. NVMe reduce la sobrecarga de E/S e incluye mejoras de rendimiento, en comparación con interfaces de dispositivos lógicos anteriores.
+
+
+
+ a| 
+SAS
+ a| 
+Serial Attached SCSI (SAS) es un protocolo serie punto a punto que enlaza directamente los controladores con las unidades de disco.
+
+
+
+ a| 
+Unidades compatibles con seguridad
+ a| 
+Las unidades con capacidad de seguridad pueden ser unidades Full Disk Encryption (FDE) o unidades Federal Information Processing Standard (FIPS), que cifran los datos durante las escrituras y los descifran durante las lecturas. Estas unidades se consideran con capacidad de seguridad porque pueden usarse para seguridad adicional usando la función Drive Security. Si la función Drive Security está habilitada para los grupos de volúmenes y pools usados con estas unidades, las unidades se vuelven secure-_enabled_.
+
+
+
+ a| 
+Unidades habilitadas para seguridad
+ a| 
+Las unidades habilitadas para seguridad se utilizan con la función Drive Security. Cuando habilitas la función Drive Security y luego aplicas Drive Security a un pool o grupo de volúmenes en unidades secure-_capable_, las unidades se vuelven secure__-enabled__. El acceso de lectura y escritura está disponible solo a través de un controlador configurado con la clave de seguridad correcta. Esta seguridad adicional evita el acceso no autorizado a los datos de una unidad que se retira físicamente de la matriz de almacenamiento.
+
+
+
+ a| 
+SSD
+ a| 
+Los discos de estado sólido (SSD) son dispositivos de almacenamiento de datos que utilizan memoria de estado sólido (flash) para almacenar datos de forma persistente. Los SSD emulan los discos duros convencionales y están disponibles con las mismas interfaces que usan los discos duros.
+
+|===
+====
+.Términos iSCSI:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+CHAP
+ a| 
+El método Challenge Handshake Authentication Protocol (CHAP) valida la identidad de objetivos e iniciadores durante el enlace inicial. La autenticación se basa en una clave de seguridad compartida llamada __secret__ CHAP.
+
+
+
+ a| 
+Controladora
+ a| 
+Un controlador consta de una placa, firmware y software. Controla las unidades e implementa las funciones de System Manager.
+
+
+
+ a| 
+DHCP
+ a| 
+Dynamic Host Configuration Protocol (DHCP) es un protocolo usado en redes de Protocolo de Internet (IP) para distribuir dinámicamente parámetros de configuración de red, como direcciones IP.
+
+
+
+ a| 
+IB
+ a| 
+InfiniBand (IB) es un estándar de comunicaciones para la transmisión de datos entre servidores de alto rendimiento y sistemas de almacenamiento.
+
+
+
+ a| 
+respuesta ICMP PING
+ a| 
+Internet Control Message Protocol (ICMP) es un protocolo que usan los sistemas operativos de los ordenadores conectados en red para enviar mensajes. Los mensajes ICMP determinan si un host es accesible y cuánto tiempo tarda en llegar y regresar paquetes a ese host.
+
+
+
+ a| 
+IQN
+ a| 
+Un identificador de nombre completo de iSCSI (IQN) es un nombre único para un iniciador de iSCSI o un destino iSCSI.
+
+
+
+ a| 
+iSER
+ a| 
+iSCSI Extensions for RDMA (iSER) es un protocolo que amplía el protocolo iSCSI para operar sobre transportes RDMA, como InfiniBand o Ethernet.
+
+
+
+ a| 
+iSNS
+ a| 
+El servicio de nombres de almacenamiento de Internet (iSNS) es un protocolo que permite la detección, gestión y configuración automatizada de dispositivos iSCSI y Fibre Channel en redes TCP/IP.
+
+
+
+ a| 
+Dirección MAC
+ a| 
+Los identificadores de control de acceso a los medios (direcciones MAC) son utilizados por Ethernet para distinguir entre canales lógicos independientes que conectan dos puertos en la misma interfaz de red de transporte física.
+
+
+
+ a| 
+Cliente de gestión
+ a| 
+Un cliente de gestión es el ordenador donde se instala un navegador para acceder a System Manager.
+
+
+
+ a| 
+MTU
+ a| 
+Una unidad de transmisión máxima (MTU) es el paquete o el marco de mayor tamaño que se pueden enviar en una red.
+
+
+
+ a| 
+RDMA
+ a| 
+El acceso directo a memoria remota (RDMA) es una tecnología que les permite a los equipos en red intercambiar datos en la memoria principal sin la participación del sistema operativo de ninguno de los equipos.
+
+
+
+ a| 
+Sesión de detección sin nombre
+ a| 
+Cuando se habilita la opción de sesiones de detección sin nombre, no se requiere que los iniciadores de iSCSI especifiquen el IQN objetivo para recuperar la información de la controladora.
+
+|===
+====
+.Términos de NVMe:
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+InfiniBand
+ a| 
+InfiniBand (IB) es un estándar de comunicaciones para la transmisión de datos entre servidores de alto rendimiento y sistemas de almacenamiento.
+
+
+
+ a| 
+Espacio de nombres
+ a| 
+Un namespace es un almacenamiento NVM formateado para el acceso en bloque. Es análogo a una unidad lógica en SCSI, que se refiere a un volumen en la cabina de almacenamiento.
+
+
+
+ a| 
+ID del espacio de nombres
+ a| 
+El ID del espacio de nombres es el identificador único del controlador NVMe para el espacio de nombres y puede configurarse con un valor entre 1 y 255. Es análogo a un número de unidad lógica (LUN) en SCSI.
+
+
+
+ a| 
+NQN
+ a| 
+NVMe Qualified Name (NQN) se usa para identificar el destino de almacenamiento remoto (la matriz de almacenamiento).
+
+
+
+ a| 
+NVM
+ a| 
+La memoria no volátil (NVM) es memoria persistente utilizada en muchos tipos de dispositivos de almacenamiento.
+
+
+
+ a| 
+NVMe
+ a| 
+Non-Volatile Memory Express (NVMe) es una interfaz diseñada para dispositivos de almacenamiento basados en flash, como las unidades SSD. NVMe reduce la sobrecarga de E/S e incluye mejoras de rendimiento, en comparación con interfaces de dispositivos lógicos anteriores.
+
+
+
+ a| 
+NVMe-oF
+ a| 
+Non-Volatile Memory Express over Fabrics (NVMe-oF) es una especificación que permite que los comandos y datos NVMe se transfieran a través de una red entre un host y el almacenamiento.
+
+
+
+ a| 
+Controlador NVMe
+ a| 
+Se crea un controlador NVMe durante el proceso de conexión del host. Proporciona una ruta de acceso entre un host y los namespaces en la storage array.
+
+
+
+ a| 
+Cola NVMe
+ a| 
+Se utiliza una cola para pasar comandos y mensajes por la interfaz NVMe.
+
+
+
+ a| 
+Subsistema NVMe
+ a| 
+La matriz de almacenamiento con una conexión de host NVMe.
+
+
+
+ a| 
+RDMA
+ a| 
+El acceso remoto directo a memoria (RDMA) permite un movimiento de datos más directo dentro y fuera de un servidor al implementar un protocolo de transporte en el hardware de la tarjeta de interfaz de red (NIC).
+
+
+
+ a| 
+RoCE
+ a| 
+RDMA over Converged Ethernet (RoCE) es un protocolo de red que permite el acceso directo remoto a memoria (RDMA) a través de una red Ethernet.
+
+
+
+ a| 
+SSD
+ a| 
+Los discos de estado sólido (SSD) son dispositivos de almacenamiento de datos que utilizan memoria de estado sólido (flash) para almacenar datos de forma persistente. Los SSD emulan los discos duros convencionales y están disponibles con las mismas interfaces que usan los discos duros.
+
+|===
+====

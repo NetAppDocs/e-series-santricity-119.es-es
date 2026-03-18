@@ -1,0 +1,95 @@
+---
+permalink: sm-mirroring/how-synchronous-mirroring-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, synchronous, mirroring, 
+summary: La replicación síncrona replica los volúmenes de datos en tiempo real para asegurar una disponibilidad continua. 
+---
+= Cómo funciona el mirroring síncrono en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La replicación síncrona replica los volúmenes de datos en tiempo real para asegurar una disponibilidad continua.
+
+[NOTE]
+====
+La duplicación síncrona no está disponible en la matriz de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+La duplicación síncrona logra un objetivo de punto de recuperación (RPO) de cero pérdida de datos al tener una copia de los datos importantes disponible si ocurre un desastre en una de las dos matrices de almacenamiento. La copia es idéntica a los datos de producción en todo momento porque cada vez que se realiza una operación de escritura en el volumen primario, se realiza una operación de escritura en el volumen secundario. El host no recibe una confirmación de que la operación de escritura fue exitosa hasta que el volumen secundario se actualiza correctamente con los cambios realizados en el volumen primario.
+
+Este tipo de mirroring es ideal para fines de continuidad de negocio, como la recuperación de desastres.
+
+
+
+== Relación de mirroring síncrono
+
+Una relación de mirroring síncrono consiste en un volumen primario y un volumen secundario en matrices de almacenamiento separadas. La matriz de almacenamiento que contiene el volumen primario suele estar ubicada en el sitio primario y sirve a los hosts activos. La matriz de almacenamiento que contiene el volumen secundario suele estar ubicada en un sitio secundario y contiene una réplica de los datos. El volumen secundario se usa si la matriz de almacenamiento del volumen primario no está disponible por, por ejemplo, un corte total de energía, un incendio o una falla de hardware en el sitio primario.
+
+
+
+== Sesión de mirroring síncrono
+
+El proceso de configuración de la duplicación sincrónica implica configurar volúmenes en pares. Después de crear un par reflejado, que consiste en un volumen primario en una storage array y un volumen secundario en otra storage array, puedes empezar la duplicación sincrónica. Los pasos de la duplicación sincrónica se muestran a continuación.
+
+image::../media/sam-1130-dwg-sync-mirroring-session.gif[Sesión de mirroring síncrono]
+
+. Llega una operación de escritura desde el host.
+. La operación de escritura se consigna en el volumen primario, se propaga al sistema remota y luego se consigna en el volumen secundario.
+. La matriz de almacenamiento del volumen principal envía un mensaje de finalización de E/S al sistema host _después_ de que ambas operaciones de escritura se hayan completado con éxito.
+
+
+La capacidad reservada se usa para registrar información sobre la solicitud de escritura entrante de un host.
+
+Cuando el controlador propietario actual del volumen primario recibe una solicitud de escritura de un host, el controlador primero registra la información sobre la escritura en la capacidad reservada del volumen primario. Luego, escribe los datos en el volumen primario. Después, el controlador inicia una operación de escritura remota para copiar los bloques de datos afectados al volumen secundario en la matriz de almacenamiento remoto.
+
+Dado que la aplicación host debe esperar a que se produzca la escritura en la matriz de almacenamiento local y a través de la red en la matriz de almacenamiento remota, se requiere una conexión muy rápida entre la matriz de almacenamiento local y la matriz de almacenamiento remota para mantener la relación de espejo sin reducir excesivamente el rendimiento de I/O local.
+
+
+
+== Recuperación ante desastres
+
+La replicación sincrónica mantiene una copia de los datos que está físicamente alejada del sitio donde residen. Si ocurre un desastre en el sitio primario, como un corte de electricidad o una inundación, se puede acceder rápidamente a los datos desde el sitio secundario.
+
+El volumen secundario no está disponible para las aplicaciones host mientras la operación de mirroring sincrónico está en curso, así que, en caso de un desastre en la matriz de almacenamiento local, puedes conmutar por error a la matriz de almacenamiento remota. Para conmutar por error, promociona el volumen secundario al rol primario. Luego, el host de recuperación puede acceder al volumen recién promocionado y las operaciones comerciales pueden continuar.
+
+
+
+== Ajustes de sincronización
+
+Cuando creas un par reflejado, también defines la prioridad de sincronización y la política de resincronización que el par reflejado usa para completar la operación de resincronización después de una interrupción de la comunicación.
+
+Si el enlace de comunicación entre las dos matrices de almacenamiento deja de funcionar, los hosts siguen recibiendo acuses de recibo de la matriz de almacenamiento local, evitando una pérdida de acceso. Cuando el enlace de comunicación vuelve a funcionar, cualquier dato no replicado puede resincronizarse automática o manualmente a la matriz de almacenamiento remota.
+
+Si los datos se resincronizan automáticamente depende de la política de resincronización del par reflejado. Una política de resincronización automática permite que el par reflejado se resincronice automáticamente cuando el enlace vuelve a funcionar. Una política de resincronización manual requiere que tú reanudes manualmente la sincronización después de un problema de comunicación. La resincronización manual es la política recomendada.
+
+Puedes editar la configuración de sincronización para un par reflejado solo en la matriz de almacenamiento que contiene el volumen primario.
+
+
+
+== Datos no sincronizados
+
+Los volúmenes primario y secundario se desincronizan cuando la matriz de almacenamiento del volumen primario no puede escribir datos en el volumen secundario. Esto puede deberse a los siguientes problemas:
+
+* Problemas de red entre las matrices de almacenamiento local y remota
+* Un volumen secundario fallido
+* Sincronización suspendida manualmente en el par reflejado
+
+
+
+
+== Par reflejado huérfano
+
+Existe un volumen de par reflejado huérfano cuando se ha eliminado un volumen miembro en un lado (ya sea el lado primario o el lado secundario) pero no en el otro lado.
+
+Los volúmenes de pares reflejados huérfanos se detectan cuando se restablece la comunicación entre matrices y los dos lados de la configuración de espejo reconcilian los parámetros de espejo.
+
+Puedes eliminar un par reflejado para corregir un estado de par reflejado huérfano.
+
+
+
+== Configuración y gestión
+
+Para habilitar y configurar el mirroring entre dos arrays, debes usar la interfaz de Unified Manager. Una vez que el mirroring está habilitado, puedes gestionar los pares reflejados y la configuración de sincronización en System Manager.

@@ -1,0 +1,71 @@
+---
+permalink: sm-hardware/view-hardware-components.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, hardware, components, filtering, 
+summary: La página Hardware ofrece funciones de clasificación y filtrado que hacen más fácil encontrar componentes. 
+---
+= Ver componentes de hardware en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La página Hardware ofrece funciones de clasificación y filtrado que hacen más fácil encontrar componentes.
+
+.Pasos
+. Selecciona *Hardware*.
+. Usa las funciones descritas en la siguiente tabla para ver los componentes de hardware.
+
+
+[cols="25h,~"]
+|===
+| Función | Descripción 
+
+
+ a| 
+Vistas de discos, controladores y componentes
+ a| 
+Para cambiar entre las vistas frontal y trasera de la estantería, selecciona *Unidades* o *Controladores y componentes* en el extremo derecho (el enlace que aparece depende de la vista actual). La vista *Unidades* muestra las unidades y cualquier bahía de unidad vacía. La vista *Controladores y componentes* muestra los controladores y cualquier módulo IOM (ESM), canister de alimentación/ventilador o bahía de controlador vacía. En la parte inferior de la página, también puedes seleccionar *Mostrar todas las unidades*.
+
+
+
+ a| 
+Filtros de vista de unidades
+ a| 
+Si la matriz de almacenamiento contiene unidades con diferentes tipos de atributos físicos y lógicos, la página *Hardware* incluye filtros de vista de unidad. Estos campos de filtro te ayudan a localizar rápidamente unidades específicas limitando los tipos de unidad mostrados en la página. En *Mostrar unidades que son...*, haz clic en el campo de filtro de la izquierda (por defecto, muestra *Cualquier tipo de unidad*) para ver una lista desplegable de atributos físicos (por ejemplo, capacidad y velocidad). Haz clic en el campo de filtro de la derecha (por defecto, muestra *En cualquier lugar de la matriz de almacenamiento*) para ver una lista desplegable de atributos lógicos (por ejemplo, asignación de grupo de volúmenes). Puedes usar estos filtros juntos o por separado.
+
+[NOTE]
+====
+Si la matriz de almacenamiento contiene unidades que comparten los mismos atributos físicos, el campo *Any drive type* de la izquierda no aparece. Si las unidades están todas en la misma ubicación lógica, el campo *Anywhere in the storage array* de la derecha no aparece.
+
+====
+
+
+ a| 
+Leyenda
+ a| 
+Los componentes se muestran en determinados colores para representar sus estados de función. Para expandir y contraer las descripciones de estos estados, haz clic en *Legend*.
+
+
+
+ a| 
+Mostrar detalles del icono de estado
+ a| 
+Los indicadores de estado pueden incluir descripciones de texto para los estados de disponibilidad. Haz clic en *Mostrar detalles del icono de estado* para mostrar u ocultar este texto de estado.
+
+
+
+ a| 
+Iconos de estante/estantería
+ a| 
+Cada vista de estante proporciona una lista de comandos relacionados, junto con propiedades y estado. Haz clic en *Shelf* para ver una lista desplegable de comandos. También puedes seleccionar uno de los iconos de la parte superior para ver el estado y las propiedades de componentes individuales: controladores, IOMs (ESMs), fuentes de alimentación, ventiladores, temperatura, baterías y SFPs.
+
+
+
+ a| 
+Orden de estantería
+ a| 
+Las estanterías se pueden reorganizar en la página Hardware. Usa las flechas arriba y abajo en la parte superior derecha de cada vista de estantería para cambiar el orden superior/inferior de las estanterías.
+
+|===

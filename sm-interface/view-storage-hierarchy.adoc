@@ -1,0 +1,121 @@
+---
+permalink: sm-interface/view-storage-hierarchy.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, storage hierarchy 
+summary: La jerarquía de almacenamiento en la interfaz principal te da una vista organizada de los distintos componentes de hardware y objetos de almacenamiento que gestiona tu matriz de almacenamiento. 
+---
+= Ver la jerarquía de almacenamiento en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La jerarquía de almacenamiento en la interfaz principal te da una vista organizada de los distintos componentes de hardware y objetos de almacenamiento que gestiona tu matriz de almacenamiento.
+
+Para ver la jerarquía de almacenamiento, ve a la página de inicio y haz clic en la flecha desplegable de un componente de la matriz de almacenamiento o de un objeto de almacenamiento. Una matriz de almacenamiento consiste en una colección de componentes físicos y componentes lógicos.
+
+
+
+== Componentes físicos
+
+Los componentes físicos de una matriz de almacenamiento se describen en esta tabla.
+
+[cols="25h,~"]
+|===
+| Componente | Descripción 
+
+
+ a| 
+Controladora
+ a| 
+Un controlador consta de una placa, firmware y software. Controla las unidades e implementa las funciones de System Manager.
+
+
+
+ a| 
+Bandeja
+ a| 
+Una estantería es una caja instalada en un armario o bastidor. Contiene los componentes de hardware para la matriz de almacenamiento. Hay dos tipos de estanterías: una estantería de controladores y una estantería de unidades. Una estantería de controladores incluye controladores y unidades. Una estantería de unidades incluye módulos de entrada/salida (IOM) y unidades.
+
+[NOTE]
+====
+Si tu matriz de almacenamiento contiene distintos tipos de soporte o distintos tipos de interfaz, aparecerá un estante para cada tipo de unidad.
+
+====
+
+
+ a| 
+Unidad
+ a| 
+Una unidad es un dispositivo mecánico electromagnético o un dispositivo de memoria de estado sólido que proporciona el medio físico de almacenamiento para los datos.
+
+
+
+ a| 
+Host
+ a| 
+Un host es un servidor que envía E/S a un volumen en una matriz de almacenamiento.
+
+
+
+ a| 
+Adaptador de bus de host (HBA)
+ a| 
+Un host bus adapter (HBA) es una tarjeta que reside en un host y contiene uno o más puertos de host.
+
+
+
+ a| 
+Puerto de host
+ a| 
+Un puerto host es un puerto en un adaptador de bus host (HBA) que proporciona la conexión física a un controlador y se usa para operaciones de E/S.
+
+
+
+ a| 
+Cliente de gestión
+ a| 
+Un cliente de gestión es el ordenador donde se instala un navegador para acceder a System Manager.
+
+|===
+
+
+== Componentes lógicos
+
+Las unidades de la matriz de almacenamiento proporcionan la capacidad de almacenamiento físico para los datos. Usa System Manager para configurar la capacidad física en componentes lógicos, como pools, grupos de volúmenes y volúmenes. Estos componentes son las herramientas que tú usas para configurar, almacenar, mantener y conservar datos en la matriz de almacenamiento. Los componentes lógicos de una matriz de almacenamiento se describen en esta tabla.
+
+[cols="25h,~"]
+|===
+| Componente | Descripción 
+
+
+ a| 
+Pool
+ a| 
+Un pool es un conjunto de unidades agrupadas lógicamente. Puedes usar un pool para crear uno o más volúmenes accesibles a un host. (Creas volúmenes a partir de un pool o de un grupo de volúmenes.)
+
+
+
+ a| 
+Grupo de volúmenes
+ a| 
+Un grupo de volúmenes es un contenedor para volúmenes con características compartidas. Un grupo de volúmenes tiene una capacidad y un nivel RAID definidos. Puedes usar un grupo de volúmenes para crear uno o más volúmenes accesibles para un host. (Creas volúmenes a partir de un grupo de volúmenes o de un pool.)
+
+
+
+ a| 
+Volumen
+ a| 
+Un volumen es un contenedor en el que las aplicaciones, bases de datos y sistemas de archivos almacenan datos. Es el componente lógico creado para que el host acceda al almacenamiento en la storage array.
+
+
+
+ a| 
+Número de unidad lógica (LUN)
+ a| 
+Un número de unidad lógica (LUN) es el número asignado al espacio de direcciones que un host utiliza para acceder a un volumen. El volumen se presenta al host como capacidad en forma de LUN.
+
+Cada host tiene su propio espacio de direcciones LUN. Por lo tanto, el mismo LUN puede ser usado por diferentes hosts para acceder a diferentes volúmenes.
+
+|===

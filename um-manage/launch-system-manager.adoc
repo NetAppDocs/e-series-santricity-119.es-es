@@ -1,0 +1,23 @@
+---
+permalink: um-manage/launch-system-manager.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, individual, storage, array 
+summary: Puedes usar la opción Launch para abrir el SANtricity System Manager basado en navegador para una o varias matrices de almacenamiento cuando quieras realizar operaciones de gestión. 
+---
+= Administra una matriz de almacenamiento individual en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes usar la opción Launch para abrir el SANtricity System Manager basado en navegador para una o varias matrices de almacenamiento cuando quieras realizar operaciones de gestión.
+
+.Pasos
+. En la página Gestionar, selecciona una o varias matrices de almacenamiento que quieras gestionar.
+. Haz clic en *Launch*.
++
+El sistema abre una nueva ventana y muestra la página de inicio de sesión de System Manager.
+
+. Ingresa tu nombre de usuario y contraseña y luego haz clic en *Iniciar sesión*.
+

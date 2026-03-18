@@ -1,0 +1,50 @@
+---
+permalink: sm-settings/switch-from-external-to-internal-key-management.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, switch, external, internal, key, management, 
+summary: Puedes cambiar el método de gestión de Drive Security de un servidor de claves externo al método interno que usa la matriz de almacenamiento. La clave de seguridad definida previamente para la gestión de claves externa se usa luego para la gestión de claves interna. 
+---
+= Cambia de gestión de claves externa a interna en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el método de gestión de Drive Security de un servidor de claves externo al método interno que usa la matriz de almacenamiento. La clave de seguridad definida previamente para la gestión de claves externa se usa luego para la gestión de claves interna.
+
+.Acerca de esta tarea
+En esta tarea, desactivas la gestión de clave externa y descargas una nueva copia de backup en tu host local. La clave existente se sigue utilizando para Drive Security, pero se gestionará internamente en la matriz de almacenamiento.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *gestión de claves de seguridad*, selecciona *desactivar gestión de claves externas*.
++
+Se abre el cuadro de diálogo Desactivar gestión externa de claves.
+
+. En *Definir una frase de paso/Reintroducir frase de paso*, introduce y confirma una frase de paso para la copia de backup de la clave. El valor puede tener entre 8 y 32 caracteres y debe incluir cada uno de los siguientes:
++
+** Una letra mayúscula (o varias). Se debe tener en cuenta que la frase de contraseña distingue mayúsculas de minúsculas.
+** Un número (o varios).
+** Un carácter no alfanumérico, como !, *, @ (o varios).
+
+
++
+[CAUTION]
+====
+_Asegúrate de anotar tus entradas para usarlas más adelante_. Si necesitas mover una unidad habilitada para seguridad de la matriz de almacenamiento, debes conocer el identificador y la frase de contraseña para desbloquear los datos de la unidad.
+
+====
+. Haz clic en *Desactivar*.
++
+La clave de copia de seguridad se descarga en tu host local.
+
+. Anota tu identificador de clave, la frase de contraseña y la ubicación del archivo de clave descargado, y luego haz clic en *Cerrar*.
+
+
+.Resultados
+La seguridad de las unidades ahora se gestiona internamente a través de la matriz de almacenamiento.
+
+.Después de que termines
+Debe validar la clave de seguridad para asegurarse de que no se haya dañado el archivo de claves.

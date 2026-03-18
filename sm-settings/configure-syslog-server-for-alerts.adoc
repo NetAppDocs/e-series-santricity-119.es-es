@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/configure-syslog-server-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, syslog, server, alerts, 
+summary: Para configurar las alertas syslog, debes introducir una dirección de servidor syslog y un puerto UDP. Se permiten hasta cinco servidores syslog. 
+---
+= Configura el servidor syslog para alertas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar las alertas syslog, debes introducir una dirección de servidor syslog y un puerto UDP. Se permiten hasta cinco servidores syslog.
+
+.Antes de empezar
+* Debe estar disponible la dirección del servidor de syslog. La dirección debe ser un nombre de dominio completo o una dirección IPv4 o IPv6.
+* El número de puerto UDP del servidor syslog debe estar disponible. Este puerto suele ser 514.
+
+
+.Acerca de esta tarea
+Esta tarea describe cómo introducir la dirección y el puerto para el servidor syslog, y luego probar la dirección que introdujiste.
+
+.Pasos
+. Selecciona el menú:ajustes[Alertas].
+. Selecciona la pestaña *Syslog*.
++
+Si aún no se ha definido un servidor syslog, la página Alertas muestra "Add Syslog Servers."
+
+. Haz clic en *Add Syslog Servers*.
++
+Se abre el cuadro de diálogo Add Syslog Server.
+
+. Ingresa la información de uno o varios servidores syslog (máximo cinco) y luego haz clic en *Add*.
++
+** *Dirección del servidor* -- Ingresa un dominio completo, una dirección IPv4 o una dirección IPv6.
+** *Puerto UDP* -- Normalmente, el puerto UDP para syslog es 514. La tabla muestra los servidores syslog configurados.
+
+
+. Para enviar una alerta de prueba a las direcciones de los servidores, selecciona *Probar todos los servidores syslog*.
+
+
+.Resultados
+El monitor de eventos envía alertas al servidor syslog cada vez que ocurre un evento susceptible de alerta. Para configurar aún más los ajustes de syslog para los registros de auditoría, consulta https://docs.netapp.com/us-en/e-series-santricity/sm-settings/configure-syslog-server-for-audit-logs.html["Configura el servidor syslog para los registros de auditoría"].
+
+
+NOTE: Si se configuran varios servidores syslog, todos los servidores syslog configurados recibirán un registro de auditoría.

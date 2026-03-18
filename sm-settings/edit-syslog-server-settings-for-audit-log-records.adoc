@@ -1,0 +1,41 @@
+---
+permalink: sm-settings/edit-syslog-server-settings-for-audit-log-records.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, syslog, server, settings, audit, log, records, 
+summary: 'Puedes cambiar la configuración del servidor syslog que se usa para archivar los registros de auditoría y también subir un nuevo certificado de autoridad de certificación (CA) para el servidor.' 
+---
+= Edita la configuración del servidor syslog para los registros de auditoría en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la configuración del servidor syslog que se usa para archivar los registros de auditoría y también subir un nuevo certificado de autoridad de certificación (CA) para el servidor.
+
+.Antes de empezar
+* Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+* La dirección del servidor syslog, el protocolo y el número de puerto deben estar disponibles. La dirección del servidor puede ser un dominio completo, una dirección IPv4 o una dirección IPv6.
+* Si estás subiendo un nuevo certificado CA, el certificado debe estar disponible en tu sistema local.
+
+
+.Pasos
+. Selecciona el menú:Configuración[Gestión de acceso].
+. En la pestaña Registro de auditoría, selecciona *Configurar servidores syslog*.
++
+Los servidores syslog configurados se muestran en la página.
+
+. Para editar la información del servidor, selecciona el icono *Editar* (lápiz) a la derecha del nombre del servidor y luego haz los cambios que quieras en los siguientes campos:
++
+** *Dirección del servidor* -- Ingresa un dominio completo, una dirección IPv4 o una dirección IPv6.
+** *Protocolo* -- Selecciona un protocolo de la lista desplegable (por ejemplo, TLS, UDP o TCP).
+** *Puerto* -- Ingresa el número de puerto para el receptor de syslog.
+
+
+. Si cambiaste el protocolo al protocolo seguro TLS (de UDP o TCP), haz clic en *Importar certificado de confianza* para cargar un certificado CA.
+. Para probar la nueva conexión con la matriz de almacenamiento, selecciona *Test All*.
+
+
+.Resultados
+Después de la configuración, todos los registros de auditoría nuevos se envían al servidor syslog. Los registros anteriores no se transfieren.

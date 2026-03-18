@@ -1,0 +1,59 @@
+---
+permalink: sm-storage/data-integrity-and-data-security-for-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, data, integrity, security, volumes 
+summary: 'Puedes habilitar los volúmenes para usar la función Data Assurance (DA) y la función Drive Security. Estas funciones se presentan a nivel de pool y grupo de volúmenes.' 
+---
+= Conoce la integridad de los datos y la seguridad de los datos para volúmenes en SANtricity software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes habilitar los volúmenes para usar la función Data Assurance (DA) y la función Drive Security. Estas funciones se presentan a nivel de pool y grupo de volúmenes.
+
+
+
+== Garantía de datos
+
+Data Assurance (DA) implementa el estándar T10 Protection Information (PI), que aumenta la integridad de los datos al comprobar y corregir errores que puedan ocurrir mientras los datos se transfieren a lo largo de la ruta de E/S. El uso típico de la función Data Assurance comprobará la parte de la ruta de E/S entre los controladores y las unidades. Las capacidades de DA se presentan a nivel de pool y grupo de volúmenes.
+
+Cuando esta función está activada, la matriz de almacenamiento añade códigos de comprobación de errores (también conocidos como comprobaciones de redundancia cíclica o CRC) a cada bloque de datos en el volumen. Después de mover un bloque de datos, la matriz de almacenamiento utiliza estos códigos CRC para determinar si ocurrió algún error durante la transmisión. Los datos potencialmente corruptos no se escriben en el disco ni se devuelven al host. Si quieres usar la función DA, selecciona un pool o grupo de volúmenes que sea compatible con DA cuando crees un nuevo volumen (busca "Yes" junto a "DA" en la tabla de candidatos de pool y grupo de volúmenes).
+
+
+
+== Drive Security
+
+Drive Security es una función que impide el acceso no autorizado a los datos en las unidades habilitadas para seguridad cuando se retiran de la matriz de almacenamiento. Estas unidades pueden ser unidades con Full Disk Encryption (FDE) o unidades certificadas para cumplir con Federal Information Processing Standards 140-2 level 2 (unidades FIPS).
+
+
+
+=== Cómo funciona Drive Security en el nivel de unidad
+
+Una unidad con capacidad segura, ya sea FDE o FIPS, cifra los datos durante las escrituras y los descifra durante las lecturas. Este cifrado y descifrado no afecta el rendimiento ni el flujo de trabajo del usuario. Cada unidad tiene su propia clave de cifrado única, que nunca puede transferirse desde la unidad.
+
+
+
+=== Cómo funciona Drive Security en el nivel de volumen
+
+Cuando creas un pool o grupo de volúmenes a partir de unidades con capacidad de seguridad, también puedes activar Drive Security para esos pools o grupos de volúmenes. La opción Drive Security hace que las unidades y los grupos de volúmenes y pools asociados estén secure-_enabled_. Un pool o grupo de volúmenes puede contener tanto unidades con capacidad de seguridad como unidades sin capacidad de seguridad, pero todas las unidades deben ser con capacidad de seguridad para usar sus funciones de cifrado.
+
+
+
+=== Cómo implementar Drive Security
+
+Para implementar Drive Security, realiza los siguientes pasos.
+
+. Equipa tu matriz de almacenamiento con unidades con capacidad de seguridad, ya sean unidades FDE o unidades FIPS. (para volúmenes que requieren compatibilidad con FIPS, usa solo unidades FIPS. Mezclar unidades FIPS y FDE en un grupo de volúmenes o pool hará que todas las unidades se traten como unidades FDE. Además, una unidad FDE no se puede añadir ni usar como repuesto en un grupo de volúmenes o pool totalmente FIPS.)
+. Crea una clave de seguridad, que es una cadena de caracteres compartida por el controlador y las unidades para el acceso de lectura/escritura. Puedes crear una clave interna desde la memoria persistente del controlador o una clave externa desde un servidor de gestión de claves. Para la gestión de claves externas, la autenticación debe establecerse con el servidor de gestión de claves.
+. Activa Drive Security para pools y grupos de volúmenes:
++
+** Crea un pool o grupo de volúmenes (busca *Yes* en la columna *Secure-capable* de la tabla Candidates).
+** Selecciona un pool o grupo de volúmenes cuando crees un nuevo volumen (busca *Sí* junto a *Secure-capable* en la tabla de candidatos de pool y grupo de volúmenes).
++
+Con la función Drive Security, creas una clave de seguridad que se comparte entre las unidades habilitadas para seguridad y los controladores en una matriz de almacenamiento. Cada vez que se apaga y se enciende la alimentación de las unidades, las unidades habilitadas para seguridad cambian a un estado de bloqueo de seguridad hasta que el controlador aplica la clave de seguridad.
+
+
+
+

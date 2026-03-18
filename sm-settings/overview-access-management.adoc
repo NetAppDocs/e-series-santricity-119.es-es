@@ -1,0 +1,59 @@
+---
+permalink: sm-settings/overview-access-management.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access, management, 
+summary: 'La gestión de acceso es un método para establecer la autenticación de usuarios en SANtricity System Manager. Los métodos de autenticación incluyen RBAC (control de acceso basado en roles), Directory Services y Security Assertion Markup Language (SAML) 2.0.' 
+---
+= Conoce la gestión de control de acceso en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Access Management es un método para establecer la autenticación de usuario en SANtricity System Manager.
+
+
+
+== ¿Qué métodos de autenticación están disponibles?
+
+Los métodos de autenticación incluyen RBAC (control de acceso basado en roles), Directory Services y Security Assertion Markup Language (SAML):
+
+* *RBAC/Roles de usuario locales* -- La autenticación se gestiona mediante capacidades RBAC aplicadas en la matriz de almacenamiento. Los roles de usuario locales incluyen perfiles de usuario predefinidos y roles con permisos de acceso específicos.
+* *Servicios de directorio* -- La autenticación se gestiona a través de un servidor LDAP (Lightweight Directory Access Protocol) y Directory Services, como Active Directory de Microsoft.
+* *SAML* -- La autenticación se gestiona a través de un Identity Provider (IdP) usando SAML 2.0.
+
+
+Más información:
+
+* link:how-access-management-works.html["Cómo funciona la gestión de accesos"]
+* link:access-management-terminology.html["Terminología de Access Management"]
+* link:permissions-for-mapped-roles.html["Permisos para roles asignados"]
+* link:access-management-with-local-user-roles.html["Roles de usuario local"]
+* link:access-management-with-directory-services.html["Servicios de directorio"]
+* link:access-management-with-saml.html["SAML"]
+
+
+
+
+== ¿Cómo configuro la autenticación?
+
+La matriz de almacenamiento está preconfigurada para utilizar roles de usuario locales, que son una implementación de las capacidades RBAC. Si quieres configurar un método diferente, ve al menú:Settings[Access Management].
+
+Más información:
+
+* link:add-directory-server.html["Agrega un servidor de directorio LDAP"]
+* link:configure-saml.html["Configura SAML"]
+
+
+
+
+== Información relacionada
+
+Obtén más información sobre las tareas relacionadas con la gestión de accesos:
+
+* link:change-passwords.html["Cambiar contraseñas"]
+* link:view-audit-log-activity.html["Ver la actividad del registro de auditoría"]
+* link:configure-syslog-server-for-audit-logs.html["Configura el servidor syslog para los registros de auditoría"]
+

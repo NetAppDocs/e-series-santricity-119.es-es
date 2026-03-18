@@ -1,0 +1,82 @@
+---
+permalink: sm-settings/unlock-drives-using-an-external-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, unlock, drives, external, key, management, 
+summary: Si configuraste la gestión de claves externas y luego trasladas las unidades habilitadas para seguridad de una matriz de almacenamiento a otra, debes volver a asignar la clave de seguridad a la nueva matriz de almacenamiento para poder acceder a los datos cifrados de las unidades. 
+---
+= Desbloquea las unidades cuando usas la gestión de claves externas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si configuraste la gestión de claves externas y luego trasladas las unidades habilitadas para seguridad de una matriz de almacenamiento a otra, debes volver a asignar la clave de seguridad a la nueva matriz de almacenamiento para poder acceder a los datos cifrados de las unidades.
+
+.Antes de empezar
+* En la matriz de origen (la matriz donde estás retirando las unidades), has exportado grupos de volúmenes y retirado las unidades. En la matriz de destino, has reinstalado las unidades.
++
+
+NOTE: La función Exportar/Importar no es compatible con la interfaz de usuario de System Manager; debes usar la interfaz de línea de comandos (CLI) para exportar/importar un grupo de volúmenes a una matriz de almacenamiento diferente.
+
++
+Encontrarás instrucciones detalladas para migrar un grupo de volúmenes en https://kb.netapp.com/["NetApp base de conocimientos"^]. Asegúrate de seguir las instrucciones adecuadas para las matrices más recientes gestionadas por System Manager o para los sistemas heredados.
+
+* La función de seguridad de la unidad debe estar activada. De lo contrario, se abre un cuadro de diálogo No se puede crear la clave de seguridad durante esta tarea. Si es necesario, contacta a tu proveedor de almacenamiento para obtener instrucciones sobre cómo activar la función de seguridad de la unidad.
+* Debes conocer la dirección IP y el número de puerto del servidor de gestión de claves.
+* Tienes un archivo de certificado de cliente firmado para los controladores de la matriz de almacenamiento y lo has copiado al host desde donde accedes a System Manager. Un certificado de cliente valida los controladores de la matriz de almacenamiento, así que el servidor de gestión de claves puede confiar en sus solicitudes de Key Management Interoperability Protocol (KMIP).
+* Debes recuperar un archivo de certificado del servidor de gestión de claves y luego copiar ese archivo en el host desde donde accedes a System Manager. Un certificado de servidor de gestión de claves valida el servidor de gestión de claves, así que la cabina de almacenamiento puede confiar en su dirección IP. Puedes usar un certificado raíz, intermedio o de servidor para el servidor de gestión de claves.
+
+
+[NOTE]
+====
+Para más información sobre el certificado del servidor, consulta la documentación de tu servidor de gestión de claves.
+
+====
+.Acerca de esta tarea
+Cuando usas la gestión externa de claves, la clave de seguridad se almacena externamente en un servidor diseñado para proteger las claves de seguridad. Una clave de seguridad es una cadena de caracteres que comparten el controlador y las unidades para el acceso de lectura/escritura. Cuando las unidades se retiran físicamente de la matriz y se instalan en otra, no pueden funcionar hasta que proporciones la clave de seguridad correcta.
+
+[NOTE]
+====
+Puedes crear una clave interna desde la memoria persistente del controlador o una clave externa desde un servidor de gestión de claves. Este tema describe cómo desbloquear datos cuando se usa la gestión de claves _externa_. Si usaste la gestión de claves _interna_, consulta link:unlock-drives-using-an-internal-security-key.html["Desbloquea las unidades cuando usas la gestión interna de claves"]. Si estás haciendo una actualización de controlador y vas a cambiar todos los controladores por el hardware más reciente, debes seguir pasos diferentes como se describe en el centro de documentación de E-Series y SANtricity, en link:https://docs.netapp.com/us-en/e-series/upgrade-controllers/upgrade-unlock-drives-task.html["Desbloquear unidades"].
+
+====
+Una vez que reinstalas las unidades habilitadas para seguridad en otra matriz, esa matriz descubre las unidades y muestra una condición de "Necesita atención" junto con un estado de "Se necesita clave de seguridad". Para desbloquear los datos de la unidad, importas el archivo de clave de seguridad e introduces la frase de contraseña para la clave. (Esta frase de contraseña no es la misma que la contraseña de administrador de la matriz de almacenamiento.) Durante este proceso, configuras la matriz de almacenamiento para usar un servidor externo de gestión de claves y entonces la clave de seguridad será accesible. Debes proporcionar la información de contacto del servidor para que la matriz de almacenamiento se conecte y recupere la clave de seguridad.
+
+Si se instalan otras unidades con la función de seguridad habilitada en la nueva cabina de almacenamiento, estas podrían usar una clave de seguridad distinta de la que se está importando. Durante el proceso de importación, la clave de seguridad antigua se usa únicamente para desbloquear los datos de las unidades que se instalan. Cuando el proceso de desbloqueo se realiza correctamente, se vuelve a asignar una clave de seguridad de cabina de almacenamiento de destino a las unidades recién instaladas.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *Gestión de claves de seguridad*, selecciona *Crear clave externa*.
+. Completa el asistente con la información de conexión y los certificados necesarios.
+. Haz clic en *Probar comunicación* para asegurarte de que tienes acceso al servidor externo de gestión de claves.
+. Selecciona *Desbloquear unidades seguras*.
++
+Se abre el cuadro de diálogo Desbloquear unidades seguras. Cualquier unidad que requiera una clave de seguridad se muestra en la tabla.
+
+. *Opcional:* pasa el ratón sobre un número de unidad para ver la ubicación de la unidad (número de estantería y número de bahía).
+. Haz clic en *Buscar* y luego selecciona el archivo de clave de seguridad que corresponde a la unidad que quieres desbloquear.
++
+El archivo de claves seleccionado aparece en el cuadro de diálogo.
+
+. Introduzca la frase de contraseña asociada con este archivo de claves.
++
+Los caracteres introducidos están enmascarados.
+
+. Haz clic en *Unlock*.
++
+Si la operación de desbloqueo se realiza correctamente, en el cuadro de diálogo se muestra un mensaje que indica que se desbloquearon las unidades seguras asociadas.
+
+
+
+.Resultados
+Cuando todas las unidades se bloquean y después se desbloquean, se reinicia cada controladora de la cabina de almacenamiento. Sin embargo, si ya existen algunas unidades desbloqueadas en la cabina de almacenamiento de destino, las controladoras no se reinician.
+
+.Después de que termines
+En la matriz de destino (la matriz con las unidades recién instaladas), ahora puedes importar grupos de volúmenes.
+
+
+NOTE: La función Exportar/Importar no es compatible con la interfaz de usuario de System Manager; debes usar la interfaz de línea de comandos (CLI) para exportar/importar un grupo de volúmenes a una matriz de almacenamiento diferente.
+
+Se proporcionan instrucciones detalladas para migrar un grupo de volúmenes en el https://kb.netapp.com/["NetApp base de conocimientos"^].

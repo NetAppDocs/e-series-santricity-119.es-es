@@ -1,0 +1,58 @@
+---
+permalink: sm-settings/how-security-key-management-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, security, key, management, 
+summary: 'Cuando implementas la función Drive Security, las unidades habilitadas para seguridad (FIPS o FDE) requieren una clave de seguridad para acceder a los datos. Una clave de seguridad es una cadena de caracteres que se comparte entre estos tipos de unidades y los controladores en una cabina de almacenamiento.' 
+---
+= Cómo funciona la gestión de claves de seguridad en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando implementas la función Drive Security, las unidades habilitadas para seguridad (FIPS o FDE) requieren una clave de seguridad para acceder a los datos. Una clave de seguridad es una cadena de caracteres que se comparte entre estos tipos de unidades y los controladores en una cabina de almacenamiento.
+
+Siempre que se apaga y enciende la alimentación de las unidades, las unidades habilitadas para seguridad cambian a un estado de bloqueo de seguridad hasta que el controlador aplica la clave de seguridad. Si se retira una unidad habilitada para seguridad de la matriz de almacenamiento, los datos de la unidad se bloquean. Cuando la unidad se vuelve a instalar en una matriz de almacenamiento diferente, busca la clave de seguridad antes de volver a permitir el acceso a los datos. Para desbloquear los datos, tienes que aplicar la clave de seguridad original.
+
+Puedes crear y gestionar claves de seguridad usando uno de los siguientes métodos:
+
+* Gestión interna de claves en la memoria persistente del controlador.
+* Gestión de claves externas en un servidor de gestión de claves externo.
+
+
+
+
+== Gestión interna de claves
+
+Las claves internas se mantienen y se "ocultan" en una ubicación no accesible de la memoria persistente del controlador. Para implementar la gestión de claves internas, realiza los siguientes pasos:
+
+. Instala unidades con capacidad de seguridad en la cabina de discos. Estas unidades pueden ser Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS).
+. Asegúrate de que la función Drive Security está activada. Si es necesario, contacta a tu proveedor de almacenamiento para obtener instrucciones sobre cómo activar la función Drive Security.
+. Crea una clave de seguridad interna, lo que implica definir un identificador y una frase de contraseña. El identificador es una cadena que está asociada con la clave de seguridad y se almacena en el controlador y en todas las unidades asociadas con la clave. La frase de contraseña se usa para cifrar la clave de seguridad con fines de copia de seguridad. Para crear una clave interna, ve a menú:Settings[System > Security key management > Create Internal Key].
+
+
+La clave de seguridad se almacena en el controlador en una ubicación oculta y no accesible. Luego puedes crear grupos de volúmenes o pools habilitados para seguridad, o puedes habilitar la seguridad en los grupos de volúmenes y pools existentes.
+
+
+
+== Gestión de claves externas
+
+Las claves externas se mantienen en un servidor de gestión de claves independiente, utilizando un protocolo de interoperabilidad de gestión de claves (KMIP). Para implementar la gestión de claves externas, realiza los siguientes pasos:
+
+. Instala unidades con capacidad de seguridad en la cabina de discos. Estas unidades pueden ser Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS).
+. Asegúrate de que la función Drive Security está activada. Si es necesario, contacta a tu proveedor de almacenamiento para obtener instrucciones sobre cómo activar la función Drive Security.
+. Obtén un archivo de certificado de cliente firmado. Un certificado de cliente valida los controladores de la matriz de almacenamiento, así que el servidor de gestión de claves puede confiar en sus solicitudes KMIP.
++
+.. Primero, completas y descargas una Solicitud de Firma de Certificado (CSR) de cliente. Ve al menú:Configuración[Certificates > Key Management > Complete CSR].
+.. A continuación, solicitas un certificado de cliente firmado a una CA en la que confía el servidor de gestión de claves. (También puedes crear y descargar un certificado de cliente desde el servidor de gestión de claves usando el archivo CSR.)
+.. Una vez que tengas un archivo de certificado de cliente, copia ese archivo en el host donde estás accediendo a System Manager.
+.. Alternativamente, puedes generar externamente una solicitud de firma de certificado usando un par de claves privada y pública.
+
+
+. Recupera un archivo de certificado del servidor de gestión de claves y luego copia ese archivo en el host donde estás accediendo a System Manager. Un certificado de servidor de gestión de claves valida el servidor de gestión de claves, así que la matriz de almacenamiento puede confiar en su dirección IP. Puedes usar un certificado raíz, intermedio o de servidor para el servidor de gestión de claves.
+. Crea una clave externa, lo que implica definir la dirección IP del servidor de gestión de claves y el número de puerto utilizado para las comunicaciones KMIP. Durante este proceso, también cargas los archivos de certificado. Para crear una clave externa, ve al menú:Settings[System > Security key management > Create External Key].
+
+
+El sistema se conecta al servidor de gestión de claves con las credenciales que ingresaste. Luego puedes crear grupos de volúmenes o pools con seguridad habilitada, o puedes habilitar la seguridad en los grupos de volúmenes y pools que ya existen.

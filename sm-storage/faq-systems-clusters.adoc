@@ -1,0 +1,200 @@
+---
+permalink: sm-storage/faq-systems-clusters.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre sistemas host y clústeres de host para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué son los hosts y los clústeres de hosts?
+
+Un host es un servidor que envía E/S a un volumen en una matriz de almacenamiento. Un clúster de hosts es un grupo de hosts. Creas un clúster de hosts para que sea fácil asignar los mismos volúmenes a varios hosts.
+
+Defines un host por separado. Puede ser una entidad independiente o añadirse a un host cluster. Puedes asignar volúmenes a un host individual, o un host puede formar parte de un host cluster que comparte el acceso a uno o más volúmenes con otros hosts en el host cluster.
+
+El clúster de hosts es una entidad lógica que tú creas en SANtricity System Manager. Debes agregar hosts al clúster de hosts antes de poder asignar volúmenes.
+
+
+
+== ¿Por qué necesitaría crear un clúster de hosts?
+
+Necesitas crear un clúster de hosts si quieres que dos o más hosts compartan acceso al mismo conjunto de volúmenes. Normalmente, los hosts individuales tienen software de clustering instalado para coordinar el acceso a los volúmenes.
+
+
+
+== ¿Cómo saber cuál es el tipo de sistema operativo de host correcto?
+
+El campo Tipo de sistema operativo del host contiene el sistema operativo del host. Puedes seleccionar el tipo de host recomendado en la lista desplegable.
+
+Los tipos de host que aparecen en la lista desplegable dependen del modelo de matriz de almacenamiento y la versión de firmware. Las versiones más recientes muestran primero las opciones más comunes, que son las más probables de ser apropiadas. Aparecer en esta lista no implica que la opción esté totalmente soportada.
+
+[NOTE]
+====
+Para obtener más información sobre la asistencia al host, consulta la  https://imt.netapp.com/matrix/#welcome["Herramienta NetApp Interoperability Matrix Tool"^].
+
+====
+Es posible que en la lista aparezcan algunos de los tipos de host siguientes:
+
+[cols="35h,~"]
+|===
+| Tipo de sistema operativo de host | Sistema operativo (SO) y controlador multivía 
+
+
+ a| 
+Linux DM-MP (Kernel 3.10 o posterior)
+ a| 
+Compatible con sistemas operativos Linux que usan una solución de conmutación al nodo de respaldo multivía Device Mapper con un Kernel 3.10 o posterior.
+
+
+
+ a| 
+VMware ESXi
+ a| 
+Compatible con sistemas operativos VMware ESXi que ejecutan la arquitectura de complemento nativo multivía (NMP) con el módulo de políticas de tipo de cabina de almacenamiento SATP_ALUA incorporado de VMware.
+
+
+
+ a| 
+Windows (almacenado en clúster o no almacenado en clúster)
+ a| 
+Compatible con configuraciones de Windows almacenado en clúster o no almacenado en clúster que no ejecutan el controlador multivía ATTO.
+
+
+
+ a| 
+Clúster ATTO (todos los sistemas operativos)
+ a| 
+Compatible con todas las configuraciones en clúster que usan el controlador multivía ATTO Technology, Inc.
+
+
+
+ a| 
+Linux (Veritas DMP)
+ a| 
+Compatible con sistemas operativos Linux que usan una solución multivía Veritas DMP.
+
+
+
+ a| 
+Linux (ATTO)
+ a| 
+Compatible con sistemas operativos Linux que usan un controlador multivía ATTO Technology, Inc.
+
+
+
+ a| 
+Mac OS (ATTO)
+ a| 
+Compatible con versiones de Mac OS que usan un controlador multivía ATTO Technology, Inc.
+
+
+
+ a| 
+Windows (ATTO)
+ a| 
+Compatible con sistemas operativos Windows que usan un controlador multivía ATTO Technology, Inc.
+
+
+
+ a| 
+IBM SVC
+ a| 
+Compatible con una configuración de controladora de volúmenes SAN IBM.
+
+
+
+ a| 
+Factory Default
+ a| 
+Reservado para arranque inicial de la cabina de almacenamiento. Si su tipo de sistema operativo de host está configurado como Factory Default, cámbielo para que coincida con el sistema operativo del host y el controlador multivía que se ejecuta en el host conectado.
+
+
+
+ a| 
+Linux DM-MP (Kernel 3.9 o anterior)
+ a| 
+Compatible con sistemas operativos Linux que usan una solución de conmutación al nodo de respaldo multivía Device Mapper con un Kernel 3.9 o anterior.
+
+
+
+ a| 
+Windows almacenado en clúster (obsoleto)
+ a| 
+Si su tipo de sistema operativo del host está configurado con este valor, use la configuración Windows (almacenado en clúster o no almacenado en clúster) en su lugar.
+
+|===
+
+
+== ¿Qué son los HBA y los puertos de adaptador?
+
+Un host bus adapter (HBA) es una tarjeta que reside en un host y contiene uno o más puertos host. Un puerto host es un puerto en un host bus adapter (HBA) que proporciona la conexión física a un controlador y se utiliza para operaciones de E/S.
+
+Los puertos del adaptador en el HBA se llaman puertos de host. La mayoría de los HBA tienen uno o dos puertos de host. El HBA tiene un World Wide Identifier (WWID) único, y cada puerto de host del HBA tiene un WWID único. Los identificadores de puerto de host se usan para asociar el HBA adecuado con el host físico cuando creas manualmente el host a través de SANtricity System Manager.
+
+
+
+== ¿Cómo se emparejan los puertos de host con un host?
+
+Si se crea manualmente un host, en primer lugar debe usarse la utilidad de adaptador de bus de host (HBA) adecuada disponible en el host para determinar los identificadores de puerto de host asociados con cada HBA instalada en el host.
+
+Cuando tengas esta información, selecciona los identificadores de puerto de host que han iniciado sesión en la matriz de almacenamiento de la lista proporcionada en el cuadro de diálogo Crear host.
+
+[NOTE]
+====
+Asegúrese de seleccionar los identificadores de puerto de host adecuados para el host que va a crear. Si asocia los identificadores de puerto de host incorrectos, es posible que se provoque un acceso no intencional de otro host a estos datos.
+
+====
+
+
+== ¿Cómo creo los secretos CHAP?
+
+Si configuras el protocolo de autenticación Challenge Handshake (CHAP) en cualquier host iSCSI conectado a la matriz de almacenamiento, tienes que volver a ingresar ese secreto CHAP del iniciador para cada host iSCSI.
+
+Para ello, puedes usar System Manager como parte de la operación Crear host o mediante la opción Ver/Editar configuración.
+
+Si estás usando la autenticación mutua CHAP, también debes definir un secreto CHAP de destino para la matriz de almacenamiento en la página de Configuración y volver a ingresar ese secreto CHAP de destino en cada host iSCSI.
+
+
+
+== ¿Qué es el clúster predeterminado?
+
+El clúster predeterminado es una entidad definida por el sistema que permite que cualquier identificador de puerto de host no asociado que haya iniciado sesión en la matriz de almacenamiento acceda a los volúmenes asignados al clúster predeterminado. Un identificador de puerto de host no asociado es un puerto de host que no está asociado lógicamente a un host en particular, pero que está instalado físicamente en un host y ha iniciado sesión en la matriz de almacenamiento.
+
+[NOTE]
+====
+Si quieres que los hosts tengan acceso específico a ciertos volúmenes en la matriz de almacenamiento, no debes usar el clúster predeterminado. En su lugar, debes asociar los identificadores de puerto de host con sus hosts correspondientes. Esta tarea se puede hacer manualmente durante la operación de crear host. Luego, asignas volúmenes ya sea a un host individual o a un clúster de hosts.
+
+====
+Solo deberías usar el cluster por defecto en situaciones especiales donde tu entorno de almacenamiento externo permita que todos los hosts y todos los identificadores de puerto de host conectados a la matriz de almacenamiento tengan acceso a todos los volúmenes (modo de acceso total) sin hacer que los hosts sean conocidos específicamente por la matriz de almacenamiento o la interfaz de usuario.
+
+Inicialmente, solo puedes asignar volúmenes al clúster predeterminado a través de la línea de comandos (CLI). Sin embargo, después de asignar al menos un volumen al clúster predeterminado, esta entidad (llamada Default Cluster) se muestra en la interfaz de usuario donde luego puedes gestionarla.
+
+
+
+== ¿Qué es el informe de conectividad de host?
+
+Cuando los informes de conectividad de host están activados, la matriz de almacenamiento supervisa continuamente la conexión entre los controladores y los hosts configurados, y luego te avisa si la conexión se interrumpe.
+
+Pueden producirse interrupciones en la conexión si hay un cable suelto, dañado o que falta, u otro problema con el host. En estas situaciones, el sistema podría abrir un mensaje de Recovery Guru:
+
+* *Host Redundancy Lost* -- Se abre si cualquiera de los controladores no puede comunicarse con el host.
+* *Host Type Incorrect* -- Se abre si el tipo de host está especificado incorrectamente en la storage array, lo que podría provocar problemas de failover.
+
+
+Puede que quieras desactivar los informes de conectividad de host en situaciones donde reiniciar un controlador pueda tardar más que el tiempo de espera de la conexión. Si desactivas esta función, se suprimen los mensajes de Recovery Gurus.
+
+[NOTE]
+====
+Al desactivar los informes de conectividad de host también se desactiva el equilibrio de carga automático, que supervisa y equilibra el uso de los recursos del controlador. Sin embargo, si vuelves a activar los informes de conectividad de host, la función de equilibrio de carga automático no se vuelve a activar automáticamente.
+
+====

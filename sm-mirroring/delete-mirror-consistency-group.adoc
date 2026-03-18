@@ -1,0 +1,41 @@
+---
+permalink: sm-mirroring/delete-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, delete, mirror, consistency, group, 
+summary: Puedes eliminar los grupos de coherencia de réplica que ya no necesitas en la matriz de almacenamiento local y en la matriz de almacenamiento remota. 
+---
+= Eliminar un grupo de coherencia de espejo en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes eliminar los grupos de coherencia de réplica que ya no necesitas en la matriz de almacenamiento local y en la matriz de almacenamiento remota.
+
+.Antes de empezar
+Todos los pares reflejados deben eliminarse del mirror consistency group.
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Grupos de Consistencia Espejo*.
++
+Aparece la tabla de Mirror Consistency Group y muestra todos los mirror consistency groups asociados con la matriz de almacenamiento.
+
+. Selecciona el grupo de coherencia de réplica que quieres eliminar y luego selecciona menú:Tareas no comunes[Eliminar].
++
+El sistema muestra una confirmación.
+
+. Selecciona *Sí* para eliminar el grupo de coherencia de mirror.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina el grupo de coherencia de réplica en la matriz de almacenamiento local primero y luego elimina el grupo de coherencia de réplica en la matriz de almacenamiento remota.
+* Elimina el grupo de coherencia de réplica de la tabla Mirror Consistency Group.
+
+
+.Después de que termines
+Ocasionalmente, puede haber casos en los que el grupo de consistencia de réplica se elimine correctamente de la matriz de almacenamiento local, pero un error de comunicación impida que el grupo de consistencia de réplica se elimine de la matriz de almacenamiento remota. En este caso, tienes que acceder a la matriz de almacenamiento remota para eliminar el grupo de consistencia de réplica correspondiente.

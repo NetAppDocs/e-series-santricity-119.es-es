@@ -1,0 +1,56 @@
+---
+permalink: sm-settings/configure-snmp-mib-variables.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, configure, snmp, mib, variables, 
+summary: 'En el caso de las alertas SNMP, tiene la opción de configurar las variables de la base de datos de información de gestión (MIB) que se muestran en las excepciones SNMP. Estas variables pueden mostrar el nombre de la cabina de almacenamiento, su ubicación y una persona de contacto.' 
+---
+= Configura las variables SNMP MIB en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el caso de las alertas SNMP, tiene la opción de configurar las variables de la base de datos de información de gestión (MIB) que se muestran en las excepciones SNMP. Estas variables pueden mostrar el nombre de la cabina de almacenamiento, su ubicación y una persona de contacto.
+
+.Antes de empezar
+El archivo MIB debe copiarse y compilarse en el servidor con la aplicación de servicio SNMP.
+
+Si no cuenta con un archivo MIB, puede conseguirlo de esta manera:
+
+* Ve a https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^].
+* Haz clic en *Descargas* y luego selecciona *Descargas*.
+* Haz clic en *E-Series SANtricity OS Controller Software*.
+* Selecciona *Download Latest Release*.
+* Inicia sesión.
+* Acepta la declaración de precaución y el acuerdo de licencia.
+* Desplázate hacia abajo hasta que veas el archivo MIB para tu tipo de controlador y luego haz clic en el enlace para descargar el archivo.
+
+
+.Acerca de esta tarea
+En esta tarea, se describe cómo definir variables MIB para excepciones SNMP. Estas variables pueden mostrar los siguientes valores, en respuesta a los mensajes GetRequests de SNMP:
+
+* `sysName` (nombre de la matriz de almacenamiento)
+* `sysLocation` (ubicación de la matriz de almacenamiento)
+* `sysContact` (nombre de un administrador)
+
+
+.Pasos
+. Selecciona el menú:ajustes[Alertas].
+. Selecciona la pestaña *SNMP*.
+. Selecciona *Configurar variables SNMP MIB*.
++
+Se abre el cuadro de diálogo Configure SNMP MIB Variables.
+
+. Introduce uno o varios de los siguientes valores y luego haz clic en *Guardar*.
++
+** *Name* -- El valor para la variable MIB `sysName`. Por ejemplo, ingresa un nombre para la matriz de almacenamiento.
+** *Location* -- El valor para la variable MIB `sysLocation`. Por ejemplo, ingresa una ubicación de la matriz de almacenamiento.
+** *Contact* -- El valor para la variable MIB `sysContact`. Por ejemplo, ingresa a un administrador responsable de la matriz de almacenamiento.
+
+
+
+
+.Resultados
+Estos valores se muestran en los mensajes de captura SNMP en las alertas de la cabina de almacenamiento.

@@ -1,0 +1,62 @@
+---
+permalink: sm-settings/change-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, security, key, 
+summary: En cualquier momento, puedes sustituir una clave de seguridad por una nueva. Puede que necesites cambiar una clave de seguridad en casos donde tengas una posible brecha de seguridad en tu empresa y quieras asegurarte de que personal no autorizado no pueda acceder a los datos de las unidades. 
+---
+= Cambiar una clave de seguridad en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En cualquier momento, puedes sustituir una clave de seguridad por una nueva. Puede que necesites cambiar una clave de seguridad en casos donde tengas una posible brecha de seguridad en tu empresa y quieras asegurarte de que el personal no autorizado no pueda acceder a los datos de las unidades.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *Gestión de claves de seguridad*, selecciona *Cambiar clave*.
++
+Se abre el cuadro de diálogo Cambiar Security Key.
+
+. Ingresa información en los siguientes campos.
++
+** *Define un identificador de clave de seguridad* -- (para claves de seguridad internas solamente.) Acepta el valor predeterminado (nombre de la storage array y marca de tiempo, que genera el firmware del controlador) o introduce tu propio valor. Puedes introducir hasta 189 caracteres alfanuméricos sin espacios, puntuación ni símbolos.
++
+[NOTE]
+====
+Los caracteres adicionales se generan automáticamente y se añaden a ambos extremos de la cadena que introduces. Los caracteres generados ayudan a asegurar que el identificador sea único.
+
+====
+** *Definir una frase de paso/Reintroducir frase de paso* -- En cada uno de estos campos, ingresa tu frase de paso. El valor puede tener entre 8 y 32 caracteres y debe incluir cada uno de los siguientes:
++
+*** Una letra mayúscula (o varias). Se debe tener en cuenta que la frase de contraseña distingue mayúsculas de minúsculas.
+*** Un número (o varios).
+*** Un carácter no alfanumérico, como !, *, @ (o varios).
+
+
+
+
+. Para las claves de seguridad externas, si quieres eliminar la clave de seguridad antigua cuando se cree la nueva, selecciona la casilla "Eliminar clave de seguridad actual..." en la parte inferior del cuadro de diálogo.
++
+[CAUTION]
+====
+*Asegúrate de anotar tus entradas para usarlas más adelante* -- Si necesitas mover una unidad habilitada para seguridad desde la matriz de almacenamiento, debes conocer el identificador y la frase de contraseña para desbloquear los datos de la unidad.
+
+====
+. Haz clic en *Cambiar*.
++
+La nueva clave de seguridad sobrescribe la anterior, que ya no es válida.
+
++
+[NOTE]
+====
+La ruta del archivo descargado podría depender de la ubicación predeterminada de las descargas del explorador.
+
+====
+. Anota tu identificador de clave, la frase de contraseña y la ubicación del archivo de clave descargado, y luego haz clic en *Cerrar*.
+
+
+.Después de que termines
+Debe validar la clave de seguridad para asegurarse de que no se haya dañado el archivo de claves.

@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/add-member-volumes-to-a-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, member, volume, snapshot consistency group 
+summary: Puedes añadir un nuevo volumen miembro a un grupo de coherencia de instantáneas existente. Cuando añades un nuevo volumen miembro, también tienes que reservar capacidad para el volumen miembro. 
+---
+= Agrega un volumen miembro a un grupo de consistencia de instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes añadir un nuevo volumen miembro a un grupo de coherencia de instantáneas existente. Cuando añades un nuevo volumen miembro, también tienes que reservar capacidad para el volumen miembro.
+
+.Antes de empezar
+* El volumen miembro debe ser óptimo.
+* El grupo de coherencia de instantáneas debe tener menos del número máximo de volúmenes permitidos (según tu configuración).
+* Cada volumen de capacidad reservada debe tener la misma configuración de Data Assurance (DA) y seguridad que el volumen miembro asociado.
+
+
+.Acerca de esta tarea
+Puedes agregar volúmenes estándar o volúmenes thin al grupo de consistencia de snapshots. El volumen base puede residir en un pool o en un grupo de volúmenes.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Selecciona la pestaña *Grupos de Consistencia de Instantáneas*.
++
+Aparece la tabla y muestra todos los grupos de coherencia de instantáneas asociados con la storage array.
+
+. Selecciona el grupo de coherencia de instantáneas que quieres modificar y luego haz clic en *Add Members*.
++
+Aparece el cuadro de diálogo Add Members.
+
+. Selecciona el(los) volumen(es) miembro(s) que quieres añadir y luego haz clic en *Next*.
++
+Aparece el paso Reserve Capacity. La tabla Volume Candidate muestra solo los candidatos que admiten la reserved capacity especificada.
+
+. Usa el cuadro giratorio para asignar la capacidad reservada para el volumen miembro. Haz una de las siguientes acciones:
++
+** *Acepta la configuración predeterminada.*
++
+Usa esta opción recomendada para asignar la capacidad reservada para el volumen miembro con la configuración predeterminada.
+
+** *Asigna tus propios ajustes de capacidad reservada para cubrir tus necesidades de almacenamiento de datos.*
++
+Si cambias la configuración predeterminada de capacidad reservada, haz clic en *Refrescar candidatos* para actualizar la lista de candidatos para la capacidad reservada que especificaste.
+
++
+Asigna la capacidad reservada usando las siguientes pautas.
+
++
+*** La configuración predeterminada para la capacidad reservada es el 40% de la capacidad del volumen base y normalmente esta capacidad es suficiente.
+*** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de E/S en los volúmenes y la cantidad y duración de la recopilación de imágenes snapshot.
+
+
+
+
+. Haz clic en *Finalizar* para añadir los volúmenes miembros.
+

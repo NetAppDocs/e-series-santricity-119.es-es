@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/change-allocated-capacity-limit-for-a-thin-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, allocated capacity, thin volume 
+summary: Para volúmenes thin capaces de asignar espacio bajo demanda, puedes cambiar el límite que restringe la capacidad asignada a la que un volumen thin puede expandirse automáticamente. 
+---
+= Cambiar el límite de capacidad asignada para un volumen thin en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para volúmenes thin capaces de asignar espacio bajo demanda, puedes cambiar el límite que restringe la capacidad asignada a la que un volumen thin puede expandirse automáticamente.
+
+También puedes cambiar el punto porcentual en el que se envía una alerta (umbral de advertencia superado) al área de Notificaciones en la página de inicio cuando un volumen delgado está cerca del límite de capacidad asignada. Puedes elegir activar o desactivar esta notificación de alerta.
+
+[NOTE]
+====
+Esta función no está disponible en el sistema de almacenamiento EF600/EF600C o EF300/EF300C.
+
+====
+El sistema amplía automáticamente la capacidad asignada según el límite de capacidad asignada. El límite de capacidad asignada te permite limitar el crecimiento automático del volumen delgado por debajo de la capacidad informada. Cuando la cantidad de datos escritos se acerca a la capacidad asignada, puedes cambiar el límite de capacidad asignada.
+
+Al modificar el límite de capacidad asignada y el umbral de aviso de un volumen thin, debes tener en cuenta el espacio que van a consumir tanto los datos de usuario del volumen como los datos de los servicios de copia.
+
+.Pasos
+. Selecciona el menú:Storage[Volumes].
+. Selecciona la pestaña *Monitorización de volumen fino*.
++
+Aparece la vista de Monitorización de Volúmenes Thin.
+
+. Selecciona el volumen fino que quieres cambiar y luego selecciona *Cambiar límite*.
++
+Aparece el cuadro de diálogo Cambiar límite. El límite de capacidad asignada y el ajuste del umbral de aviso para el volumen fino que seleccionaste aparecen en este cuadro de diálogo.
+
+. Cambia el límite de capacidad asignada y el umbral de advertencia según lo necesites.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+Cambiar el límite de capacidad asignada a...
+ a| 
+El umbral en el que fallan las escrituras, impidiendo que el volumen delgado consuma recursos adicionales. Este umbral es un porcentaje del tamaño de capacidad informado del volumen.
+
+
+
+ a| 
+Avísame cuando... (umbral de advertencia)
+ a| 
+Selecciona la casilla de comprobación si quieres que el sistema genere una alerta cuando un volumen delgado esté cerca del límite de capacidad asignado. La alerta se envía al área de notificaciones en la página de inicio. Este umbral es un porcentaje del tamaño de capacidad reportado del volumen.
+
+Desactiva la casilla de comprobación para desactivar la notificación de alerta de umbral de aviso.
+
+|===
+====
+. Haz clic en *Guardar*.
+

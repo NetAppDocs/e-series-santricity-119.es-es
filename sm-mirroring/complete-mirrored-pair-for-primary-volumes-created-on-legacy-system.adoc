@@ -1,0 +1,75 @@
+---
+permalink: sm-mirroring/complete-mirrored-pair-for-primary-volumes-created-on-legacy-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, complete, mirrored, pair, volumes, created, legacy, 
+summary: Si creaste un volumen primario en una matriz de almacenamiento heredada que no puede ser gestionada por SANtricity System Manager, puedes crear el volumen secundario en esta matriz con System Manager. 
+---
+= Completa un par reflejado para volúmenes primarios creados en un sistema heredado en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si creaste un volumen primario en una matriz de almacenamiento heredada que no puede ser administrada por SANtricity System Manager, puedes crear el volumen secundario en esta matriz con SANtricity System Manager.
+
+.Acerca de esta tarea
+Puedes realizar una réplica asíncrona entre matrices heredadas que usan una interfaz diferente y matrices más nuevas que pueden ser gestionadas por System Manager.
+
+* Si estás replicando entre dos matrices de almacenamiento que usan System Manager, puedes saltarte esta tarea porque ya completaste el par reflejado en la secuencia de creación del par reflejado.
+* Realiza esta tarea en el array de almacenamiento remoto.
+
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona la pestaña *Par Espejado*.
++
+Aparece la tabla Mirrored Pairs y muestra todos los pares reflejados asociados con la matriz de almacenamiento.
+
+. Busca el volumen del par reflejado con estado Incompleto y luego haz clic en el enlace *Complete mirrored pair* que aparece en la columna del par reflejado.
+. Elige si quieres completar la secuencia de creación del par reflejado automáticamente o manualmente seleccionando uno de los siguientes botones de opción:
++
+** *Automático* -- Crear un nuevo volumen secundario.
++
+Acepta la configuración predeterminada para el lado remoto del par reflejado seleccionando un pool o grupo de volúmenes existente donde quieras crear el volumen secundario. Usa esta opción recomendada para asignar la capacidad reservada para el volumen secundario con la configuración predeterminada.
+
+** *Manual* -- selecciona un volumen existente.
++
+Define tus propios parámetros para el volumen secundario.
+
++
+... Haz clic en *Siguiente* para seleccionar el volumen secundario.
+... Selecciona un volumen existente que quieras usar como volumen secundario y luego haz clic en *Siguiente* para asignar la capacidad reservada.
+... Asigna la capacidad reservada. Haz una de las siguientes cosas:
++
+**** Acepta la configuración predeterminada.
++
+La configuración predeterminada para la capacidad reservada es el 20% de la capacidad del volumen base y normalmente esta capacidad es suficiente.
+
+**** Asigna tus propios ajustes de capacidad reservada para satisfacer tus necesidades de almacenamiento de datos relacionadas con la duplicación asíncrona.
++
+La capacidad necesaria varía en función de la frecuencia y el tamaño de las escrituras de E/S en el volumen primario y de cuánto tiempo necesites conservar la capacidad. En general, elige una capacidad mayor para la capacidad reservada si se da una o ambas de estas condiciones:
+
++
+***** Tienes intención de conservar la pareja de espejos durante un largo periodo de tiempo.
+***** Un gran porcentaje de bloques de datos cambiarán en el volumen primario debido a una gran actividad de E/S. Usa datos históricos de rendimiento u otras utilidades del sistema operativo para ayudarte a determinar la actividad típica de E/S en el volumen primario.
+
+
+
+
+
+
+
+
+. Selecciona *Completar*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Crea el volumen secundario en la matriz de almacenamiento remota y asigna capacidad reservada para el lado remoto del par reflejado.
+* Comienza la sincronización inicial entre la matriz de almacenamiento local y la matriz de almacenamiento remota.
+* Si el volumen que se está reflejando es un volumen delgado, sólo se transfieren los bloques asignados al volumen secundario durante la sincronización inicial. Esta transferencia reduce la cantidad de datos que deben transferirse para completar la sincronización inicial.
+* Crea la capacidad reservada para el par reflejado en la matriz de almacenamiento local y en la matriz de almacenamiento remota.
+

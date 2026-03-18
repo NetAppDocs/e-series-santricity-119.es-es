@@ -1,0 +1,85 @@
+---
+permalink: sm-mirroring/how-asynchronous-mirroring-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, asynchronous, mirroring, 
+summary: La duplicación asíncrona copia volúmenes de datos a demanda o según un horario, lo que minimiza o evita el tiempo de inactividad que podría resultar de la corrupción o pérdida de datos. 
+---
+= Cómo funciona el mirroring asíncrono en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La duplicación asíncrona copia volúmenes de datos a demanda o según un horario, lo que minimiza o evita el tiempo de inactividad que podría resultar de la corrupción o pérdida de datos.
+
+La réplica asíncrona captura el estado del volumen primario en un momento específico y copia solo los datos que han cambiado desde la última captura de imagen. El sitio primario puede actualizarse inmediatamente y el sitio secundario puede actualizarse a medida que lo permite el ancho de banda. La información se almacena en caché y se envía más tarde, a medida que los recursos de red están disponibles.
+
+Este tipo de mirroring es ideal para satisfacer la demanda de operaciones ininterrumpidas y, en general, es mucho más eficiente en red para procesos periódicos, como la copia de backup y el archivado. Las razones para usar el mirroring asíncrono incluyen las siguientes:
+
+* Consolidación de backup remota.
+* Protégete contra desastres locales o de gran envergadura.
+* Desarrollo de aplicaciones y pruebas en una imagen de un momento específico de datos en vivo.
+
+
+
+
+== Sesión de mirroring asíncrono
+
+La replicación asíncrona captura el estado del volumen primario en un momento específico y copia solo los datos que han cambiado desde la última captura de imagen. La replicación asíncrona permite que el sitio primario se actualice inmediatamente y que el sitio secundario se actualice a medida que lo permita el ancho de banda. La información se almacena en caché y se envía más tarde, a medida que los recursos de red están disponibles.
+
+Hay cuatro pasos principales en una sesión de mirroring asíncrono activa.
+
+image::../media/sam-1130-dwg-async-mirroring-session.gif[Sesión de mirroring asíncrono]
+
+. Primero ocurre una operación de escritura en la matriz de almacenamiento del volumen primario.
+. El estado de la operación se devuelve al host.
+. Todos los cambios en el volumen primario se registran y rastrean.
+. Todos los cambios se envían a la matriz de almacenamiento del volumen secundario como un proceso en segundo plano.
+
+
+Estos pasos se repiten según los intervalos de sincronización definidos o los pasos pueden repetirse manualmente si no se definen intervalos.
+
+La duplicación asíncrona transfiere datos al sitio remoto solo a intervalos determinados, así que la E/S local no se ve tan afectada por la lentitud de las conexiones de red. Porque esta transferencia no está vinculada a la E/S local, no afecta el rendimiento de la aplicación. Por eso, la duplicación asíncrona puede usar conexiones más lentas, como iSCSI, y funcionar a través de distancias más largas entre los sistemas de almacenamiento local y remoto.
+
+Las matrices de almacenamiento deben tener una versión de firmware mínima de 7.84. (cada una de ellas puede ejecutar versiones de SO diferentes.)
+
+
+
+== Grupos de consistencia de espejo y pares reflejados
+
+Creas un grupo de coherencia de espejo para establecer la relación de reflejo entre la matriz de almacenamiento local y la matriz de almacenamiento remota. La relación de reflejo asíncrona consiste en un par reflejado: un volumen primario en una matriz de almacenamiento y un volumen secundario en otra matriz de almacenamiento.
+
+La matriz de almacenamiento que contiene el volumen primario suele estar ubicada en el sitio primario y sirve a los hosts activos. La matriz de almacenamiento que contiene el volumen secundario suele estar ubicada en un sitio secundario y contiene una réplica de los datos. El volumen secundario normalmente contiene una copia de backup de los datos y se utiliza para la recuperación ante desastres.
+
+
+
+== Ajustes de sincronización
+
+Cuando creas un par reflejado, también defines la prioridad de sincronización y la política de resincronización que el par reflejado usa para completar la operación de resincronización después de una interrupción de la comunicación.
+
+Cuando creas un grupo de coherencia de réplica, también defines la prioridad de sincronización y la política de resincronización para todos los pares reflejados dentro del grupo. Los pares reflejados usan la prioridad de sincronización y la política de resincronización para completar la operación de resincronización después de una interrupción de comunicación.
+
+Los volúmenes primario y secundario en un par reflejado pueden desincronizarse cuando la matriz de almacenamiento del volumen primario no puede escribir datos en el volumen secundario. Esta condición puede ser causada por los siguientes problemas:
+
+* Problemas de red entre las matrices de almacenamiento local y remota.
+* Un volumen secundario fallido.
+* Sincronización suspendida manualmente en el par reflejado.
+* Conflicto de roles del grupo espejo.
+
+
+Puedes sincronizar los datos en la matriz de almacenamiento remota de forma manual o automática.
+
+
+
+== Capacidad reservada y mirroring asíncrono
+
+La capacidad reservada se utiliza para llevar un registro de las diferencias entre el volumen primario y el volumen secundario cuando no se está realizando la sincronización. También lleva un registro de las estadísticas de sincronización para cada par reflejado.
+
+Cada volumen en un par reflejado requiere su propia capacidad reservada.
+
+
+
+== Configuración y gestión
+
+Para habilitar y configurar el mirroring entre dos arrays, debes usar la interfaz de Unified Manager. Una vez que el mirroring está habilitado, puedes gestionar los pares reflejados y la configuración de sincronización en System Manager.

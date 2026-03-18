@@ -1,0 +1,356 @@
+---
+permalink: sm-interface/view-and-act-on-operations-in-progress.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, act, operations, progress, 
+summary: Para ver y tomar medidas en operaciones de larga duración, usa la página Operaciones en curso. 
+---
+= Consulta y actúa sobre las operaciones en curso en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para ver y tomar medidas en operaciones de larga duración, usa la página Operaciones en curso.
+
+.Acerca de esta tarea
+Para cada operación listada en la página Operaciones en curso, se muestra un porcentaje de finalización y el tiempo estimado restante para completar la operación. En algunos casos, puedes detener una operación o ponerla en una prioridad más alta o más baja. También puedes quitar una operación Volume Copy completada de la lista.
+
+.Pasos
+. En la página de inicio, selecciona *Mostrar operaciones en curso*.
++
+Aparece la página Operations in Progress.
+
+. Si lo deseas, usa los enlaces de la columna Acciones para detener o cambiar la prioridad de una operación.
++
+[CAUTION]
+====
+Lea todo el texto de advertencia proporcionado en los cuadros de diálogo, en particular cuando detiene una operación.
+
+====
++
+Puedes detener una operación de copia de volumen o cambiar su prioridad.
+
+. Una vez finalizada la operación de copia de un volumen, puedes seleccionar *Borrar* para eliminarlo de la lista.
++
+En la parte superior de la página de inicio, aparece un mensaje informativo y un icono de llave inglesa amarilla cuando se completa una operación. Este mensaje incluye un enlace que te permite borrar la operación desde la página Operaciones en curso.
+
+
+
+Algunas de las operaciones que aparecen en la página Operaciones en curso son las siguientes:
+
+[cols="1a,1a,1a"]
+|===
+| Operación | Posible estado de la operación | Acciones que se pueden realizar 
+
+
+ a| 
+Volume copy
+ a| 
+Completed
+ a| 
+Borrar
+
+
+
+ a| 
+Volume copy
+ a| 
+En curso
+ a| 
+* Cambiar prioridad
+* Detener
+
+
+
+
+ a| 
+Volume copy
+ a| 
+Pending
+ a| 
+Borrar
+
+
+
+ a| 
+Volume copy
+ a| 
+Con errores
+ a| 
+* Borrar
+* Volver a copiar
+
+
+
+
+ a| 
+Volume copy
+ a| 
+Detenido
+ a| 
+* Borrar
+* Volver a copiar
+
+
+
+
+ a| 
+Volume create (solo volúmenes de pool estáticos de más de 64 TiB)
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Volume delete (solo volúmenes de pool estáticos de más de 64 TiB)
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Asynchronous mirror group initial synchronization
+ a| 
+En curso
+ a| 
+Suspender
+
+
+
+ a| 
+Asynchronous mirror group initial synchronization
+ a| 
+Suspendida
+ a| 
+Reanudar
+
+
+
+ a| 
+Mirroring síncrono
+ a| 
+En curso
+ a| 
+Suspender
+
+
+
+ a| 
+Mirroring síncrono
+ a| 
+Suspendida
+ a| 
+Reanudar
+
+
+
+ a| 
+Snapshot image rollback
+ a| 
+En curso
+ a| 
+Cancelar
+
+
+
+ a| 
+Snapshot image rollback
+ a| 
+Pending
+ a| 
+Cancelar
+
+
+
+ a| 
+Snapshot image rollback
+ a| 
+Paused
+ a| 
+* Cancelar
+* Reanudar
+
+
+
+
+ a| 
+Drive evacuation
+ a| 
+En curso
+ a| 
+Cancelar (depende del tipo de evacuación de la unidad)
+
+
+
+ a| 
+Add capacity to pool or volume group
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Change a RAID level for a volume
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Reduce capacity for a pool
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Thin volume reclamation
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Check the time remaining on an instant availability format (IAF) operation for pool volumes
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Check the data redundancy of a volume group
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Defragment a volume group
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Initialize a volume
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Increase capacity for a volume
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Change segment size for a volume
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Drive copy
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Data reconstruction
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Copyback
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Borrado de unidad
+ a| 
+En curso
+ a| 
+_none_
+
+
+
+ a| 
+Importación de almacenamiento remoto
+ a| 
+En curso
+ a| 
+* Cambiar prioridad
+* Detener
+
+
+
+
+ a| 
+Importación de almacenamiento remoto
+ a| 
+Detenido
+ a| 
+* Reanudar
+* Desconectar
+
+
+
+
+ a| 
+Importación de almacenamiento remoto
+ a| 
+Con errores
+ a| 
+* Reanudar
+* Desconectar
+
+
+
+
+ a| 
+Importación de almacenamiento remoto
+ a| 
+Completed
+ a| 
+Desconectar
+
+|===

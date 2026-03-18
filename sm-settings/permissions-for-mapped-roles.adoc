@@ -1,0 +1,27 @@
+---
+permalink: sm-settings/permissions-for-mapped-roles.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, permissions, mapped, roles, 
+summary: 'Las capacidades RBAC (control de acceso basado en roles) aplicadas en la matriz de almacenamiento incluyen perfiles de usuario predefinidos con uno o más roles asignados a ellos. Cada rol incluye permisos para acceder a tareas en SANtricity System Manager.' 
+---
+= Conoce los permisos de los roles asignados en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las capacidades RBAC (control de acceso basado en roles) aplicadas en la matriz de almacenamiento incluyen perfiles de usuario predefinidos con uno o más roles asignados a ellos. Cada rol incluye permisos para acceder a tareas en SANtricity System Manager.
+
+Los perfiles de usuario y los roles asignados son accesibles desde el menú:Configuración[Gestión de acceso > Roles de usuario locales] en la interfaz de usuario de cualquiera de los System Manager.
+
+Los roles proporcionan al usuario acceso a las tareas, de la siguiente manera:
+
+* *Storage admin* -- Acceso total de lectura/escritura a los objetos de almacenamiento (por ejemplo, volúmenes y grupos de discos), pero sin acceso a la configuración de seguridad.
+* *Security admin* -- Acceso a la configuración de seguridad en Access Management, gestión de certificados, gestión de registros de auditoría y la capacidad de activar o desactivar la interfaz de gestión heredada (SYMbol).
+* *Support admin* -- Acceso a todos los recursos de hardware en la matriz de almacenamiento, datos de fallos, eventos MEL y actualizaciones de firmware del controlador. Sin acceso a objetos de almacenamiento ni a la configuración de seguridad.
+* *Monitor* -- Acceso de solo lectura a todos los objetos de almacenamiento, pero sin acceso a la configuración de seguridad.
+
+
+Si un usuario no tiene permisos para una tarea determinada, esa tarea aparece en gris o no se muestra en la interfaz de usuario.

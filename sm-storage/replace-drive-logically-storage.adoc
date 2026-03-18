@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/replace-drive-logically-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, replace, drive, logically 
+summary: Si una unidad falla o quieres reemplazarla por cualquier otro motivo, y tienes una unidad sin asignar en tu matriz de almacenamiento, puedes reemplazar lógicamente la unidad con error por la unidad sin asignar. Si no tienes una unidad sin asignar, puedes reemplazar físicamente la unidad. 
+---
+= Reemplaza una unidad lógicamente en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si una unidad falla o quieres reemplazarla por cualquier otro motivo, y tienes una unidad sin asignar en tu matriz de almacenamiento, puedes reemplazar lógicamente la unidad con error por la unidad sin asignar. Si no tienes una unidad sin asignar, puedes reemplazar físicamente la unidad.
+
+.Acerca de esta tarea
+Cuando sustituyes lógicamente una unidad por una unidad no asignada, la unidad no asignada pasa a estar asignada y se convierte en un miembro permanente del pool o grupo de volúmenes asociado. Usas la opción de sustitución lógica para reemplazar los siguientes tipos de unidades:
+
+* Unidades con error
+* Unidades faltantes
+* Unidades SSD que el Recovery Guru te ha notificado que están llegando al final de su vida útil
+* Discos duros que el Gurú de la Recuperación te ha notificado que tienen un fallo de unidad inminente
+* Unidades asignadas (disponible solo para unidades en un grupo de volúmenes, no en un pool)
+
+
+La unidad de sustitución debe tener las siguientes características:
+
+* En el estado óptimo
+* En el estado No asignado
+* Los mismos atributos que la unidad que se sustituye (tipo de soporte, tipo de interfaz, y así sucesivamente)
+* La misma capacidad FDE (recomendado, pero no obligatorio)
+* La misma capacidad de DA (recomendado, pero no obligatorio)
+
+
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra los controladores, haz clic en la pestaña *Drives*.
++
+El gráfico cambia para mostrar las unidades en lugar de los controladores.
+
+. Haz clic en la unidad que quieres sustituir lógicamente.
++
+Aparece el menú contextual de la unidad.
+
+. Haz clic en *Reemplazar lógicamente*.
+. *Opcional:* Selecciona la casilla de comprobación *Fallo de unidad después de ser reemplazada* para que falle la unidad original después de ser reemplazada.
++
+Esta casilla de comprobación solo está activada si la unidad original asignada no tiene un fallo o no falta.
+
+. En la tabla *Select a replacement drive*, selecciona la unidad de sustitución que quieres usar.
++
+La tabla enumera solo las unidades que son compatibles con la unidad que estás reemplazando. Si es posible, selecciona una unidad que mantenga la protección contra pérdida de estantería y la protección contra pérdida de cajón.
+
+. Haz clic en *Reemplazar*.
++
+Si la unidad original presenta un fallo o falta, los datos se reconstruyen en la unidad de sustitución usando la información de paridad. Esta reconstrucción comienza automáticamente. Las luces indicadoras de fallo de la unidad se apagan y las luces indicadoras de actividad de las unidades del pool o grupo de volúmenes empiezan a parpadear.
+
++
+Si la unidad original no ha fallado ni falta, sus datos se copian en la unidad de sustitución. Esta operación de copia comienza automáticamente. Después de que se complete la operación de copia, el sistema pasa la unidad original al estado Sin asignar o, si la casilla de comprobación estaba seleccionada, al estado Fallido.
+
+

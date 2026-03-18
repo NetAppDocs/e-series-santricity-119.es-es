@@ -1,0 +1,136 @@
+---
+permalink: sm-mirroring/requirements-for-using-asynchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, requirements, asynchronous, mirroring, 
+summary: Si planeas usar la duplicación asíncrona, ten en cuenta los siguientes requisitos. 
+---
+= Requisitos para usar la duplicación asíncrona en el software SANtricity
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si planeas usar la duplicación asíncrona, ten en cuenta los siguientes requisitos.
+
+
+
+== Unified Manager
+
+Para activar y configurar la replicación de datos entre dos arrays, debes usar la interfaz de Unified Manager. Unified Manager se instala en un sistema host junto con el Web Services Proxy.
+
+* El proxy de servicios web se encuentra en ejecución.
+* Unified Manager debe estar ejecutándose en tu host local a través de una conexión HTTPS.
+* Unified Manager debe mostrar certificados SSL válidos para la matriz de almacenamiento. Puedes aceptar un certificado autofirmado o instalar tu propio certificado de seguridad usando Unified Manager y navegando hasta menu:Certificate[Certificate Management].
+
+
+
+
+== Cabinas de almacenamiento
+
+* Debes tener dos matrices de almacenamiento.
+* Cada matriz de almacenamiento debe tener dos controladores.
+* Las dos matrices de almacenamiento deben descubrirse en Unified Manager.
+* Cada controlador, tanto en el array primario como en el secundario, debe tener configurado un puerto de gestión Ethernet y debe estar conectado a tu red.
+* Las matrices de almacenamiento tienen una versión de firmware mínima de 7.84. (Cada una de ellas puede ejecutar versiones de sistema operativo diferentes.)
+* Debes conocer la contraseña de las matrices de almacenamiento local y remota.
+* Debes tener suficiente capacidad libre en la matriz de almacenamiento remota para crear un volumen secundario igual o mayor que el volumen primario que quieres reflejar.
+* Tus matrices de almacenamiento locales y remotas están conectadas a través de una estructura Fibre Channel o una interfaz iSCSI.
+
+
+
+
+== Conexiones compatibles
+
+El mirroring asíncrono puede usar conexiones FC o iSCSI, o ambas, para la comunicación entre los sistemas de almacenamiento local y remoto. Al crear un grupo de coherencia de espejo, el administrador puede seleccionar FC o iSCSI para ese grupo si ambos están conectados a la matriz de almacenamiento remoto. No hay conmutación por error de un tipo de canal al otro.
+
+La duplicación asíncrona utiliza los puertos de E/S del lado del host de la matriz de almacenamiento para transmitir datos reflejados del lado primario al lado secundario.
+
+* *Reflejo a través de una interfaz Fibre Channel (FC)*
++
+Cada controlador de la matriz de almacenamiento dedica su puerto host FC de mayor numeración a las operaciones de mirroring.
+
++
+Si el controlador tiene puertos FC base y puertos FC de tarjeta de interfaz del host (HIC), el puerto con el número más alto está en una HIC. Se cierra la sesión de cualquier host conectado al puerto dedicado y no se aceptan solicitudes de inicio de sesión de host. Las solicitudes de E/S en este puerto solo se aceptan de controladores que participan en operaciones de mirroring.
+
++
+Los puertos de réplica dedicados deben estar conectados a un entorno de tejido FC que admita las interfaces de servicio de directorio y servicio de nombres. En particular, FC-AL y punto a punto no se admiten como opciones de conectividad entre los controladores que participan en relaciones de réplica.
+
+* *Reflejo a través de una interfaz iSCSI*
++
+A diferencia de FC, iSCSI no requiere un puerto dedicado. Cuando se utiliza la replicación asíncrona en entornos iSCSI, no es necesario dedicar ninguno de los puertos iSCSI front-end de la matriz de almacenamiento para usarlos con la replicación asíncrona; esos puertos se comparten tanto para el tráfico de replicación asíncrona como para las conexiones de E/S de host a matriz.
+
++
+El controlador mantiene una lista de sistemas de almacenamiento remotos con los que el iniciador iSCSI intenta establecer una sesión. El primer puerto que establece con éxito una conexión iSCSI se usa para toda la comunicación posterior con esa matriz de almacenamiento remoto. Si la comunicación falla, se intenta una nueva sesión usando todos los puertos disponibles.
+
++
+Los puertos iSCSI se configuran a nivel de matriz, puerto por puerto. La comunicación entre controladores para la mensajería de configuración y la transferencia de datos utiliza la configuración global, incluidos los ajustes para:
+
++
+** VLAN: tanto el sistema local como el remoto deben tener la misma configuración de VLAN para comunicarse
+** Puertos de escucha iSCSI
+** Tramas gigantes
+** Prioridad para Ethernet
++
+[NOTE]
+====
+La comunicación entre controladores iSCSI debe usar un puerto de conexión del host y no el puerto Ethernet de gestión.
+
+====
+
+
++
+La replicación asíncrona utiliza los puertos de E/S del lado del host de la matriz de almacenamiento para transmitir los datos reflejados desde el lado primario al secundario. Porque la replicación asíncrona está pensada para redes de mayor latencia y menor costo, las conexiones iSCSI (y por tanto, basadas en TCP/IP) se adaptan bien a ella. Cuando se usa la replicación asíncrona en entornos iSCSI, no es necesario dedicar ninguno de los puertos iSCSI front-end de la matriz para usar con la replicación asíncrona; esos puertos se comparten tanto para el tráfico de replicación asíncrona como para las conexiones de E/S de host a matriz
+
+
+
+[NOTE]
+====
+E4000 no es compatible con la duplicación asíncrona mientras se usa el protocolo iSCSI.
+
+====
+
+
+== Candidatos de volumen reflejado
+
+* El nivel RAID, los parámetros de caché y el tamaño de los segmentos pueden ser diferentes en los volúmenes primario y secundario de un par reflejado asíncrono.
++
+
+NOTE: Para las controladoras EF600 y EF300, los volúmenes primario y secundario de un par reflejado asíncrono deben coincidir en el mismo protocolo, nivel de bandeja, tamaño de segmento, tipo de seguridad y nivel de RAID. Los pares reflejados asíncronos no elegibles no aparecerán en la lista de volúmenes disponibles.
+
+* El volumen secundario deber tener al menos el tamaño del volumen primario.
+* Un volumen puede participar solo en una relación de reflejo.
+* Los candidatos a volumen deben compartir las mismas capacidades de seguridad de datos.
++
+** Si el volumen primario es apto para FIPS, el volumen secundario debe ser apto para FIPS.
+** Si el volumen primario es compatible con FDE, el volumen secundario debe ser compatible con FDE.
+** Si el volumen primario no está utilizando Drive Security, el volumen secundario no debe estar utilizando Drive Security.
+
+
+* Los volúmenes primario y secundario deben compartir el mismo tipo de unidad. No se admite la mezcla de NVMe y SAS entre volúmenes primario y secundario.
+* Los volúmenes primario y secundario no deben tener activada la partición de recursos.
+
+
+
+
+== Capacidad reservada
+
+* Se requiere un volumen de capacidad reservada para un volumen primario y para un volumen secundario en un par reflejado para registrar información de escritura y poder recuperarse de los reinicios del controlador y otras interrupciones temporales.
+* Dado que tanto el volumen primario como el volumen secundario de un par reflejado requieren capacidad reservada adicional, debes asegurarte de que tienes capacidad libre disponible en ambas matrices de almacenamiento en la relación de reflejo.
+* El volumen de capacidad reservada debe compartir el mismo tipo de unidad que sus volúmenes reflejados asociados.
++
+** Si el volumen de capacidad reservada se crea en unidades NVMe, sus volúmenes reflejados también deben crearse en unidades NVMe.
+** Si el volumen de capacidad reservada se crea en unidades SAS, sus volúmenes reflejados también deben crearse en unidades SAS.
+
+
+
+
+
+
+== Función Drive Security
+
+* Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben tener configuraciones de seguridad compatibles. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.
+* Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben usar el mismo tipo de unidad. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.
+* Si estás usando Data Assurance (DA), el volumen primario y el volumen secundario deben tener la misma configuración de DA.
+

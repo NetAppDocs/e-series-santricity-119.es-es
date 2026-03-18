@@ -1,0 +1,55 @@
+---
+permalink: sm-hardware/overview-hardware.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, hardware, page, 
+summary: Puedes comprobar el estado de los componentes en la página Hardware y realizar algunas funciones relacionadas con esos componentes. 
+---
+= Ver y gestionar los componentes de hardware en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes comprobar el estado de los componentes en la página Hardware y realizar algunas funciones relacionadas con esos componentes.
+
+
+
+== ¿Qué componentes puedo gestionar?
+
+Puedes comprobar el estado de los componentes y realizar algunas funciones relacionadas con estos componentes:
+
+* **Estanterías** -- Una _estantería_ es un componente que contiene el hardware de la matriz de almacenamiento (controladores, cajas de alimentación/ventiladores y unidades). Las estanterías están disponibles en tres tamaños para alojar hasta 12, 24 o 60 unidades.
+* **Controladores** -- Un _controlador_ es la combinación de hardware y firmware que implementa las funciones de la matriz de almacenamiento y de gestión. Incluye la memoria caché, el soporte de unidades y los puertos para conexiones con el host.
+* **Unidades** -- Una _unidad_ puede ser un disco duro (HDD) o una unidad de estado sólido (SSD). Dependiendo del tamaño de la estantería, se pueden instalar hasta 12, 24 o 60 unidades en la estantería.
+
+
+Más información:
+
+* link:hardware-page-overview.html["Página de hardware"]
+* link:hardware-terminology.html["Terminología de hardware"]
+
+
+
+
+== ¿Cómo veo los componentes de hardware?
+
+Ve a la página Hardware, que proporciona una representación gráfica de los componentes físicos de la matriz de almacenamiento. Puedes cambiar entre las vistas frontal y posterior de las estanterías de la matriz seleccionando la pestaña *Drives* o *Controllers* en la parte superior derecha de la vista de la estantería.
+
+Más información:
+
+* link:view-shelf-component-status-and-settings.html["Ver el estado y la configuración de los componentes de la estantería"]
+* link:view-controller-settings.html["Ver la configuración del controlador"]
+* link:view-drive-status-and-settings.html["Ver el estado y la configuración de la unidad"]
+
+
+
+
+= Información relacionada
+
+Conoce más sobre conceptos relacionados con hardware:
+
+* link:controller-states.html["Estados de la controladora"]
+* link:drive-states.html["Estados de la unidad"]
+* link:what-is-shelf-loss-protection-and-drawer-loss-protection.html["Protección contra pérdida de estantería y pérdida de cajón"]
+

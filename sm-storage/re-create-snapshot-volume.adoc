@@ -1,0 +1,61 @@
+---
+permalink: sm-storage/re-create-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, re-create, snapshot, volume 
+summary: Puedes volver a crear un volumen de instantánea o un volumen de instantánea de grupo de consistencia de instantánea que hayas desactivado previamente. Volver a crear un volumen de instantánea lleva menos tiempo que crear uno nuevo. 
+---
+= Vuelve a crear un volumen de instantánea en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes volver a crear un volumen de instantánea o un volumen de instantánea de grupo de consistencia de instantánea que hayas desactivado previamente. Volver a crear un volumen de instantánea lleva menos tiempo que crear uno nuevo.
+
+.Antes de empezar
+* El volumen de instantánea debe estar en estado óptimo o desactivado.
+* Todos los volúmenes de instantáneas miembros deben estar en estado desactivado antes de que puedas volver a crear el volumen de instantáneas del grupo de consistencia de instantáneas.
+
+
+.Acerca de esta tarea
+No puedes volver a crear un volumen de instantánea de miembro individual; solo puedes volver a crear el volumen de instantánea del grupo de consistencia de instantáneas.
+
+[NOTE]
+====
+Si el volumen de instantánea o el volumen de instantánea del grupo de coherencia de instantáneas forma parte de una relación de copia en línea, no puedes usar la opción de recrear en el volumen.
+
+====
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Selecciona la pestaña *Snapshot Volumes*.
++
+La tabla Volúmenes de instantáneas aparece y muestra todos los volúmenes de instantáneas asociados con la matriz de almacenamiento.
+
+. Selecciona el volumen de instantánea que quieres volver a crear y luego selecciona menu:Tareas no comunes[Volver a crear].
++
+Aparece el cuadro de diálogo Recreate Snapshot Volume.
+
+. Selecciona una de las siguientes opciones:
++
+** *Una imagen instantánea existente creada a partir del volumen <name>*
++
+Selecciona esta opción para indicar una imagen de instantánea existente desde la cual volver a crear el volumen de instantánea.
+
+** *Una nueva imagen instantánea (instant) del volumen <name>*
++
+Selecciona esta opción para crear una nueva imagen de instantánea desde la cual volver a crear el volumen de instantánea.
+
+
+
+. Haz clic en *Recrear*.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Elimina todos `write` los datos en cualquier volumen de repositorio de instantáneas asociado.
+* Los parámetros del volumen snapshot o del volumen snapshot de un grupo de consistencia siguen siendo los mismos que los parámetros del volumen deshabilitado anteriormente.
+* Conserva los nombres originales para el volumen de instantánea o el volumen de instantánea de grupo de coherencia.
+

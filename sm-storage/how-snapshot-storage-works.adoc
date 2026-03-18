@@ -1,0 +1,51 @@
+---
+permalink: sm-storage/how-snapshot-storage-works.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, storage 
+summary: La función Snapshots utiliza la tecnología copy-on-write para almacenar imágenes de snapshot y usar la capacidad reservada asignada. 
+---
+= Cómo funciona el almacenamiento de snapshots en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función Snapshots utiliza la tecnología copy-on-write para almacenar imágenes de snapshot y usar la capacidad reservada asignada.
+
+
+
+== Cómo se usan las imágenes instantáneas
+
+Una imagen de instantánea es una copia lógica de solo lectura del contenido de un volumen, capturada en un momento específico. Puedes usar instantáneas para protegerte contra la pérdida de datos.
+
+Las imágenes de instantáneas también son útiles para entornos de prueba. Al crear una copia virtual de los datos, puedes probar los datos usando la instantánea sin alterar el volumen real. Además, los hosts no tienen acceso de escritura a las imágenes de instantáneas, así que tus instantáneas siempre son un recurso de copia de seguridad seguro.
+
+
+
+== Creación de instantánea
+
+A medida que se crean instantáneas, la función Snapshots almacena los datos de imagen de la siguiente manera:
+
+* Cuando se crea una imagen snapshot, coincide exactamente con el volumen base. La función Snapshots utiliza la tecnología copy-on-write. Después de tomar la snapshot, la primera escritura en cualquier bloque o conjunto de bloques del volumen base hace que los datos originales se copien en la capacidad reservada antes de escribir los nuevos datos en el volumen base.
+* Las instantáneas posteriores incluyen solo los bloques de datos modificados. Antes de que se sobrescriban los datos en el volumen base, la función Snapshots utiliza su tecnología copy-on-write para guardar las imágenes necesarias de los sectores afectados en la capacidad reservada para instantáneas.
++
+image::../media/sam1130-dwg-snapshots-cow-overview.gif[Resumen de instantáneas]
+
+
+
+^1^ Volumen base (capacidad física del disco); ^2^ Instantáneas (capacidad lógica del disco); ^3^ Capacidad reservada (capacidad física del disco)
+
+* La capacidad reservada almacena bloques de datos originales para porciones del volumen base que han cambiado después de que se tomó la instantánea e incluye un índice para rastrear los cambios. Generalmente, el tamaño de la capacidad reservada por defecto es el 40 por ciento del volumen base. (si necesitas más capacidad reservada, puedes aumentar la capacidad reservada.)
+* Las imágenes instantáneas se almacenan en un orden específico, basado en su marca de tiempo. Solo la imagen instantánea más antigua de un volumen base está disponible para eliminación manual.
+
+
+
+
+== Restauración de instantáneas
+
+Para restaurar datos en un volumen base, puedes usar un volumen instantáneo o una imagen instantánea:
+
+* *Volumen de instantánea* -- Si necesitas recuperar archivos borrados, crea un volumen de instantánea a partir de una imagen de instantánea conocida como buena y luego asígnalo al host.
+* *Imagen de instantánea* -- Si necesitas restaurar un volumen base a un momento específico, usa una imagen de instantánea anterior para hacer retroceder los datos al volumen base.
+

@@ -1,0 +1,120 @@
+---
+permalink: sm-settings/view-audit-log-activity.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, audit, log, activity, 
+summary: Al ver los registros de auditoría, los usuarios con permisos de Security Admin pueden supervisar las acciones de los usuarios, los fallos de autenticación, los intentos de inicio de sesión no válidos y la duración de la sesión del usuario. 
+---
+= Ver la actividad del registro de auditoría en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al ver los registros de auditoría, los usuarios con permisos de Security Admin pueden supervisar las acciones de los usuarios, los fallos de autenticación, los intentos de inicio de sesión no válidos y la duración de la sesión del usuario.
+
+.Antes de empezar
+Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+
+.Pasos
+. Selecciona el menú:Configuración[Gestión de acceso].
+. Selecciona la pestaña **Registro de auditoría**.
++
+La actividad del registro de auditoría aparece en formato tabular, que incluye las siguientes columnas de información:
+
++
+** *Fecha/Hora* -- Marca de tiempo de cuando la matriz de almacenamiento detectó el evento (en GMT).
+** *Username* -- El nombre de usuario asociado con el evento. Para cualquier acción no autenticada en la matriz de almacenamiento, "N/A" aparece como el nombre de usuario. Las acciones no autenticadas pueden ser activadas por el proxy interno o algún otro mecanismo.
+** *Código de estado* -- Código de estado HTTP de la operación (200, 400, etc.) y texto descriptivo asociado con el evento.
+** *URL accedida* -- URL completa (incluyendo el host) y cadena de consulta.
+** *Dirección IP del cliente* -- dirección IP del cliente asociado con el evento.
+** *Fuente* -- Fuente de registro asociada con el evento, que puede ser System Manager, CLI, Web Services o Support Shell.
+** *Descripción* -- Información adicional sobre el evento, si aplica.
+
+
+. Usa las selecciones en la página Audit Log para ver y gestionar eventos.
++
+.Detalles de la selección
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Selección | Descripción 
+
+
+ a| 
+Mostrar eventos de...
+ a| 
+Limita los eventos mostrados por intervalo de fechas (últimas 24 horas, últimos 7 días, últimos 30 días o un intervalo de fechas personalizado).
+
+
+
+ a| 
+Filtro
+ a| 
+Limita los eventos mostrados por los caracteres que ingreses en el campo. Usa comillas ("") para una coincidencia exacta de palabras, ingresa  `OR` para devolver una o más palabras, o ingresa un guion ( -- ) para omitir palabras.
+
+
+
+ a| 
+Actualizar
+ a| 
+Selecciona *Refrescar* para actualizar la página con los acontecimientos más recientes.
+
+
+
+ a| 
+Ver/editar configuración
+ a| 
+Selecciona *Ver/Editar configuración* para abrir un cuadro de diálogo que te permite especificar una política de registro completa y el nivel de acciones que se registrarán.
+
+
+
+ a| 
+Eliminar eventos
+ a| 
+Selecciona *Borrar* para abrir un cuadro de diálogo que te permite eliminar eventos antiguos de la página.
+
+
+
+ a| 
+Mostrar/ocultar columnas
+ a| 
+Haz clic en el icono de columna *Mostrar/Ocultar* image:../media/sam-1140-ss-access-columns.gif["Mostrar/Ocultar columna"] para seleccionar columnas adicionales para mostrar en la tabla. Las columnas adicionales incluyen:
+
+** *Method* -- El método HTTP (por ejemplo, POST, GET, DELETE, etc.).
+** *CLI Command Executed* -- El comando CLI (gramática) ejecutado para las solicitudes de Secure CLI.
+** *CLI Return Status* -- Un código de estado CLI o una solicitud de archivos de entrada del cliente.
+** *Procedimiento SYMbol* -- El procedimiento SYMbol se ejecutó.
+** *SSH Event Type* -- Tipo de evento Secure Shell (SSH), como login, logout y login_fail.
+** *SSH Session PID* -- Número de identificación del proceso de la sesión SSH.
+** *SSH Session Duration(s)* -- el número de segundos que el usuario estuvo conectado.
+** *Tipo de autenticación* -- Los tipos pueden incluir usuario local, LDAP, SAML y token de acceso.
+** *Authentication ID* -- ID de la sesión autenticada.
+
+
+
+
+ a| 
+Alternar filtros de columna
+ a| 
+Haz clic en el icono *Toggle* image:../media/sam-1140-ss-access-toggle.gif["Alternar"] para abrir los campos de filtrado de cada columna. Escribe caracteres en un campo de columna para limitar los eventos que se muestran por esos caracteres. Haz clic de nuevo en el icono para cerrar los campos de filtrado.
+
+
+
+ a| 
+Deshacer cambios
+ a| 
+Haz clic en el icono *Undo* image:../media/sam-1140-ss-access-undo.gif["Deshacer"] para devolver la tabla a la configuración predeterminada.
+
+
+
+ a| 
+Exportar
+ a| 
+Haz clic en *Export* para guardar los datos de la tabla en un archivo CSV (valores separados por comas).
+
+|===
+====
+

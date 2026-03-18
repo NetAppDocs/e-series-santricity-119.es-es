@@ -1,0 +1,65 @@
+---
+permalink: sm-storage/how-volumes-work.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, volume, copy, 
+summary: Los volúmenes son contenedores de datos que gestionan y organizan el espacio de almacenamiento en la cabina de almacenamiento. 
+---
+= Cómo funcionan los volúmenes en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los volúmenes son contenedores de datos que gestionan y organizan el espacio de almacenamiento en la cabina de almacenamiento.
+
+Creas volúmenes a partir de la capacidad de almacenamiento disponible en tu matriz de almacenamiento y así te resulta fácil organizar y usar los recursos de tu sistema. Este concepto es similar a usar carpetas/directorios en una computadora para organizar archivos y acceder a ellos fácil y rápidamente.
+
+Los volúmenes son la única capa de datos visible para los hosts. En un entorno SAN, los volúmenes se asignan a números de unidad lógica (LUN), que son visibles para los hosts. Los LUN contienen los datos de usuario a los que se puede acceder usando uno o más de los protocolos de acceso a host compatibles con la matriz de almacenamiento, incluyendo FC, iSCSI y SAS.
+
+
+
+== Tipos de volúmenes que puedes crear a partir de pools y grupos de volúmenes
+
+Los volúmenes obtienen su capacidad de pools o grupos de volúmenes. Puedes crear los siguientes tipos de volúmenes a partir de los pools o grupos de volúmenes que existen en tu matriz de almacenamiento.
+
+* *Desde pools* -- Puedes crear volúmenes desde un pool como _volúmenes totalmente provisionados (thick)_ o _volúmenes thin (thin)._
++
+[NOTE]
+====
+La interfaz de System Manager no proporciona una opción para crear volúmenes delgados. Si quieres crear volúmenes delgados, usa la Command Line Interface (CLI).
+
+====
+* *Desde grupos de volúmenes* -- Puedes crear volúmenes desde un grupo de volúmenes solo como _volúmenes completamente aprovisionados (thick)_. 
+
+
+Los volúmenes gruesos y los volúmenes finos extraen capacidad de la matriz de almacenamiento de diferentes maneras:
+
+* La capacidad de un volumen thick se asigna cuando se crea el volumen.
+* La capacidad de un volumen delgado se asigna como datos cuando se escriben en el volumen.
+
+
+El thin provisioning ayuda a evitar el desaprovechamiento de la capacidad asignada y puede ahorrar a las empresas en costes iniciales de almacenamiento. Sin embargo, el aprovisionamiento completo tiene la ventaja de menos latencia porque todo el almacenamiento se asigna de una vez cuando se crean volúmenes thick.
+
+[NOTE]
+====
+Los sistemas de almacenamiento EF600/EF600C y EF300/EF300C no admiten el aprovisionamiento fino.
+
+====
+
+
+== Características de los volúmenes
+
+Cada volumen de un pool o grupo de volúmenes puede tener sus propias características individuales según los tipos de datos se almacenarán en el volumen. Algunas de esas características son:
+
+* *Tamaño del segmento* -- Un segmento es la cantidad de datos en kilobytes (KiB) que se almacena en una unidad antes de que la matriz de almacenamiento pase a la siguiente unidad de la banda (grupo RAID). El tamaño del segmento es igual o inferior a la capacidad del grupo de volúmenes. El tamaño del segmento es fijo y no se puede cambiar para pools.
+* *Capacidad* -- Creas un volumen a partir de la capacidad libre disponible en un pool o grupo de volúmenes. Antes de crear un volumen, el pool o grupo de volúmenes ya debe existir y debe tener suficiente capacidad libre para crear el volumen.
+* *Propiedad de la controladora* -- Todas las matrices de almacenamiento pueden tener una o dos controladoras. En una matriz de controladora única, la carga de trabajo de un volumen es gestionada por una sola controladora. En una matriz de controladora doble, un volumen tendrá una controladora preferida (A o B) que "posee" el volumen. En una configuración de controladora doble, la propiedad del volumen se ajusta automáticamente usando la función de equilibrio de carga automático para corregir cualquier problema de equilibrio de carga cuando las cargas de trabajo se desplazan entre las controladoras. El equilibrio de carga automático proporciona un equilibrio automatizado de la carga de trabajo de I/O y asegura que el tráfico de I/O entrante desde los hosts se gestione y equilibre dinámicamente entre ambas controladoras.
+* *Asignación de volúmenes* -- Puedes dar acceso a los hosts a un volumen ya sea cuando creas el volumen o en un momento posterior. Todo el acceso a los hosts se gestiona a través de un número de unidad lógica (LUN). Los hosts detectan LUN que, a su vez, se asignan a volúmenes. Si vas a asignar un volumen a varios hosts, usa software de clustering para asegurarte de que el volumen esté disponible para todos los hosts.
++
+El tipo de host puede tener límites específicos sobre cuántos volúmenes puede acceder el host. Ten en cuenta esta limitación cuando crees volúmenes para que los use un host en particular.
+
+* *Nombre descriptivo* -- Puedes nombrar un volumen como quieras, pero te recomendamos que el nombre sea descriptivo.
+
+
+Durante la creación de volúmenes, se asigna capacidad a cada volumen y se otorga un nombre, un tamaño de segmento (únicamente grupos de volúmenes), una propiedad de controladora y una asignación de volumen a host al volumen. Los datos de volumen se cargan de manera equilibrada y automática en las controladoras, según sea necesario.

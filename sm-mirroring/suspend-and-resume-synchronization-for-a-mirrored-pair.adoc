@@ -1,0 +1,40 @@
+---
+permalink: sm-mirroring/suspend-and-resume-synchronization-for-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, suspend, resume, synchronization, mirrored, pair, 
+summary: Puedes usar las opciones Suspender y Reanudar para controlar cuándo sincronizar los datos en el volumen primario y el volumen secundario en un par reflejado. 
+---
+= Suspender y reanudar la sincronización de pares reflejados en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes usar las opciones Suspender y Reanudar para controlar cuándo sincronizar los datos en el volumen primario y el volumen secundario en un par reflejado.
+
+.Acerca de esta tarea
+Si un par reflejado se suspende manualmente, el par reflejado no se sincronizará hasta que se reanude manualmente.
+
+.Pasos
+. Selecciona el menú:Storage[Synchronous Mirroring].
+. Selecciona el par reflejado que quieres suspender o reanudar, y luego elige menú:Más[Suspender] o menú:Más[Reanudar].
++
+El sistema muestra una confirmación.
+
+. Selecciona *Sí* para confirmar.
+
+
+.Resultados
+System Manager realiza las siguientes acciones:
+
+* Suspende o reanuda la transferencia de datos entre el par reflejado sin eliminar la relación de espejo.
+* Para un par reflejado _suspendido_:
++
+** Muestra *Suspendido* en la tabla Mirrored Pair.
+** Registra cualquier dato que se haya escrito en el volumen primario del par reflejado mientras la sincronización está suspendida.
+
+
+* Para un par reflejado _reanudado_, escribe los datos automáticamente en el volumen secundario del par reflejado cuando se reanuda la sincronización. No se requiere una sincronización completa.
+

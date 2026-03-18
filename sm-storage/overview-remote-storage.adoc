@@ -1,0 +1,44 @@
+---
+permalink: sm-storage/overview-remote-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, remote, storage 
+summary: Si tienes la función Remote Storage, puedes importar datos de un sistema de almacenamiento remoto. 
+---
+= Conoce la función de almacenamiento remoto en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tienes la función de Remote Storage, puedes importar datos de un sistema remota de almacenamiento a tu matriz de almacenamiento.
+
+
+
+== ¿Qué es la función de almacenamiento remoto?
+
+La función _Remote Storage_ te permite importar datos desde un sistema de almacenamiento remota a un sistema de almacenamiento E-Series local. El sistema remota puede ser otro sistema E-Series o un sistema de otro proveedor. Esta función es útil cuando quieres agilizar la migración de datos con un tiempo de inactividad mínimo, como durante actualizaciones de equipos.
+
+
+NOTE: Para usar el almacenamiento remoto, esta función debe estar habilitada en el Submodel ID (SMID).
+
+Más información:
+
+* link:rtv-how-remote-storage-works.html["Cómo funciona el almacenamiento remoto"]
+* link:rtv-terminology.html["Terminología de almacenamiento remoto"]
+* link:rtv-remote-storage-requirements.html["Requisitos de almacenamiento remoto"]
+* link:rtv-remote-storage-volume-requirements.html["Requisitos del volumen de almacenamiento remoto"]
+
+
+
+
+== ¿Cómo importo datos con esta función?
+
+Mediante el asistente de Remote Storage, puedes asignar un dispositivo de almacenamiento remoto (el origen de la importación de datos) a un volumen de destino en el sistema E-Series. Este asistente está disponible en menu:Storage[Remote storage].
+
+Más información:
+
+* link:rtv-import-remote-storage.html["Importar almacenamiento remoto"]
+* link:rtv-manage-progress-of-remote-volume-import.html["Gestiona el progreso de la importación de datos"]
+

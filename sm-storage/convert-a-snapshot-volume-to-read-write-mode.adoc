@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/convert-a-snapshot-volume-to-read-write-mode.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, convert, snapshot, volume, read-write mode 
+summary: Puedes convertir un volumen de instantánea de solo lectura o un volumen de instantánea de grupo de consistencia de instantánea a modo de lectura y escritura si lo necesitas. 
+---
+= Convertir el volumen snapshot a modo lectura/escritura en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes convertir un volumen de instantánea de solo lectura o un volumen de instantánea de grupo de consistencia de instantánea a modo de lectura y escritura si lo necesitas.
+
+Un volumen de instantánea que se convierte en accesible para lectura y escritura contiene su propia capacidad reservada. Esta capacidad se usa para guardar cualquier modificación posterior que haga la aplicación host en el volumen base sin afectar la imagen de instantánea referenciada.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Selecciona la pestaña *Snapshot Volumes*.
++
+La tabla Volúmenes de instantáneas aparece y muestra todos los volúmenes de instantáneas asociados con la matriz de almacenamiento.
+
+. Selecciona el volumen de instantáneas de solo lectura que quieres convertir y luego haz clic en *Convertir a lectura/escritura*.
++
+Aparece el cuadro de diálogo Convert to Read/Write con el paso *Reserve Capacity* activado. La tabla Volume Candidate muestra solo los candidatos que admiten la reserved capacity especificada.
+
+. Para asignar la capacidad reservada para el volumen de instantáneas de lectura/escritura, haz una de las siguientes acciones:
++
+** *Aceptar la configuración predeterminada* -- Usa esta opción recomendada para asignar la capacidad reservada para el volumen de instantáneas con la configuración predeterminada.
+** *Asigna tus propios ajustes de capacidad reservada para satisfacer tus necesidades de almacenamiento de datos* -- Asigna la capacidad reservada siguiendo las siguientes pautas.
++
+*** La configuración predeterminada para la capacidad reservada es el 40% de la capacidad del volumen base y normalmente esta capacidad es suficiente.
+*** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de E/S en el volumen.
+
+
+
+
+. Selecciona *Siguiente* para revisar o editar los ajustes.
++
+Aparece el cuadro de diálogo Edit Settings.
+
+. Acepta o especifica la configuración del volumen de instantánea según corresponda y luego selecciona *Finish* para convertir el volumen de instantánea.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Ajustes de capacidad reservada*
+
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un grupo de instantáneas está a punto de llenarse.
+
+Cuando la capacidad reservada para el volumen de instantáneas supera el umbral especificado, el sistema envía una alerta, dándote tiempo para aumentar la capacidad reservada o eliminar objetos innecesarios.
+
+|===
+====
+

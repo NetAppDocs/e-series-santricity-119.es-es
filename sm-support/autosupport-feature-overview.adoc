@@ -1,0 +1,55 @@
+---
+permalink: sm-support/autosupport-feature-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, autosupport, ASUP 
+summary: La función AutoSupport supervisa la salud de una matriz de almacenamiento y envía automáticamente mensajes al soporte técnico. 
+---
+= Conoce AutoSupport para E-Series
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La función AutoSupport supervisa la salud de una matriz de almacenamiento y envía automáticamente mensajes al soporte técnico.
+
+El soporte técnico utiliza los datos de AutoSupport de forma reactiva para acelerar el diagnóstico y la resolución de problemas de los clientes y de forma proactiva para detectar y evitar posibles problemas.
+
+Los datos de AutoSupport incluyen información sobre la configuración, el estado, el rendimiento y los eventos del sistema de una matriz de almacenamiento. Los datos de AutoSupport no contienen ningún dato de usuario. Los envíos se pueden realizar de forma inmediata o según un horario (diario y semanal).
+
+
+
+== Principales ventajas
+
+Algunas de las principales ventajas de la función AutoSupport incluyen:
+
+* Tiempos acelerados de resolución de casos
+* Supervisión sofisticada para una gestión de incidentes más rápida
+* Informes automatizados según un calendario, así como informes automatizados sobre eventos críticos
+* Solicitudes automatizadas de sustitución de hardware para componentes seleccionados como las unidades
+* Alertas no intrusivas para notificarte de un problema y proporcionar información para que el soporte técnico tome medidas correctivas
+* Herramientas de análisis de AutoSupport que supervisan los envíos para detectar problemas conocidos de configuración
+
+
+
+
+== Funciones individuales de AutoSupport
+
+La función AutoSupport está formada por tres funciones individuales que activas por separado.
+
+* *Basic AutoSupport* -- Permite que tu matriz de almacenamiento recopile y envíe datos automáticamente al soporte técnico.
+* *AutoSupport OnDemand* -- Permite que el soporte técnico solicite la retransmisión de un envío anterior de AutoSupport cuando sea necesario para solucionar un problema. Todas las transmisiones se inician desde la matriz de almacenamiento, no desde el servidor AutoSupport. La matriz de almacenamiento se comunica periódicamente con el servidor AutoSupport para determinar si hay solicitudes de retransmisión pendientes y responde en consecuencia.
+* *Remote Diagnostics* -- Permite que el soporte técnico solicite un nuevo envío actualizado de AutoSupport cuando sea necesario para solucionar un problema. Todas las transmisiones se inician desde la matriz de almacenamiento, no desde el servidor AutoSupport. La matriz de almacenamiento se comunica periódicamente con el servidor AutoSupport para determinar si hay solicitudes nuevas pendientes y responde en consecuencia.
+
+
+
+
+== Diferencia entre AutoSupport y Collect Support Data
+
+Existen dos métodos de recopilación de datos de soporte en la matriz de almacenamiento:
+
+* *AutoSupport feature* -- Los datos se recopilan automáticamente.
+* *Opción Collect Support Data* -- Los datos deben recopilarse y enviarse manualmente.
+
+
+La función AutoSupport es más fácil de usar porque los datos se recopilan y envían automáticamente. Los datos de AutoSupport se pueden usar de forma proactiva para evitar problemas antes de que ocurran. La función AutoSupport acelera la solución de problemas porque el soporte técnico ya tiene acceso a los datos. Por estas razones, la función AutoSupport es el método de recopilación de datos preferido para usar.

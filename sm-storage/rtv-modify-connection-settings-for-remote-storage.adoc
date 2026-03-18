@@ -1,0 +1,42 @@
+---
+permalink: sm-storage/rtv-modify-connection-settings-for-remote-storage.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, modify, connection, settings, remote, storage 
+summary: Puedes editar, agregar o eliminar los ajustes de conexión para cualquier configuración de almacenamiento remoto a través de la opción Ver/Editar ajustes. 
+---
+= Modificar la configuración de conexión para el almacenamiento remoto en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes editar, agregar o eliminar los ajustes de conexión para cualquier configuración de almacenamiento remoto a través de la opción Ver/Editar ajustes.
+
+.Acerca de esta tarea
+Los cambios en las propiedades de la conexión afectarán las importaciones en curso. Para evitar interrupciones, haz cambios en las propiedades de la conexión solo cuando las importaciones no estén en ejecución.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Remote storage].
+. En la lista, selecciona el objeto de almacenamiento remoto que quieres modificar.
+. Haz clic en *Ver/Editar Settings*.
++
+Se muestra el cuadro de diálogo Remote Storage Settings.
+
+. Haz clic en la pestaña *Propiedades de conexión*.
++
+Se muestran la dirección IP configurada y los ajustes de puerto para la importación de almacenamiento remoto.
+
+. Ejecute una de las siguientes acciones:
++
+** *Editar* -- Haz clic en *Editar* junto al elemento de línea correspondiente para el objeto de almacenamiento remoto. Ingresa la dirección IP revisada y/o la información del puerto en los campos.
+** *Add* -- Haz clic en *Add* y luego ingresa la nueva dirección IP y la información del puerto en los campos proporcionados. Haz clic en *Add* para confirmar y luego la nueva conexión aparece en la lista de objetos de almacenamiento remoto.
+** *Borrar* -- Selecciona la conexión que quieras de la lista y luego haz clic en *Borrar*. Confirma la operación escribiendo `delete` en el campo proporcionado y luego haz clic en *Borrar*. La conexión se elimina de la lista de objetos de almacenamiento remoto.
+
+
+. Haz clic en *Guardar*.
++
+Los ajustes de conexión modificados se aplican al objeto de almacenamiento remota.
+
+

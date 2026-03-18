@@ -1,0 +1,26 @@
+---
+permalink: sm-settings/how-add-on-features-work.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add-on, features, 
+summary: Add-ons son funciones que no están incluidas en la configuración estándar de System Manager y podrían requerir una clave para habilitarlas. Una función add-on puede ser una única función premium o un paquete de funciones agrupadas. 
+---
+= Cómo funcionan las funciones add-on en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Add-ons son funciones que no están incluidas en la configuración estándar de SANtricity System Manager y pueden requerir una clave para habilitarlas. Una función add-on puede ser una única función premium o un paquete de funciones.
+
+Los siguientes pasos proporcionan una visión general para habilitar una función premium o un paquete de funciones:
+
+. Obtén la siguiente información:
++
+** El número de serie del chasis y el Feature Enable Identifier, que identifican la matriz de almacenamiento para la función que se va a instalar. Estos elementos están disponibles en System Manager.
+** Código de activación de la función, que está disponible en el sitio de soporte cuando compras la función.
+
+
+. Obtén la clave de función contactando a tu proveedor de almacenamiento o accediendo al sitio de activación de funciones Premium. Proporciona el número de serie del chasis, el identificador de habilitación y el código de función para la activación.
+. Con System Manager, activa la función premium o el paquete de funciones usando el archivo de clave de funciones.
+

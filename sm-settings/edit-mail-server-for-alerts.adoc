@@ -1,0 +1,46 @@
+---
+permalink: sm-settings/edit-mail-server-for-alerts.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, edit, mail, server, alerts, 
+summary: Puedes cambiar la dirección del servidor de correo y la dirección del remitente de correo electrónico que se usan para las alertas por correo electrónico. 
+---
+= Editar servidor de correo para alertas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la dirección del servidor de correo y la dirección del remitente de correo electrónico que se usan para las alertas por correo electrónico.
+
+.Antes de empezar
+La dirección del servidor de correo que estás cambiando debe estar disponible. La dirección puede ser una dirección IPv4 o IPv6, o un dominio completo.
+
+[NOTE]
+====
+Para usar un nombre de dominio completo, debe configurar un servidor DNS en ambas controladoras. Es posible configurar un servidor DNS desde la página Hardware.
+
+====
+.Pasos
+. Selecciona el menú:ajustes[Alertas].
+. Selecciona la pestaña *Correo electrónico*.
+. Selecciona *Configurar servidor de correo*.
++
+Se abre el cuadro de diálogo Configure Mail Server.
+
+. Edita la dirección del servidor de correo, la información del remitente y la información de contacto.
++
+** *Dirección del servidor de correo* -- Edita el nombre de dominio completo, la dirección IPv4 o la dirección IPv6 del servidor de correo.
++
+[NOTE]
+====
+Para usar un nombre de dominio completo, debe configurar un servidor DNS en ambas controladoras. Es posible configurar un servidor DNS desde la página Hardware.
+
+====
+** *Dirección del remitente del correo electrónico* -- Edita la dirección de correo electrónico que se usará como remitente del correo. Esta dirección aparece en el campo "De" del mensaje de correo electrónico.
+** *Incluir información de contacto en el correo electrónico* -- Para editar la información de contacto del remitente, selecciona esta opción y luego edita el nombre y el número de teléfono.
+
+
+. Haz clic en *Guardar*.
+

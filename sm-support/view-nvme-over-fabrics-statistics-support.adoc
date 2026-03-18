@@ -1,0 +1,33 @@
+---
+permalink: sm-support/view-nvme-over-fabrics-statistics-support.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, nvme, over, fabrics, statistics 
+summary: Puedes ver datos sobre las conexiones NVMe over Fabrics a tu matriz de almacenamiento. 
+---
+= Ver estadísticas de NVMe over Fabrics en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes ver datos sobre las conexiones NVMe over Fabrics a tu matriz de almacenamiento.
+
+.Acerca de esta tarea
+System Manager muestra estos tipos de estadísticas de NVMe over Fabrics. Todas las estadísticas son de solo lectura y no se pueden configurar.
+
+* *Estadísticas del subsistema NVMe* -- Muestra estadísticas del controlador NVMe y su cola. El controlador NVMe proporciona una ruta de acceso entre un host y los namespaces en la storage array. Puedes revisar las estadísticas del subsistema NVMe para elementos como fallos de conexión, reinicios y apagados.
+* *RDMA Interface statistics* -- Proporciona estadísticas de todos los puertos NVMe over Fabrics de la interfaz RDMA, que incluyen estadísticas de rendimiento e información de errores de enlace asociada a cada puerto del switch. Esta pestaña solo aparece cuando hay puertos NVMe over Fabrics disponibles.
+
+
+Puedes ver cada una de estas estadísticas como estadísticas sin procesar o como estadísticas de línea de base. Las estadísticas sin procesar son todas las estadísticas que se han recopilado desde que se iniciaron los controladores. Las estadísticas de línea de base son estadísticas de un momento específico que se han recopilado desde que estableciste la hora de línea de base.
+
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *View NVMe over Fabrics Statistics*.
+. Para fijar la línea de base, haz clic en *Fijar nueva línea de base*.
++
+Configurar la línea de base establece un nuevo punto de partida para la recopilación de las estadísticas. Se utiliza la misma línea de base para todas las estadísticas de NVMe.
+
+

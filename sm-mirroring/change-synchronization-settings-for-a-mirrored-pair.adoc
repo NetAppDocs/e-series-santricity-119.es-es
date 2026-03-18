@@ -1,0 +1,57 @@
+---
+permalink: sm-mirroring/change-synchronization-settings-for-a-mirrored-pair.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, change, synchronization, settings, mirrored, pair, 
+summary: Puedes cambiar la prioridad de sincronización y la política de resincronización que usa el par duplicado para completar la operación de resincronización después de una interrupción de la comunicación. 
+---
+= Cambiar la configuración de sincronización de un par reflejado en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar la prioridad de sincronización y la política de resincronización que usa el par duplicado para completar la operación de resincronización después de una interrupción de la comunicación.
+
+.Acerca de esta tarea
+Puedes editar la configuración de sincronización para un par reflejado solo en la matriz de almacenamiento que contiene el volumen primario.
+
+.Pasos
+. Selecciona el menú:Storage[Synchronous Mirroring].
+. Selecciona el par reflejado que quieres editar y luego elige menú:More[Edit settings].
++
+El sistema muestra el cuadro de diálogo View/Edit Settings.
+
+. Usa la barra deslizante para editar la prioridad de sincronización.
++
+La prioridad de sincronización determina cuántos recursos del sistema se usan para completar la operación de resincronización después de una interrupción de la comunicación, en comparación con las solicitudes de E/S de servicio.
+
++
+.Más información sobre tasas de sincronización
+[%collapsible]
+====
+Hay cinco tasas de prioridad de sincronización:
+
+** Más bajo
+** Bajo
+** Medio
+** Alta
+** Más alto
+
+
+====
++
+Si la prioridad de sincronización se establece en la tasa más baja, se da prioridad a la actividad de E/S y la operación de resincronización tarda más. Si la prioridad de sincronización se establece en la tasa más alta, se da prioridad a la operación de resincronización, pero la actividad de E/S para la storage array podría verse afectada.
+
+. Edita la política de resincronización según corresponda.
++
+Puedes resincronizar los pares reflejados en la matriz de almacenamiento remota de forma manual o automática.
+
++
+** *Manual* (la opción recomendada) -- selecciona esta opción para requerir que la sincronización se reanude manualmente después de restablecer la comunicación con un par reflejado. Esta opción ofrece la mejor oportunidad para recuperar datos.
+** *Automático* -- selecciona esta opción para iniciar la resincronización automáticamente después de que se restablezca la comunicación con un par reflejado.
+
+
+. Selecciona *Guardar*.
+

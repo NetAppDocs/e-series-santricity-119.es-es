@@ -1,0 +1,48 @@
+---
+permalink: sm-storage/disable-snapshot-volume.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, disable, snapshot, volume 
+summary: Puedes desactivar un volumen de instantánea o un volumen de instantánea en un grupo de coherencia de instantáneas cuando ya no lo necesitas o quieres dejar de usarlo temporalmente. 
+---
+= Desactiva un volumen instantáneo en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes desactivar un volumen de instantánea o un volumen de instantánea en un grupo de coherencia de instantáneas cuando ya no lo necesitas o quieres dejar de usarlo temporalmente.
+
+.Acerca de esta tarea
+Usa la opción Desactivar si se da una de estas condiciones:
+
+* Por ahora, ya terminaste con el volumen de instantánea o el volumen de instantánea del grupo de coherencia de instantáneas.
+* Tienes intención de volver a crear el volumen de instantánea o el volumen de instantánea del grupo de coherencia de instantáneas (que está designado como lectura-escritura) más adelante y quieres conservar la capacidad reservada asociada para no tener que crearla de nuevo.
+* Quieres aumentar el rendimiento de la matriz de almacenamiento deteniendo la actividad de escritura en un volumen snapshot de lectura y escritura.
+
+
+Si el volumen de instantánea o el volumen de instantánea del grupo de consistencia de instantáneas está designado como lectura/escritura, esta opción también te permite detener cualquier actividad de escritura posterior en su volumen de capacidad reservada asociado. Si decides volver a crear el volumen de instantánea o el volumen de instantánea del grupo de consistencia de instantáneas, debes elegir una imagen de instantánea del mismo volumen base.
+
+[NOTE]
+====
+Si el volumen de instantánea o el volumen de instantánea del grupo de coherencia de instantáneas forma parte de una relación de copia en línea, no puedes usar la opción Desactivar en el volumen.
+
+====
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Selecciona la pestaña *Snapshot Volumes*.
++
+System Manager muestra todos los volúmenes snapshot asociados con el array de almacenamiento.
+
+. Selecciona el volumen de instantáneas que quieres desactivar y luego selecciona menu:Tareas no comunes[Desactivar].
+. Confirma que quieres realizar la operación y luego haz clic en *Desactivar*.
+
+
+.Resultados
+* El volumen snapshot permanece asociado a su volumen base.
+* El volumen de instantáneas conserva su World Wide Name (WWN).
+* Si es de lectura/escritura, el volumen de snapshot conserva su capacidad reservada asociada.
+* El volumen snapshot conserva cualquier asignación de host y acceso. Sin embargo, las solicitudes de lectura y escritura fallan.
+* El volumen de instantánea pierde su asociación con su imagen de instantánea.
+

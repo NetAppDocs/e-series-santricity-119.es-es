@@ -1,0 +1,39 @@
+---
+permalink: sm-storage/overview-performance.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, performance 
+summary: La página de Rendimiento te ofrece formas sencillas de supervisar el rendimiento de tu matriz de almacenamiento. 
+---
+= Conoce la descripción general del rendimiento en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La página de Rendimiento te ofrece formas sencillas de supervisar el rendimiento de tu matriz de almacenamiento.
+
+
+
+== ¿Qué puedo aprender de los datos de rendimiento?
+
+Los gráficos y tablas de rendimiento muestran datos de rendimiento casi en tiempo real, lo que te ayuda a determinar si una matriz de almacenamiento está experimentando problemas. También puedes guardar datos de rendimiento para construir una vista histórica de una matriz de almacenamiento e identificar cuándo comenzó un problema o qué lo causó.
+
+Más información:
+
+* link:performance-graphs-guidelines.html["Gráficos de rendimiento y directrices"]
+* link:performance-terminology.html["Términos de rendimiento"]
+
+
+
+
+== ¿Cómo puedo ver los datos de rendimiento?
+
+Los datos de rendimiento están disponibles en la página de inicio y en la página de almacenamiento.
+
+Más información:
+
+* link:view-performance-data-graphical.html["Ver datos de rendimiento en forma gráfica"]
+* link:view-and-save-performance-data-tabular.html["Ver y guardar datos tabulares de rendimiento"]
+* link:interpret-performance-data.html["Interpretar datos de rendimiento"]
+

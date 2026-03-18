@@ -1,0 +1,81 @@
+---
+permalink: um-manage/mirroring-terminology.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, mirroring, terminology 
+summary: Aprende cómo se aplican los términos de duplicación a tu matriz de almacenamiento. 
+---
+= Conoce la terminología de la duplicación en SANtricity Unified Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aprende cómo se aplican los términos de duplicación a tu matriz de almacenamiento.
+
+[cols="25h,~"]
+|===
+| Término | Descripción 
+
+
+ a| 
+Matriz de almacenamiento local
+ a| 
+El array de almacenamiento local es el array de almacenamiento sobre el que estás actuando.
+
+
+
+ a| 
+Grupo de coherencia de espejo
+ a| 
+Un grupo de consistencia de réplica es un contenedor para uno o más pares de réplica. Para operaciones de réplica asíncronas, debes crear un grupo de consistencia de réplica. Todos los pares de réplica en un grupo se resincronizan simultáneamente, así se preserva un punto de recuperación consistente.
+
+La réplica síncrona no utiliza grupos de coherencia de espejo.
+
+
+
+ a| 
+Par reflejado
+ a| 
+Un par reflejado se compone de dos volúmenes, un volumen primario y un volumen secundario.
+
+En el mirroring asíncrono, un par reflejado siempre pertenece a un mirror consistency group. Las operaciones de escritura se realizan primero en el volumen primario y luego se replican en el volumen secundario. Cada par reflejado en un mirror consistency group comparte la misma configuración de sincronización.
+
+
+
+ a| 
+Volumen primario
+ a| 
+El volumen primario de un par reflejado es el volumen de origen que se va a reflejar.
+
+
+
+ a| 
+Matriz de almacenamiento remoto
+ a| 
+La matriz de almacenamiento remota suele designarse como el sitio secundario, que normalmente contiene una réplica de los datos en una configuración de mirroring.
+
+
+
+ a| 
+Capacidad reservada
+ a| 
+La capacidad reservada es la capacidad física asignada que se usa para cualquier operación de servicio de copia y objeto de almacenamiento. No es directamente legible por el host.
+
+Estos volúmenes son necesarios para que el controlador pueda guardar de forma persistente la información necesaria para mantener la duplicación en un estado operativo. Contienen información como registros delta y datos de copia-on-write.
+
+
+
+ a| 
+Volumen secundario
+ a| 
+El volumen secundario de un par reflejado suele estar ubicado en un sitio secundario y contiene una réplica de los datos.
+
+
+
+ a| 
+Sincronización
+ a| 
+La sincronización ocurre en la sincronización inicial entre la matriz de almacenamiento local y la matriz de almacenamiento remota. La sincronización también ocurre cuando los volúmenes primario y secundario se desincronizan después de una interrupción de la comunicación. Cuando el enlace de comunicación vuelve a funcionar, cualquier dato no replicado se sincroniza en la matriz de almacenamiento del volumen secundario.
+
+|===

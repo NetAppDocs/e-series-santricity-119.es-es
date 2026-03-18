@@ -1,0 +1,29 @@
+---
+permalink: sm-settings/default-host-operating-system-type.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, default, host, operating, system, 
+summary: El tipo de host predeterminado es utilizado por la matriz de almacenamiento cuando los hosts se conectan inicialmente. Define cómo los controladores de la matriz de almacenamiento trabajan con el sistema operativo del host cuando se accede a los volúmenes. 
+---
+= Conoce el tipo de sistema operativo host predeterminado en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El tipo de host predeterminado es usado por la matriz de almacenamiento cuando los hosts se conectan inicialmente. Define cómo los controladores de la matriz de almacenamiento funcionan con el sistema operativo del host cuando se accede a los volúmenes.
+
+Puedes cambiar el tipo de host si necesitas cambiar cómo funciona la matriz de almacenamiento en relación con los hosts que están conectados a ella. Por lo general, cambiarás el tipo de host predeterminado antes de conectar hosts a la matriz de almacenamiento o cuando conectes hosts adicionales.
+
+Tenga en cuenta estas directrices:
+
+* Si todos los hosts que planeas conectar a la matriz de almacenamiento tienen el mismo sistema operativo (entorno de host homogéneo), entonces cambia el tipo de host para que coincida con el sistema operativo.
+* Si hay hosts con diferentes sistemas operativos que planeas conectar a la matriz de almacenamiento (entorno de host heterogéneo), cambia el tipo de host para que coincida con la mayoría de los sistemas operativos de los hosts.
++
+Por ejemplo, si vas a conectar ocho hosts diferentes a la matriz de almacenamiento y seis de esos hosts están ejecutando un sistema operativo Windows, debes seleccionar Windows como el tipo de sistema operativo de host predeterminado.
+
+* Si la mayoría de los hosts conectados tienen una mezcla de diferentes sistemas operativos, cambia el tipo de host a Factory Default.
++
+Por ejemplo, si vas a conectar ocho hosts diferentes a la matriz de almacenamiento y dos de esos hosts ejecutan un sistema operativo Windows, tres ejecutan un sistema operativo VMware y otros tres ejecutan un sistema operativo Linux, debes seleccionar Factory Default como tipo de sistema operativo de host predeterminado.
+
+

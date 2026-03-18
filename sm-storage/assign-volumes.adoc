@@ -1,0 +1,60 @@
+---
+permalink: sm-storage/assign-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, assign volumes 
+summary: Debes asignar un volumen a un host o a un host cluster para que pueda usarse para operaciones de E/S. Esta asignación le da acceso a un host o a un host cluster a uno o más volúmenes en una storage array. 
+---
+= Asigna volúmenes a hosts en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debes asignar un volumen a un host o a un host cluster para que pueda usarse para operaciones de E/S. Esta asignación le da acceso a un host o a un host cluster a uno o más volúmenes en una storage array.
+
+.Acerca de esta tarea
+Ten en cuenta estas directrices cuando asignes volúmenes a hosts:
+
+* Es posible asignar un volumen a un solo host o clúster de hosts al mismo tiempo.
+* Los volúmenes asignados se comparten entre controladoras de la cabina de almacenamiento.
+* El mismo número de unidad lógica (LUN) no puede ser usado dos veces por un host o un clúster de hosts para acceder a un volumen. Debes usar un LUN único.
+* Para los nuevos grupos de volúmenes, si esperas a que todos los volúmenes estén creados e inicializados antes de asignarlos a un host, el tiempo de inicialización del volumen se reduce. Ten en cuenta que una vez que un volumen asociado con el grupo de volúmenes esté mapeado, _todos_ los volúmenes volverán a la inicialización más lenta. Puedes comprobar el progreso de la inicialización desde menu:Home[Operaciones en curso].
+
+
+La asignación de un volumen falla en las siguientes condiciones:
+
+* Todos los volúmenes están asignados.
+* El volumen ya está asignado a otro host o clúster de hosts.
+
+
+La capacidad para asignar un volumen no está disponible debido a las siguientes condiciones:
+
+* No existen hosts ni clústeres de hosts válidos.
+* No se definieron identificadores de puertos para el host.
+* Se definieron todas las asignaciones de volúmenes.
+
+
+Todos los volúmenes no asignados se muestran durante esta tarea, pero las funciones para hosts con o sin Data Assurance (DA) se aplican de la siguiente manera:
+
+* Para un host compatible con DA, es posible seleccionar volúmenes con o sin la función DA habilitada.
+* Para un host no compatible con DA, si selecciona un volumen con la función DA habilitada, una advertencia indica que el sistema debe desactivar automáticamente DA antes de asignar el volumen al host.
+
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Hosts].
+. Selecciona el host o clúster de hosts al que quieres asignar volúmenes y luego haz clic en *Asignar volúmenes*.
++
+Aparece un cuadro de diálogo que enumera todos los volúmenes que se pueden asignar. Puedes ordenar cualquiera de las columnas o escribir algo en el cuadro *Filtro* para que sea más fácil encontrar volúmenes concretos.
+
+. Seleccione la casilla de comprobación ubicada junto a cada volumen que desea asignar, o bien seleccione la casilla de comprobación en el encabezado de la tabla para seleccionar todos los volúmenes.
+. Haz clic en *Asignar* para completar la operación.
+
+
+.Resultados
+Después de asignar correctamente uno o varios volúmenes a un host o un clúster de hosts, el sistema realiza las siguientes acciones:
+
+* El volumen asignado recibe el próximo número de unidad lógica disponible. El host utiliza el número de unidad lógica para acceder al volumen.
+* Aparece el nombre del volumen especificado por el usuario en los listados de volúmenes asociados al host. Si corresponde, el volumen de acceso configurado de fábrica también aparece en los listados de volúmenes asociados al host.
+

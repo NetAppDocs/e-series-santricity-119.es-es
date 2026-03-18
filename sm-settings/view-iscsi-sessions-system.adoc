@@ -1,0 +1,240 @@
+---
+permalink: sm-settings/view-iscsi-sessions-system.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, iscsi, sessions, 
+summary: Puedes ver información detallada sobre las conexiones iSCSI a tu matriz de almacenamiento. Las sesiones iSCSI pueden ocurrir con hosts o matrices de almacenamiento remotas en una relación de espejo asíncrona. 
+---
+= Ver sesiones iSCSI en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes ver información detallada sobre las conexiones iSCSI a tu matriz de almacenamiento. Las sesiones iSCSI pueden ocurrir con hosts o matrices de almacenamiento remotas en una relación de espejo asíncrona.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. Selecciona *Ver/Finalizar sesiones iSCSI*.
++
+Aparece una lista de las sesiones iSCSI actuales.
+
+. *Opcional:* Para ver información adicional sobre una sesión iSCSI específica, selecciona una sesión y luego haz clic en *Ver detalles*.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Artículo | Descripción 
+
+
+ a| 
+Identificador de sesión (SSID)
+ a| 
+Una cadena hexadecimal que identifica una sesión entre un iniciador iSCSI y un objetivo iSCSI. El SSID está compuesto por el ISID y el TPGT.
+
+
+
+ a| 
+Session ID del iniciador (ISID)
+ a| 
+La parte del iniciador del identificador de sesión. El iniciador especifica el ISID durante el inicio de sesión.
+
+
+
+ a| 
+Grupo de portal de destino
+ a| 
+El destino iSCSI.
+
+
+
+ a| 
+Etiqueta de grupo de portal de destino (TPGT)
+ a| 
+La parte de destino del identificador de sesión. Un identificador numérico de 16 bits para un grupo de portales de destino iSCSI.
+
+
+
+ a| 
+Nombre iSCSI del iniciador
+ a| 
+El nombre único mundial del iniciador.
+
+
+
+ a| 
+Etiqueta iSCSI del iniciador
+ a| 
+La etiqueta de usuario configurada en System Manager.
+
+
+
+ a| 
+Alias iSCSI del iniciador
+ a| 
+Un nombre que también puede asociarse con un nodo iSCSI. El alias permite que una organización asocie una cadena fácil de usar con el nombre iSCSI. Sin embargo, el alias no es un sustituto del nombre iSCSI. El alias iSCSI del iniciador solo puede configurarse en el host, no en System Manager.
+
+
+
+ a| 
+Host
+ a| 
+Un servidor que envía entrada y salida a la matriz de almacenamiento.
+
+
+
+ a| 
+ID de conexión (CID)
+ a| 
+Un nombre único para una conexión dentro de la sesión entre el iniciador y el destino. El iniciador genera este ID y lo presenta al destino durante las solicitudes de inicio de sesión. El ID de conexión también se presenta durante los cierres de sesión que cierran conexiones.
+
+
+
+ a| 
+Identificador de puerto
+ a| 
+El puerto del controlador asociado con la conexión.
+
+
+
+ a| 
+Dirección IP del iniciador
+ a| 
+La dirección IP del iniciador.
+
+
+
+ a| 
+Parámetros de inicio de sesión negociados
+ a| 
+Los parámetros que se tramitan durante el inicio de sesión de la sesión iSCSI.
+
+
+
+ a| 
+Método de autenticación
+ a| 
+La técnica para autenticar a los usuarios que quieren acceder a la red iSCSI. Los valores válidos son *CHAP* y *None*.
+
+
+
+ a| 
+Método de resumen de encabezado
+ a| 
+La técnica para mostrar los posibles valores de encabezado para la sesión iSCSI. HeaderDigest y DataDigest pueden ser *None* o *CRC32C*. El valor por defecto para ambos es *None*.
+
+
+
+ a| 
+Método de data digest
+ a| 
+La técnica para mostrar posibles valores de datos para la sesión iSCSI. HeaderDigest y DataDigest pueden ser *None* o *CRC32C*. El valor por defecto para ambos es *None*.
+
+
+
+ a| 
+Conexiones máximas
+ a| 
+El mayor número de conexiones permitidas para la sesión iSCSI. El número máximo de conexiones puede ser de 1 a 4. El valor predeterminado es *1*.
+
+
+
+ a| 
+Alias de destino
+ a| 
+La etiqueta asociada con el objetivo.
+
+
+
+ a| 
+Alias del iniciador
+ a| 
+La etiqueta asociada con el iniciador.
+
+
+
+ a| 
+Dirección IP de destino
+ a| 
+La dirección IP del destino para la sesión iSCSI. Los nombres de DNS no son compatibles.
+
+
+
+ a| 
+R2T inicial
+ a| 
+El estado inicial listo para transferir. El estado puede ser *Yes* o *No*.
+
+
+
+ a| 
+Longitud máxima de ráfaga
+ a| 
+La carga útil SCSI máxima en bytes para esta sesión iSCSI. La longitud máxima de ráfaga puede ser de 512 a 262,144 (256 KB). El valor por defecto es *262,144 (256 KB)*.
+
+
+
+ a| 
+Longitud de la primera ráfaga
+ a| 
+La carga útil SCSI en bytes para datos no solicitados para esta sesión iSCSI. La longitud de la primera ráfaga puede ser de 512 a 131,072 (128 KB). El valor predeterminado es *65,536 (64 KB)*.
+
+
+
+ a| 
+Tiempo de espera predeterminado
+ a| 
+El número mínimo de segundos que debes esperar antes de intentar hacer una conexión después de una terminación o un restablecimiento de conexión. El tiempo de espera predeterminado puede ser de 0 a 3600. El valor predeterminado es *2*.
+
+
+
+ a| 
+Tiempo de retención predeterminado
+ a| 
+El número máximo de segundos que la conexión sigue siendo posible tras una finalización de conexión o un reinicio de conexión. El tiempo de retención predeterminado puede ser de 0 a 3600. El valor predeterminado es *20*.
+
+
+
+ a| 
+Máximo R2T pendiente
+ a| 
+El número máximo de "ready to transfers" pendientes para esta sesión iSCSI. El valor máximo de "ready to transfers" pendientes puede ser de 1 a 16. El valor predeterminado es *1*.
+
+
+
+ a| 
+Nivel de recuperación de errores
+ a| 
+El nivel de recuperación de errores para esta sesión iSCSI. El valor del nivel de recuperación de errores siempre se establece en *0*.
+
+
+
+ a| 
+Longitud máxima del segmento de datos de recepción
+ a| 
+La cantidad máxima de datos que el iniciador o el destino pueden recibir en cualquier unidad de datos de carga útil iSCSI (PDU).
+
+
+
+ a| 
+Nombre del objetivo
+ a| 
+El nombre oficial del objetivo (no el alias). El nombre del objetivo con el formato _iqn_.
+
+
+
+ a| 
+Nombre del iniciador
+ a| 
+El nombre oficial del iniciador (no el alias). El nombre del iniciador que usa el formato _iqn_ o _eui_.
+
+|===
+====
+. *Opcional:* Para guardar el informe en un archivo, haz clic en *Guardar*.
++
+El archivo se guarda en la carpeta de descargas de tu navegador con el nombre `iscsi-session-connections.txt`.
+
+

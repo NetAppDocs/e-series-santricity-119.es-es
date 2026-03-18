@@ -1,0 +1,24 @@
+---
+permalink: um-manage/remove-storage-arrays-from-group.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, remove, storage, arrays, group 
+summary: Puedes eliminar una o varias matrices de almacenamiento gestionadas de un grupo si ya no quieres gestionarlas desde un grupo de almacenamiento específico. 
+---
+= Elimina matrices de almacenamiento de un grupo en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes eliminar una o varias matrices de almacenamiento gestionadas de un grupo si ya no quieres gestionarlas desde un grupo de almacenamiento específico.
+
+.Acerca de esta tarea
+Quitar matrices de almacenamiento de un grupo no afecta en nada a la matriz de almacenamiento ni a sus datos. Si tu matriz de almacenamiento está gestionada por System Manager, todavía puedes gestionarla usando tu navegador. Si una matriz de almacenamiento se elimina accidentalmente de un grupo, se puede volver a añadir.
+
+.Pasos
+. En la página Gestionar, selecciona menú:Manage Groups[Remove storage arrays from group].
+. En el menú desplegable, selecciona el grupo que contiene las matrices de almacenamiento que quieres eliminar y luego haz clic en la casilla de comprobación junto a cada matriz de almacenamiento que quieras quitar del grupo.
+. Haz clic en *Eliminar*.
+

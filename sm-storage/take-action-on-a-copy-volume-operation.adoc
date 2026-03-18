@@ -1,0 +1,68 @@
+---
+permalink: sm-storage/take-action-on-a-copy-volume-operation.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, copy, volume, 
+summary: Puedes ver una operación de Copy Volume en curso y detener, cambiar la prioridad, volver a copiar o borrar una operación de Copy Volume. 
+---
+= Toma acción en una operación de copia de volumen en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes ver una operación de Copy Volume en curso y detener, cambiar la prioridad, volver a copiar o borrar una operación de Copy Volume.
+
+.Pasos
+. Selecciona el menú:Inicio[Ver operaciones en curso].
++
+Aparece el cuadro de diálogo Operations in Progress.
+
+. Busca la operación de Copy Volume sobre la que quieras actuar y luego haz clic en el enlace de la columna *Actions* para realizar una de las siguientes acciones.
++
+Lee todos los textos de advertencia que aparecen en los cuadros de diálogo, especialmente cuando detienes una operación.
+
++
+[cols="25h,~"]
+|===
+| Acción | Descripción 
+
+
+ a| 
+Detener
+ a| 
+Puedes detener una operación de Copy Volume mientras la operación tenga un estado de In Progress, Pending o Failed.
+
+Cuando se detiene la Copy Volume, todos los hosts asignados tienen acceso de escritura al volumen de origen. Si se escriben datos en el volumen de origen, los datos del volumen de destino ya no coinciden con los datos del volumen de origen.
+
+
+
+ a| 
+Cambiar prioridad
+ a| 
+Puedes cambiar la prioridad de una operación de Copiar Volumen mientras la operación tiene un estado de En Proceso para seleccionar la velocidad a la que se completa una operación de Copiar Volumen.
+
+
+
+ a| 
+Volver a copiar
+ a| 
+Puedes volver a copiar un volumen cuando has detenido una operación de Copy Volume y quieres iniciarla de nuevo o cuando una operación de Copy Volume ha fallado o se ha detenido. La operación de Copy Volume comienza de nuevo desde el principio.
+
+La acción de volver a copiar sobrescribe los datos existentes en el volumen de destino y falla todos los volúmenes de instantáneas asociados con el volumen de destino, si existen.
+
+
+
+ a| 
+Borrar
+ a| 
+Puedes eliminar la operación Copy Volume mientras la operación tenga un estado de En progreso, Pendiente o Fallida.
+
+[NOTE]
+====
+Asegúrate de que quieres hacer esta operación antes de seleccionar *Borrar*. No hay diálogo de confirmación.
+
+====
+|===
+

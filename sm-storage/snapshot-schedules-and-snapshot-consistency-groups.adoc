@@ -1,0 +1,38 @@
+---
+permalink: sm-storage/snapshot-schedules-and-snapshot-consistency-groups.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, snapshot, schedules, snapshot, consistency groups 
+summary: Usa planificaciones para la recopilación de imágenes de instantáneas y usa grupos de coherencia de instantáneas para gestionar varios volúmenes base. 
+---
+= Conoce la planificación de SnapVault y los grupos de coherencia de instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Usa planificaciones para la recopilación de imágenes de instantáneas y usa grupos de coherencia de instantáneas para gestionar varios volúmenes base.
+
+Para gestionar fácilmente las operaciones de instantáneas para volúmenes base, puedes usar las siguientes funciones:
+
+* *Planificación de SnapVault* -- Automatiza las instantáneas para un único volumen base.
+* *Grupo de consistencia de instantáneas* -- Gestiona varios volúmenes base como una sola entidad.
+
+
+
+
+== Planificación de SnapVault
+
+Si quieres tomar instantáneas automáticamente para un volumen base, puedes crear una programación. Por ejemplo, puedes definir una programación que tome imágenes de instantánea cada sábado a medianoche, el primer día de cada mes o en las fechas y horas que decidas. Después de alcanzar el máximo de 32 instantáneas para una sola programación, puedes suspender las instantáneas programadas, crear más capacidad reservada o eliminar instantáneas. Las instantáneas se pueden eliminar manualmente o automatizando el proceso de eliminación. Después de eliminar una imagen de instantánea, hay capacidad reservada adicional disponible para reutilizar.
+
+
+
+== Grupo de coherencia de snapshots
+
+Creas un grupo de consistencia de instantáneas cuando quieres asegurarte de que las imágenes de instantáneas se tomen en varios volúmenes al mismo tiempo. Las acciones de imágenes de instantáneas se realizan en el grupo de consistencia de instantáneas como un todo. Por ejemplo, puedes programar instantáneas sincronizadas de todos los volúmenes con la misma marca de tiempo. Los grupos de consistencia de instantáneas son ideales para aplicaciones que abarcan varios volúmenes, como aplicaciones de bases de datos que almacenan registros en un volumen y los archivos de la base de datos en otro volumen.
+
+Los volúmenes incluidos en un grupo de coherencia de instantáneas se llaman volúmenes miembro. Cuando añades un volumen a un grupo de coherencia, System Manager crea automáticamente una nueva capacidad reservada que corresponde a ese volumen miembro. Puedes definir una planificación para crear automáticamente una imagen de snapshot de cada volumen miembro.
+
+image::../media/sam1130-dwg-snapshots-consistency-groups-overview.gif[Descripción general del grupo de coherencia de instantáneas]
+
+^1^ Capacidad reservada; ^2^ Volumen miembro; ^3^ Imágenes snapshot del grupo de consistencia

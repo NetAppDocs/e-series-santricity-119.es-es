@@ -1,0 +1,48 @@
+---
+permalink: sm-settings/export-saml-service-provider-files.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, export, saml, Service Provider, files, 
+summary: 'Si es necesario, puedes exportar los metadatos del proveedor de servicios para la matriz de almacenamiento y volver a importar el/los archivo(s) en el sistema del Identity Provider (IdP).' 
+---
+= Exporta archivos del proveedor de servicios SAML en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si es necesario, puedes exportar los metadatos del proveedor de servicios para la matriz de almacenamiento y volver a importar el/los archivo(s) en el sistema del Identity Provider (IdP).
+
+.Antes de empezar
+* Debes haber iniciado sesión con un perfil de usuario que incluya permisos de Security admin. De lo contrario, las funciones de Access Management no aparecen.
+* SAML está configurado y habilitado.
+
+
+.Acerca de esta tarea
+En esta tarea, exportas metadatos de los controladores (un archivo por cada controlador). El IdP necesita estos metadatos para establecer una relación de confianza con los controladores y para procesar solicitudes de autenticación. El archivo incluye información como el nombre de dominio del controlador o la dirección IP que el IdP puede usar para enviar solicitudes.
+
+.Pasos
+. Selecciona el menú:Configuración[Gestión de acceso].
+. Selecciona la pestaña *SAML*.
+. Selecciona *Export*.
++
+Se abre el cuadro de diálogo Export Service Provider Files.
+
+. Para cada controlador, haz clic en *Export* para guardar el archivo de metadatos en tu sistema local.
++
+[NOTE]
+====
+Los campos de nombre de dominio de cada controlador son de solo lectura.
+
+====
++
+Toma nota de dónde está almacenado el archivo.
+
+. Desde el sistema local, localiza el archivo o los archivos de metadatos del Service Provider que exportaste.
++
+Hay un archivo con formato XML para cada controlador.
+
+. Desde el servidor IdP, importa el archivo o archivos de metadatos del Service Provider. Puedes importar los archivos directamente o puedes introducir manualmente la información del controller a partir de ellos.
+. Haz clic en *Cerrar*.
+

@@ -1,0 +1,43 @@
+---
+permalink: sm-hardware/place-controller-offline.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, place, controller, offline, 
+summary: Si te lo indican, puedes poner un controlador fuera de línea. 
+---
+= Coloca un controlador fuera de línea en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si te lo indican, puedes poner un controlador fuera de línea.
+
+.Antes de empezar
+* Tu matriz de almacenamiento debe tener dos controladores. El controlador que no vas a poner fuera de línea debe estar en línea (en el estado óptimo).
+* Asegúrate de que no hay volúmenes en uso o de que tienes instalado un controlador de multivía en todos los hosts que usan estos volúmenes.
+
+
+.Acerca de esta tarea
+++ ++
+
+[CAUTION]
+====
+No pongas un controlador fuera de línea a menos que te lo indique el Recovery Guru o el soporte técnico.
+
+====
+.Pasos
+. Selecciona *Hardware*.
+. Si el gráfico muestra las unidades, haz clic en la pestaña *Controladores y componentes*.
++
+El gráfico cambia para mostrar los controladores en lugar de las unidades.
+
+. Haz clic en el controlador que quieres poner fuera de línea.
++
+Aparece el menú contextual de la controladora.
+
+. Selecciona *Colocar fuera de línea* y confirma que quieres realizar la operación.
+
+
+.Resultados
+System Manager puede tardar varios minutos en actualizar el estado del controlador a offline. No comiences ninguna otra operación hasta que se haya actualizado el estado.

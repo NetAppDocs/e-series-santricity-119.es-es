@@ -1,0 +1,35 @@
+---
+permalink: sm-settings/enable-or-disable-legacy-management-interface.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, enable, disable, legacy, management, interface, 
+summary: 'Puedes activar o desactivar la interfaz de gestión heredada (SYMbol), que es un método de comunicación entre la matriz de almacenamiento y el cliente de gestión.' 
+---
+= Activar o desactivar la interfaz de gestión heredada en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes activar o desactivar la interfaz de gestión heredada (SYMbol), que es un método de comunicación entre la matriz de almacenamiento y el cliente de gestión.
+
+.Acerca de esta tarea
+Por defecto, la interfaz de gestión heredada está activada. Si la desactivas, la matriz de almacenamiento y el cliente de gestión usarán un método de comunicación más seguro (API de REST sobre https); sin embargo, algunas herramientas y tareas podrían verse afectadas si la desactivas.
+
+[NOTE]
+====
+Para el sistema de almacenamiento EF600, esta función está deshabilitada por defecto.
+
+====
+La configuración afecta las operaciones de la siguiente manera:
+
+* *Activado* (por defecto) -- Configuración necesaria para configurar la duplicación con la CLI y algunas otras herramientas, como el adaptador OCI.
+* *Desactivado* -- Configuración necesaria para reforzar la confidencialidad en las comunicaciones entre la matriz de almacenamiento y el cliente de gestión, y para acceder a herramientas externas. Configuración recomendada al configurar un servidor de directorio (LDAP).
+
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. Desplázate hacia abajo hasta *Configuración adicional* y luego haz clic en *Cambiar interfaz de gestión*.
+. En el cuadro de diálogo, haz clic en *Sí* para continuar.
+

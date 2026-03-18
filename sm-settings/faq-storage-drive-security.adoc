@@ -1,0 +1,141 @@
+---
+permalink: sm-settings/faq-storage-drive-security.html 
+sidebar: sidebar 
+keywords:  
+summary: Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta. 
+---
+= Preguntas frecuentes sobre la seguridad de las unidades de almacenamiento para SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuesta rápida a una pregunta.
+
+
+
+== ¿Qué debo saber antes de crear una clave de seguridad?
+
+Una clave de seguridad es compartida por los controladores y las unidades habilitadas para seguridad dentro de una matriz de almacenamiento. Si se retira una unidad habilitada para seguridad de la matriz de almacenamiento, la clave de seguridad protege los datos de acceso no autorizado.
+
+Puedes crear y gestionar claves de seguridad usando uno de los siguientes métodos:
+
+* Gestión interna de claves en la memoria persistente del controlador.
+* Gestión de claves externas en un servidor de gestión de claves externo.
+
+
+
+
+=== Gestión interna de claves
+
+Las claves internas se mantienen y "ocultan" en una ubicación no accesible de la memoria persistente del controlador. Antes de crear una clave de seguridad interna, tienes que hacer lo siguiente:
+
+. Instala unidades con capacidad de seguridad en la cabina de discos. Estas unidades pueden ser Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS).
+. Asegúrate de que la función Drive Security está activada. Si es necesario, contacta a tu proveedor de almacenamiento para obtener instrucciones sobre cómo activar la función Drive Security.
+
+
+Luego puedes crear una clave de seguridad interna, lo que implica definir un identificador y una frase de contraseña. El identificador es una cadena que se asocia con la clave de seguridad y se almacena en el controlador y en todas las unidades asociadas con la clave. La frase de contraseña se usa para cifrar la clave de seguridad con fines de copia de seguridad. Cuando terminas, la clave de seguridad se almacena en el controlador en una ubicación no accesible. Luego puedes crear grupos de volúmenes o pools habilitados para seguridad, o puedes habilitar la seguridad en los grupos de volúmenes y pools existentes.
+
+
+
+=== Gestión de claves externas
+
+Las claves externas se mantienen en un servidor de gestión de claves independiente, utilizando un protocolo de interoperabilidad de gestión de claves (KMIP). Antes de crear una clave de seguridad externa, tienes que hacer lo siguiente:
+
+. Instala unidades con capacidad de seguridad en la cabina de discos. Estas unidades pueden ser Full Disk Encryption (FDE) o Federal Information Processing Standard (FIPS).
+. Asegúrate de que la función Drive Security está activada. Si es necesario, contacta a tu proveedor de almacenamiento para obtener instrucciones sobre cómo activar la función Drive Security.
+. Obtén un archivo de certificado de cliente firmado. Un certificado de cliente valida los controladores de la matriz de almacenamiento, así que el servidor de gestión de claves puede confiar en sus solicitudes KMIP.
++
+.. Primero, completas y descargas una Solicitud de Firma de Certificado (CSR) de cliente. Ve al menú:Configuración[Certificates > Key Management > Complete CSR].
+.. A continuación, solicitas un certificado de cliente firmado a una CA en la que confía el servidor de gestión de claves. (También puedes crear y descargar un certificado de cliente desde el servidor de gestión de claves usando el archivo CSR descargado.)
+.. Una vez que tengas un archivo de certificado de cliente, copia ese archivo en el host donde estás accediendo a System Manager.
+
+
+. Recupera un archivo de certificado del servidor de gestión de claves y luego copia ese archivo en el host donde estás accediendo a System Manager. Un certificado de servidor de gestión de claves valida el servidor de gestión de claves, así que la matriz de almacenamiento puede confiar en su dirección IP. Puedes usar un certificado raíz, intermedio o de servidor para el servidor de gestión de claves.
+
+
+Luego puedes crear una clave externa, lo que implica definir la dirección IP del servidor de gestión de claves y el número de puerto usado para las comunicaciones KMIP. Durante este proceso, también cargas los archivos de certificado. Cuando terminas, el sistema se conecta al servidor de gestión de claves con las credenciales que ingresaste. Después puedes crear grupos de volúmenes o pools habilitados para seguridad, o puedes habilitar la seguridad en los grupos de volúmenes y pools existentes.
+
+
+
+== ¿Por qué necesito definir una frase de paso?
+
+La frase de contraseña se utiliza para cifrar y descifrar el archivo de clave de seguridad almacenado en el cliente de gestión local. Sin la frase de contraseña, la clave de seguridad no se puede descifrar ni usar para desbloquear datos de una unidad habilitada para seguridad si se vuelve a instalar en otra storage array.
+
+
+
+== ¿Por qué es importante registrar la información de la clave de seguridad?
+
+Si pierdes la información de la clave de seguridad y no tienes una copia de seguridad, podrías perder datos al reubicar unidades habilitadas para seguridad o al actualizar un controlador. Necesitas la clave de seguridad para desbloquear los datos de las unidades.
+
+Asegúrate de registrar el identificador de la clave de seguridad, la frase de paso asociada y la ubicación en el host local donde se guardó el archivo de la clave de seguridad.
+
+
+
+== ¿Qué debo saber antes de hacer una copia de seguridad de una clave de seguridad?
+
+Si tu clave de seguridad original se corrompe y no tienes una copia de seguridad, perderás el acceso a los datos de las unidades si se migran de una matriz de almacenamiento a otra.
+
+Antes de hacer una copia de seguridad de una clave de seguridad, ten en cuenta estas pautas:
+
+* Asegúrate de conocer el identificador de la clave de seguridad y la frase de contraseña del archivo de clave original.
++
+[NOTE]
+====
+Solo las claves internas usan identificadores. Cuando creaste el identificador, se generaron automáticamente caracteres adicionales que se añadieron a ambos extremos de la cadena del identificador. Los caracteres generados aseguran que el identificador sea único.
+
+====
+* Tú creas una nueva frase de paso para la copia de seguridad. Esta frase de paso no tiene que coincidir con la frase de paso que se usó cuando se creó la clave original o se cambió por última vez. La frase de paso solo se aplica a la copia de seguridad que estás creando.
++
+[NOTE]
+====
+La frase de contraseña para Drive Security no debe confundirse con la contraseña de administrador de la matriz de almacenamiento. La frase de contraseña para Drive Security protege las copias de seguridad de una clave de seguridad. La contraseña de administrador protege toda la matriz de almacenamiento de acceso no autorizado.
+
+====
+* El archivo de la clave de seguridad de copia de seguridad se descarga en tu cliente de gestión. La ruta del archivo descargado puede depender de la ubicación de descarga predeterminada de tu navegador. Asegúrate de llevar un registro de dónde se almacena tu información de la clave de seguridad.
+
+
+
+
+== ¿Qué debo saber antes de desbloquear unidades seguras?
+
+Para desbloquear los datos de una unidad con seguridad habilitada, debes importar su clave de seguridad.
+
+Antes de desbloquear unidades con la función de seguridad habilitada, recuerde las siguientes directrices:
+
+* La matriz de almacenamiento ya debe tener una clave de seguridad. Las unidades migradas se volverán a asociar con una nueva clave en la matriz de almacenamiento de destino.
+* Para las unidades que estás migrando, debes conocer el identificador de la clave de seguridad y la frase de contraseña que corresponde al archivo de la clave de seguridad.
+* El archivo de clave de seguridad debe estar disponible en el cliente de gestión (el sistema con un navegador usado para acceder a System Manager).
+* Si va a restablecer una unidad NVMe bloqueada, debe introducir el identificador de seguridad de la unidad. Para ubicarlo, retire físicamente la unidad y busque la cadena de PSID (máximo de 32 caracteres) en la etiqueta de la unidad. Asegúrese de reinstalar la unidad antes de iniciar la operación.
+
+
+
+
+== ¿Qué es la accesibilidad de lectura/escritura?
+
+La ventana Drive Settings incluye información sobre los atributos de seguridad de la unidad. "Read/Write Accessible" es uno de los atributos que muestra si se han bloqueado los datos de una unidad.
+
+Para ver los atributos de seguridad de la unidad, ve a la página Hardware. Selecciona una unidad, haz clic en *Ver configuración* y luego haz clic en *Mostrar más configuraciones*. En la parte inferior de la página, el valor del atributo lectura/escritura accesible es *Sí* cuando la unidad está desbloqueada. El valor del atributo lectura/escritura accesible es *No, clave de seguridad no válida* cuando la unidad está bloqueada. Puedes desbloquear una unidad segura importando una clave de seguridad (ve a menú:Configuración[Sistema > Desbloquear unidades seguras]).
+
+
+
+== ¿Qué necesito saber sobre la validación de la clave de seguridad?
+
+Después de crear una clave de seguridad, debes validar el archivo de clave para asegurarte de que no está dañado.
+
+Si la validación falla, haz lo siguiente:
+
+* Si el identificador de la clave de seguridad no coincide con el identificador del controlador, busca el archivo de clave de seguridad correcto y luego intenta la validación de nuevo.
+* Si el controlador no puede descifrar la clave de seguridad para la validación, es posible que hayas introducido incorrectamente la frase de paso. Vuelve a comprobar la frase de paso, vuelve a introducirla si es necesario y luego intenta la validación otra vez. Si el mensaje de error aparece de nuevo, selecciona una copia de seguridad del archivo de clave (si está disponible) y vuelve a intentar la validación.
+* Si todavía no puedes validar la clave de seguridad, es posible que el archivo original esté dañado. Crea una nueva copia de seguridad de la clave y valida esa copia.
+
+
+
+
+== ¿Cuál es la diferencia entre la clave de seguridad interna y la gestión externa de claves de seguridad?
+
+Cuando implementas la función Drive Security, puedes usar una clave de seguridad interna o una clave de seguridad externa para bloquear los datos cuando se retira una unidad habilitada para seguridad de la matriz de almacenamiento.
+
+Una clave de seguridad es una cadena de caracteres que se comparte entre las unidades y los controladores habilitados para seguridad en una matriz de almacenamiento. Las claves internas se mantienen en la memoria persistente del controlador. Las claves externas se mantienen en un servidor de gestión de claves independiente, usando un Key Management Interoperability Protocol (KMIP).

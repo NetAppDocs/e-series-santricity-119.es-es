@@ -1,0 +1,36 @@
+---
+permalink: sm-settings/add-user-names-for-snmp-traps.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, add, users, snmpv3, traps, 
+summary: Puedes añadir hasta 256 usuarios para los traps SNMPv3. 
+---
+= Añade usuarios para trampas SNMPv3 en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes añadir hasta 256 usuarios para los traps SNMPv3.
+
+.Pasos
+. Selecciona el menú:ajustes[Alertas].
+. Selecciona la pestaña *SNMP*.
++
+En la tabla aparecen los destinos de las trampas y los nombres de usuario.
+
+. Selecciona *Configurar usuarios*.
++
+Se abre el cuadro de diálogo Configure SNMPv3 Users.
+
+. Selecciona *Add*.
+. Introduce la siguiente información y luego haz clic en *Add*.
++
+** *Nombre de usuario* -- Ingresa un nombre para identificar al usuario, que puede tener hasta 31 caracteres.
+** *ID del motor* -- Selecciona el ID del motor, que se usa para generar claves de autenticación y cifrado para los mensajes, y debe ser único en el dominio administrativo. En la mayoría de los casos, deberías seleccionar *Local*. Si tienes una configuración no estándar, selecciona *Personalizado*; aparecerá otro campo donde tienes que introducir el ID del motor autorizado como una cadena hexadecimal, con un número par de caracteres entre 10 y 32 caracteres de longitud.
+** *Credenciales de autenticación* -- Selecciona un protocolo de autenticación, que garantiza la identidad de los usuarios. Luego, introduce una contraseña de autenticación, que se requiere cuando el protocolo de autenticación se establece o se cambia. La contraseña debe tener entre 8 y 128 caracteres.
+** *Credenciales de privacidad* -- Selecciona un protocolo de privacidad, que se usa para cifrar el contenido de los mensajes. Luego, ingresa una contraseña de privacidad, que se requiere cuando el protocolo de privacidad se configura o se cambia. La contraseña debe tener entre 8 y 128 caracteres.
+
+
+

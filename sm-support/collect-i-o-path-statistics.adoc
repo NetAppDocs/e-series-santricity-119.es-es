@@ -1,0 +1,35 @@
+---
+permalink: sm-support/collect-i-o-path-statistics.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, collect, i/o path, statistics 
+summary: Puedes guardar el archivo de estadísticas de la ruta de E/S y enviarlo al soporte técnico para su análisis. 
+---
+= Recopila estadísticas de rutas de E/S en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes guardar el archivo de estadísticas de la ruta de E/S y enviarlo al soporte técnico para su análisis.
+
+.Acerca de esta tarea
+El soporte técnico utiliza las estadísticas de la ruta de E/S para ayudar a diagnosticar problemas de rendimiento. Los problemas de rendimiento de las aplicaciones pueden deberse a la utilización de memoria, la utilización de CPU, la latencia de red, la latencia de E/S u otros problemas. Las estadísticas de la ruta de E/S se recopilan automáticamente durante la recopilación de datos de soporte o puedes recopilarlas manualmente. Además, si tienes AutoSupport activado, las estadísticas de la ruta de E/S se recopilan automáticamente y se envían al soporte técnico.
+
+Los contadores para las estadísticas de la ruta de E/S se reinician después de que confirmas que quieres recopilar las estadísticas de la ruta de E/S. Los contadores se reinician incluso si luego cancelas la operación. Los contadores también se reinician cuando el controlador se restablece (reinicia).
+
+[NOTE]
+====
+Realiza esta operación solo cuando te lo indique el soporte técnico.
+
+====
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *Recopilar estadísticas de ruta de E/S*.
+. Confirma que quieres realizar la operación escribiendo `collect` y luego haz clic en *Recoger*.
++
+El archivo se guarda en la carpeta de descargas de tu navegador con el nombre `io-path-statistics.7z`.
+
+. Sigue las instrucciones del soporte técnico para enviarles el archivo.
+

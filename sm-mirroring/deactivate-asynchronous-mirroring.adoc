@@ -1,0 +1,37 @@
+---
+permalink: sm-mirroring/deactivate-asynchronous-mirroring.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, deactivate, asynchronous, mirroring, remote, 
+summary: Puedes desactivar la duplicación asíncrona en las cabinas de almacenamiento local y remota para restablecer el uso normal de los puertos dedicados en las cabinas de almacenamiento. 
+---
+= Desactiva la duplicación asíncrona en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes desactivar la duplicación asíncrona en las cabinas de almacenamiento local y remota para restablecer el uso normal de los puertos dedicados en las cabinas de almacenamiento.
+
+.Antes de empezar
+* Debes haber eliminado todas las relaciones de réplica. Verifica que todos los grupos de coherencia de réplica y los pares de réplica hayan sido eliminados de las matrices de almacenamiento local y remota.
+* La matriz de almacenamiento local y la matriz de almacenamiento remota deben estar conectidas a través de un entramado de Fibre Channel o una interfaz iSCSI.
+
+
+.Acerca de esta tarea
+Cuando desactivas la réplica asíncrona, no puede ocurrir ninguna actividad de réplica en las matrices de almacenamiento local y remota.
+
+.Pasos
+. Selecciona el menú:Storage[Asynchronous Mirroring].
+. Selecciona el menú:Tareas no habituales[Desactivar].
++
+El sistema muestra una confirmación.
+
+. Selecciona *Sí* para confirmar.
+
+
+.Resultados
+* Los canales de host HBA del controlador que estaban dedicados a la comunicación de mirroring asíncrono ahora pueden aceptar solicitudes de lectura y escritura del host.
+* Ninguno de los volúmenes de esta matriz de almacenamiento puede participar en relaciones de espejo como volúmenes primarios o volúmenes secundarios.
+

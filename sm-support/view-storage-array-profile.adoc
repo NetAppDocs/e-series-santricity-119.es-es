@@ -1,0 +1,107 @@
+---
+permalink: sm-support/view-storage-array-profile.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, view, storage, array, profile 
+summary: El perfil de la matriz de almacenamiento proporciona una descripción de todos los componentes y propiedades de la matriz de almacenamiento. 
+---
+= Ver el perfil de una matriz de almacenamiento en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El perfil de la matriz de almacenamiento proporciona una descripción de todos los componentes y propiedades de la matriz de almacenamiento.
+
+.Acerca de esta tarea
+Puedes usar el perfil de la matriz de almacenamiento como ayuda durante la recuperación o como un resumen de la configuración actual de la matriz de almacenamiento. Quizás quieras guardar una copia del perfil de la matriz de almacenamiento en el cliente de gestión y conservar una copia impresa del perfil de la matriz de almacenamiento junto con la matriz de almacenamiento. Crea una nueva copia del perfil de la matriz de almacenamiento si tu configuración cambia.
+
+.Pasos
+. Selecciona el menú:Support[Support Center > Support Resources] tab.
+. Desplázate hacia abajo hasta *Launch detailed storage array information* y luego selecciona *Storage Array Profile*.
++
+El informe aparece en tu pantalla.
+
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Sección | Descripción 
+
+
+ a| 
+Matriz de almacenamiento
+ a| 
+Muestra todas las opciones que puedes configurar y las opciones estáticas del sistema para tu matriz de almacenamiento. Estas opciones incluyen el número de controladores, bandejas de unidades, unidades, grupos de discos, grupos de volúmenes, volúmenes y unidades de repuesto en caliente; el número máximo de bandejas de unidades, unidades, Solid State Disks (SSDs) y volúmenes permitidos; el número de grupos de instantáneas, imágenes de instantáneas, volúmenes de instantáneas y grupos de consistencia; información sobre las funciones; información sobre las versiones de firmware; información sobre el número de serie del chasis; estado de AutoSupport e información sobre la programación de AutoSupport; los ajustes para la recopilación automática de datos de soporte y la recopilación programada de datos de soporte; el World-Wide Identifier (WWID) de la matriz de almacenamiento; y los ajustes de escaneo y caché de medios.
+
+
+
+ a| 
+Almacenamiento
+ a| 
+Muestra una lista de todos los dispositivos de almacenamiento en la matriz de almacenamiento. Dependiendo de la configuración de tu matriz de almacenamiento, la sección Storage puede mostrar estas subsecciones.
+
+** *Disk Pools* -- Muestra una lista de todos los pools de discos en la cabina de almacenamiento.
+** *Grupos de volúmenes* -- Muestra una lista de todos los grupos de volúmenes en la matriz de almacenamiento. Los volúmenes y la capacidad libre se enumeran en el orden en que se crearon.
+** *Volúmenes* -- Muestra una lista de todos los volúmenes de la matriz de almacenamiento. La información incluida muestra el nombre del volumen, el estado del volumen, la capacidad, el nivel RAID, el grupo de volúmenes o disk pool, el tipo de unidad y detalles adicionales.
+** *Missing Volumes* -- Muestra una lista de todos los volúmenes en la matriz de almacenamiento que actualmente tienen un estado de faltante. La información listada incluye el World Wide Identifier (WWID) para cada volumen con estado de faltante.
+
+
+
+
+ a| 
+Servicios de copia
+ a| 
+Muestra una lista de todos los servicios de copia que se usan para la matriz de almacenamiento. Dependiendo de la configuración de tu matriz de almacenamiento, la sección Copy Services puede mostrar estas subsecciones:
+
+** *Copias de volumen* -- Muestra una lista de todos los pares de copias en la matriz de almacenamiento. La información listada incluye el número de copias, los nombres de los pares de copias, el estado, la marca de tiempo de inicio y detalles adicionales.
+** *Grupos de instantáneas* -- Muestra una lista de todos los grupos de instantáneas en la matriz de almacenamiento.
+** *Imágenes de instantáneas* -- Muestra una lista de todas las instantáneas en la matriz de almacenamiento.
+** *Volúmenes de instantáneas* -- Muestra una lista de todos los volúmenes de instantáneas en la storage array.
+** *Grupos de consistencia* -- Muestra una lista de todos los grupos de consistencia en el array de almacenamiento.
+** *Volúmenes miembros* -- Muestra una lista de todos los volúmenes miembros del grupo de consistencia en la storage array.
+** *Mirror Groups* -- Muestra una lista de todos los volúmenes reflejados.
+** *Capacidad reservada* -- Muestra una lista de todos los volúmenes de capacidad reservada en la matriz de almacenamiento.
+
+
+
+
+ a| 
+Asignaciones de host
+ a| 
+Muestra una lista de asignaciones de host en la matriz de almacenamiento. La información listada incluye el nombre del volumen, el número de unidad lógica (LUN), el ID del controlador, el nombre de host o el nombre del clúster de host y el estado del volumen. La información adicional listada incluye definiciones de topología y definiciones de tipo de host.
+
+
+
+ a| 
+Hardware
+ a| 
+Muestra una lista de todo el hardware de la matriz de almacenamiento. Dependiendo de la configuración de tu matriz de almacenamiento, la sección Hardware puede mostrar estas subsecciones.
+
+** *Controladores* -- Muestra una lista de todos los controladores de la matriz de almacenamiento e incluye la ubicación, el estado y la configuración del controlador. Además, incluye información sobre el canal de la unidad, el canal del host y el canal del puerto Ethernet.
+** *Unidades* -- Muestra una lista de todas las unidades de la matriz de almacenamiento. Las unidades se enumeran en orden de ID de estantería, ID de cajón e ID de ranura. La información enumerada incluye el ID de estantería, el ID de cajón, el ID de ranura, el estado, la capacidad bruta, el tipo de soporte, el tipo de interfaz, la velocidad de datos actual, el ID de producto y la versión de firmware de cada unidad. La sección de Unidades también incluye información del canal de la unidad, información de cobertura de repuesto en caliente e información sobre la vida útil (solo para unidades SSD). La información sobre la vida útil incluye el porcentaje de resistencia utilizado, que es la cantidad de datos escritos en las unidades SSD hasta la fecha, dividida por el límite de escritura teórico total de las unidades.
+** *Drive Channels* -- Muestra información de todos los drive channels en la matriz de almacenamiento. La información mostrada incluye el estado del canal, el estado del enlace (si aplica), los recuentos de unidades y los recuentos de errores acumulados.
+** *Shelves* -- Muestra información de todas las estanterías en la matriz de almacenamiento. La información listada incluye tipos de unidades e información de estado para cada componente de la estantería. Los componentes de la estantería pueden incluir paquetes de batería, transceptores Small Form-factor Pluggable (SFP), canisters de ventilador y canisters de módulo de entrada/salida (IOM). La sección Hardware también muestra el identificador de la clave de seguridad si la matriz de almacenamiento usa una clave de seguridad.
+
+
+
+
+ a| 
+Funciones
+ a| 
+Muestra una lista de los paquetes de características instalados y el número máximo permitido de grupos de instantáneas, instantáneas (heredadas) y volúmenes por host o host cluster. La información en la sección de Features también incluye Drive Security; es decir, si la storage array tiene la seguridad habilitada o deshabilitada.
+
+|===
+====
+. Para buscar en el perfil de la matriz de almacenamiento, escribe un término de búsqueda en el cuadro de texto *Buscar* y luego haz clic en *Buscar*.
++
+Todos los términos coincidentes aparecen resaltados. Para desplazarte por todos los resultados de uno en uno, sigue haciendo clic en *Buscar*.
+
+. Para guardar el perfil de la matriz de almacenamiento, haz clic en *Guardar*.
++
+El archivo se guarda en la carpeta Descargas de tu navegador con el nombre `storage-array-profile.txt`.
+
+

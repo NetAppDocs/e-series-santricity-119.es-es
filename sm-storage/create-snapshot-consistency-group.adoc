@@ -1,0 +1,140 @@
+---
+permalink: sm-storage/create-snapshot-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, create, snapshot, consistency group 
+summary: Para asegurarte de que tienes copias consistentes, puedes crear un conjunto de varios volúmenes llamado snapshot consistency group. 
+---
+= Crea un grupo de coherencia de instantáneas en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para asegurarte de que tienes copias consistentes, puedes crear un conjunto de varios volúmenes llamado _snapshot consistency group_.
+
+Este grupo te permite crear imágenes instantáneas de todos los volúmenes al mismo tiempo para mantener la coherencia. Cada volumen que pertenece a un grupo de coherencia de instantáneas se llama _volumen miembro_. Cuando agregas un volumen a un grupo de coherencia de instantáneas, el sistema crea automáticamente un nuevo grupo de instantáneas que corresponde a este volumen miembro.
+
+.Acerca de esta tarea
+La secuencia de creación del grupo de coherencia de instantáneas te permite seleccionar los volúmenes miembros para el grupo y asignar capacidad a los volúmenes miembros.
+
+El proceso para crear un grupo de consistencia de instantáneas es un procedimiento de varios pasos.
+
+
+
+== Paso 1: agrega miembros al grupo de consistencia de snapshots
+
+Selecciona miembros para especificar una colección de volúmenes que forman el grupo de coherencia de instantáneas. Cualquier acción que realices en el grupo de coherencia de instantáneas se extiende de manera uniforme a los volúmenes miembros seleccionados.
+
+.Antes de empezar
+Los volúmenes de los miembros deben estar en estado óptimo.
+
+.Pasos
+. Selecciona el menú:Almacenamiento[Instantáneas].
+. Haz clic en la pestaña *Grupos de consistencia de instantáneas*.
+. Selecciona el menú:Crear[Snapshot consistency group].
++
+Aparece el cuadro de diálogo Create Snapshot Consistency Group.
+
+. Selecciona los volúmenes que se van a añadir como volúmenes miembros al grupo de coherencia de instantáneas.
+. Haz clic en *Siguiente* y ve a <<Paso 2: reservar capacidad para el grupo de coherencia de instantáneas>>.
+
+
+
+
+== Paso 2: reservar capacidad para el grupo de coherencia de instantáneas
+
+Asocia la capacidad reservada al grupo de coherencia de instantáneas. System Manager sugiere los volúmenes y la capacidad según las propiedades del grupo de coherencia de instantáneas. Puedes aceptar la configuración de capacidad reservada recomendada o personalizar el almacenamiento asignado.
+
+.Acerca de esta tarea
+En el cuadro de diálogo Reserve Capacity, la tabla de candidatos de volumen muestra solo los candidatos que admiten la capacidad reservada especificada. La capacidad reservada es la capacidad física asignada que se utiliza para cualquier operación de servicio de copia y objeto de almacenamiento. No es directamente legible por el host.
+
+.Pasos
+. Usa el cuadro giratorio para asignar la capacidad reservada para el grupo de coherencia de instantáneas. Haz una de las siguientes acciones:
++
+** *Acepta la configuración predeterminada*.
++
+Usa esta opción recomendada para asignar la capacidad reservada para cada volumen miembro con la configuración predeterminada.
+
+** *Asigna tus propios ajustes de capacidad reservada para cubrir tus necesidades de almacenamiento de datos.*
++
+Asigna la capacidad reservada usando las siguientes pautas.
+
++
+*** La configuración predeterminada para la capacidad reservada es el 40% de la capacidad del volumen base. Por lo general, esta capacidad es suficiente.
+*** La capacidad necesaria varía según la frecuencia y el tamaño de las escrituras de E/S en los volúmenes y la cantidad y duración de la recopilación de imágenes snapshot.
+
+
+
+
+. *Opcional:* Si cambias la configuración predeterminada de capacidad reservada, haz clic en *Refrescar candidatos* para actualizar la lista de candidatos para la capacidad reservada que especificaste.
+. Haz clic en *Siguiente* y ve a <<Paso 3: edita la configuración del grupo de coherencia de instantáneas>>.
+
+
+
+
+== Paso 3: edita la configuración del grupo de coherencia de instantáneas
+
+Acepta o elige la configuración de eliminación automática y los umbrales de alerta de capacidad reservada para el grupo de consistencia de snapshots.
+
+.Acerca de esta tarea
+La secuencia de creación del grupo de coherencia de instantáneas te permite seleccionar los volúmenes miembros para el grupo y asignar capacidad a los volúmenes miembros.
+
+.Pasos
+. Acepta o cambia la configuración predeterminada del grupo de coherencia de instantáneas según corresponda.
++
+.Detalles del campo
+[%collapsible]
+====
+[cols="25h,~"]
+|===
+| Valor | Descripción 
+
+
+ a| 
+*Configuración del grupo de consistencia de snapshots*
+
+
+
+ a| 
+Nombre
+ a| 
+Especifica el nombre para el grupo de coherencia de instantáneas.
+
+
+
+ a| 
+Habilita el borrado automático de imágenes de snapshot cuando...
+ a| 
+Mantén la casilla de comprobación seleccionada si quieres que las imágenes de instantánea se eliminen automáticamente después del límite especificado; usa la casilla giratoria para cambiar el límite. Si desmarcas esta casilla de comprobación, la creación de imágenes de instantánea se detiene después de 32 imágenes.
+
+
+
+ a| 
+*Ajustes de capacidad reservada*
+
+
+
+ a| 
+Avísame cuando...
+ a| 
+Usa el cuadro giratorio para ajustar el punto porcentual en el que el sistema envía una notificación de alerta cuando la capacidad reservada para un grupo de coherencia de instantáneas está a punto de llenarse.
+
+Cuando la capacidad reservada para el grupo de coherencia de instantáneas supera el umbral especificado, usa el aviso previo para aumentar la capacidad reservada o eliminar objetos innecesarios antes de que se agote el espacio restante.
+
+
+
+ a| 
+Política para la capacidad reservada completa
+ a| 
+Elige una de las siguientes políticas:
+
+** *Purgar la imagen de instantánea más antigua* -- El sistema purga automáticamente la imagen de instantánea más antigua en el grupo de coherencia de instantáneas, lo que libera la capacidad reservada de la imagen de instantánea para reutilizarla dentro del grupo.
+** *Rechazar escrituras en el volumen base* -- Cuando la capacidad reservada alcanza su porcentaje máximo definido, el sistema rechaza cualquier solicitud de escritura de E/S en el volumen base que activó el acceso a la capacidad reservada.
+
+
+|===
+====
+. Cuando estés satisfecho con la configuración de tu grupo de coherencia de instantáneas, haz clic en *Finalizar*.
+

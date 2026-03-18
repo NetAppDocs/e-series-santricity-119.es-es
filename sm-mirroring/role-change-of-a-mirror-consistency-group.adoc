@@ -1,0 +1,61 @@
+---
+permalink: sm-mirroring/role-change-of-a-mirror-consistency-group.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, role, change, mirror, consistency, group, secondary, mirror, consistency, group, 
+summary: Puedes cambiar el rol entre pares reflejados en un grupo de consistencia de espejo. Puedes hacer esto degradando el grupo de consistencia de espejo primario al rol secundario o promoviendo el grupo de consistencia de espejo secundario al rol primario. 
+---
+= Cambia las funciones del grupo de coherencia de réplica en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puedes cambiar el rol entre pares reflejados en un grupo de consistencia de espejo. Puedes hacer esto degradando el grupo de consistencia de espejo primario al rol secundario o promoviendo el grupo de consistencia de espejo secundario al rol primario.
+
+Revisa la siguiente información sobre la operación de cambio de rol:
+
+* El cambio de rol afecta a todos los pares reflejados dentro del grupo de consistencia de espejo seleccionado.
+* Cuando un grupo de consistencia de espejo es degradado al rol secundario, todos los pares reflejados dentro de ese grupo de consistencia de espejo también son degradados al rol secundario y viceversa.
+* Cuando el grupo de consistencia de espejo primario es degradado al rol secundario, los hosts que han sido asignados a los volúmenes miembros dentro de ese grupo ya no tienen acceso de escritura a ellos.
+* Cuando un grupo de consistencia de espejo es promovido al rol primario, cualquier host que esté accediendo a los volúmenes miembros dentro de ese grupo ahora puede escribir en ellos.
+* Si el array de almacenamiento local no puede comunicarse con el array de almacenamiento remoto, puedes forzar el cambio de rol en el array de almacenamiento local.
+
+
+
+
+== Forzar cambio de rol
+
+Puedes forzar un cambio de rol entre grupos de consistencia de reflejo cuando un problema de comunicación entre el array de almacenamiento local y el array de almacenamiento remoto está impidiendo la promoción de los volúmenes miembro dentro del grupo de consistencia de reflejo secundario o la degradación de los volúmenes miembro dentro del grupo de consistencia de reflejo primario.
+
+Puedes forzar que el grupo de coherencia de reflejo en el lado secundario pase al rol primario. Luego, el host de recuperación puede acceder a los volúmenes miembros recién promovidos dentro de ese grupo de coherencia de reflejo y las operaciones comerciales pueden continuar.
+
+
+
+== ¿Cuándo se permite y cuándo no una promoción forzosa?
+
+La promoción forzada de un grupo de coherencia de espejo solo se permite si todos los volúmenes miembros del grupo de coherencia de espejo se han sincronizado y tienen puntos de recuperación coherentes.
+
+No se permite la promoción forzada de un grupo de coherencia de réplica en las siguientes condiciones:
+
+* Cualquiera de los volúmenes miembros de un grupo de consistencia de espejo está en proceso de una sincronización inicial.
+* Cualquiera de los volúmenes miembros de un grupo de coherencia de reflejo no tiene una imagen de un momento específico del punto de recuperación (por ejemplo, debido a un error de capacidad reservada completa).
+* El grupo de coherencia de reflejo no contiene volúmenes miembros.
+* El grupo de coherencia de réplica está en los estados Fallido, Cambio de función pendiente o Cambio de función en curso, o si alguno de los volúmenes miembro asociados o volúmenes de capacidad reservada está fallido.
+
+
+
+
+== Conflicto de roles en el grupo espejo
+
+Cuando se ha resuelto un problema de comunicación entre las matrices de almacenamiento local y remota, se produce una condición de conflicto de roles de Mirror Group. Usa el Recovery Guru para recuperarte de este error. No se permite una promoción forzada cuando se resuelve un conflicto de doble rol.
+
+Para evitar la condición de conflicto de rol de grupo de réplica y los pasos de recuperación posteriores, espera hasta que la conexión entre las matrices de almacenamiento esté operativa para forzar el cambio de rol.
+
+
+
+== Cambio de rol en curso
+
+Si dos matrices de almacenamiento en una configuración de mirroring se desconectan, y el lado primario de un mirror consistency group es degradado a la fuerza a un rol secundario, y el lado secundario de un mirror consistency group es promovido a la fuerza a un rol primario, entonces cuando se restablece la comunicación, los mirror consistency groups en ambas matrices de almacenamiento se colocan en el estado Role-Change-In-Progress.
+
+El sistema completará el proceso de cambio de rol transfiriendo los registros de cambios, resincronizando, estableciendo el estado del grupo de consistencia de reflejo de nuevo a un estado operativo normal y continuando con las sincronizaciones periódicas.

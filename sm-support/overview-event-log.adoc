@@ -1,0 +1,41 @@
+---
+permalink: sm-support/overview-event-log.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, event, log 
+summary: Usa el registro de eventos para ver un registro histórico de los cambios y eventos que han ocurrido en la matriz de almacenamiento. 
+---
+= Conoce el registro de eventos en el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El registro de eventos proporciona un registro histórico de eventos que se han producido en la matriz de almacenamiento, lo que ayuda al soporte técnico en la solución de problemas que conducen a fallos.
+
+Puedes usar el registro de eventos como una herramienta de diagnóstico complementaria al Recovery Guru para rastrear eventos de la matriz de almacenamiento. Siempre consulta primero al Recovery Guru cuando intentes recuperarte de fallas de componentes en la matriz de almacenamiento.
+
+
+
+== Categorías de eventos
+
+Los eventos del registro de eventos se clasifican con diferentes estados. Los eventos sobre los que tienes que actuar tienen los siguientes estados:
+
+* Crítico
+* Advertencia
+
+
+Los eventos que son informativos y no requieren ninguna acción inmediata son los siguientes:
+
+* Informativo
+
+
+
+
+== Eventos críticos
+
+Los eventos críticos indican un problema con la matriz de almacenamiento. Si resuelves el evento crítico de inmediato, podrías evitar la pérdida de acceso a los datos.
+
+Cuando ocurre un evento crítico, se registra en el registro de eventos. Todos los eventos críticos se envían a la consola de gestión SNMP o al destinatario de correo electrónico que hayas configurado para recibir notificaciones de alerta. Si no se conoce el ID de la shelf en el momento del evento, el ID de la shelf aparece como "Shelf unknown."
+
+Cuando recibas un evento crítico, consulta el procedimiento Recovery Guru para ver una descripción detallada del evento crítico. Completa el procedimiento Recovery Guru para corregir el evento crítico. Para corregir ciertos eventos críticos, puede que necesites ponerte en contacto con el soporte técnico.

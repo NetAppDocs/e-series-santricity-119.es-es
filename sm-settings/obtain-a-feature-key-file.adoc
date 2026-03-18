@@ -1,0 +1,47 @@
+---
+permalink: sm-settings/obtain-a-feature-key-file.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, obtain, feature, key, file, 
+summary: Para habilitar una función premium o un paquete de funciones en tu matriz de almacenamiento, primero debes obtener un archivo de clave de función. Una clave está asociada a una sola matriz de almacenamiento. 
+---
+= Obtener un archivo de clave de función en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para habilitar una función premium o un paquete de funciones en tu matriz de almacenamiento, primero debes obtener un archivo de clave de función. Una clave está asociada a una sola matriz de almacenamiento.
+
+.Acerca de esta tarea
+Esta tarea describe cómo recopilar la información necesaria para la función y luego enviar una solicitud de un archivo de clave de función. La información necesaria incluye:
+
+* Número de serie del chasis
+* Identificador de activación de funciones
+* Código de activación de funciones
+
+
+.Pasos
+. En System Manager, localiza y apunta el número de serie del chasis. Puedes ver este número de serie pasando el ratón por encima del mosaico de Support Center.
+. En System Manager, localiza el Feature Enable Identifier. Ve al menú:Settings[System] y luego desplázate hasta *Add-ons*. Busca el *Feature Enable Identifier*. Anota el número del Feature Enable Identifier.
+. Localiza y registra el código para la activación de la función. Para los feature packs, este código se proporciona en las instrucciones adecuadas para realizar la conversión.
++
+Para las funciones premium, puedes acceder al código de activación desde el sitio de soporte, así:
+
++
+.. Inicia sesión en https://mysupport.netapp.com/site/global/dashboard["Soporte de NetApp"^].
+.. Ve a *Licencias de software* para tu producto.
+.. Introduce el número de serie del chasis de la matriz de almacenamiento y luego haz clic en *Go*.
+.. Busca los códigos de activación de funciones en la columna *License Key*.
+.. Anota el código de activación de la función que quieres.
+
+
+. Solicita un archivo de clave de funciones enviando un correo electrónico o un documento de texto a tu proveedor de almacenamiento con la siguiente información: número de serie del chasis, el identificador de habilitación y el código para la activación de funciones.
++
+También puedes ir a http://partnerspfk.netapp.com["NetApp License Activation: Activación de la función Storage Array Premium"^] e ingresar la información necesaria para obtener la función o el paquete de funciones. (Las instrucciones de este sitio son para funciones premium, no para paquetes de funciones.)
+
+
+
+.Después de que termines
+Una vez que tenga el archivo de claves de la función, podrá habilitar la función excepcional o el paquete de funciones.

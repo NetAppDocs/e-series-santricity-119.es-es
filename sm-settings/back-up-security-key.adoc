@@ -1,0 +1,56 @@
+---
+permalink: sm-settings/back-up-security-key.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, backup, security, key, 
+summary: Después de crear o modificar una clave de seguridad, puedes crear una copia de backup del archivo de claves por si el original se corrompe. 
+---
+= Haz una copia de seguridad de las claves de seguridad en SANtricity System Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de crear o modificar una clave de seguridad, puedes crear una copia de backup del archivo de claves por si el original se corrompe.
+
+.Acerca de esta tarea
+Esta tarea describe cómo hacer una copia de seguridad de una clave de seguridad que creaste antes. Durante este procedimiento, vas a crear una nueva frase de paso para la copia de seguridad. Esta frase de paso no tiene que coincidir con la frase de paso que se usó cuando se creó o se cambió por última vez la clave original. La frase de paso solo se aplica a la copia de seguridad que estás creando.
+
+.Pasos
+. Selecciona menú:ajustes[Sistema].
+. En *Gestión de claves de seguridad*, selecciona *Hacer copia de seguridad de la clave*.
++
+Se abre el cuadro de diálogo Back Up Security Key.
+
+. En los campos *Definir una frase de paso/Reintroducir frase de paso*, ingresa y confirma una frase de paso para esta copia de backup.
++
+El valor puede tener entre 8 y 32 caracteres, y debe incluir uno de los siguientes caracteres:
+
++
+** Una letra mayúscula (una o varias)
+** Un número (uno o más)
+** Un carácter no alfanumérico, como !, *, @ (uno o más)
+
+
++
+[CAUTION]
+====
+*Asegúrate de registrar tu entrada para usarla más adelante*. Necesitas la frase de contraseña para acceder a la copia de backup de esta clave de seguridad.
+
+====
+. Haz clic en *Back Up*.
++
+Se descarga una copia de backup de la clave de seguridad en tu host local y luego se abre el cuadro de diálogo *Confirmar/Registrar copia de backup de clave de seguridad*.
+
++
+[NOTE]
+====
+La ruta del archivo de clave de seguridad descargado puede depender de la ubicación de descarga predeterminada de tu navegador.
+
+====
+. Anota tu frase de contraseña en un lugar seguro y luego haz clic en *Cerrar*.
+
+
+.Después de que termines
+Deberías validar la clave de seguridad de la copia de backup.

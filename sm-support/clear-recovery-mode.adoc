@@ -1,0 +1,43 @@
+---
+permalink: sm-support/clear-recovery-mode.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, clear, recovery, mode 
+summary: Después de restaurar la configuración de una matriz de almacenamiento, usa la operación Clear Recovery Mode para reanudar la E/S en la matriz de almacenamiento y devolverla a su funcionamiento normal. 
+---
+= Borrar el modo de recuperación en SANtricity software
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de restaurar la configuración de una matriz de almacenamiento, usa la operación Clear Recovery Mode para reanudar la E/S en la matriz de almacenamiento y devolverla a su funcionamiento normal.
+
+.Antes de empezar
+* Si quieres devolver la matriz de almacenamiento a una configuración anterior, debes restaurar la configuración desde la copia de seguridad antes de desactivar el modo de recuperación.
+* Debes realizar comprobaciones de validación o consultar con soporte técnico para asegurarte de que la restauración fue exitosa. Después de determinar que la restauración fue exitosa, se puede borrar el modo de recuperación.
+
+
+.Acerca de esta tarea
+El array de almacenamiento contiene una base de datos de configuración que incluye un registro de su configuración lógica (pools, grupos de volúmenes, volúmenes, y así sucesivamente). Si borras intencionadamente la configuración del array de almacenamiento o si la base de datos de configuración se corrompe, el array de almacenamiento entra en modo de recuperación. El modo de recuperación detiene la E/S y congela la base de datos de configuración, lo que te da tiempo para hacer una de las siguientes cosas:
+
+* Restaura la configuración desde la copia de seguridad automática que está almacenada en los dispositivos flash del controlador. Debes ponerte en contacto con soporte técnico para hacer esto.
+* Restaura la configuración de una operación anterior de Save Configuration Database. Las operaciones de Save Configuration Database se realizan a través de la línea de comandos (CLI).
+* Vuelve a configurar la matriz de almacenamiento desde cero.
+
+
+Una vez restaurada o redefinida la configuración de la matriz de almacenamiento y comprobado que todo va bien, debes borrar manualmente el modo de recuperación.
+
+[NOTE]
+====
+No puedes cancelar la operación de borrar el modo de recuperación después de que haya comenzado. Borrar el modo de recuperación puede tardar mucho tiempo. Realiza esta operación solo cuando soporte técnico te lo indique.
+
+====
+.Pasos
+. Selecciona menú:Support[Support Center > Diagnostics] tab.
+. Selecciona *Clear Recovery Mode* y confirma que quieres realizar esta operación.
++
+Esta opción solo aparece si la matriz de almacenamiento está en modo de recuperación.
+
+

@@ -1,0 +1,28 @@
+---
+permalink: um-manage/clear-staged-os-software.html 
+sidebar: sidebar 
+keywords: SANtricity, Unified Manager, E-Series, clear, staged, os, software 
+summary: Puede quitar el software de sistema operativo almacenado temporalmente para garantizar que no se active una versión pendiente de manera accidental más adelante. La eliminación del software de sistema operativo almacenado temporalmente no afecta la versión actual que está en ejecución en las cabinas de almacenamiento. 
+---
+= Borrar el software de SO por etapas en SANtricity Unified Manager
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede quitar el software de sistema operativo almacenado temporalmente para garantizar que no se active una versión pendiente de manera accidental más adelante. La eliminación del software de sistema operativo almacenado temporalmente no afecta la versión actual que está en ejecución en las cabinas de almacenamiento.
+
+.Pasos
+. Desde la vista principal, selecciona *Manage* y luego selecciona menú:Upgrade Center[Clear Staged OS Software].
++
+Se abre el cuadro de diálogo Borrar software de sistema operativo almacenado temporalmente, donde se enumeran todos los sistemas de almacenamiento detectados con software o NVSRAM pendiente.
+
+. Si es necesario, puede filtrar u ordenar los sistemas de almacenamiento de la lista, de modo que pueda ver todos los sistemas que tienen software almacenado temporalmente.
+. Marque las casillas de comprobación de los sistemas de almacenamiento con software pendiente que desea borrar.
+. Haz clic en *Borrar*.
++
+El estado de la operación se muestra en el cuadro de diálogo.
+
+

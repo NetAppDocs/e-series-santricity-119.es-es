@@ -1,0 +1,158 @@
+---
+permalink: san-getstarted/santricity-overview.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, 
+summary: Los sistemas E-Series incluyen el software SANtricity para el aprovisionamiento de almacenamiento y otras tareas. 
+---
+= Conoce el software SANtricity
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los sistemas E-Series incluyen el software SANtricity para el aprovisionamiento de almacenamiento y otras tareas.
+
+Este sitio describe cómo usar las siguientes interfaces de gestión de SANtricity:
+
+* System Manager -- una interfaz basada en web utilizada para gestionar una matriz de almacenamiento individual en tu red.
+* Unified Manager -- una interfaz basada en web que se utiliza para ver y gestionar todas las matrices de almacenamiento en tu red.
+
+
+
+NOTE: Las matrices de almacenamiento EF600/EF600C y EF300/EF300C no admiten la duplicación síncrona ni los volúmenes thin.
+
+
+
+== SANtricity System Manager
+
+System Manager es un software de gestión basado en web integrado en cada controlador. Para acceder a la interfaz de usuario, apunta un navegador a la dirección IP del controlador. Un asistente de configuración te ayuda a empezar con la configuración del sistema.
+
+System Manager ofrece una variedad de funciones de gestión, incluyendo:
+
+|===
+
+
+ a| 
+image:../media/sam1130_icon_performance.gif["Rendimiento"] *Rendimiento*
+ a| 
+Visualiza hasta 30 días de datos de rendimiento, incluyendo latencia de E/S, IOPS, utilización de CPU y rendimiento.
+
+
+
+ a| 
+image:../media/sam1130_icon_volumes.gif["Almacenamiento"] *Almacenamiento*
+ a| 
+Aprovisiona almacenamiento usando pools o grupos de volúmenes y crea cargas de trabajo de aplicaciones.
+
+
+
+ a| 
+image:../media/sam1130_icon_async_mirroring.gif["Protección de datos"] *Protección de datos*
+ a| 
+Realiza copias de seguridad y recuperación ante desastres usando instantáneas, copia de volúmenes y duplicación remota.
+
+
+
+ a| 
+image:../media/sam1130_icon_controllers.gif["Hardware"] *Hardware*
+ a| 
+Comprueba el estado de los componentes y realiza algunas funciones relacionadas con esos componentes, como asignar unidades de repuesto en caliente.
+
+
+
+ a| 
+image:../media/sam1130_icon_alerts.gif["Alertas"] *Alertas*
+ a| 
+Notifica a los administradores sobre eventos importantes que ocurren en la matriz de almacenamiento. Las alertas se pueden enviar por correo electrónico, traps SNMP y syslog.
+
+
+
+ a| 
+image:../media/sam1140_icon_active_directory.gif["Gestión de accesos"] *Gestión de accesos*
+ a| 
+Configura la autenticación de usuario que requiere que los usuarios inicien sesión en el sistema con las credenciales asignadas.
+
+
+
+ a| 
+image:../media/sam1130_icon_settings.gif["Configuración del sistema"] *Configuración del sistema*
+ a| 
+Configura otras funciones de rendimiento del sistema, como la caché SSD y el equilibrio de carga automática.
+
+
+
+ a| 
+image:../media/sam1130_icon_support.gif["Soporte"] *Soporte*
+ a| 
+Visualiza datos de diagnóstico, gestiona actualizaciones y configura AutoSupport, que supervisa el estado de una matriz de almacenamiento y envía notificaciones automáticas al soporte técnico.
+
+|===
+
+
+== SANtricity Unified Manager
+
+Unified Manager es un software basado en web que se usa para gestionar todo tu dominio. Desde una vista central, puedes ver el estado de todas las matrices E-Series y EF-Series más recientes, como E4000, E2800, EF280, EF300, E5700, EF570, EF600, EF300C y EF600C. También puedes realizar operaciones por lotes en las matrices de almacenamiento seleccionadas.
+
+Unified Manager se instala en un servidor de gestión junto con el Web Services Proxy. Para acceder a Unified Manager, abres un navegador e introduces la URL que apunta al servidor donde está instalado el Web Services Proxy.
+
+Unified Manager ofrece una variedad de funciones de gestión, incluyendo:
+
+|===
+
+
+ a| 
+image:../media/artboard_9.png["Descubre la matriz de almacenamiento"] *Descubre las matrices de almacenamiento*
+ a| 
+Busca y añade las matrices de almacenamiento que quieras gestionar en la red de tu organización. Luego puedes ver el estado de todas las matrices de almacenamiento desde una sola página.
+
+
+
+ a| 
+image:../media/artboard_11.png["Iniciar"] *Iniciar*
+ a| 
+Abre una instancia de System Manager para realizar operaciones de gestión individuales en una matriz de almacenamiento concreta.
+
+
+
+ a| 
+image:../media/sam1130_icon_system.gif["Configuración de importación"] *Importar configuración*
+ a| 
+Realiza una importación por lotes de una matriz de almacenamiento a varias matrices, incluyendo la configuración de alertas, AutoSupport y servicios de directorio.
+
+
+
+ a| 
+image:../media/sam1130_icon_async_mirroring.gif["Duplicación"] *Duplicación*
+ a| 
+Configura pares reflejados asíncronos o síncronos entre dos matrices de almacenamiento.
+
+
+
+ a| 
+image:../media/artboard_10.png["Gestionar grupos"] *Gestionar grupos*
+ a| 
+Organiza las matrices de almacenamiento en grupos para que sea más fácil gestionarlas.
+
+
+
+ a| 
+image:../media/sam1130_icon_upgrade_center.gif["Centro de actualización"] *Centro de actualización*
+ a| 
+Actualiza el software SANtricity OS en varias matrices de almacenamiento.
+
+
+
+ a| 
+image:../media/sam1140_icon_certs.gif["Certificados"] *Certificados*
+ a| 
+Crea solicitudes de firma de certificados (CSR), importa certificados y gestiona certificados existentes para varias cabinas de almacenamiento.
+
+
+
+ a| 
+image:../media/sam1140_icon_active_directory.gif["Gestión de accesos"] *Gestión de accesos*
+ a| 
+Configura la autenticación de usuario que requiere que los usuarios inicien sesión en Unified Manager con las credenciales asignadas.
+
+|===

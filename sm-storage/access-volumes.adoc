@@ -1,0 +1,29 @@
+---
+permalink: sm-storage/access-volumes.html 
+sidebar: sidebar 
+keywords: SANtricity, System Manager, E-Series, access volumes 
+summary: 'Un volumen de acceso es un volumen configurado de fábrica en la matriz de almacenamiento que se usa para la comunicación con la matriz de almacenamiento y el host a través de la conexión de E/S del host. El volumen de acceso requiere un Logical Unit Number (LUN).' 
+---
+= Accede a volúmenes en SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un volumen de acceso es un volumen configurado de fábrica en la matriz de almacenamiento que se usa para la comunicación con la matriz de almacenamiento y el host a través de la conexión de E/S del host. El volumen de acceso requiere un Logical Unit Number (LUN).
+
+El volumen de acceso se utiliza en la siguiente instancia:
+
+* *Gestión en banda* -- El volumen de acceso se utiliza para una conexión en banda para gestionar la matriz de almacenamiento. Esto solo se puede hacer si tú estás gestionando la matriz de almacenamiento con la línea de comandos (CLI).
++
+[NOTE]
+====
+La gestión en banda usando el volumen de acceso no está disponible para los sistemas de almacenamiento E4000, EF600/EF600C o EF300/EF300C.
+
+====
+
+
+Un volumen de acceso se crea automáticamente la primera vez que asignas un volumen a un host. Por ejemplo, si asignas Volume_1 y Volume_2 a un host, cuando ves los resultados de esa asignación, ves tres volúmenes (Volume_1, Volume_2 y Access).
+
+Si no estás creando hosts automáticamente o gestionando una matriz de almacenamiento en banda con la CLI, no necesitas el volumen de acceso y puedes liberar el LUN eliminando el volumen de acceso. Esta acción elimina la asignación de volumen a LUN así como cualquier conexión de gestión en banda al host.
