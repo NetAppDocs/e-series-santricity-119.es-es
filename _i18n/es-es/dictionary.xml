@@ -4061,7 +4061,6 @@
   <block id="329b059dca9192ebf68525b6d3e3be44" category="inline-link-macro">Configuración y rendimiento de caché</block>
   <block id="9f6081850e27326c653ce13711fd1f40" category="list-text"><block ref="9f6081850e27326c653ce13711fd1f40" category="inline-link-macro-rx"></block></block>
   <block id="590d98531a06e067582f8f395c25ea9d" category="inline-link-macro">Balanceo de carga automático</block>
-  <block id="3d92225d2ee8c33ffe2c15361da54d2f" category="list-text"><block ref="3d92225d2ee8c33ffe2c15361da54d2f" category="inline-link-macro-rx"></block></block>
   <block id="b07d4a5fc9bdc2d9e09fffa5409bbab4" category="inline-link-macro">Funciones adicionales</block>
   <block id="d9c3b504b15a55277f52a60d4aa86148" category="list-text"><block ref="d9c3b504b15a55277f52a60d4aa86148" category="inline-link-macro-rx"></block></block>
   <block id="919e659946b3b7994ecf9004d9cea4f8" category="inline-link-macro">Seguridad de la unidad</block>
@@ -9041,4 +9040,5 @@
   <block id="5c85f810a14707d96b0f78941732e14a" category="list-text">Para el mirroring síncrono, existen límites sobre la cantidad de volúmenes que se admiten en una cabina de almacenamiento determinada. Asegúrese de que la cantidad de volúmenes configurados en la cabina de almacenamiento sea menor que el límite admitido. Cuando se activa el mirroring síncrono, los dos volúmenes de capacidad reservada creados se cuentan para el límite de volúmenes.</block>
   <block id="2c0d7cdf55bdb12e152430a4a5b9c7e5" category="paragraph">Mirroring asíncrono:</block>
   <block id="f6082ab3e1c76ce4a981259403dbffb2" category="paragraph">Mirroring síncrono:</block>
+  <block id="bc7dec44af17b73eb800d426c3a75c9f" category="list-text"><block ref="bc7dec44af17b73eb800d426c3a75c9f" category="inline-link-macro-rx"></block></block>
 </blocks>

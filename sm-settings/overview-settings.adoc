@@ -21,7 +21,7 @@ Puedes configurar SANtricity System Manager para algunos ajustes generales de la
 La configuración de la matriz incluye:
 
 * link:cache-settings-and-performance.html["Configuración y rendimiento de caché"]
-* link:automatic-load-balancing-overview.html"["Balanceo de carga automático"]
+* link:automatic-load-balancing-overview.html["Balanceo de carga automático"]
 * link:how-add-on-features-work.html["Funciones adicionales"]
 * link:overview-drive-security.html["Seguridad de la unidad"]
 
