@@ -24,12 +24,14 @@ Las unidades de reserva en caliente no están dedicadas a grupos de volúmenes e
 
 
 
+[[how-to-identify-hot-spares]]
 == Cómo identificar hot spares
 
 Puedes asignar repuestos calientes a través del Asistente de configuración inicial o desde la página Hardware. Para determinar si los repuestos calientes están asignados, ve a la página Hardware y busca cualquier bahía de unidad que se muestre en rosa.
 
 
 
+[[how-hot-spare-coverage-works]]
 == Cómo funciona la cobertura hot spare
 
 La cobertura en caliente funciona de la siguiente manera:
@@ -49,6 +51,7 @@ Las unidades de reserva en caliente no pueden utilizarse para pools, que tienen 
 
 
 
+[[considerations-for-hot-spare-drive-capacity]]
 == Consideraciones sobre la capacidad de la unidad de reserva en caliente
 
 Selecciona una unidad con una capacidad igual o mayor que la capacidad total de la unidad que quieres proteger. Por ejemplo, si tienes una unidad de 18 GiB con una capacidad configurada de 8 GiB, puedes usar una unidad de 9 GiB o más grande como hot spare. Por lo general, no asignes una unidad como hot spare a menos que su capacidad sea igual o mayor que la capacidad de la unidad más grande en la matriz de almacenamiento.
@@ -60,12 +63,14 @@ Si no hay disponibles unidades de repuesto en caliente que tengan la misma capac
 ====
 
 
+[[considerations-for-media-and-interface-types]]
 == Consideraciones para los tipos de medios e interfaces
 
 La unidad utilizada como hot spare debe compartir el mismo tipo de soporte y tipo de interfaz que las unidades que va a proteger. Por ejemplo, una unidad HDD no puede servir como hot spare para unidades SSD.
 
 
 
+[[considerations-for-secure-capable-drives]]
 == Consideraciones para las unidades con capacidad de seguridad
 
 Una unidad con capacidad de seguridad, como FDE o FIPS, puede servir como repuesto en caliente para unidades con o sin funcionalidades de seguridad. Sin embargo, una unidad que no tiene capacidad de seguridad no puede servir como repuesto en caliente para unidades con funcionalidades de seguridad.
@@ -79,6 +84,7 @@ Cuando activas la función Drive Security y luego creas un pool o grupo de volú
 ====
 
 
+[[recommended-number-of-hot-spare-drives]]
 == Número recomendado de unidades de repuesto en caliente
 
 Si usaste el asistente de configuración inicial para crear automáticamente hot spares, System Manager crea un hot spare por cada 30 unidades de un tipo de medio y tipo de interfaz determinados. De lo contrario, puedes crear manualmente hot spares entre los grupos de volúmenes en la cabina de almacenamiento.

@@ -16,6 +16,7 @@ Puedes crear capacidad de almacenamiento lógico a partir de un subconjunto de u
 
 
 
+[[what-are-pools-and-volume-groups]]
 == ¿Qué son los pools y los grupos de volúmenes?
 
 Un _pool_ es un conjunto de unidades agrupadas lógicamente. Un _grupo de volúmenes_ es un contenedor de volúmenes con características compartidas. Puedes usar un pool o un grupo de volúmenes para crear volúmenes accesibles a un host.
@@ -29,6 +30,7 @@ Más información:
 
 
 
+[[how-do-you-create-pools]]
 == ¿Cómo creas los pools?
 
 Puedes permitir que System Manager cree pools automáticamente cuando detecta capacidad no asignada en una matriz de almacenamiento. O bien, cuando la creación automática no puede determinar la mejor configuración, puedes crear pools manualmente desde menu:Storage[Pools & Volume Groups].
@@ -43,6 +45,7 @@ Más información:
 
 
 
+[[how-do-you-create-volume-groups]]
 == ¿Cómo creas los grupos de volúmenes?
 
 Puedes crear grupos de volúmenes desde el menú:Storage[Pools & Volume Groups].
@@ -55,6 +58,7 @@ Más información:
 
 
 
+[[related-information]]
 == Información relacionada
 
 Conoce más sobre conceptos relacionados con pools y grupos de volúmenes:

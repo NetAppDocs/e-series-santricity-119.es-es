@@ -15,6 +15,7 @@ Los administradores pueden usar las capacidades de RBAC (control de acceso basad
 
 
 
+[[configuration-workflow]]
 == Flujo de trabajo de configuración
 
 Los roles de usuario locales están preconfigurados en el sistema. Para usar roles de usuario locales para la autenticación, los administradores pueden hacer lo siguiente:
@@ -33,6 +34,7 @@ El `admin` usuario tiene acceso completo a todas las funciones del sistema.
 
 
 
+[[management]]
 == Gestión
 
 Cuando usas solo roles de usuario locales para la autenticación, los administradores pueden realizar las siguientes tareas de gestión:

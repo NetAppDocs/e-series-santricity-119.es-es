@@ -1419,14 +1419,9 @@
   <block id="1b0e171bb742d67244c8d138082f73a4" category="paragraph">La luz de localización de la estantería se enciende.</block>
   <block id="8f954b68cdd325787ba5ce5e18add7a0" category="list-text">Cuando hayas localizado físicamente la estantería, vuelve al cuadro de diálogo y selecciona *Apagar*.</block>
   <block id="fd36dcf8df961a103c6b4a7be33f8af9" category="summary">Puedes cambiar un hot spare de nuevo a una unidad no asignada.</block>
-  <block id="27524250c330c0c3b3e4d14953ab61ba" category="doc">${post_edited_translations.segment}</block>
   <block id="b72e8fa26c8fe85c357578d12959654f" category="paragraph">El hot spare debe estar en estado óptimo, Standby.</block>
   <block id="df68c45889101a959a2ce98219a011d2" category="paragraph">No puedes desasignar una unidad de repuesto en caliente que actualmente está reemplazando una unidad con error. Si la unidad de repuesto en caliente no está en estado Optimal, sigue los procedimientos de Recovery Guru para corregir cualquier problema antes de intentar desasignar la unidad.</block>
   <block id="818e5d36aee7737e14ab686e1f56de0d" category="list-text">Selecciona la unidad hot spare (mostrada en rosa) que quieres desasignar.</block>
-  <block id="1dccd080b45b2b04910a948d07c7b691" category="paragraph">${post_edited_translations.segment}</block>
-  <block id="1798807623fcce866a9a26e39cc25983" category="list-text">${post_edited_translations.segment}</block>
-  <block id="d75cabf18da2ea43ee48583d3c4351f6" category="paragraph">${post_edited_translations.segment}</block>
-  <block id="41e129c311d7b2db6c52c55e6a06f912" category="list-text">${post_edited_translations.segment}</block>
   <block id="2a6310cde2a9aa2abb6c18e5ac6c11a3" category="paragraph">La unidad vuelve a estar en Sin asignar (se muestra en gris).</block>
   <block id="f4dbc0a911880ed9b4940794a30d4c41" category="summary">Si insertas una o más unidades NVMe o FIPS bloqueadas en una matriz de almacenamiento, puedes desbloquear los datos de la unidad agregando el archivo de clave de seguridad asociado con las unidades. Si no tienes una clave de seguridad, puedes realizar un restablecimiento en cada unidad bloqueada ingresando su ID de seguridad física (PSID) para restablecer sus atributos de seguridad y borrar los datos de la unidad.</block>
   <block id="006fe7517749b9bc8c427c28d3a5fd5d" category="doc">Desbloquea o restablece unidades NVMe o FIPS bloqueadas en SANtricity System Manager</block>
@@ -3188,18 +3183,11 @@
   <block id="13e348832c3a8103336fb35ec15771f7" category="section-title">Paso 3: Asignar roles</block>
   <block id="ae6ef204cb918d7d1840fff7dc644cd6" category="paragraph">Para proporcionar a los usuarios autorización y acceso a System Manager, debes asignar los atributos de usuario IdP y la pertenencia a grupos a los roles predefinidos de la storage array.</block>
   <block id="790cd58ed7f4054b23b4ca25c19d491c" category="list-text">El archivo de metadatos IdP se importa en System Manager.</block>
-  <block id="6af64cf7bf2a797e2ca30f832f9b8256" category="list-text">${post_edited_translations.segment}</block>
-  <block id="21c2d9c70d8a857acfafd480965462ad" category="list-text">${post_edited_translations.segment}</block>
   <block id="2d494295abdf88732cb9b58604886700" category="paragraph">Especifica el valor del atributo para el grupo que se va a mapear. Se admiten expresiones regulares. Estos caracteres especiales de expresión regular deben escaparse con una barra invertida <block ref="28d397e87306b8631f3ed80d858d35f0" prefix="(" category="inline-code"></block>) si no forman parte de un patrón de expresión regular: \.[]{}()&lt;&gt;*+-=!?^$|</block>
   <block id="691ea936bd769e911da38b1a4f72ffc8" category="paragraph">Haz clic en el campo y selecciona uno de los roles del array de almacenamiento que se asignará al Atributo. Debes seleccionar individualmente cada rol que quieras incluir. El rol Monitor es necesario en combinación con los otros roles para iniciar sesión en System Manager. El rol Security Admin también es necesario para al menos un grupo.</block>
   <block id="85d4bb1f190ce51dad98d6340b96772e" category="paragraph">Los roles asignados incluyen los siguientes permisos:</block>
   <block id="13060e5e069509245e2990e270846f64" category="paragraph">Es posible modificar las asignaciones de roles después de haber habilitado SAML.</block>
-  <block id="d3bf66fdbd69be13e0cc32d25dfd2d74" category="list-text">${post_edited_translations.segment}</block>
-  <block id="ccfa5178f8d10de136780576964454ef" category="section-title">${post_edited_translations.segment}</block>
   <block id="b934859c2989b3582dc753eec95b3120" category="paragraph">Para asegurar que el sistema IdP y la matriz de almacenamiento puedan comunicarse, puedes probar opcionalmente un inicio de sesión SSO. Esta prueba también se realiza durante el paso final para habilitar SAML.</block>
-  <block id="e7490a864567c4dc72b202b7c5d07bf4" category="list-text">${post_edited_translations.segment}</block>
-  <block id="0d6ef07f934781e534b8cecf1fef40e3" category="paragraph">${post_edited_translations.segment}</block>
-  <block id="244ffa919f8d9a8630163bd8bd26ac19" category="list-text">${post_edited_translations.segment}</block>
   <block id="2b3836b9a2932ea8c9d9de483a6c0ccb" category="paragraph">Se abre un cuadro de diálogo mientras el sistema prueba el inicio de sesión.</block>
   <block id="b65c6edf3d416df0abb7fc13d59f5e4c" category="list-text">Busca el mensaje Test Successful. Si la prueba finaliza correctamente, ve al siguiente paso para habilitar SAML.</block>
   <block id="c98eb656873e4a8c58b70a4fe22ff248" category="paragraph">Si la prueba no finaliza correctamente, aparecerá un mensaje de error con más información. Asegúrate de que:</block>
@@ -9041,4 +9029,24 @@
   <block id="2c0d7cdf55bdb12e152430a4a5b9c7e5" category="paragraph">Mirroring asíncrono:</block>
   <block id="f6082ab3e1c76ce4a981259403dbffb2" category="paragraph">Mirroring síncrono:</block>
   <block id="bc7dec44af17b73eb800d426c3a75c9f" category="list-text"><block ref="bc7dec44af17b73eb800d426c3a75c9f" category="inline-link-macro-rx"></block></block>
+  <block id="27524250c330c0c3b3e4d14953ab61ba" category="doc">Desasignar repuestos activos en SANtricity System Manager</block>
+  <block id="1dccd080b45b2b04910a948d07c7b691" category="paragraph">Si aparecen líneas diagonales que atraviesan la bahía de unidad rosa, la hot spare está en uso y no se puede desasignar.</block>
+  <block id="1798807623fcce866a9a26e39cc25983" category="list-text">En la lista desplegable de la unidad, selecciona *Desasignar unidad de repuesto activa*.</block>
+  <block id="d75cabf18da2ea43ee48583d3c4351f6" category="paragraph">El cuadro de diálogo muestra los grupos de volúmenes afectados por la eliminación de este hot spare y si hay otros hot spares que los estén protegiendo.</block>
+  <block id="41e129c311d7b2db6c52c55e6a06f912" category="list-text">Confirma la operación de desasignación.</block>
+  <block id="6af64cf7bf2a797e2ca30f832f9b8256" category="list-text">Se importa un archivo de metadatos del proveedor de servicios para cada controlador en el sistema del IdP para la relación de confianza.</block>
+  <block id="21c2d9c70d8a857acfafd480965462ad" category="list-text">Haz clic en el enlace para ver la *correspondencia de funciones de System Manager*.</block>
+  <block id="d3bf66fdbd69be13e0cc32d25dfd2d74" category="list-text">Cuando hayas terminado con las asignaciones, haz clic en *Guardar*.</block>
+  <block id="ccfa5178f8d10de136780576964454ef" category="section-title">Paso 4: probar el inicio de sesión mediante SSO</block>
+  <block id="e7490a864567c4dc72b202b7c5d07bf4" category="list-text">Selecciona el enlace *Test SSO Login*.</block>
+  <block id="0d6ef07f934781e534b8cecf1fef40e3" category="paragraph">Aparece un cuadro de diálogo para introducir las credenciales de SSO.</block>
+  <block id="244ffa919f8d9a8630163bd8bd26ac19" category="list-text">Introduce las credenciales de inicio de sesión de un usuario que tenga tanto permisos de Security Admin como permisos de Monitor.</block>
+  <block id="d45110f5b0683532651fabbc7f37abe3" category="section-title">Novedades en la versión 11.90R6</block>
+  <block id="28761f84b87aaa50aba4cece137c1c2c" category="paragraph">Compatibilidad con la versión actualizada de firmware de IOM/DCM</block>
+  <block id="5da5b5a1379f61e80772e7790856b429" category="paragraph">Ya se admiten las nuevas versiones de firmware de IOM/DCM para los siguientes modelos de IOM/DCM:</block>
+  <block id="774c79e8635ac51d58e93d2e518c432a" category="list-text">IOM12A - v0412</block>
+  <block id="fbc1cde87a87977e12caf006b59004e5" category="list-text">IOM12B - v0212</block>
+  <block id="24c9cd56861c16e2290412c4fe4d5a8f" category="list-text">IOM12C - v0112</block>
+  <block id="818d5ca9647738ea76069fc99cf59499" category="list-text">IOM12G - v0212</block>
+  <block id="9133a8b23ddd677242ee6747a18b0e24" category="list-text">DCM3 - v01.12.09.02</block>
 </blocks>

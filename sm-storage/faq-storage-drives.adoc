@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-is-a-hot-spare-drive]]
 == ¿Qué es una unidad de repuesto en caliente?
 
 Los repuestos en caliente actúan como unidades de reserva en grupos de volúmenes RAID 1, RAID 5 o RAID 6. Son unidades totalmente funcionales que no contienen datos. Si falla una unidad en el grupo de volúmenes, la controladora reconstruye automáticamente los datos de la unidad con error en un repuesto en caliente.
@@ -31,6 +32,7 @@ Las unidades de reserva en caliente no son compatibles con los pools. En lugar d
 ====
 
 
+[[what-is-preservation-capacity]]
 == ¿Qué es la capacidad de conservación?
 
 La capacidad de conservación es la cantidad de capacidad (cantidad de unidades) que se reserva en un pool para admitir fallos de unidad potenciales.
@@ -41,6 +43,7 @@ Los pools utilizan la capacidad de conservación durante la reconstrucción, mie
 
 
 
+[[why-would-i-logically-replace-a-drive]]
 == ¿Por qué sustituiría lógicamente una unidad?
 
 Si una unidad falla o quieres reemplazarla por cualquier otro motivo, y tienes una unidad sin asignar en tu matriz de almacenamiento, puedes reemplazar lógicamente la unidad con error por la unidad sin asignar. Si no tienes una unidad sin asignar, puedes reemplazar físicamente la unidad.
@@ -49,6 +52,7 @@ Los datos de la unidad original se copian o se reconstruyen en la unidad de sust
 
 
 
+[[where-can-i-view-the-status-of-a-drive-undergoing-reconstruction]]
 == ¿Dónde puedo ver el estado de una unidad que está en reconstrucción?
 
 Puedes ver el estado de reconstrucción de la unidad desde el panel Operaciones en curso.

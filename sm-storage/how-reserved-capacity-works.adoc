@@ -17,6 +17,7 @@ El objetivo de la capacidad reservada es almacenar los cambios de datos en estos
 
 
 
+[[copy-service-objects-that-use-reserved-capacity]]
 == Objetos de servicio de copia que usan capacidad reservada
 
 La capacidad reservada es el mecanismo de almacenamiento subyacente utilizado por estos objetos de servicio de copia:
@@ -31,6 +32,7 @@ Al crear o ampliar estos objetos de servicio de copia, debes crear una nueva cap
 
 
 
+[[thin-volumes-and-reserved-capacity]]
 == Volúmenes thin y capacidad reservada
 
 Para un volumen delgado, si se ha alcanzado la capacidad máxima informada de 256 TiB, no puedes aumentar su capacidad. Asegúrate de que la capacidad reservada del volumen delgado esté configurada en un tamaño mayor que la capacidad máxima informada. (Un volumen delgado siempre está aprovisionado de forma delgada, lo que significa que la capacidad se asigna a medida que los datos se escriben en el volumen.)
@@ -43,6 +45,7 @@ Si creas capacidad reservada usando un volumen thin en un pool, revisa las sigui
 
 
 
+[[capacity-alerts]]
 == Alertas de capacidad
 
 El objeto de servicio de copia tiene un umbral de advertencia y alerta de capacidad configurable, así como una respuesta configurable cuando la capacidad reservada está llena.
@@ -51,6 +54,7 @@ Cuando la capacidad reservada de un volumen de objeto de copy service está cerc
 
 
 
+[[orphaned-reserved-capacity-volumes]]
 == Volúmenes de capacidad reservada huérfanos
 
 Un volumen de capacidad reservada huérfano es un volumen que ya no almacena datos para operaciones de servicio de copia porque su objeto de servicio de copia asociado fue eliminado. Cuando el objeto de servicio de copia fue eliminado, su volumen de capacidad reservada también debería haberse eliminado. Sin embargo, el volumen de capacidad reservada no se eliminó.
@@ -61,6 +65,7 @@ System Manager te avisa de los volúmenes de capacidad reservada huérfanos con 
 
 
 
+[[characteristics-of-reserved-capacity]]
 == Características de la capacidad reservada
 
 * La capacidad asignada a la capacidad reservada debe tenerse en cuenta durante la creación del volumen para conservar suficiente capacidad libre.

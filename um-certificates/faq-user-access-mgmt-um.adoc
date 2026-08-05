@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[why-cant-i-log-in]]
 == ¿Por qué no puedo iniciar sesión?
 
 Si recibes un error al intentar iniciar sesión, revisa estas posibles causas.
@@ -30,6 +31,7 @@ Los errores de inicio de sesión pueden ocurrir por uno de estos motivos:
 
 
 
+[[what-do-i-need-to-know-before-adding-a-directory-server]]
 == ¿Qué debo saber antes de añadir un servidor de directorio?
 
 Antes de añadir un servidor de directorio en Access Management, debes cumplir ciertos requisitos.
@@ -41,6 +43,7 @@ Antes de añadir un servidor de directorio en Access Management, debes cumplir c
 
 
 
+[[what-do-i-need-to-know-about-mapping-to-storage-array-roles]]
 == ¿Qué debo saber acerca de la asignación de roles de la cabina de almacenamiento?
 
 Antes de asignar grupos a funciones, revisa las directrices.
@@ -66,6 +69,7 @@ Si estás usando un servidor LDAP (Lightweight Directory Access Protocol) y Dire
 
 
 
+[[saml]]
 === SAML
 
 Si estás usando las capacidades de Security Assertion Markup Language (SAML) integradas en la matriz de almacenamiento, asegúrate de que:
@@ -83,12 +87,14 @@ Si estás usando las capacidades de Security Assertion Markup Language (SAML) in
 
 
 
+[[what-do-i-need-to-know-before-configuring-and-enabling-saml]]
 == ¿Qué debo saber antes de configurar y habilitar SAML?
 
 Antes de configurar y activar las capacidades de Security Assertion Markup Language (SAML) para la autenticación, asegúrate de cumplir con los siguientes requisitos y de entender las restricciones de SAML.
 
 
 
+[[requirements]]
 === Requisitos
 
 Antes de empezar, asegúrate de que:
@@ -103,6 +109,7 @@ Antes de empezar, asegúrate de que:
 
 
 
+[[restrictions]]
 === Restricciones
 
 Además de los requisitos anteriores, asegúrate de entender las siguientes restricciones:
@@ -124,6 +131,7 @@ Además de los requisitos anteriores, asegúrate de entender las siguientes rest
 
 
 
+[[what-are-the-local-users]]
 == ¿Cuáles son los usuarios locales?
 
 Los usuarios locales están predefinidos en el sistema e incluyen permisos específicos.

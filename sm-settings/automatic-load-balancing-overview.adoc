@@ -23,6 +23,7 @@ Cuando el Balanceo de Carga Automático está activado, realiza las siguientes f
 
 
 
+[[enabling-and-disabling-automatic-load-balancing]]
 == Habilitar y deshabilitar el equilibrio de carga automático
 
 La función Automatic Load Balancing está habilitada de forma predeterminada en todas las cabinas de almacenamiento.
@@ -35,6 +36,7 @@ Es posible que quieras desactivar el equilibrio de carga automático en tu matri
 
 
 
+[[host-types-that-support-the-automatic-load-balancing-feature]]
 == Tipos de host que admiten la función de equilibrio de carga automático
 
 Aunque el Balanceo de Carga Automático está habilitado a nivel de la matriz de almacenamiento, el tipo de host que elijas para un host o clúster de host influye directamente en cómo funciona la función.
@@ -82,6 +84,7 @@ Consulta la  https://mysupport.netapp.com/matrix["Herramienta de matriz de inter
 
 
 
+[[verifying-os-compatibility-with-the-automatic-load-balancing-feature]]
 == Verificando la compatibilidad del sistema operativo con la función de equilibrio de carga automático
 
 Verifica la compatibilidad del sistema operativo con la función de equilibrio de carga automático antes de configurar un sistema nuevo (o migrar uno existente).

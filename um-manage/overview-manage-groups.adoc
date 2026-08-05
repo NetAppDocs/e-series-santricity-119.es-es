@@ -15,6 +15,7 @@ En la página Gestionar grupos, puedes crear un conjunto de grupos de matrices d
 
 
 
+[[what-are-array-groups]]
 == ¿Qué son los grupos de matrices?
 
 Es posible gestionar la infraestructura física y virtualizada si se agrupa un conjunto de cabinas de almacenamiento. Las cabinas de almacenamiento pueden agruparse de modo que sea más sencillo ejecutar las tareas de supervisión o generación de informes.
@@ -27,6 +28,7 @@ Hay dos tipos de grupos:
 
 
 
+[[how-do-i-configure-groups]]
 == ¿Cómo configuro los grupos?
 
 Desde la página Manage Groups, puedes crear un grupo y luego añadir arrays a ese grupo.

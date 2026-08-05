@@ -29,6 +29,7 @@ El proceso de las alertas funciona de la siguiente manera:
 
 
 
+[[alerts-configuration]]
 == Configuración de alertas
 
 Puedes configurar las alertas desde el asistente de configuración inicial (solo para alertas por correo electrónico) o desde la página de Alertas. Para comprobar la configuración actual, ve al menú:Settings[Alerts].
@@ -41,6 +42,7 @@ El icono Alertas muestra la configuración de las alertas, que puede ser una de 
 
 
 
+[[alerts-information]]
 == Información sobre alertas
 
 Las alertas pueden incluir los siguientes tipos de información:

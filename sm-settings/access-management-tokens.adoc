@@ -15,6 +15,7 @@ Los tokens de acceso proporcionan un método de autenticación con la API de RES
 
 
 
+[[saml-and-json-web-token-access]]
 == SAML y acceso con JSON web token
 
 Por defecto, un sistema con SAML activado no permite el acceso a las herramientas de línea de comandos tradicionales. La API de REST y la CLI se vuelven inoperativas porque el flujo de trabajo de MFA requiere una redirección a un servidor de Identity Provider para la autenticación. Por lo tanto, debes generar tokens en System Manager, lo que exige que un usuario se autentique mediante MFA.
@@ -24,6 +25,7 @@ NOTE: No es necesario tener SAML habilitado para usar tokens web, pero se recomi
 
 
 
+[[workflow-for-creating-and-using-tokens]]
 == Flujo de trabajo para crear y usar tokens
 
 . Crea un token en System Manager y determina su caducidad.

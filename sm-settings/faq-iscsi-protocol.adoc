@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-happens-when-i-use-an-isns-server-for-registration]]
 == ¿Qué pasa cuando uso un servidor iSNS para el registro?
 
 Cuando se utiliza la información del servidor Internet Storage Name Service (iSNS), los hosts (iniciadores) pueden configurarse para consultar el servidor iSNS y recuperar información del target (controladores).
@@ -24,6 +25,7 @@ Este registro proporciona al servidor iSNS el nombre cualificado iSCSI (IQN) del
 
 
 
+[[which-registration-methods-are-automatically-supported-for-iscsi]]
 == ¿Qué métodos de registro son compatibles automáticamente para iSCSI?
 
 La implementación iSCSI admite el método de descubrimiento de Internet Storage Name Service (iSNS) o el uso del comando Send Targets.
@@ -34,6 +36,7 @@ Si no configuras iSNS, el host iSCSI puede enviar el comando Send Targets durant
 
 
 
+[[how-do-i-interpret-iser-over-infiniband-statistics]]
 == ¿Cómo interpreto las estadísticas de iSER sobre InfiniBand?
 
 El cuadro de diálogo Ver iSER sobre InfiniBand estadísticas muestra las estadísticas del destino local (protocolo) y las estadísticas de la interfaz iSER sobre InfiniBand (IB). Todas las estadísticas son de solo lectura y no se pueden configurar.
@@ -46,6 +49,7 @@ Puedes ver cada una de estas estadísticas como estadísticas sin procesar o com
 
 
 
+[[what-else-do-i-need-to-do-to-configure-or-diagnose-iser-over-infiniband]]
 == ¿Qué más debo hacer para configurar o diagnosticar iSER over InfiniBand?
 
 La siguiente tabla enumera las funciones de SANtricity System Manager que puedes usar para configurar y gestionar iSER sobre sesiones de InfiniBand.
@@ -87,6 +91,7 @@ Ver estadísticas de iSER over InfiniBand
 |===
 
 
+[[what-else-do-i-need-to-do-to-configure-or-diagnose-iscsi]]
 == ¿Qué más debo hacer para configurar o diagnosticar un iSCSI?
 
 Las sesiones iSCSI pueden producirse con hosts o matrices de almacenamiento remotas en una relación de réplica asíncrona. Las siguientes tablas enumeran las funciones de SANtricity System Manager que puedes usar para configurar y gestionar estas sesiones iSCSI.
@@ -98,6 +103,7 @@ La configuración de iSCSI solo está disponible si tu matriz de almacenamiento 
 ====
 
 
+[[configure-iscsi]]
 === Configura iSCSI
 
 [cols="1a,1a"]
@@ -142,6 +148,7 @@ o
 |===
 
 
+[[diagnose-iscsi]]
 === Diagnosticar iSCSI
 
 [cols="1a,1a"]

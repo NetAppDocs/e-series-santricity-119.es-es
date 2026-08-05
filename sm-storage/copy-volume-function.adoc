@@ -17,6 +17,7 @@ Esta función realiza una copia byte por byte del volumen de origen al volumen d
 
 
 
+[[data-copying-for-greater-access]]
 == Copia de datos para un mayor acceso
 
 A medida que cambian tus requisitos de almacenamiento para un volumen, puedes usar la función Copy Volume para copiar datos de pools o grupos de volúmenes que usan unidades de menor capacidad a pools o grupos de volúmenes que usan unidades de mayor capacidad. Por ejemplo, puedes usar la función Copy Volume para hacer lo siguiente:
@@ -37,6 +38,7 @@ Los tamaños de bloques de volúmenes reportados son:
 
 
 
+[[change-a-thin-volume-to-a-thick-volume]]
 == Cambiar un volumen fino a un volumen grueso
 
 Si quieres cambiar un volumen delgado a un volumen grueso, usa la operación Copy Volume para crear una copia del volumen delgado. El destino de una operación Copy Volume es siempre un volumen grueso.
@@ -48,18 +50,21 @@ System Manager no proporciona una opción para crear volúmenes delgados. Si qui
 ====
 
 
+[[backup-data]]
 == Copia de seguridad de datos
 
 La función Copiar Volumen te permite hacer una copia de seguridad de un volumen copiando datos de un volumen a otro volumen en la misma matriz de almacenamiento. Puedes usar el volumen de destino como respaldo del volumen de origen, para pruebas del sistema o para hacer una copia de seguridad en otro dispositivo, como una unidad de cinta.
 
 
 
+[[restore-snapshot-volume-data-to-the-base-volume]]
 == Restaura los datos del volumen de instantáneas al volumen base
 
 Si necesitas restaurar datos al volumen base desde su volumen de instantánea asociado, puedes usar la función Copy Volume para copiar datos del volumen de instantánea al volumen base. Puedes crear una copia de volumen de los datos del volumen de instantánea y luego copiar los datos al volumen base.
 
 
 
+[[source-and-target-volumes]]
 == Volúmenes de origen y destino
 
 La siguiente tabla especifica los tipos de volúmenes que se pueden usar como volúmenes de origen y destino con la función Copy Volume.

@@ -24,6 +24,7 @@ Este tipo de mirroring es ideal para satisfacer la demanda de operaciones ininte
 
 
 
+[[asynchronous-mirroring-session]]
 == Sesión de mirroring asíncrono
 
 La replicación asíncrona captura el estado del volumen primario en un momento específico y copia solo los datos que han cambiado desde la última captura de imagen. La replicación asíncrona permite que el sitio primario se actualice inmediatamente y que el sitio secundario se actualice a medida que lo permita el ancho de banda. La información se almacena en caché y se envía más tarde, a medida que los recursos de red están disponibles.
@@ -46,6 +47,7 @@ Las matrices de almacenamiento deben tener una versión de firmware mínima de 7
 
 
 
+[[mirror-consistency-groups-and-mirrored-pairs]]
 == Grupos de consistencia de espejo y pares reflejados
 
 Creas un grupo de coherencia de espejo para establecer la relación de reflejo entre la matriz de almacenamiento local y la matriz de almacenamiento remota. La relación de reflejo asíncrona consiste en un par reflejado: un volumen primario en una matriz de almacenamiento y un volumen secundario en otra matriz de almacenamiento.
@@ -54,6 +56,7 @@ La matriz de almacenamiento que contiene el volumen primario suele estar ubicada
 
 
 
+[[synchronization-settings]]
 == Ajustes de sincronización
 
 Cuando creas un par reflejado, también defines la prioridad de sincronización y la política de resincronización que el par reflejado usa para completar la operación de resincronización después de una interrupción de la comunicación.
@@ -72,6 +75,7 @@ Puedes sincronizar los datos en la matriz de almacenamiento remota de forma manu
 
 
 
+[[reserved-capacity-and-asynchronous-mirroring]]
 == Capacidad reservada y mirroring asíncrono
 
 La capacidad reservada se utiliza para llevar un registro de las diferencias entre el volumen primario y el volumen secundario cuando no se está realizando la sincronización. También lleva un registro de las estadísticas de sincronización para cada par reflejado.
@@ -80,6 +84,7 @@ Cada volumen en un par reflejado requiere su propia capacidad reservada.
 
 
 
+[[configuration-and-management]]
 == Configuración y gestión
 
 Para habilitar y configurar el mirroring entre dos arrays, debes usar la interfaz de Unified Manager. Una vez que el mirroring está habilitado, puedes gestionar los pares reflejados y la configuración de sincronización en System Manager.

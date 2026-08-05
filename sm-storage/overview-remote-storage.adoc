@@ -16,6 +16,7 @@ Si tienes la función de Remote Storage, puedes importar datos de un sistema rem
 
 
 
+[[what-is-the-remote-storage-feature]]
 == ¿Qué es la función de almacenamiento remoto?
 
 La función _Remote Storage_ te permite importar datos desde un sistema de almacenamiento remota a un sistema de almacenamiento E-Series local. El sistema remota puede ser otro sistema E-Series o un sistema de otro proveedor. Esta función es útil cuando quieres agilizar la migración de datos con un tiempo de inactividad mínimo, como durante actualizaciones de equipos.
@@ -33,6 +34,7 @@ Más información:
 
 
 
+[[how-do-i-import-data-with-this-feature]]
 == ¿Cómo importo datos con esta función?
 
 Mediante el asistente de Remote Storage, puedes asignar un dispositivo de almacenamiento remoto (el origen de la importación de datos) a un volumen de destino en el sistema E-Series. Este asistente está disponible en menu:Storage[Remote storage].

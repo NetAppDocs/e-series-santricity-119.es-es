@@ -16,6 +16,7 @@ La función Snapshot te permite crear imágenes de un momento específico de vol
 
 
 
+[[what-are-snapshot-images]]
 == ¿Qué son las imágenes instantáneas?
 
 Una _imagen de instantánea_ es una copia lógica de los datos de un volumen, capturada en un momento específico. Al igual que un punto de restauración, las imágenes de instantánea te permiten volver a un conjunto de datos en buen estado. Aunque el host puede acceder a la imagen de instantánea, no puede leer ni escribir directamente en ella.
@@ -31,6 +32,7 @@ Más información:
 
 
 
+[[how-do-i-create-snapshots]]
 == ¿Cómo creo instantáneas?
 
 Puedes crear manualmente una imagen de instantánea a partir de un volumen base o un grupo de coherencia de instantáneas. Este procedimiento está disponible desde menú:Storage[Snapshots].
@@ -47,6 +49,7 @@ Más información:
 
 
 
+[[how-do-i-roll-back-data-from-a-snapshot]]
 == ¿Cómo puedo revertir datos desde una instantánea?
 
 Un _rollback_ es el proceso de devolver los datos de un volumen base a un punto anterior en el tiempo. Puedes hacer un rollback de los datos de una instantánea desde menú:Storage[Snapshots].
@@ -60,6 +63,7 @@ Más información:
 
 
 
+[[related-information]]
 == Información relacionada
 
 Obtén más información sobre las tareas relacionadas con las instantáneas:

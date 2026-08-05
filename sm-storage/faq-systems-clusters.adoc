@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-are-hosts-and-host-clusters]]
 == ¿Qué son los hosts y los clústeres de hosts?
 
 Un host es un servidor que envía E/S a un volumen en una matriz de almacenamiento. Un clúster de hosts es un grupo de hosts. Creas un clúster de hosts para que sea fácil asignar los mismos volúmenes a varios hosts.
@@ -26,12 +27,14 @@ El clúster de hosts es una entidad lógica que tú creas en SANtricity System M
 
 
 
+[[why-would-i-need-to-create-a-host-cluster]]
 == ¿Por qué necesitaría crear un clúster de hosts?
 
 Necesitas crear un clúster de hosts si quieres que dos o más hosts compartan acceso al mismo conjunto de volúmenes. Normalmente, los hosts individuales tienen software de clustering instalado para coordinar el acceso a los volúmenes.
 
 
 
+[[how-do-i-know-which-host-operating-system-type-is-correct]]
 == ¿Cómo saber cuál es el tipo de sistema operativo de host correcto?
 
 El campo Tipo de sistema operativo del host contiene el sistema operativo del host. Puedes seleccionar el tipo de host recomendado en la lista desplegable.
@@ -135,6 +138,7 @@ Si su tipo de sistema operativo del host está configurado con este valor, use l
 |===
 
 
+[[what-are-hbas-and-adapter-ports]]
 == ¿Qué son los HBA y los puertos de adaptador?
 
 Un host bus adapter (HBA) es una tarjeta que reside en un host y contiene uno o más puertos host. Un puerto host es un puerto en un host bus adapter (HBA) que proporciona la conexión física a un controlador y se utiliza para operaciones de E/S.
@@ -143,6 +147,7 @@ Los puertos del adaptador en el HBA se llaman puertos de host. La mayoría de lo
 
 
 
+[[how-do-i-match-the-host-ports-to-a-host]]
 == ¿Cómo se emparejan los puertos de host con un host?
 
 Si se crea manualmente un host, en primer lugar debe usarse la utilidad de adaptador de bus de host (HBA) adecuada disponible en el host para determinar los identificadores de puerto de host asociados con cada HBA instalada en el host.
@@ -156,6 +161,7 @@ Asegúrese de seleccionar los identificadores de puerto de host adecuados para e
 ====
 
 
+[[how-do-i-create-chap-secrets]]
 == ¿Cómo creo los secretos CHAP?
 
 Si configuras el protocolo de autenticación Challenge Handshake (CHAP) en cualquier host iSCSI conectado a la matriz de almacenamiento, tienes que volver a ingresar ese secreto CHAP del iniciador para cada host iSCSI.
@@ -166,6 +172,7 @@ Si estás usando la autenticación mutua CHAP, también debes definir un secreto
 
 
 
+[[what-is-the-default-cluster]]
 == ¿Qué es el clúster predeterminado?
 
 El clúster predeterminado es una entidad definida por el sistema que permite que cualquier identificador de puerto de host no asociado que haya iniciado sesión en la matriz de almacenamiento acceda a los volúmenes asignados al clúster predeterminado. Un identificador de puerto de host no asociado es un puerto de host que no está asociado lógicamente a un host en particular, pero que está instalado físicamente en un host y ha iniciado sesión en la matriz de almacenamiento.
@@ -181,6 +188,7 @@ Inicialmente, solo puedes asignar volúmenes al clúster predeterminado a travé
 
 
 
+[[what-is-host-connectivity-reporting]]
 == ¿Qué es el informe de conectividad de host?
 
 Cuando los informes de conectividad de host están activados, la matriz de almacenamiento supervisa continuamente la conexión entre los controladores y los hosts configurados, y luego te avisa si la conexión se interrumpe.

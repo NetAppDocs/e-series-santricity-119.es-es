@@ -36,6 +36,7 @@ Es posible tener pools o grupos de volúmenes en el mismo sistema de almacenamie
 
 
 
+[[pools]]
 == Pools
 
 Los pools están diseñados para agregar discos duros físicos en un gran espacio de almacenamiento y proporcionar una protección RAID mejorada para él. Un pool crea muchos conjuntos RAID virtuales a partir del número total de discos asignados al pool y distribuye los datos de manera uniforme entre todos los discos participantes. Si se pierde o se añade un disco, System Manager reequilibra dinámicamente los datos entre todos los discos activos.
@@ -44,12 +45,14 @@ Los pools funcionan como otro nivel RAID, virtualizando la arquitectura RAID sub
 
 
 
+[[drive-matching]]
 === Emparejamiento de unidades
 
 Es posible seleccionar HDD o SSD para usar en pools; sin embargo, como sucede con los grupos de volúmenes, todas las unidades del pool deben usar la misma tecnología. Los controladores seleccionan automáticamente las unidades que deben incluirse; por lo tanto, debe asegurarse de contar con la cantidad suficiente de unidades para la tecnología seleccionada.
 
 
 
+[[managing-failed-drives]]
 === Gestión de unidades con error
 
 Los pools tienen una capacidad mínima de 11 unidades; sin embargo, se reserva la capacidad de una unidad como capacidad de reserva en caso de un fallo de unidad. Esta capacidad de reserva se llama "preservation capacity".
@@ -60,6 +63,7 @@ Después de crear el pool, puedes cambiar el valor de la capacidad de preservaci
 
 
 
+[[volume-groups]]
 == Grupos de volúmenes
 
 Los grupos de volúmenes definen de qué forma se asigna la capacidad a los volúmenes en el sistema de almacenamiento. Las unidades de disco se organizan en grupos y volúmenes RAID entre las unidades en un grupo RAID. Por lo tanto, las opciones de configuración de grupos de volúmenes identifican qué unidades forman parte del grupo y qué nivel de RAID se utiliza.
@@ -68,6 +72,7 @@ Cuando se crea un grupo de volúmenes, las controladoras seleccionan automática
 
 
 
+[[drive-matching]]
 === Emparejamiento de unidades
 
 Debe emparejar las unidades del grupo de volúmenes según el tamaño y el rendimiento. Si existen unidades pequeñas y grandes en el grupo de volúmenes, se reconocen todas las unidades con el tamaño de capacidad menor. Si existen unidades lentas y rápidas en el grupo de volúmenes, se reconocen todas las unidades con la velocidad menor. Estos factores afectan al rendimiento y a la capacidad general del sistema de almacenamiento.
@@ -76,6 +81,7 @@ No se pueden mezclar diferentes tecnologías (unidades HDD y SSD). RAID 3, 5 y 6
 
 
 
+[[managing-failed-drives]]
 === Gestión de unidades con error
 
 Los grupos de volúmenes utilizan unidades de repuesto como reserva en caso de fallos en los volúmenes RAID 1/10, RAID 3, RAID 5 o RAID 6 incluidos en un grupo de volúmenes. Una unidad de repuesto no contiene datos y añade otro nivel de redundancia a una cabina de almacenamiento.

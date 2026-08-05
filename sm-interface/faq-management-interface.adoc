@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-are-the-supported-browsers]]
 == ¿Qué exploradores son compatibles?
 
 SANtricity System Manager es compatible con estas versiones de navegador.
@@ -54,12 +55,14 @@ Microsoft Edge
 |===
 
 
+[[what-are-the-keyboard-shortcuts]]
 == ¿Cuáles son los atajos de teclado?
 
 Puedes navegar por SANtricity System Manager solo con el teclado.
 
 
 
+[[overall-navigation]]
 === Navegación general
 
 [cols="1a,1a"]
@@ -117,6 +120,7 @@ Introduce
 |===
 
 
+[[table-navigation]]
 === Navegación de la tabla
 
 [cols="1a,1a"]
@@ -146,6 +150,7 @@ Tab para seleccionar un encabezado de columna, luego presiona Enter
 |===
 
 
+[[calendar-navigation]]
 === Navegación por el calendario
 
 [cols="1a,1a"]
@@ -245,6 +250,7 @@ Escape
 |===
 
 
+[[how-do-performance-statistics-for-individual-volumes-relate-to-the-total]]
 == ¿Cómo se relacionan las estadísticas de rendimiento de los volúmenes individuales con el total?
 
 Las estadísticas de pools y grupos de volúmenes se calculan agregando todos los volúmenes, incluidos los volúmenes de capacidad reservada.
@@ -255,6 +261,7 @@ Sin embargo, para las estadísticas de aplicaciones y cargas de trabajo, solo se
 
 
 
+[[why-does-data-display-as-zero-in-the-graphs-and-table]]
 == ¿Por qué los datos aparecen como cero en los gráficos y la tabla?
 
 Cuando se muestra un cero para un punto de datos en los gráficos y la tabla, significa que no hay actividad de I/O para el objeto en ese momento. Esta situación podría ocurrir porque el host no está iniciando I/O a ese objeto, o podría ser un problema con el objeto en sí.
@@ -315,6 +322,7 @@ Matriz de almacenamiento
 |===
 
 
+[[what-does-the-latency-graph-show]]
 == ¿Qué muestra el gráfico de latencia?
 
 El gráfico de latencia proporciona estadísticas de latencia, en milisegundos (ms), para volúmenes, grupos de volúmenes, pools, aplicaciones y cargas de trabajo. Este gráfico aparece en las pestañas Logical View, Physical View y Applications & Workloads View.
@@ -328,6 +336,7 @@ La latencia se refiere a cualquier retraso que ocurre al leer o escribir datos. 
 
 
 
+[[what-does-the-iops-graph-show]]
 == ¿Qué muestra el gráfico de IOPS?
 
 El gráfico IOPS muestra estadísticas de operaciones de entrada/salida por segundo. En la página de inicio, este gráfico muestra estadísticas de la storage array. En las pestañas Logical View, Physical View y Applications & Workloads View del mosaico Performance, este gráfico muestra estadísticas de la storage array, volúmenes, grupos de volúmenes, pools, aplicaciones y cargas de trabajo.
@@ -341,6 +350,7 @@ IOPS es la abreviatura de _operaciones de entrada/salida (I/O) por segundo_. Pas
 
 
 
+[[what-does-the-mibs-graph-show]]
 == ¿Qué muestra el gráfico de MiB/s?
 
 El gráfico MiB/s muestra estadísticas de velocidad de transferencia en mebibytes por segundo. En la página de inicio, este gráfico muestra estadísticas para la matriz de almacenamiento. En las pestañas Vista lógica, Vista física y Vista de aplicaciones y cargas de trabajo del mosaico Rendimiento, este gráfico muestra estadísticas para la matriz de almacenamiento, los volúmenes, los grupos de volúmenes, los pools, las aplicaciones y las cargas de trabajo.
@@ -354,6 +364,7 @@ MiB/s es la abreviatura de _mebibytes por segundo_, o 1,048,576 bytes por segund
 
 
 
+[[what-does-the-cpu-graph-show]]
 == ¿Qué muestra el gráfico de la CPU?
 
 El gráfico de CPU muestra estadísticas de capacidad de procesamiento para cada controlador (controlador A y controlador B). CPU es una abreviatura de _central processing unit_. En la página de inicio, este gráfico muestra estadísticas para la matriz de almacenamiento. En la pestaña vista física del mosaico de rendimiento, este gráfico muestra estadísticas para la matriz de almacenamiento y las unidades.
@@ -362,6 +373,7 @@ El gráfico de la CPU muestra el porcentaje de capacidad de procesamiento de la 
 
 
 
+[[what-does-the-headroom-graph-show]]
 == ¿Qué muestra el gráfico Headroom?
 
 El gráfico Headroom está relacionado con la capacidad de rendimiento restante de los controladores de la matriz de almacenamiento. Este gráfico es visible en la página de inicio y en la pestaña Physical View del mosaico Performance.
@@ -370,6 +382,7 @@ El gráfico Headroom muestra la capacidad de rendimiento restante de los objetos
 
 
 
+[[where-can-i-find-more-information-about-display-preferences]]
 == ¿Dónde puedo encontrar más información sobre las preferencias de visualización?
 
 Para encontrar información sobre las opciones de visualización disponibles:

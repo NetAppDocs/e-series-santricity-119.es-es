@@ -52,6 +52,7 @@ Durante el inicio de sesión, el sistema realiza las siguientes tareas en segund
 
 
 
+[[tasks-available-in-system-manager]]
 == Tareas disponibles en System Manager
 
 El acceso a las tareas depende de los roles asignados a un usuario, que incluyen lo siguiente:
@@ -66,6 +67,7 @@ Una tarea no disponible aparece en gris o no se muestra en la interfaz de usuari
 
 
 
+[[limitations-in-unified-manager-and-storage-manager]]
 == Limitaciones en Unified Manager y Storage Manager
 
 Si SAML está configurado para una matriz de almacenamiento, los usuarios no pueden descubrir ni gestionar el almacenamiento de esa matriz desde Unified Manager o las interfaces heredadas de Storage Manager.

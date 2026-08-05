@@ -23,6 +23,7 @@ El proceso para crear un grupo de consistencia de instantáneas es un procedimie
 
 
 
+[[step-1-add-members-to-snapshot-consistency-group]]
 == Paso 1: agrega miembros al grupo de consistencia de snapshots
 
 Selecciona miembros para especificar una colección de volúmenes que forman el grupo de coherencia de instantáneas. Cualquier acción que realices en el grupo de coherencia de instantáneas se extiende de manera uniforme a los volúmenes miembros seleccionados.
@@ -43,6 +44,7 @@ Aparece el cuadro de diálogo Create Snapshot Consistency Group.
 
 
 
+[[step-2-reserve-capacity-for-snapshot-consistency-group]]
 == Paso 2: reservar capacidad para el grupo de coherencia de instantáneas
 
 Asocia la capacidad reservada al grupo de coherencia de instantáneas. System Manager sugiere los volúmenes y la capacidad según las propiedades del grupo de coherencia de instantáneas. Puedes aceptar la configuración de capacidad reservada recomendada o personalizar el almacenamiento asignado.
@@ -74,6 +76,7 @@ Asigna la capacidad reservada usando las siguientes pautas.
 
 
 
+[[step-3-edit-settings-for-snapshot-consistency-group]]
 == Paso 3: edita la configuración del grupo de coherencia de instantáneas
 
 Acepta o elige la configuración de eliminación automática y los umbrales de alerta de capacidad reservada para el grupo de consistencia de snapshots.

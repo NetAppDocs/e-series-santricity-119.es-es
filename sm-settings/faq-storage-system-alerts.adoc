@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-if-alerts-are-disabled]]
 == ¿Qué pasa si las alertas están desactivadas?
 
 Si quieres que los administradores reciban notificaciones sobre eventos importantes que ocurran en la matriz de almacenamiento, debes configurar un método de alerta.
@@ -24,6 +25,7 @@ Para las matrices de almacenamiento gestionadas con SANtricity System Manager, c
 
 
 
+[[how-do-i-configure-snmp-or-syslog-alerts]]
 == ¿Cómo configuro alertas SNMP o syslog?
 
 Además de las alertas por correo electrónico, puedes configurar alertas para que se envíen mediante trampas de Simple Network Management Protocol (SNMP) o por mensajes de syslog.
@@ -32,6 +34,7 @@ Para configurar las alertas SNMP o syslog, ve al menú:Settings[Alerts].
 
 
 
+[[why-are-timestamps-inconsistent-between-the-array-and-alerts]]
 == ¿Por qué las marcas de tiempo son incoherentes entre la array y las alertas?
 
 Cuando la matriz de almacenamiento envía alertas, no corrige la zona horaria del servidor o host de destino que recibe las alertas. En lugar de eso, la matriz de almacenamiento usa la hora local (GMT) para crear la marca de tiempo que se utiliza para el registro de la alerta. Como resultado, podrías ver incoherencias entre las marcas de tiempo de la matriz de almacenamiento y el servidor o host que recibe una alerta.

@@ -24,12 +24,14 @@ Este tipo de mirroring es ideal para fines de continuidad de negocio, como la re
 
 
 
+[[synchronous-mirroring-relationship]]
 == Relación de mirroring síncrono
 
 Una relación de mirroring síncrono consiste en un volumen primario y un volumen secundario en matrices de almacenamiento separadas. La matriz de almacenamiento que contiene el volumen primario suele estar ubicada en el sitio primario y sirve a los hosts activos. La matriz de almacenamiento que contiene el volumen secundario suele estar ubicada en un sitio secundario y contiene una réplica de los datos. El volumen secundario se usa si la matriz de almacenamiento del volumen primario no está disponible por, por ejemplo, un corte total de energía, un incendio o una falla de hardware en el sitio primario.
 
 
 
+[[synchronous-mirroring-session]]
 == Sesión de mirroring síncrono
 
 El proceso de configuración de la duplicación sincrónica implica configurar volúmenes en pares. Después de crear un par reflejado, que consiste en un volumen primario en una storage array y un volumen secundario en otra storage array, puedes empezar la duplicación sincrónica. Los pasos de la duplicación sincrónica se muestran a continuación.
@@ -49,6 +51,7 @@ Dado que la aplicación host debe esperar a que se produzca la escritura en la m
 
 
 
+[[disaster-recovery]]
 == Recuperación ante desastres
 
 La replicación sincrónica mantiene una copia de los datos que está físicamente alejada del sitio donde residen. Si ocurre un desastre en el sitio primario, como un corte de electricidad o una inundación, se puede acceder rápidamente a los datos desde el sitio secundario.
@@ -57,6 +60,7 @@ El volumen secundario no está disponible para las aplicaciones host mientras la
 
 
 
+[[synchronization-settings]]
 == Ajustes de sincronización
 
 Cuando creas un par reflejado, también defines la prioridad de sincronización y la política de resincronización que el par reflejado usa para completar la operación de resincronización después de una interrupción de la comunicación.
@@ -69,6 +73,7 @@ Puedes editar la configuración de sincronización para un par reflejado solo en
 
 
 
+[[unsynchronized-data]]
 == Datos no sincronizados
 
 Los volúmenes primario y secundario se desincronizan cuando la matriz de almacenamiento del volumen primario no puede escribir datos en el volumen secundario. Esto puede deberse a los siguientes problemas:
@@ -80,6 +85,7 @@ Los volúmenes primario y secundario se desincronizan cuando la matriz de almace
 
 
 
+[[orphaned-mirrored-pair]]
 == Par reflejado huérfano
 
 Existe un volumen de par reflejado huérfano cuando se ha eliminado un volumen miembro en un lado (ya sea el lado primario o el lado secundario) pero no en el otro lado.
@@ -90,6 +96,7 @@ Puedes eliminar un par reflejado para corregir un estado de par reflejado huérf
 
 
 
+[[configuration-and-management]]
 == Configuración y gestión
 
 Para habilitar y configurar el mirroring entre dos arrays, debes usar la interfaz de Unified Manager. Una vez que el mirroring está habilitado, puedes gestionar los pares reflejados y la configuración de sincronización en System Manager.

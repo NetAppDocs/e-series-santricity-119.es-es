@@ -15,6 +15,7 @@ La página Hardware ofrece una descripción gráfica de los componentes físicos
 
 
 
+[[shelves]]
 == Bandejas
 
 Una bandeja es un componente que contiene el hardware de la cabina de almacenamiento (controladoras, contenedor de alimentación/ventilador y unidades). Existen dos clases de bandejas:
@@ -41,6 +42,7 @@ Es posible ejecutar las siguientes funciones relacionadas con las bandejas:
 
 
 
+[[controllers]]
 == Controladoras
 
 Un controlador es la combinación de hardware y firmware que implementa las funciones de matriz de almacenamiento y gestión. Incluye la memoria caché, el soporte de la unidad y el soporte de la interfaz del host.
@@ -57,6 +59,7 @@ Es posible ejecutar las siguientes funciones relacionadas con las controladoras:
 
 
 
+[[drives]]
 == Unidades
 
 La cabina de almacenamiento puede incluir unidades de disco duro (HDD) o unidades de estado sólido (SSD). Según el tamaño de la bandeja, puede instalarse un máximo de 12, 24 o 60 unidades en la bandeja.

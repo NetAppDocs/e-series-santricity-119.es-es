@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[why-does-the-cannot-access-other-controller-dialog-box-appear]]
 == ¿Por qué aparece el cuadro de diálogo Cannot Access Other Controller?
 
 Cuando realizas ciertas operaciones relacionadas con los certificados CA (por ejemplo, importar un certificado), puede que veas un cuadro de diálogo que te pide aceptar un certificado autofirmado para el segundo controlador.
@@ -32,6 +33,7 @@ Si este cuadro de diálogo vuelve a aparecer y no puedes completar una tarea de 
 
 
 
+[[how-do-i-know-what-certificates-need-to-be-uploaded-to-santricity-system-manager-for-external-key-management]]
 == ¿Cómo sé qué certificados deben cargarse en SANtricity System Manager para la administración de claves externas?
 
 Para la gestión externa de claves, importas dos tipos de certificados para la autenticación entre la matriz de almacenamiento y el servidor de gestión de claves, así ambas entidades pueden confiar entre sí.
@@ -46,6 +48,7 @@ Un certificado de servidor de gestión de claves valida el servidor de gestión 
 
 
 
+[[what-do-i-need-to-know-about-certificate-revocation-checking]]
 == ¿Qué debo saber sobre la comprobación de revocación de certificados?
 
 SANtricity System Manager te permite comprobar si hay certificados revocados usando un servidor de Online Certificate Status Protocol (OCSP), en vez de cargar Certificate Revocation Lists (CRLs).
@@ -61,6 +64,7 @@ Especificar una dirección de respondedor OCSP en System Manager o en la línea 
 ====
 
 
+[[what-types-of-servers-will-revocation-checking-be-enabled-for]]
 == ¿Para qué tipos de servidores se habilitará la comprobación de revocación?
 
 La matriz de almacenamiento realiza una comprobación de revocación siempre que se conecta a un servidor AutoSupport, un servidor External Key Management Server (EKMS), un servidor Lightweight Directory Access Protocol over SSL (LDAPS) o un servidor Syslog.

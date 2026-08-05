@@ -15,6 +15,7 @@ La función de caché SSD es una solución basada en controladores que almacena 
 
 
 
+[[ssd-cache-versus-primary-cache]]
 == Caché SSD versus caché primaria
 
 La caché SSD es una caché secundaria que se usa junto con la caché primaria en la memoria de acceso aleatorio dinámica (DRAM) del controlador.
@@ -35,6 +36,7 @@ Los volúmenes RAID internos se utilizan para fines de procesamiento de caché i
 
 
 
+[[how-ssd-cache-is-used]]
 == Cómo se utiliza la caché SSD
 
 El almacenamiento en caché inteligente coloca los datos en una unidad de baja latencia para que las respuestas a futuras solicitudes de esos datos puedan ocurrir mucho más rápido. Si un programa solicita datos que están en la caché (llamado un "`cache hit`"), entonces la unidad de baja latencia puede atender esa transacción. De lo contrario, ocurre un "`cache miss`" y se debe acceder a los datos desde la unidad original, más lenta. A medida que ocurren más cache hits, el rendimiento general mejora.
@@ -52,6 +54,7 @@ Cuando la CPU necesita procesar datos de lectura, sigue estos pasos:
 
 
 
+[[improved-performance]]
 == Mejor rendimiento
 
 Copiar los datos a los que más se accede (hot spot) a la caché SSD permite un funcionamiento más eficiente del disco duro, reduce la latencia y acelera las velocidades de lectura y escritura. Usar SSDs de alto rendimiento para almacenar en caché datos de volúmenes HDD mejora el rendimiento de I/O y los tiempos de respuesta.
@@ -60,12 +63,14 @@ Se utilizan mecanismos sencillos de I/O de volumen para mover datos hacia y desd
 
 
 
+[[ssd-cache-and-the-drive-security-feature]]
 == Caché SSD y la función Drive Security
 
 Para usar la caché SSD en un volumen que también utiliza Drive Security (está habilitado para seguridad), las capacidades de Drive Security del volumen y de la caché SSD deben coincidir. Si no coinciden, el volumen no estará habilitado para seguridad.
 
 
 
+[[implement-ssd-cache]]
 == Implementar caché SSD
 
 Para implementar la caché SSD, haga lo siguiente:

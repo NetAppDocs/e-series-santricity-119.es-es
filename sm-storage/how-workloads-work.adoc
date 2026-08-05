@@ -19,6 +19,7 @@ Durante la creación de volúmenes, el sistema te pide que respondas preguntas s
 
 
 
+[[types-of-workloads]]
 == Tipos de cargas de trabajo
 
 Puedes crear dos tipos de cargas de trabajo: específicas de la aplicación y otras.
@@ -39,6 +40,7 @@ Puedes revisar la configuración de volúmenes recomendada y editar, añadir o e
 
 
 
+[[application-and-workload-views]]
 == Vistas de aplicaciones y cargas de trabajo
 
 Para ver las aplicaciones y las cargas de trabajo, lanza SANtricity System Manager. Desde esa interfaz, puedes ver información asociada con una carga de trabajo específica de una aplicación de un par de maneras diferentes:

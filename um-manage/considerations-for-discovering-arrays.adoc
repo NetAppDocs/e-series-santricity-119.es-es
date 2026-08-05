@@ -15,12 +15,14 @@ Antes de que SANtricity Unified Manager pueda mostrar y gestionar los recursos d
 
 
 
+[[discovering-multiple-storage-arrays]]
 == Detección de varias cabinas de almacenamiento
 
 Si decides detectar varias matrices, introduces un intervalo de direcciones IP de red y luego Unified Manager intenta establecer conexiones individuales con cada dirección IP de ese intervalo. Cualquier matriz de almacenamiento a la que se acceda correctamente aparece en la página Discover y puede añadirse a tu dominio de gestión.
 
 
 
+[[discovering-a-single-storage-array]]
 == Detección de una sola cabina de almacenamiento
 
 Si decide detectar una sola cabina de almacenamiento, debe introducir la dirección IP única para una de las controladoras de la cabina de almacenamiento. A continuación, se añade la cabina de almacenamiento individual.
@@ -32,12 +34,14 @@ Unified Manager solo descubre y muestra la dirección IP única o la dirección 
 ====
 
 
+[[user-credentials]]
 == Credenciales de usuario
 
 Como parte del proceso de detección, debe suministrar la contraseña de administrador para cada cabina de almacenamiento que desee añadir.
 
 
 
+[[web-services-certificates]]
 == Certificados de servicios web
 
 Como parte del proceso de descubrimiento, Unified Manager verifica que las matrices de almacenamiento descubiertas están usando certificados de una fuente de confianza. Unified Manager usa dos tipos de autenticación basada en certificados para todas las conexiones que establece con el navegador:

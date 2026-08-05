@@ -15,6 +15,7 @@ La función de Snapshots hace uso de volúmenes base, capacidad reservada y grup
 
 
 
+[[base-volumes]]
 == Volúmenes base
 
 Un _volumen base_ es el volumen utilizado como origen para una imagen snapshot. Un volumen base puede ser un volumen grueso o un volumen fino y puede residir en un pool o grupo de volúmenes.
@@ -29,6 +30,7 @@ image::../media/sam1130-dwg-snapshots-images-overview.gif[Objetos de instantáne
 
 
 
+[[reserved-capacity-and-snapshot-groups]]
 == Capacidad reservada y grupos de instantáneas
 
 System Manager organiza las imágenes de instantáneas en _grupos de instantáneas_. Cuando System Manager establece el grupo de instantáneas, crea automáticamente _capacidad reservada_ asociada para almacenar las imágenes de instantáneas del grupo y para llevar un seguimiento de los cambios posteriores en instantáneas adicionales.
@@ -43,6 +45,7 @@ Los grupos de instantáneas no requieren ninguna acción por parte del usuario, 
 
 
 
+[[auto-deletion]]
 == Eliminación automática
 
 Cuando trabajes con instantáneas, usa la opción predeterminada para que la eliminación automática esté activada. La eliminación automática borra la imagen de instantánea más antigua cuando el grupo de instantáneas llega al límite de 32 imágenes. Si desactivas la eliminación automática, entonces los límites del grupo de instantáneas se superan eventualmente y tendrás que realizar acciones manuales para configurar los ajustes del grupo de instantáneas y gestionar la capacidad reservada.

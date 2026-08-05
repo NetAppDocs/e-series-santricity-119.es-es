@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SANtricity, System Manager, E-Series, change, hot, spare, unassign, 
 summary: Puedes cambiar un hot spare de nuevo a una unidad no asignada. 
 ---
-= ${post_edited_translations.segment}
+= Desasignar repuestos activos en SANtricity System Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -27,16 +27,16 @@ El gráfico cambia para mostrar las unidades en lugar de los controladores.
 
 . Selecciona la unidad hot spare (mostrada en rosa) que quieres desasignar.
 +
-${post_edited_translations.segment}
+Si aparecen líneas diagonales que atraviesan la bahía de unidad rosa, la hot spare está en uso y no se puede desasignar.
 
 +
 Se abre el menú contextual de la unidad.
 
-. ${post_edited_translations.segment}
+. En la lista desplegable de la unidad, selecciona *Desasignar unidad de repuesto activa*.
 +
-${post_edited_translations.segment}
+El cuadro de diálogo muestra los grupos de volúmenes afectados por la eliminación de este hot spare y si hay otros hot spares que los estén protegiendo.
 
-. ${post_edited_translations.segment}
+. Confirma la operación de desasignación.
 
 
 .Resultados

@@ -16,6 +16,7 @@ Puedes realizar varias acciones diferentes en un volumen: aumentar la capacidad,
 
 
 
+[[increase-capacity]]
 == Aumenta la capacidad
 
 Puedes ampliar la capacidad de un volumen de dos formas:
@@ -37,6 +38,7 @@ Después de ampliar la capacidad del volumen, tienes que aumentar manualmente el
 
 
 
+[[delete]]
 == Borrar
 
 Normalmente, eliminas volúmenes si se crearon con los parámetros o la capacidad incorrectos, ya no cumplen con las necesidades de configuración de almacenamiento, o son imágenes snapshot que ya no necesitas para backup o pruebas de aplicaciones. Eliminar un volumen aumenta la capacidad libre en el pool o grupo de volúmenes.
@@ -45,12 +47,14 @@ Eliminar volúmenes provoca la pérdida de todos los datos de esos volúmenes. E
 
 
 
+[[copy]]
 == Copiar
 
 Cuando copias volúmenes, creas una copia de un momento específico de dos volúmenes separados, el volumen de origen y el volumen de destino, en la misma matriz de almacenamiento. Puedes copiar volúmenes seleccionando menu:Storage[Volumes > Copy Services > Copy volume].
 
 
 
+[[initialize]]
 == Inicializar
 
 Al inicializar un volumen se borran todos los datos del volumen. Un volumen se inicializa automáticamente cuando se crea por primera vez. Sin embargo, el Recovery Guru podría aconsejarte que inicialices manualmente un volumen para recuperarte de ciertas condiciones de fallo. Cuando inicializas un volumen, el volumen mantiene su WWN, asignaciones de host, capacidad asignada y configuración de capacidad reservada. También mantiene la misma configuración de Data Assurance (DA) y de seguridad.
@@ -59,6 +63,7 @@ Puedes inicializar los volúmenes seleccionando menú:Storage[Volumes > More > I
 
 
 
+[[redistribute]]
 == Redistribuir
 
 Redistribuyes volúmenes para moverlos de vuelta a sus propietarios de controladores preferidos. Normalmente, los controladores multivía mueven volúmenes de su propietario de controlador preferido cuando se produce un problema a lo largo de la ruta de datos entre el host y la matriz de almacenamiento.
@@ -69,6 +74,7 @@ Puedes redistribuir volúmenes seleccionando el menú:Almacenamiento[Volúmenes 
 
 
 
+[[change-volume-ownership]]
 == Cambiar la titularidad del volumen
 
 Cambiar la propiedad de un volumen cambia la propiedad del controlador preferido del volumen. El propietario del controlador preferido de un volumen aparece en menu:Storage[Volumes > View/Edit Settings > Advanced tab].
@@ -77,6 +83,7 @@ Puedes cambiar la propiedad de un volumen seleccionando menú:Storage[Volumes > 
 
 
 
+[[mirroring-and-volume-ownership]]
 === Replicación y propiedad del volumen
 
 Si el volumen primario del par reflejado es propiedad del controlador A, entonces el volumen secundario también será propiedad del controlador A del array de almacenamiento remoto. Cambiar el propietario del volumen primario cambiará automáticamente el propietario del volumen secundario para asegurar que ambos volúmenes sean propiedad del mismo controlador. Los cambios de propiedad actuales en el lado primario se propagan automáticamente a los cambios de propiedad actuales correspondientes en el lado secundario.
@@ -85,6 +92,7 @@ Si un grupo de consistencia de réplica contiene un volumen secundario local y s
 
 
 
+[[copy-volume-and-volume-ownership]]
 === Copiar volumen y propiedad de volumen
 
 Durante una operación de copia de volumen, el mismo controlador debe ser propietario tanto del volumen de origen como del volumen de destino. A veces, ambos volúmenes no tienen el mismo controlador preferido cuando empieza la operación de copia de volumen. Por eso, la propiedad del volumen de destino se transfiere automáticamente al controlador preferido del volumen de origen. Cuando la copia de volumen se completa o se detiene, la propiedad del volumen de destino se restaura a su controlador preferido.
@@ -93,6 +101,7 @@ Si se cambia la propiedad del volumen de origen durante la operación de copia d
 
 
 
+[[change-cache-settings]]
 == Cambiar la configuración de caché
 
 La memoria caché es un área de almacenamiento volátil temporal (RAM) en el controlador que tiene un tiempo de acceso más rápido que el medio de la unidad. Si usas memoria caché, puedes aumentar el rendimiento general de E/S por estas razones:
@@ -120,6 +129,7 @@ Para un volumen delgado, la lectura anticipada de caché dinámica siempre está
 
 
 
+[[change-media-scan-settings]]
 == Cambiar la configuración de escaneo de soportes
 
 Las exploraciones de soportes detectan y reparan errores de soportes en bloques de disco que las aplicaciones leen con poca frecuencia. Esta exploración puede evitar la pérdida de datos si fallan otras unidades en el pool o grupo de volúmenes, ya que los datos de las unidades con fallo se reconstruyen usando información de redundancia y datos de otras unidades en el pool o grupo de volúmenes.

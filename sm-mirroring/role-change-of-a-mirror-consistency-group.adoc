@@ -24,6 +24,7 @@ Revisa la siguiente información sobre la operación de cambio de rol:
 
 
 
+[[force-role-change]]
 == Forzar cambio de rol
 
 Puedes forzar un cambio de rol entre grupos de consistencia de reflejo cuando un problema de comunicación entre el array de almacenamiento local y el array de almacenamiento remoto está impidiendo la promoción de los volúmenes miembro dentro del grupo de consistencia de reflejo secundario o la degradación de los volúmenes miembro dentro del grupo de consistencia de reflejo primario.
@@ -32,6 +33,7 @@ Puedes forzar que el grupo de coherencia de reflejo en el lado secundario pase a
 
 
 
+[[when-is-a-forced-promotion-allowed-and-not-allowed]]
 == ¿Cuándo se permite y cuándo no una promoción forzosa?
 
 La promoción forzada de un grupo de coherencia de espejo solo se permite si todos los volúmenes miembros del grupo de coherencia de espejo se han sincronizado y tienen puntos de recuperación coherentes.
@@ -46,6 +48,7 @@ No se permite la promoción forzada de un grupo de coherencia de réplica en las
 
 
 
+[[mirror-group-role-conflict]]
 == Conflicto de roles en el grupo espejo
 
 Cuando se ha resuelto un problema de comunicación entre las matrices de almacenamiento local y remota, se produce una condición de conflicto de roles de Mirror Group. Usa el Recovery Guru para recuperarte de este error. No se permite una promoción forzada cuando se resuelve un conflicto de doble rol.
@@ -54,6 +57,7 @@ Para evitar la condición de conflicto de rol de grupo de réplica y los pasos d
 
 
 
+[[role-change-in-progress-state]]
 == Cambio de rol en curso
 
 Si dos matrices de almacenamiento en una configuración de mirroring se desconectan, y el lado primario de un mirror consistency group es degradado a la fuerza a un rol secundario, y el lado secundario de un mirror consistency group es promovido a la fuerza a un rol primario, entonces cuando se restablece la comunicación, los mirror consistency groups en ambas matrices de almacenamiento se colocan en el estado Role-Change-In-Progress.

@@ -40,6 +40,7 @@ Configurar la autenticación SAML es un procedimiento de varios pasos.
 
 
 
+[[step-1-upload-the-idp-metadata-file]]
 == Paso 1: sube el archivo de metadatos del IdP
 
 Para proporcionar al conjunto de almacenamiento la información de conexión de IdP, importas los metadatos de IdP en System Manager. El sistema IdP necesita estos metadatos para redirigir las solicitudes de autenticación a la URL correcta y para validar las respuestas recibidas. Solo necesitas cargar un archivo de metadatos para el conjunto de almacenamiento, incluso si hay dos controladores.
@@ -63,6 +64,7 @@ Después de seleccionar el archivo, se muestra el IdP Entity ID.
 
 
 
+[[step-2-export-service-provider-files]]
 == Paso 2: exportar los archivos del proveedor de servicios
 
 Para establecer una relación de confianza entre el IdP y la matriz de almacenamiento, importas los metadatos del Service Provider en el IdP. El IdP necesita estos metadatos para establecer una relación de confianza con los controladores y para procesar solicitudes de autorización. El archivo incluye información como el nombre de dominio del controlador o la dirección IP, para que el IdP pueda comunicarse con los Service Providers.
@@ -85,6 +87,7 @@ Hay un archivo con formato XML para cada controlador.
 
 
 
+[[step-3-map-roles]]
 == Paso 3: Asignar roles
 
 Para proporcionar a los usuarios autorización y acceso a System Manager, debes asignar los atributos de usuario IdP y la pertenencia a grupos a los roles predefinidos de la storage array.
@@ -92,11 +95,11 @@ Para proporcionar a los usuarios autorización y acceso a System Manager, debes 
 .Antes de empezar
 * Un administrador de IdP ha configurado los atributos de usuario y la pertenencia a grupos en el sistema IdP.
 * El archivo de metadatos IdP se importa en System Manager.
-* ${post_edited_translations.segment}
+* Se importa un archivo de metadatos del proveedor de servicios para cada controlador en el sistema del IdP para la relación de confianza.
 
 
 .Pasos
-. ${post_edited_translations.segment}
+. Haz clic en el enlace para ver la *correspondencia de funciones de System Manager*.
 +
 Se abre el cuadro de diálogo Role Mapping.
 
@@ -157,26 +160,27 @@ La función Monitor es necesaria para todos los usuarios, incluido el administra
 Es posible modificar las asignaciones de roles después de haber habilitado SAML.
 
 ====
-. ${post_edited_translations.segment}
+. Cuando hayas terminado con las asignaciones, haz clic en *Guardar*.
 
 
 
 
-== ${post_edited_translations.segment}
+[[step-4-test-sso-login]]
+== Paso 4: probar el inicio de sesión mediante SSO
 
 Para asegurar que el sistema IdP y la matriz de almacenamiento puedan comunicarse, puedes probar opcionalmente un inicio de sesión SSO. Esta prueba también se realiza durante el paso final para habilitar SAML.
 
 .Antes de empezar
 * El archivo de metadatos IdP se importa en System Manager.
-* ${post_edited_translations.segment}
+* Se importa un archivo de metadatos del proveedor de servicios para cada controlador en el sistema del IdP para la relación de confianza.
 
 
 .Pasos
-. ${post_edited_translations.segment}
+. Selecciona el enlace *Test SSO Login*.
 +
-${post_edited_translations.segment}
+Aparece un cuadro de diálogo para introducir las credenciales de SSO.
 
-. ${post_edited_translations.segment}
+. Introduce las credenciales de inicio de sesión de un usuario que tenga tanto permisos de Security Admin como permisos de Monitor.
 +
 Se abre un cuadro de diálogo mientras el sistema prueba el inicio de sesión.
 
@@ -194,13 +198,14 @@ Si la prueba no finaliza correctamente, aparecerá un mensaje de error con más 
 
 
 
+[[step-5-enable-saml]]
 == Paso 5: habilita SAML
 
 Tu último paso es finalizar la configuración de SAML para la autenticación de usuarios. Durante este proceso, el sistema también te pedirá que pruebes un inicio de sesión SSO. El proceso de prueba de inicio de sesión SSO se describe en el paso anterior.
 
 .Antes de empezar
 * El archivo de metadatos IdP se importa en System Manager.
-* ${post_edited_translations.segment}
+* Se importa un archivo de metadatos del proveedor de servicios para cada controlador en el sistema del IdP para la relación de confianza.
 * Se ha configurado al menos una asignación de rol de Monitor y una de Security Admin.
 
 

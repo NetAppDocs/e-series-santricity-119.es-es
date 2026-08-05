@@ -16,12 +16,14 @@ Usa el Upgrade Center para descargar el software y firmware más recientes y par
 
 
 
+[[controller-upgrade-overview]]
 == Resumen de la actualización del controlador
 
 Puedes actualizar el software y el firmware de tu matriz de almacenamiento para tener las últimas funciones y correcciones de errores.
 
 
 
+[[components-included-in-the-os-controller-upgrade]]
 === Componentes incluidos en la actualización del controlador del OS
 
 Varios componentes de la matriz de almacenamiento contienen software o hardware que podrías querer actualizar ocasionalmente.
@@ -43,12 +45,14 @@ Como parte del proceso de actualización, es posible que también haya que actua
 
 
 
+[[when-to-stop-io]]
 === Cuándo detener las E/S
 
 Si tu matriz de almacenamiento contiene dos controladoras y tienes un controlador multivía instalado, la matriz de almacenamiento puede seguir procesando E/S mientras ocurre la actualización. Durante la actualización, la controladora A traspasa todos sus volúmenes a la controladora B, se actualiza, recupera sus volúmenes y todos los volúmenes de la controladora B, y luego actualiza la controladora B.
 
 
 
+[[pre-upgrade-health-check]]
 === Comprobación de estado previa a la actualización
 
 Se ejecuta una comprobación de estado previa a la actualización como parte del proceso de actualización. La comprobación de estado previa a la actualización evalúa todos los componentes de la matriz de almacenamiento para asegurarse de que la actualización pueda continuar. Las siguientes condiciones pueden impedir la actualización:
@@ -68,12 +72,14 @@ También puedes ejecutar la comprobación de estado previa a la actualización p
 
 
 
+[[drive-upgrade-overview]]
 == Descripción general de la actualización de la unidad
 
 El firmware de la unidad controla las características de funcionamiento de bajo nivel de una unidad. Periódicamente, los fabricantes de unidades lanzan actualizaciones de firmware de la unidad para añadir nuevas funciones, mejorar el rendimiento y corregir defectos.
 
 
 
+[[online-and-offline-drive-firmware-upgrades]]
 === Actualizaciones del firmware de la unidad online y offline
 
 Hay dos tipos de métodos de actualización del firmware de la unidad: en línea y fuera de línea.
@@ -113,6 +119,7 @@ Las siguientes unidades DEBEN usar el método offline:
 
 
 
+[[compatibility]]
 === Compatibilidad
 
 Cada archivo de firmware de unidad contiene información sobre el tipo de unidad en la que se ejecuta el firmware. Solo puedes descargar el archivo de firmware especificado en una unidad compatible. System Manager comprueba automáticamente la compatibilidad durante el proceso de actualización.

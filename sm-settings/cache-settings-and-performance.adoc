@@ -24,6 +24,7 @@ La configuración predeterminada de la caché cumple los requisitos de la mayor�
 
 
 
+[[storage-array-cache-settings]]
 == Configuración de caché de la matriz de almacenamiento
 
 Para todos los volúmenes de la matriz de almacenamiento, puedes especificar los siguientes valores desde la página Sistema:
@@ -34,6 +35,7 @@ Para todos los volúmenes de la matriz de almacenamiento, puedes especificar los
 
 
 
+[[volume-cache-settings]]
 == Configuración de la caché de volumen
 
 Para volúmenes individuales en un array de almacenamiento, puedes especificar los siguientes valores desde la página Volumes (menú:Storage[Volumes]):

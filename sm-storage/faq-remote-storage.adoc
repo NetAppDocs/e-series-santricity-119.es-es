@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-do-i-need-to-know-before-creating-a-remote-storage-connection]]
 == ¿Qué debo saber antes de crear una conexión de almacenamiento remota?
 
 Para configurar la función Remote Storage, debes conectar directamente el dispositivo remoto y los sistemas de almacenamiento de destino mediante iSCSI.
@@ -28,6 +29,7 @@ Para configurar la conexión del sistema iSCSI, consulta:
 
 
 
+[[why-am-i-being-prompted-to-remove-my-remote-volumes]]
 == ¿Por qué se me pide que elimine mis volúmenes remotos?
 
 Cuando alcanza su número máximo de volúmenes remotos, el sistema de almacenamiento detecta automáticamente cualquier volumen remoto no utilizado y te pide que lo elimines.
@@ -36,6 +38,7 @@ Hay algunos casos en los que los volúmenes remotos no utilizados no se limpian 
 
 
 
+[[why-dont-i-see-all-my-volumes-on-my-destination-array]]
 == ¿Por qué no veo todos mis volúmenes en mi array de destino?
 
 Al configurar una importación para la función Remote Storage, puede que notes que algunos volúmenes no aparecen en la lista de candidatos de destino debido al tamaño de bloque, la capacidad o la disponibilidad del volumen.
@@ -57,6 +60,7 @@ Se excluyen de la lista los volúmenes candidatos si tienen:
 
 
 
+[[what-do-i-need-to-know-about-the-remote-volume-in-an-import]]
 == ¿Qué debo saber sobre el volumen remoto en una importación?
 
 Cuando uses la función de almacenamiento remoto, ten en cuenta que el volumen remoto es la fuente de donde se originan los datos.
@@ -65,12 +69,14 @@ Cuando la importación está en curso, los datos se transfieren del volumen remo
 
 
 
+[[what-do-i-need-to-know-before-starting-a-remote-storage-import]]
 == ¿Qué debo saber antes de empezar una importación de almacenamiento remoto?
 
 La función de almacenamiento remoto te permite copiar datos de un sistema de almacenamiento remoto a un volumen en un sistema de almacenamiento E-Series local. Antes de usar esta función, revisa las siguientes directrices.
 
 
 
+[[configuration]]
 === Configuración
 
 Antes de crear la importación de almacenamiento remoto, debes completar las siguientes acciones y verificar las siguientes condiciones:
@@ -92,6 +98,7 @@ Antes de crear la importación de almacenamiento remoto, debes completar las sig
 
 
 
+[[import-process]]
 === Proceso de importación
 
 Los siguientes pasos describen el proceso de importación.
@@ -114,6 +121,7 @@ Una vez que se desconecta la importación, el rendimiento del destino local vuel
 
 
 
+[[restrictions]]
 === Restricciones
 
 La función de almacenamiento remoto tiene las siguientes restricciones:
@@ -132,6 +140,7 @@ La función de almacenamiento remoto tiene las siguientes restricciones:
 
 
 
+[[additional-information]]
 === Información adicional
 
 Más información sobre la función Remote Storage está disponible en el https://www.netapp.com/pdf.html?item=/media/28697-tr-4893-deploy.pdf["Informe técnico sobre almacenamiento remoto"^].

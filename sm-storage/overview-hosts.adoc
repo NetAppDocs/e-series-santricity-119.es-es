@@ -16,6 +16,7 @@ Puedes configurar hosts y clústeres de hosts, que definen las conexiones entre 
 
 
 
+[[what-are-hosts-and-host-clusters]]
 == ¿Qué son los hosts y los clústeres de hosts?
 
 Un _host_ es un servidor que envía I/O a un volumen en un storage array. Un _host cluster_ es un grupo de hosts, que puedes crear para asignar los mismos volúmenes a múltiples hosts.
@@ -29,6 +30,7 @@ Más información:
 
 
 
+[[how-do-i-configure-hosts-and-host-clusters]]
 == ¿Cómo configuro los hosts y los clústeres de hosts?
 
 Para definir las conexiones de host, puedes ir al menú:Storage[Hosts] para configurar manualmente el host. Si quieres que dos o más hosts compartan el acceso al mismo conjunto de volúmenes, entonces puedes definir un cluster y asignar los volúmenes a ese cluster.
@@ -45,6 +47,7 @@ Más información:
 
 
 
+[[related-information]]
 == Información relacionada
 
 Obtén más información sobre las tareas relacionadas con los hosts:

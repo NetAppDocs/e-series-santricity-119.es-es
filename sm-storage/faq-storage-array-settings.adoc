@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-is-automatic-load-balancing]]
 == ¿Qué es el equilibrio de carga automático?
 
 La función de equilibrio de carga automático proporciona un equilibrio de E/S automatizado y garantiza que el tráfico de E/S entrante de los hosts se gestione y equilibre dinámicamente en ambos controladores.
@@ -37,6 +38,7 @@ Cualquier volumen asignado para usar la caché SSD de un controlador no es elegi
 ====
 
 
+[[what-is-controller-cache]]
 == ¿Qué es la caché del controlador?
 
 La caché del controlador es un espacio de memoria física que agiliza dos tipos de operaciones de E/S (entrada/salida): entre los controladores y los hosts, y entre los controladores y los discos.
@@ -60,6 +62,7 @@ La caché del controlador afecta al rendimiento general de la matriz de almacena
 ====
 
 
+[[what-is-cache-flushing]]
 == ¿Qué es el vaciado de caché?
 
 Cuando la cantidad de datos no escritos en la caché alcanza un determinado nivel, el controlador escribe periódicamente los datos almacenados en caché en una unidad. Este proceso de escritura se llama "flushing".
@@ -79,6 +82,7 @@ El algoritmo en función de la antigüedad especifica el período de tiempo dura
 ====
 
 
+[[what-is-cache-block-size]]
 == ¿Qué es el tamaño de bloque de caché?
 
 El controlador de la matriz de almacenamiento organiza su caché en "bloques", que son trozos de memoria que pueden tener un tamaño de 8, 16 o 32 KiB. Todos los volúmenes del sistema de almacenamiento comparten el mismo espacio de caché; por lo tanto, los volúmenes pueden tener solo un tamaño de bloque de caché.
@@ -87,6 +91,7 @@ Las aplicaciones utilizan diferentes tamaños de bloque, lo que puede afectar el
 
 
 
+[[when-should-i-synchronize-storage-array-clocks]]
 == ¿Cuándo debo sincronizar los relojes de las matrices de almacenamiento?
 
 Deberías sincronizar manualmente los relojes de los controladores en la matriz de almacenamiento si notas que las marcas de tiempo que se muestran en SANtricity System Manager no están alineadas con las marcas de tiempo que se muestran en tu cliente de administración (la computadora que accede a SANtricity System Manager a través del navegador). Esta tarea solo es necesaria si NTP (Network Time Protocol) no está habilitado en SANtricity System Manager.

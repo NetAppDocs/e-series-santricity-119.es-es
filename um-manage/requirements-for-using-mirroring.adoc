@@ -16,6 +16,7 @@ Si planea configurar el mirroring, tenga en cuenta los siguientes requisitos.
 
 
 
+[[unified-manager]]
 == Unified Manager
 
 * El proxy de servicios web se encuentra en ejecución.
@@ -25,6 +26,7 @@ Si planea configurar el mirroring, tenga en cuenta los siguientes requisitos.
 
 
 
+[[storage-arrays]]
 == Cabinas de almacenamiento
 
 [NOTE]
@@ -44,6 +46,7 @@ La duplicación síncrona no está disponible en la matriz de almacenamiento EF6
 
 
 
+[[connectivity-requirements]]
 == Requisitos de conectividad
 
 El mirroring (asíncrono o síncrono) a través de una interfaz de FC requiere lo siguiente:
@@ -78,6 +81,7 @@ La comunicación entre controladores iSCSI debe usar un puerto de conexión del 
 ====
 
 
+[[mirrored-volume-candidates]]
 == Candidatos de volumen reflejado
 
 * El nivel de RAID, los parámetros de almacenamiento en caché y el tamaño de los segmentos pueden ser diferentes en los volúmenes primario y secundario de una pareja reflejada.
@@ -101,6 +105,7 @@ NOTE: Para las controladoras EF600 y EF300, los volúmenes primario y secundario
 
 
 
+[[reserved-capacity]]
 == Capacidad reservada
 
 Mirroring asíncrono:
@@ -117,6 +122,7 @@ Mirroring síncrono:
 
 
 
+[[drive-security-feature]]
 == Función Drive Security
 
 * Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben tener configuraciones de seguridad compatibles. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.

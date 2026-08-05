@@ -15,6 +15,7 @@ Los discos de estado sólido (SSD) son dispositivos de almacenamiento de datos q
 
 
 
+[[advantages-of-ssds]]
 == Ventajas de los SSD
 
 Las ventajas de las unidades SSD sobre los discos duros incluyen:
@@ -29,18 +30,21 @@ Las ventajas de las unidades SSD sobre los discos duros incluyen:
 
 
 
+[[identifying-ssds]]
 == Identificación de SSDs
 
 Desde la página Hardware, puedes localizar las SSD en la vista frontal del estante. Busca las bahías de unidad que muestran un icono de rayo, lo que indica que hay una SSD instalada.
 
 
 
+[[volume-groups]]
 == Grupos de volúmenes
 
 Todas las unidades de un grupo de volúmenes deben ser del mismo tipo de medio (todas SSD o todas unidades de disco duro). Los grupos de volúmenes no pueden tener una mezcla de tipos de medio o tipos de interfaz.
 
 
 
+[[caching]]
 == Caching
 
 La caché de escritura del controlador siempre está activada para los SSD. La caché de escritura mejora el rendimiento y prolonga la vida de los SSD.

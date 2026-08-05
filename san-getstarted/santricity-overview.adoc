@@ -24,6 +24,7 @@ NOTE: Las matrices de almacenamiento EF600/EF600C y EF300/EF300C no admiten la d
 
 
 
+[[santricity-system-manager]]
 == SANtricity System Manager
 
 System Manager es un software de gestión basado en web integrado en cada controlador. Para acceder a la interfaz de usuario, apunta un navegador a la dirección IP del controlador. Un asistente de configuración te ayuda a empezar con la configuración del sistema.
@@ -90,6 +91,7 @@ Visualiza datos de diagnóstico, gestiona actualizaciones y configura AutoSuppor
 |===
 
 
+[[santricity-unified-manager]]
 == SANtricity Unified Manager
 
 Unified Manager es un software basado en web que se usa para gestionar todo tu dominio. Desde una vista central, puedes ver el estado de todas las matrices E-Series y EF-Series más recientes, como E4000, E2800, EF280, EF300, E5700, EF570, EF600, EF300C y EF600C. También puedes realizar operaciones por lotes en las matrices de almacenamiento seleccionadas.

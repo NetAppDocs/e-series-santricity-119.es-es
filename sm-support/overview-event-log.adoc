@@ -17,6 +17,7 @@ Puedes usar el registro de eventos como una herramienta de diagnóstico compleme
 
 
 
+[[event-categories]]
 == Categorías de eventos
 
 Los eventos del registro de eventos se clasifican con diferentes estados. Los eventos sobre los que tienes que actuar tienen los siguientes estados:
@@ -32,6 +33,7 @@ Los eventos que son informativos y no requieren ninguna acción inmediata son lo
 
 
 
+[[critical-events]]
 == Eventos críticos
 
 Los eventos críticos indican un problema con la matriz de almacenamiento. Si resuelves el evento crítico de inmediato, podrías evitar la pérdida de acceso a los datos.

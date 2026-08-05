@@ -20,6 +20,7 @@ La duplicación síncrona no está disponible en el sistema de almacenamiento EF
 ====
 
 
+[[what-is-mirroring]]
 == ¿Qué es mirroring?
 
 Las aplicaciones SANtricity incluyen dos tipos de mirroring: asíncrono y síncrono. El mirroring asíncrono copia volúmenes de datos bajo demanda o según un calendario, lo que minimiza o evita el tiempo de inactividad que podría resultar de la corrupción o pérdida de datos. El mirroring síncrono replica volúmenes de datos en tiempo real para garantizar una disponibilidad continua.
@@ -32,6 +33,7 @@ Más información:
 
 
 
+[[how-do-i-configure-mirroring]]
 == ¿Cómo configuro la duplicación?
 
 Configuras la duplicación asíncrona o síncrona en Unified Manager y luego usas System Manager para gestionar las sincronizaciones.

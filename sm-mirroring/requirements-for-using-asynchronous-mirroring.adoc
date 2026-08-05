@@ -16,6 +16,7 @@ Si planeas usar la duplicación asíncrona, ten en cuenta los siguientes requisi
 
 
 
+[[unified-manager]]
 == Unified Manager
 
 Para activar y configurar la replicación de datos entre dos arrays, debes usar la interfaz de Unified Manager. Unified Manager se instala en un sistema host junto con el Web Services Proxy.
@@ -27,6 +28,7 @@ Para activar y configurar la replicación de datos entre dos arrays, debes usar 
 
 
 
+[[storage-arrays]]
 == Cabinas de almacenamiento
 
 * Debes tener dos matrices de almacenamiento.
@@ -41,6 +43,7 @@ Para activar y configurar la replicación de datos entre dos arrays, debes usar 
 
 
 
+[[supported-connections]]
 == Conexiones compatibles
 
 El mirroring asíncrono puede usar conexiones FC o iSCSI, o ambas, para la comunicación entre los sistemas de almacenamiento local y remoto. Al crear un grupo de coherencia de espejo, el administrador puede seleccionar FC o iSCSI para ese grupo si ambos están conectados a la matriz de almacenamiento remoto. No hay conmutación por error de un tipo de canal al otro.
@@ -92,6 +95,7 @@ E4000 no es compatible con la duplicación asíncrona mientras se usa el protoco
 ====
 
 
+[[mirrored-volume-candidates]]
 == Candidatos de volumen reflejado
 
 * El nivel RAID, los parámetros de caché y el tamaño de los segmentos pueden ser diferentes en los volúmenes primario y secundario de un par reflejado asíncrono.
@@ -114,6 +118,7 @@ NOTE: Para las controladoras EF600 y EF300, los volúmenes primario y secundario
 
 
 
+[[reserved-capacity]]
 == Capacidad reservada
 
 * Se requiere un volumen de capacidad reservada para un volumen primario y para un volumen secundario en un par reflejado para registrar información de escritura y poder recuperarse de los reinicios del controlador y otras interrupciones temporales.
@@ -128,6 +133,7 @@ NOTE: Para las controladoras EF600 y EF300, los volúmenes primario y secundario
 
 
 
+[[drive-security-feature]]
 == Función Drive Security
 
 * Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben tener configuraciones de seguridad compatibles. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.

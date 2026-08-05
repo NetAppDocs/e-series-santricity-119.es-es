@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-settings-will-be-imported]]
 == ¿Qué ajustes se importarán?
 
 La función Import Settings es una operación por lotes que carga configuraciones de una matriz de almacenamiento a varias matrices de almacenamiento. Las configuraciones que se importan durante esta operación dependen de cómo esté configurada la matriz de almacenamiento de origen en SANtricity System Manager.
@@ -33,6 +34,7 @@ Las siguientes configuraciones pueden importarse a varias cabinas de almacenamie
 
 
 
+[[why-dont-i-see-all-of-my-storage-arrays]]
 == ¿Por qué no se muestran todas las cabinas de almacenamiento?
 
 Durante la operación Importar configuración, es posible que algunas cabinas de almacenamiento no estén disponibles en el cuadro de diálogo de selección de objetivos.

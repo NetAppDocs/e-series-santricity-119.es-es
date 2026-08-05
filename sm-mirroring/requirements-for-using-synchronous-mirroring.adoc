@@ -16,6 +16,7 @@ Si planeas usar la duplicación síncrona, ten en cuenta los siguientes requisit
 
 
 
+[[unified-manager]]
 == Unified Manager
 
 Para activar y configurar la replicación de datos entre dos arrays, debes usar la interfaz de Unified Manager. Unified Manager se instala en un sistema host junto con el Web Services Proxy.
@@ -27,6 +28,7 @@ Para activar y configurar la replicación de datos entre dos arrays, debes usar 
 
 
 
+[[storage-arrays]]
 == Cabinas de almacenamiento
 
 [NOTE]
@@ -46,6 +48,7 @@ La duplicación síncrona no está disponible en la matriz de almacenamiento EF3
 
 
 
+[[supported-connections]]
 == Conexiones compatibles
 
 La comunicación para la duplicación síncrona solo se admite en controladores con puertos de host Fibre Channel (FC).
@@ -54,6 +57,7 @@ La duplicación síncrona utiliza el puerto de host con el número más alto de 
 
 
 
+[[mirrored-volume-candidates]]
 == Candidatos de volumen reflejado
 
 * El nivel RAID, los parámetros de caché y el tamaño de segmento pueden ser diferentes en los volúmenes primario y secundario de un par reflejado síncrono.
@@ -66,6 +70,7 @@ La duplicación síncrona utiliza el puerto de host con el número más alto de 
 
 
 
+[[reserved-capacity]]
 == Capacidad reservada
 
 * La capacidad reservada es necesaria para un volumen primario y para un volumen secundario para registrar información de escritura y recuperarse de reinicios del controlador y otras interrupciones temporales.
@@ -74,6 +79,7 @@ La duplicación síncrona utiliza el puerto de host con el número más alto de 
 
 
 
+[[drive-security-feature]]
 == Función Drive Security
 
 * Si estás usando unidades con capacidad de seguridad, el volumen primario y el volumen secundario deben tener configuraciones de seguridad compatibles. Esta restricción no se aplica, así que tienes que verificarlo tú mismo.

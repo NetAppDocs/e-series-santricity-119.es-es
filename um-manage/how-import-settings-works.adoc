@@ -15,6 +15,7 @@ Puedes usar SANtricity Unified Manager para importar configuraciones de una matr
 
 
 
+[[settings-available-for-import]]
 == Configuración disponible para la importación
 
 Las siguientes configuraciones pueden importarse a varias arrays:
@@ -40,6 +41,7 @@ Las siguientes configuraciones pueden importarse a varias arrays:
 
 
 
+[[configuration-workflow]]
 == Flujo de trabajo de configuración
 
 Para importar la configuración, siga este flujo de trabajo:

@@ -21,6 +21,7 @@ El proceso para crear un volumen es un procedimiento de varios pasos.
 
 
 
+[[step-1-select-host-for-a-volume]]
 == Paso 1: Seleccionar un host para un volumen
 
 Creas volúmenes para añadir capacidad de almacenamiento a una carga de trabajo específica de una aplicación y para que los volúmenes creados sean visibles para un host o clúster de hosts específico. Además, la secuencia de creación de volúmenes ofrece opciones para asignar cantidades específicas de capacidad a cada volumen que quieras crear.
@@ -61,6 +62,7 @@ Aparece el cuadro de diálogo Select Workload.
 
 
 
+[[step-2-select-a-workload-for-a-volume]]
 == Paso 2: Seleccionar una carga de trabajo para un volumen
 
 Selecciona una carga de trabajo para personalizar la configuración de la matriz de almacenamiento para una aplicación específica, como Microsoft SQL Server, Microsoft Exchange, aplicaciones de videovigilancia o VMware. Puedes seleccionar "Other application" si la aplicación que quieres usar en esta matriz de almacenamiento no está en la lista.
@@ -93,6 +95,7 @@ Selecciona una de las opciones "Other" si la aplicación que quieres usar en est
 
 
 
+[[step-3-add-or-edit-volumes]]
 == Paso 3: Añadir o editar volúmenes
 
 Es posible que System Manager sugiera una configuración de volúmenes basada en la aplicación o carga de trabajo que seleccionaste. Esta configuración de volúmenes está optimizada según el tipo de aplicación que admite la carga de trabajo. Puedes aceptar la configuración de volúmenes recomendada o editarla según lo necesites. Si seleccionaste una de las aplicaciones "Other", debes especificar manualmente los volúmenes y las características que quieres crear.
@@ -330,6 +333,7 @@ Recurso aprovisionado (EF300 y EF600 solamente)
 
 
 
+[[step-4-review-volume-configuration]]
 == Paso 4: Revisar la configuración de volumen
 
 Revisa un resumen de los volúmenes que piensas crear y haz los cambios necesarios.

@@ -16,12 +16,14 @@ Desde el Centro de actualizaciones, puedes gestionar el software SANtricity OS y
 
 
 
+[[how-do-upgrades-work]]
 == ¿Cómo funcionan las actualizaciones?
 
 Descargas el software más reciente del sistema operativo y luego actualizas una o varias matrices.
 
 
 
+[[upgrade-workflow]]
 === Actualizar el flujo de trabajo
 
 Los siguientes pasos proporcionan un flujo de trabajo a grandes rasgos para realizar actualizaciones de software.
@@ -46,6 +48,7 @@ También es posible especificar que el software se active en otro momento.
 
 
 
+[[immediate-or-staged-upgrade]]
 === Actualización inmediata o almacenamiento temporal
 
 Puede activar la actualización de inmediato o almacenarla temporalmente para otro momento. Puede optar por activarlos más tarde por los siguientes motivos:
@@ -58,6 +61,7 @@ Para activar el software por etapas, ve a menu:Support[Upgrade Center] y haz cli
 
 
 
+[[health-check]]
 === Comprobación del estado
 
 Una comprobación de estado se ejecuta como parte del proceso de actualización, pero también puedes ejecutar una comprobación de estado por separado antes de empezar (ve al menú:Upgrade Center[Pre-Upgrade Health Check]).
@@ -77,18 +81,21 @@ La comprobación del estado evalúa todos los componentes de la cabina de almace
 
 
 
+[[what-do-i-need-to-know-before-upgrading]]
 == ¿Qué debo saber antes de actualizar?
 
 Antes de actualizar varias matrices de almacenamiento, revisa las consideraciones clave como parte de tu planificación.
 
 
 
+[[current-versions]]
 === Versiones actuales
 
 Puedes ver las versiones actuales del software SANtricity OS desde la página Manage de Unified Manager para cada matriz de almacenamiento descubierta. La versión se muestra en la columna SANtricity OS Software. La información sobre el firmware del controlador y la NVSRAM está disponible en un cuadro de diálogo emergente cuando haces clic en la versión de SANtricity OS en cada fila.
 
 
 
+[[other-components-requiring-upgrade]]
 === Otros componentes que requieren actualización
 
 Como parte del proceso de actualización, es posible que también necesite actualizar el controlador de conmutación al nodo de respaldo/multivía del host o el controlador de HBA de modo que el host pueda interactuar con las controladoras correctamente.
@@ -97,6 +104,7 @@ Para obtener información sobre compatibilidad, consulta la  https://imt.netapp.
 
 
 
+[[dual-controllers]]
 === Controladoras dobles
 
 Si una cabina de almacenamiento contiene dos controladoras y existe un controlador multivía instalado, la cabina de almacenamiento puede seguir procesando las operaciones de I/O mientras se realiza la actualización. Durante la actualización, ocurre el siguiente proceso:

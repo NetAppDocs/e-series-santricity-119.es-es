@@ -15,6 +15,7 @@ La función de Mirroring asíncrono proporciona un mecanismo a nivel de controla
 
 
 
+[[what-is-asynchronous-mirroring]]
 == ¿Qué es el mirroring asíncrono?
 
 _La replicación asíncrona_ captura el estado del volumen primario en un momento específico y copia solo los datos que han cambiado desde la última captura de imagen. El sitio primario puede actualizarse inmediatamente y el sitio secundario puede actualizarse a medida que lo permite el ancho de banda. La información se almacena en caché y se envía más tarde, a medida que los recursos de red están disponibles.
@@ -32,6 +33,7 @@ Más información:
 
 
 
+[[how-do-i-configure-asynchronous-mirroring]]
 == ¿Cómo configuro el mirroring asíncrono?
 
 Debes usar la interfaz de Unified Manager para realizar la configuración inicial de mirroring entre las arrays. Una vez que esté configurado, puedes gestionar los mirrored pairs y los consistency groups en System Manager.
@@ -45,6 +47,7 @@ Más información:
 
 
 
+[[related-information]]
 == Información relacionada
 
 Conoce más sobre conceptos relacionados con la replicación asíncrona:

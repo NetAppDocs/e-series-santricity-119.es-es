@@ -15,6 +15,7 @@ Puedes habilitar los volúmenes para usar la función Data Assurance (DA) y la f
 
 
 
+[[data-assurance]]
 == Garantía de datos
 
 Data Assurance (DA) implementa el estándar T10 Protection Information (PI), que aumenta la integridad de los datos al comprobar y corregir errores que puedan ocurrir mientras los datos se transfieren a lo largo de la ruta de E/S. El uso típico de la función Data Assurance comprobará la parte de la ruta de E/S entre los controladores y las unidades. Las capacidades de DA se presentan a nivel de pool y grupo de volúmenes.
@@ -23,24 +24,28 @@ Cuando esta función está activada, la matriz de almacenamiento añade códigos
 
 
 
+[[drive-security]]
 == Drive Security
 
 Drive Security es una función que impide el acceso no autorizado a los datos en las unidades habilitadas para seguridad cuando se retiran de la matriz de almacenamiento. Estas unidades pueden ser unidades con Full Disk Encryption (FDE) o unidades certificadas para cumplir con Federal Information Processing Standards 140-2 level 2 (unidades FIPS).
 
 
 
+[[how-drive-security-works-at-the-drive-level]]
 === Cómo funciona Drive Security en el nivel de unidad
 
 Una unidad con capacidad segura, ya sea FDE o FIPS, cifra los datos durante las escrituras y los descifra durante las lecturas. Este cifrado y descifrado no afecta el rendimiento ni el flujo de trabajo del usuario. Cada unidad tiene su propia clave de cifrado única, que nunca puede transferirse desde la unidad.
 
 
 
+[[how-drive-security-works-at-the-volume-level]]
 === Cómo funciona Drive Security en el nivel de volumen
 
 Cuando creas un pool o grupo de volúmenes a partir de unidades con capacidad de seguridad, también puedes activar Drive Security para esos pools o grupos de volúmenes. La opción Drive Security hace que las unidades y los grupos de volúmenes y pools asociados estén secure-_enabled_. Un pool o grupo de volúmenes puede contener tanto unidades con capacidad de seguridad como unidades sin capacidad de seguridad, pero todas las unidades deben ser con capacidad de seguridad para usar sus funciones de cifrado.
 
 
 
+[[how-to-implement-drive-security]]
 === Cómo implementar Drive Security
 
 Para implementar Drive Security, realiza los siguientes pasos.

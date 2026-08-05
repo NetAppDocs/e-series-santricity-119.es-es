@@ -15,6 +15,7 @@ SANtricity System Manager utiliza iconos y varios otros métodos para avisarte q
 
 
 
+[[icons]]
 == Iconos
 
 System Manager utiliza estos iconos para indicar el estado de la matriz de almacenamiento y sus componentes.
@@ -60,6 +61,7 @@ System Manager muestra estos iconos en varias ubicaciones.
 
 
 
+[[alerts-and-leds]]
 == Alertas y LEDs
 
 Además, System Manager te notifica de los problemas de otras formas.

@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-data-am-i-collecting]]
 == ¿Qué datos estoy recopilando?
 
 La función AutoSupport y la función manual de recopilación de datos de soporte ofrecen formas de recopilar datos en un paquete de soporte al cliente para la solución remota de problemas y el análisis de problemas por parte del soporte técnico.
@@ -24,6 +25,7 @@ El paquete de soporte al cliente recopila todo tipo de información sobre la mat
 
 
 
+[[what-does-unreadable-sectors-data-show-me]]
 == ¿Qué me muestran los datos de los sectores ilegibles?
 
 Puedes ver datos detallados sobre los sectores ilegibles detectados en las unidades de tu matriz de almacenamiento.
@@ -104,6 +106,7 @@ Muestra uno de los siguientes tipos de fallo:
 |===
 
 
+[[what-is-a-health-image]]
 == ¿Qué es una imagen de estado?
 
 Una imagen de salud es un volcado de datos sin procesar de la memoria del procesador del controlador que el soporte técnico puede usar para diagnosticar un problema con un controlador.
@@ -112,6 +115,7 @@ El firmware genera automáticamente una imagen de salud cuando detecta ciertos e
 
 
 
+[[what-do-the-autosupport-features-do]]
 == ¿Qué hacen las funciones de AutoSupport?
 
 La función AutoSupport está formada por tres funciones individuales que activas por separado.
@@ -123,6 +127,7 @@ La función AutoSupport está formada por tres funciones individuales que activa
 
 
 
+[[what-type-of-data-is-collected-through-the-autosupport-feature]]
 == ¿Qué tipo de datos se recopilan a través de la función AutoSupport?
 
 La función AutoSupport contiene tres tipos de envíos estándar: envíos de eventos, envíos programados y envíos a petición y de diagnóstico remoto.
@@ -157,6 +162,7 @@ La función AutoSupport envía automáticamente varios despachos según un calen
 
 
 
+[[how-do-i-configure-the-delivery-method-for-the-autosupport-feature]]
 == ¿Cómo configuro el método de entrega para la función AutoSupport?
 
 La función AutoSupport admite los protocolos HTTPS y SMTP para enviar los despachos de AutoSupport a soporte técnico.
@@ -213,6 +219,7 @@ Si la prueba de configuración presenta un error, revise la configuración y vue
 
 
 
+[[what-is-configuration-data]]
 == ¿Qué son los datos de configuración?
 
 Cuando seleccionas Recopilar datos de configuración, el sistema guarda el estado actual de la base de datos de configuración RAID.
@@ -221,6 +228,7 @@ La base de datos de configuración RAID incluye todos los datos de grupos de vol
 
 
 
+[[what-do-i-need-to-know-before-upgrading-the-santricity-os-software]]
 == ¿Qué debo saber antes de actualizar el software SANtricity OS?
 
 Antes de actualizar el software y el firmware de tu controlador, ten en cuenta estos puntos.
@@ -268,6 +276,7 @@ CAUTION: No hagas cambios en la matriz de almacenamiento mientras ocurre la actu
 
 
 
+[[what-do-i-need-to-know-before-suspending-iom-auto-synchronization]]
 == ¿Qué debo saber antes de suspender la autosincronización de IOM?
 
 Suspender la sincronización automática del IOM impide que el firmware del IOM se actualice la próxima vez que se realice una actualización del software del controlador SANtricity OS.
@@ -276,6 +285,7 @@ Normalmente, el software del controlador y el firmware del IOM se actualizan com
 
 
 
+[[why-is-my-firmware-upgrade-progressing-so-slowly]]
 == ¿Por qué mi actualización de firmware avanza tan lento?
 
 El progreso de la actualización del firmware depende de la carga global del sistema.
@@ -284,6 +294,7 @@ Durante una actualización en línea del firmware de la unidad, si se produce un
 
 
 
+[[what-do-i-need-to-know-before-upgrading-drive-firmware]]
 == ¿Qué debo saber antes de actualizar el firmware de la unidad?
 
 Antes de actualizar el firmware de tu unidad, ten en cuenta estos puntos.
@@ -298,6 +309,7 @@ Antes de actualizar el firmware de tu unidad, ten en cuenta estos puntos.
 
 
 
+[[how-do-i-choose-which-type-of-upgrade-to-perform]]
 == ¿Cómo elijo qué tipo de actualización realizar?
 
 Tú eliges el tipo de actualización que quieres hacer en la unidad según el estado del pool o grupo de volúmenes.

@@ -46,6 +46,7 @@ El proceso para crear parejas reflejadas síncronas es un procedimiento de vario
 
 
 
+[[step-1-select-the-primary-volume]]
 == Paso 1: selecciona el volumen primario
 
 En este paso, seleccionas el volumen primario que se usará en la relación de réplica sincrónica. Cuando seleccionas un volumen primario en la matriz de almacenamiento local, el sistema muestra una lista de todos los volúmenes elegibles para ese par de réplica. Cualquier volumen que no sea elegible para usarse no aparece en esa lista. El volumen que seleccionas tiene el rol primario en la relación de réplica.
@@ -62,6 +63,7 @@ Se abre el asistente Create Synchronous Mirrored Pair.
 
 
 
+[[step-2-select-the-secondary-volume]]
 == Paso 2: selecciona el volumen secundario
 
 En este paso, tú seleccionas el volumen secundario que se va a usar en la relación de mirror. Cuando seleccionas un volumen secundario en la matriz de almacenamiento remota, el sistema muestra una lista de todos los volúmenes elegibles para ese par de mirror. Cualquier volumen que no sea elegible para usarse no aparece en esa lista. El volumen que selecciones tendrá el rol secundario en la relación de mirror.
@@ -91,6 +93,7 @@ Si se elige un volumen secundario con una capacidad mayor que la del volumen pri
 
 
 
+[[step-3-select-synchronization-settings]]
 == Paso 3: selecciona los ajustes de sincronización
 
 En este paso, seleccionas los ajustes que determinan cómo se sincronizan los datos después de una interrupción de la comunicación. Puedes establecer la prioridad con la que el controlador propietario del volumen primario resincroniza los datos con el volumen secundario después de una interrupción de la comunicación. También debes seleccionar la política de resincronización, ya sea manual o automática.

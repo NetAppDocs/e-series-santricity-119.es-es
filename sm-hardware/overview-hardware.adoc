@@ -15,6 +15,7 @@ Puedes comprobar el estado de los componentes en la página Hardware y realizar 
 
 
 
+[[which-components-can-i-manage]]
 == ¿Qué componentes puedo gestionar?
 
 Puedes comprobar el estado de los componentes y realizar algunas funciones relacionadas con estos componentes:
@@ -32,6 +33,7 @@ Más información:
 
 
 
+[[how-do-i-view-hardware-components]]
 == ¿Cómo veo los componentes de hardware?
 
 Ve a la página Hardware, que proporciona una representación gráfica de los componentes físicos de la matriz de almacenamiento. Puedes cambiar entre las vistas frontal y posterior de las estanterías de la matriz seleccionando la pestaña *Drives* o *Controllers* en la parte superior derecha de la vista de la estantería.

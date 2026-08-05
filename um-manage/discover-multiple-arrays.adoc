@@ -25,6 +25,7 @@ Descubrir matrices es un procedimiento de varios pasos.
 
 
 
+[[step-1-enter-network-address]]
 == Paso 1: introduce la dirección de red
 
 Introduces un intervalo de direcciones de red para buscar en toda la subred local. Cualquier matriz de almacenamiento a la que se acceda con éxito aparece en la página Discover y podría añadirse a tu dominio de gestión.
@@ -57,6 +58,7 @@ Unified Manager realiza una comprobación de credenciales en cada matriz que añ
 
 
 
+[[step-2-resolve-self-signed-certificates-during-discovery]]
 == Paso 2: resolver los certificados autofirmados durante la detección
 
 Como parte del proceso de descubrimiento, el sistema verifica que las matrices de almacenamiento están usando certificados de una fuente de confianza.
@@ -73,6 +75,7 @@ Como parte del proceso de descubrimiento, el sistema verifica que las matrices d
 
 
 
+[[step-3-resolve-untrusted-certificates-during-discovery]]
 == Paso 3: resolver certificados no fiables durante la detección
 
 Los certificados no fiables se producen cuando una matriz de almacenamiento intenta establecer una conexión segura con Unified Manager, pero la conexión no se confirma como segura. Durante el proceso de detección de matrices, puedes resolver los certificados no fiables importando un certificado de autoridad de certificación (CA) o un certificado firmado por CA que haya sido emitido por un tercero de confianza.
@@ -109,6 +112,7 @@ No se añadirá a Unified Manager ninguna matriz de almacenamiento con problemas
 
 
 
+[[step-4-provide-passwords]]
 == Paso 4: proporciona contraseñas
 
 Debes introducir las contraseñas de las matrices de almacenamiento que quieres añadir a tu dominio de gestión.

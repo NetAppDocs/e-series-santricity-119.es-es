@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-is-a-volume]]
 == ¿Qué es un volumen?
 
 Un volumen es un contenedor en el que las aplicaciones, bases de datos y sistemas de archivos almacenan datos. Es el componente lógico creado para que el host acceda al almacenamiento en la storage array.
@@ -24,6 +25,7 @@ Un volumen se crea a partir de la capacidad disponible en un pool o un grupo de 
 
 
 
+[[why-am-i-seeing-a-capacity-over-allocation-error-when-i-have-enough-free-capacity-in-a-volume-group-to-create-volumes]]
 == ¿Por qué veo un error de sobreasignación de capacidad cuando tengo suficiente capacidad libre en un grupo de volúmenes para crear volúmenes?
 
 El grupo de volúmenes seleccionado puede tener una o más áreas de capacidad libre. Un área de capacidad libre es la capacidad libre que puede resultar de eliminar un volumen o de no usar toda la capacidad libre disponible durante la creación del volumen.
@@ -42,6 +44,7 @@ Si quieres usar un área de capacidad libre específica en vez del área de capa
 
 
 
+[[how-does-my-selected-workload-impact-volume-creation]]
 == ¿Cómo afecta la creación de volúmenes la carga de trabajo seleccionada?
 
 Durante la creación del volumen, se te pide información sobre el uso de una carga de trabajo. El sistema usa esta información para crear una configuración de volumen óptima para ti, la cual puedes editar si lo necesitas. Opcionalmente, puedes saltarte este paso en la secuencia de creación del volumen.
@@ -64,18 +67,21 @@ Puedes revisar la configuración de volúmenes recomendada y editar, añadir o e
 
 
 
+[[why-arent-these-volumes-associated-with-a-workload]]
 == ¿Por qué estos volúmenes no están asociados con una carga de trabajo?
 
 Los volúmenes no se asocian a una carga de trabajo si se los creó mediante la interfaz de línea de comandos (CLI) o si se migraron (importaron/exportaron) desde una cabina de almacenamiento diferente.
 
 
 
+[[why-cant-i-delete-the-selected-workload]]
 == ¿Por qué no puedo eliminar la carga de trabajo seleccionada?
 
 Esta carga de trabajo consiste en un grupo de volúmenes que se crearon usando la línea de comandos (CLI) o se migraron (importaron/exportaron) desde una matriz de almacenamiento diferente. Como resultado, los volúmenes de esta carga de trabajo no están asociados con una carga de trabajo específica de la aplicación, así que la carga de trabajo no se puede eliminar.
 
 
 
+[[how-do-application-specific-workloads-help-me-manage-my-storage-array]]
 == ¿Cómo ayudan las cargas de trabajo específicas de las aplicaciones a gestionar una cabina de almacenamiento?
 
 Las características de volumen de la carga de trabajo específica de la aplicación dictan la forma en que la carga de trabajo interactúa con los componentes de la cabina de almacenamiento y determinan el rendimiento del entorno con una configuración determinada.
@@ -84,6 +90,7 @@ Una aplicación es software como SQL Server o servidor de Exchange. Defines una 
 
 
 
+[[how-does-providing-this-information-help-create-storage]]
 == ¿Cómo ayuda proporcionar esta información a crear almacenamiento?
 
 La información sobre la carga de trabajo se utiliza para optimizar las características del volumen, como el tipo de E/S, el tamaño de segmento y la caché de lectura/escritura para la carga de trabajo seleccionada. Estas características optimizadas dictan cómo tu carga de trabajo interactúa con los componentes de la matriz de almacenamiento.
@@ -96,6 +103,7 @@ Consulta la documentación específica de tu aplicación para obtener informaci�
 
 
 
+[[what-do-i-need-to-do-to-recognize-the-expanded-capacity]]
 == ¿Qué debo hacer para reconocer la capacidad ampliada?
 
 Si aumentas la capacidad de un volumen, es posible que el host no reconozca de inmediato el aumento en la capacidad del volumen.
@@ -108,6 +116,7 @@ Consulte la documentación del sistema operativo host para obtener más detalles
 
 
 
+[[why-dont-i-see-all-my-pools-andor-volume-groups]]
 == ¿Por qué no veo todos mis pools y/o grupos de volúmenes?
 
 Cualquier pool o grupo de volúmenes al que no puedas mover el volumen no aparece en la lista.
@@ -121,6 +130,7 @@ Los pools o grupos de volúmenes no son aptos por alguna de las siguientes razon
 
 
 
+[[what-is-segment-size]]
 == ¿Qué es el tamaño de segmento?
 
 Un segmento es la cantidad de datos en kilobytes (KiB) que se almacena en una unidad antes de que la matriz de almacenamiento pase a la siguiente unidad en la banda (grupo RAID). El tamaño de segmento aplica solo a los grupos de volúmenes, no a los pools.
@@ -131,18 +141,21 @@ Ya sea que una aplicación use pequeñas lecturas y escrituras aleatorias, o gra
 
 
 
+[[environments-where-iops-performance-is-important]]
 === Entornos donde el rendimiento de IOPS es importante
 
 En un entorno de operaciones de I/O por segundo (IOPS), la matriz de almacenamiento funciona mejor si usas un tamaño de segmento mayor que el tamaño de bloque de datos típico ("`chunk`") que se lee/escribe en una unidad. Esto asegura que cada chunk se escriba en una sola unidad.
 
 
 
+[[environments-where-throughput-is-important]]
 === Entornos en los que el rendimiento es importante
 
 En un entorno de rendimiento, el tamaño del segmento debe ser una fracción uniforme del total de unidades para datos y el tamaño típico del bloque de datos (tamaño de I/O). Esto distribuye los datos como una única franja a través de las unidades en el grupo de volúmenes, lo que lleva a lecturas y escrituras más rápidas.
 
 
 
+[[what-is-preferred-controller-ownership]]
 == ¿Qué es la propiedad preferida del controlador?
 
 La propiedad de controlador preferido define el controlador que se designa como propietario, o controlador principal, del volumen.
@@ -153,6 +166,7 @@ Por ejemplo, si un controlador lee principalmente bloques de datos grandes y sec
 
 
 
+[[when-would-i-want-to-use-the-assign-host-later-selection]]
 == ¿Cuándo querría usar la opción de asignar host más tarde?
 
 Si quieres acelerar el proceso de creación de volúmenes, puedes omitir el paso de asignación de host para que los volúmenes recién creados se inicialicen sin conexión.
@@ -165,6 +179,7 @@ Cuando ninguno de los volúmenes de un grupo de volúmenes está asignado, se re
 
 
 
+[[what-do-i-need-to-know-about-host-block-size-requirements]]
 == ¿Qué debo saber sobre los requisitos de tamaño de bloque del host?
 
 En los sistemas EF300 y EF600, un volumen puede configurarse para admitir un tamaño de bloque de 512 bytes o de 4KiB (también llamado "tamaño de sector"). Debes configurar el valor correcto durante la creación del volumen. Si es posible, el sistema sugiere el valor predeterminado adecuado.

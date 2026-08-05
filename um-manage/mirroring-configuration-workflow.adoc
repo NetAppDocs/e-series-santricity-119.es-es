@@ -15,6 +15,7 @@ Configuras la duplicación asíncrona o síncrona en SANtricity Unified Manager 
 
 
 
+[[asynchronous-mirroring-workflow]]
 == Flujo de trabajo de mirroring asíncrono
 
 La réplica asíncrona implica el siguiente flujo de trabajo:
@@ -45,6 +46,7 @@ Dado que la replicación asíncrona es periódica, el sistema puede consolidar l
 
 
 
+[[synchronous-mirroring-workflow]]
 == Flujo de trabajo de mirroring síncrono
 
 La réplica síncrona implica el siguiente flujo de trabajo:

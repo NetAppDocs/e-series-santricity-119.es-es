@@ -15,6 +15,7 @@ El software SANtricity es compatible con varios tipos de navegadores y sistemas 
 
 
 
+[[browsers]]
 == Navegadores
 
 Se admiten los siguientes exploradores en las versiones mencionadas.
@@ -58,6 +59,7 @@ Para Unified Manager, el Web Services Proxy debe estar instalado y disponible pa
 ====
 
 
+[[operating-systems]]
 == Sistemas operativos
 
 Se admiten los siguientes sistemas operativos y versiones.

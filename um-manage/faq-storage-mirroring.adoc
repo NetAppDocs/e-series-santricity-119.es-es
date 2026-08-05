@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-do-i-need-to-know-before-creating-a-mirror-consistency-group]]
 == ¿Qué debo saber antes de crear un grupo de coherencia de reflejos?
 
 Siga estas directrices para poder crear un grupo de coherencia de reflejos.
@@ -44,6 +45,7 @@ La duplicación síncrona no está disponible en el sistema de almacenamiento EF
 ====
 
 
+[[what-do-i-need-to-know-before-creating-a-mirrored-pair]]
 == ¿Qué debo saber antes de crear una pareja reflejada?
 
 Antes de crear una pareja reflejada, siga estas directrices.
@@ -65,6 +67,7 @@ La duplicación síncrona no está disponible en el sistema de almacenamiento EF
 ====
 
 
+[[why-would-i-change-this-percentage]]
 == ¿Por qué debería cambiar este porcentaje?
 
 La capacidad reservada suele ser el 20 por ciento del volumen base para operaciones de mirroring asíncrono. Normalmente esta capacidad es suficiente.
@@ -77,6 +80,7 @@ La capacidad necesaria varía en función de la frecuencia y el tamaño de las e
 
 
 
+[[why-do-i-see-more-than-one-reserved-capacity-candidate]]
 == ¿Por qué veo más de un candidato de capacidad reservada?
 
 Si hay más de un volumen en un pool o grupo de volúmenes que cumple con el porcentaje de capacidad que seleccionaste para el objeto de almacenamiento, entonces verás varios candidatos.
@@ -85,6 +89,7 @@ Puedes actualizar la lista de candidatos recomendados cambiando el porcentaje de
 
 
 
+[[why-dont-i-see-all-my-volumes]]
 == ¿Por qué no veo todos mis volúmenes?
 
 Cuando estás seleccionando un volumen primario para un par reflejado, una lista muestra todos los volúmenes elegibles.
@@ -102,6 +107,7 @@ NOTE: Para las controladoras EF600 y EF300, los volúmenes primario y secundario
 
 
 
+[[why-dont-i-see-all-the-volumes-on-the-remote-storage-array]]
 == ¿Por qué no veo todos los volúmenes en la matriz de almacenamiento remota?
 
 Cuando estás seleccionando un volumen secundario en la matriz de almacenamiento remota, una lista muestra todos los volúmenes elegibles para ese par reflejado.
@@ -129,6 +135,7 @@ Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista
 
 
 
+[[what-impact-does-synchronization-priority-have-on-synchronization-rates]]
 == ¿Qué impacto tiene la prioridad de sincronización en las tasas de sincronización?
 
 La prioridad de sincronización define cuánto tiempo de procesamiento se asigna a las actividades de sincronización en relación con el rendimiento del sistema.
@@ -186,6 +193,7 @@ El tamaño del volumen y las cargas de la tasa de E/S del host afectan el tiempo
 
 
 
+[[why-is-it-recommended-to-use-a-manual-synchronization-policy]]
 == ¿Por qué se recomienda usar una política de sincronización manual?
 
 Se recomienda la resincronización manual porque te permite gestionar el proceso de resincronización de una manera que ofrece la mejor oportunidad para recuperar datos.

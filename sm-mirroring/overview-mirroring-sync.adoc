@@ -20,6 +20,7 @@ Esta función no está disponible en el sistema de almacenamiento EF600/EF600C o
 ====
 
 
+[[what-is-synchronous-mirroring]]
 == ¿Qué es la replicación síncrona?
 
 _Synchronous mirroring_ replica los volúmenes de datos en tiempo real para garantizar una disponibilidad continua. Los controladores de matrices de almacenamiento gestionan la operación de mirroring, que es transparente para las máquinas host y las aplicaciones de software.
@@ -37,6 +38,7 @@ Más información:
 
 
 
+[[how-do-i-configure-synchronous-mirroring]]
 == ¿Cómo configuro la replicación síncrona?
 
 Debes usar la interfaz de Unified Manager para realizar la configuración inicial de reflejo entre las arrays. Una vez que esté configurado, puedes gestionar los pares reflejados en System Manager.
@@ -50,6 +52,7 @@ Más información:
 
 
 
+[[related-information]]
 == Información relacionada
 
 Conoce más sobre conceptos relacionados con la duplicación síncrona:

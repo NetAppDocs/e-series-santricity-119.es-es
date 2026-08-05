@@ -17,6 +17,7 @@ Para ver la jerarquía de almacenamiento, ve a la página de inicio y haz clic e
 
 
 
+[[physical-components]]
 == Componentes físicos
 
 Los componentes físicos de una matriz de almacenamiento se describen en esta tabla.
@@ -81,6 +82,7 @@ Un cliente de gestión es el ordenador donde se instala un navegador para accede
 |===
 
 
+[[logical-components]]
 == Componentes lógicos
 
 Las unidades de la matriz de almacenamiento proporcionan la capacidad de almacenamiento físico para los datos. Usa System Manager para configurar la capacidad física en componentes lógicos, como pools, grupos de volúmenes y volúmenes. Estos componentes son las herramientas que tú usas para configurar, almacenar, mantener y conservar datos en la matriz de almacenamiento. Los componentes lógicos de una matriz de almacenamiento se describen en esta tabla.

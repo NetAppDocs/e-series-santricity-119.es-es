@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-if-i-dont-see-all-of-my-hardware-components]]
 == ¿Qué pasa si no veo todos mis componentes de hardware?
 
 Si no ves todos los componentes de hardware en el cuadro de diálogo Verificar hardware, podría significar que un estante de unidades no está conectado correctamente o que hay un estante incompatible instalado en la matriz de almacenamiento.
@@ -24,6 +25,7 @@ Verifica que todos los estantes de unidad estén conectados correctamente. Si no
 
 
 
+[[what-if-i-dont-see-all-of-my-hosts]]
 == ¿Qué pasa si no veo todos mis hosts?
 
 Si no ves tus hosts conectados, entonces la detección automática ha fallado, los hosts están conectados incorrectamente o no hay hosts conectados en este momento.
@@ -36,6 +38,7 @@ Puedes configurar hosts más tarde, una vez que termines con la configuración. 
 
 
 
+[[how-does-identifying-applications-help-me-manage-my-storage-array]]
 == ¿Cómo me ayuda identificar aplicaciones a gestionar mi matriz de almacenamiento?
 
 Cuando identificas aplicaciones, SANtricity System Manager recomienda automáticamente una configuración de volúmenes que optimiza la capacidad de almacenamiento según el tipo de aplicación.
@@ -44,6 +47,7 @@ Optimizar los volúmenes por aplicación puede hacer que las operaciones de alma
 
 
 
+[[what-is-a-workload]]
 == ¿Qué es una carga de trabajo?
 
 Para algunas aplicaciones en tu red, como SQL Server o Exchange, puedes definir una carga de trabajo que optimice el almacenamiento para esa aplicación.
@@ -54,6 +58,7 @@ Durante la creación de volúmenes, el sistema te pide que respondas preguntas s
 
 
 
+[[how-do-i-configure-the-delivery-method-for-autosupport]]
 == ¿Cómo configuro el método de entrega para AutoSupport?
 
 Para acceder a las tareas de configuración de los métodos de entrega de AutoSupport, ve a menu:Support[Support Center] y luego haz clic en la pestaña *AutoSupport*.
@@ -62,6 +67,7 @@ Los siguientes protocolos son compatibles: HTTPS y SMTP.
 
 
 
+[[how-do-i-know-if-i-should-accept-the-recommended-pool-configuration]]
 == ¿Cómo sé si debo aceptar la configuración de pool recomendada?
 
 Si aceptas la configuración recomendada del pool depende de algunos factores.
@@ -77,6 +83,7 @@ Si respondiste sí a alguna de estas preguntas, considera rechazar la configurac
 
 
 
+[[santricity-system-manager-has-not-detected-any-hosts-what-do-i-do]]
 == SANtricity System Manager no ha detectado ningún host. ¿Qué hago?
 
 Si no ves tus hosts conectados, entonces la detección automática ha fallado, los hosts están conectados incorrectamente o no hay hosts conectados en este momento.

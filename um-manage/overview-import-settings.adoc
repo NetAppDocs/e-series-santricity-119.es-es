@@ -15,6 +15,7 @@ La función Import Settings permite realizar una operación por lotes para impor
 
 
 
+[[what-settings-can-be-imported]]
 == ¿Qué ajustes se pueden importar?
 
 Puedes importar métodos de alerta, configuraciones de AutoSupport, configuraciones de Servicios de directorio, configuraciones de almacenamiento (como grupos de volúmenes y pools) y configuraciones del sistema (como el equilibrio de carga automático).
@@ -27,6 +28,7 @@ Más información:
 
 
 
+[[how-do-i-perform-a-batch-import]]
 == ¿Cómo hago una importación por lotes?
 
 En una matriz de almacenamiento que se vaya a usar como origen, abre System Manager y configura los ajustes deseados. Luego, desde Unified Manager, ve a la página Manage e importa los ajustes a una o más matrices.

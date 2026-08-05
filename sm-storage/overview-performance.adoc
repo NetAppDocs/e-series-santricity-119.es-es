@@ -15,6 +15,7 @@ La página de Rendimiento te ofrece formas sencillas de supervisar el rendimient
 
 
 
+[[what-can-i-learn-from-performance-data]]
 == ¿Qué puedo aprender de los datos de rendimiento?
 
 Los gráficos y tablas de rendimiento muestran datos de rendimiento casi en tiempo real, lo que te ayuda a determinar si una matriz de almacenamiento está experimentando problemas. También puedes guardar datos de rendimiento para construir una vista histórica de una matriz de almacenamiento e identificar cuándo comenzó un problema o qué lo causó.
@@ -27,6 +28,7 @@ Más información:
 
 
 
+[[how-can-i-view-performance-data]]
 == ¿Cómo puedo ver los datos de rendimiento?
 
 Los datos de rendimiento están disponibles en la página de inicio y en la página de almacenamiento.

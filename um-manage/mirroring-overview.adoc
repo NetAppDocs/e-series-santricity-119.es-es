@@ -20,6 +20,7 @@ La duplicación síncrona no está disponible en el sistema de almacenamiento EF
 ====
 
 
+[[types-of-mirroring]]
 == Tipos de mirroring
 
 Las aplicaciones SANtricity incluyen dos tipos de mirroring: asíncrono y síncrono.
@@ -30,6 +31,7 @@ La replicación síncrona replica los volúmenes de datos en tiempo real para ga
 
 
 
+[[differences-between-mirroring-types]]
 == Diferencias entre los tipos de mirroring
 
 La siguiente tabla describe las principales diferencias entre los dos tipos de mirroring.

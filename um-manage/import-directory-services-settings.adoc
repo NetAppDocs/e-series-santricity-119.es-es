@@ -47,6 +47,7 @@ La página Operaciones muestra los resultados de la operación de importación. 
 
 
 
+[[results]]
 == Resultados
 
 Las cabinas de almacenamiento objetivo ahora están configuradas con los mismos servicios de directorio que la cabina de origen.

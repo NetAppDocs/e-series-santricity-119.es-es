@@ -19,6 +19,7 @@ Por ejemplo, un volumen primario es propiedad de la controladora A y luego cambi
 
 
 
+[[controller-resets]]
 == Reinicios del controlador
 
 Un reinicio del controlador provoca un cambio de propiedad del volumen en el lado primario, pasando del propietario del controlador preferido al controlador alternativo en la matriz de almacenamiento.

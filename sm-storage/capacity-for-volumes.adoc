@@ -16,6 +16,7 @@ Las unidades de la cabina de almacenamiento proporcionan capacidad de almacenami
 
 
 
+[[using-capacity-to-create-and-expand-volumes]]
 == Usar la capacidad para crear y expandir volúmenes
 
 Es posible crear volúmenes a partir de la capacidad sin asignar o libre de un pool o grupo de volúmenes.
@@ -28,6 +29,7 @@ Después de ampliar la capacidad del volumen, tienes que aumentar manualmente el
 
 
 
+[[capacity-types-for-thick-volumes-and-thin-volumes]]
 == Tipos de capacidad para volúmenes thick y volúmenes thin
 
 Puedes crear volúmenes gruesos o volúmenes finos. La capacidad informada y la capacidad asignada son las mismas para los volúmenes gruesos, pero son diferentes para los volúmenes finos.
@@ -49,6 +51,7 @@ SANtricity System Manager no proporciona una opción para crear volúmenes delga
 ====
 
 
+[[capacity-limits-for-thick-volumes]]
 == Límites de capacidad para volúmenes thick
 
 La capacidad mínima para un volumen grueso es 1 MiB y la capacidad máxima se determina en función de la cantidad de unidades en el pool o el grupo de volúmenes y su capacidad.
@@ -65,6 +68,7 @@ Al crear un volumen, se asigna previamente algo de capacidad adicional para la m
 
 
 
+[[capacity-limits-for-thin-volumes]]
 == Límites de capacidad para volúmenes finos
 
 Puedes crear volúmenes delgados con una gran capacidad declarada y una capacidad asignada relativamente pequeña, lo que es beneficioso para la utilización y eficiencia del almacenamiento. Los volúmenes delgados pueden ayudar a simplificar la administración del almacenamiento porque la capacidad asignada puede aumentar a medida que cambian las necesidades de la aplicación sin interrumpir la aplicación, permitiendo un mejor uso del almacenamiento.

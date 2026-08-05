@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-is-auto-negotiation]]
 == ¿Qué es la auto-negociación?
 
 La autonegociación es la capacidad de una interfaz de red para coordinar automáticamente sus propios parámetros de conexión (velocidad y dúplex) con otra interfaz de red.
@@ -29,6 +30,7 @@ Si falla la autonegociación, el controlador intenta establecer una conexión en
 ====
 
 
+[[what-is-ipv6-stateless-address-auto-configuration]]
 == ¿Qué es la autoconfiguración de direcciones IPv6 sin estado?
 
 Con la autoconfiguración sin estado, los hosts no obtienen direcciones ni otra información de configuración de un servidor.
@@ -49,12 +51,14 @@ Los dispositivos realizan estos pasos cuando se utiliza la configuración autom�
 
 
 
+[[which-do-i-choose-dhcp-or-manual-configuration]]
 == ¿Cuál elijo: DHCP o configuración manual?
 
 El método predeterminado para la configuración de red es el Protocolo de configuración dinámica de host (DHCP). Usa siempre esta opción a menos que tu red no tenga un servidor DHCP.
 
 
 
+[[what-is-a-dhcp-server]]
 == ¿Qué es un servidor DHCP?
 
 El Protocolo de configuración dinámica de host (DHCP) es un protocolo que automatiza la tarea de asignar una dirección IP.
@@ -65,6 +69,7 @@ Sin DHCP, un administrador de red introduce estas direcciones IP manualmente. Co
 
 
 
+[[how-do-i-configure-my-dhcp-server]]
 == ¿Cómo configuro mi servidor DHCP?
 
 Debes configurar un servidor DHCP (Protocolo de configuración dinámica de host) para usar direcciones IP estáticas para los controladores de tu matriz de almacenamiento.
@@ -75,6 +80,7 @@ Para obtener información sobre cómo asignar direcciones estáticas, consulta l
 
 
 
+[[why-do-i-need-to-change-the-controller-network-configuration]]
 == ¿Por qué tengo que cambiar la configuración de red del controlador?
 
 Debes establecer la configuración de red para cada controlador: su dirección IP, máscara de subred y puerta de enlace cuando uses la gestión fuera de banda.
@@ -83,6 +89,7 @@ Puedes establecer la configuración de red usando un servidor DHCP (Dynamic Host
 
 
 
+[[where-do-i-get-the-network-configuration]]
 == ¿Dónde consigo la configuración de red?
 
 Puedes obtener la dirección IP (Internet Protocol), la máscara de subred (subnet mask) y la información de la puerta de enlace de tu administrador de red.
@@ -91,6 +98,7 @@ Necesitas esta información cuando configuras los puertos en los controladores.
 
 
 
+[[what-are-icmp-ping-responses]]
 == ¿Qué son las respuestas ICMP PING?
 
 Internet Control Message Protocol (ICMP) es uno de los protocolos del conjunto TCP/IP.
@@ -99,6 +107,7 @@ Los `ICMP echo request` y los(`ICMP echo reply` mensajes se conocen comúnmente 
 
 
 
+[[when-should-i-refresh-the-port-configuration]]
 == ¿Cuándo debo actualizar la configuración del puerto?
 
 Actualiza el servidor DHCP cada vez que se modifique o actualice el servidor y haya cambiado la información DHCP relevante para la matriz de almacenamiento actual y la matriz de almacenamiento que quieres usar.
@@ -112,6 +121,7 @@ Actualizar la configuración de un puerto elimina todas las conexiones iSCSI de 
 ====
 
 
+[[what-should-i-do-after-configuring-the-management-ports]]
 == ¿Qué debo hacer después de configurar los puertos de gestión?
 
 Si cambiaste la dirección IP de la matriz de almacenamiento, quizá quieras actualizar la vista global de la matriz en SANtricity Unified Manager.
@@ -122,6 +132,7 @@ Si todavía estás usando SANtricity Storage Manager, ve a la Ventana de Gestió
 
 
 
+[[why-is-the-storage-system-in-non-optimal-mode]]
 == ¿Por qué el sistema de almacenamiento está en modo no óptimo?
 
 Un sistema de almacenamiento en modo no óptimo se debe a un estado de configuración del sistema no válida. A pesar de este estado, el acceso normal de E/S a los volúmenes existentes está totalmente soportado; sin embargo, SANtricity System Manager prohibirá algunas operaciones.

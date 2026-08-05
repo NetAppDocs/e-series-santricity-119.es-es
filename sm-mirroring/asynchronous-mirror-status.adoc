@@ -15,6 +15,7 @@ El estado de la réplica define el estado de los grupos de consistencia de volú
 
 
 
+[[status-for-mirror-consistency-groups]]
 == Estado de los grupos de coherencia de espejo
 
 [cols="25h,~"]
@@ -97,6 +98,7 @@ No se permite una promoción forzada cuando se resuelve un conflicto de roles.
 |===
 
 
+[[status-for-mirrored-pairs]]
 == Estado de los pares reflejados
 
 El estado de un par reflejado indica si los datos del volumen primario y del volumen secundario están sincronizados.

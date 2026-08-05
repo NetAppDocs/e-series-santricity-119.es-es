@@ -15,6 +15,7 @@ SANtricity System Manager informa varios estados para las unidades.
 
 
 
+[[accessibility-states]]
 == Estados de accesibilidad
 
 [cols="25h,~"]
@@ -63,6 +64,7 @@ La unidad no responde a los comandos.
 |===
 
 
+[[role-states]]
 == Estados de rol
 
 [cols="25h,~"]
@@ -99,6 +101,7 @@ La unidad no es miembro de un pool o grupo de volúmenes.
 |===
 
 
+[[availability-states]]
 == Estados de disponibilidad
 
 [cols="25h,~"]

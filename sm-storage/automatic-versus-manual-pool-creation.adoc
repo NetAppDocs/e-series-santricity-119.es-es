@@ -15,6 +15,7 @@ Creas pools automáticamente o manualmente para permitir que el almacenamiento f
 
 
 
+[[automatic-creation]]
 == Creación automática
 
 La creación automática de pools se inicia cuando System Manager detecta capacidad no asignada en un storage array. Cuando se detecta capacidad no asignada, System Manager te pide automáticamente que crees uno o más pools, o que añadas la capacidad no asignada a un pool existente, o ambas cosas.
@@ -35,6 +36,7 @@ Cada unidad de un pool debe ser del mismo tipo (HDD o SSD) y tener una capacidad
 
 
 
+[[manual-creation]]
 == Creación manual
 
 Quizás sea conveniente crear un pool manualmente cuando la creación automática no puede determinar cuál es la mejor configuración. Esta situación puede ocurrir por uno de los siguientes motivos:

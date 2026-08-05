@@ -15,6 +15,7 @@ Crear un host es uno de los pasos necesarios para que la matriz de almacenamient
 
 
 
+[[manual-creation]]
 == Creación manual
 
 La creación manual de hosts te permite asegurarte de que los identificadores de puerto de host que detectaron los controladores de la matriz de almacenamiento estén asociados correctamente con los hosts.

@@ -16,6 +16,7 @@ Usa el asistente de configuración para configurar tu matriz de almacenamiento, 
 
 
 
+[[first-time-setup]]
 == Configuración inicial
 
 Cuando abres System Manager por primera vez, se inicia el asistente de configuración. El asistente de configuración te pide que realices tareas básicas de configuración, como ponerle nombre a tu storage array, configurar tus hosts, seleccionar aplicaciones y crear pools de almacenamiento.
@@ -32,6 +33,7 @@ Si cancelas el asistente, no puedes volver a iniciarlo manualmente. El asistente
 
 
 
+[[terminology]]
 == Terminología
 
 El asistente de configuración usa los siguientes términos.

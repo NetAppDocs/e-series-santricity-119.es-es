@@ -22,6 +22,7 @@ Autenticar entre los controladores y un servidor de gestión de claves es un pro
 
 
 
+[[step-1-complete-and-submit-csr-for-authentication-with-a-key-management-server]]
 == Paso 1: completa y envía la CSR para la autenticación con un servidor de gestión de claves
 
 Primero debes generar un archivo de solicitud de firma de certificado (CSR) y luego usar el CSR para solicitar un certificado de cliente firmado a una autoridad de certificación (CA) en la que confíe el servidor de gestión de claves. También puedes crear y descargar un certificado de cliente desde el servidor de gestión de claves usando el archivo CSR descargado. Un certificado de cliente valida los controladores de la matriz de almacenamiento, así que el servidor de gestión de claves puede confiar en sus solicitudes de Key Management Interoperability Protocol (KMIP).
@@ -56,6 +57,7 @@ NOTE: Es común que el servidor de gestión de claves tenga una función que gen
 
 
 
+[[step-2-import-certificates-for-the-key-management-server]]
 == Paso 2: importar certificados para el servidor de gestión de claves
 
 El siguiente paso consiste en importar certificados para la autenticación entre la matriz de almacenamiento y el servidor de gestión de claves. Hay dos tipos de certificados: el certificado de cliente valida los controladores de la matriz de almacenamiento, mientras que el certificado del servidor de gestión de claves valida el servidor. Debes cargar tanto el archivo de certificado de cliente para los controladores como el archivo de certificado de servidor para el servidor de gestión de claves.

@@ -16,6 +16,7 @@ Puedes configurar SANtricity System Manager para algunos ajustes generales de la
 
 
 
+[[what-settings-can-i-configure]]
 == ¿Qué configuraciones puedo configurar?
 
 La configuración de la matriz incluye:
@@ -28,6 +29,7 @@ La configuración de la matriz incluye:
 
 
 
+[[related-tasks]]
 == Tareas relacionadas
 
 Obtén más información sobre las tareas relacionadas con la Configuración del sistema:

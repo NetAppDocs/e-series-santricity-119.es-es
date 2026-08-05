@@ -25,6 +25,7 @@ El proceso para crear un volumen snapshot es un procedimiento de varios pasos.
 
 
 
+[[step-1-review-members-for-a-snapshot-volume]]
 == Paso 1: revisa los miembros de un volumen instantáneo
 
 Selecciona una imagen de instantánea de un volumen base o de un grupo de coherencia de instantáneas. Si seleccionas una imagen de instantánea de un grupo de coherencia de instantáneas, los volúmenes miembros del grupo de coherencia de instantáneas aparecerán para que los revises.
@@ -48,6 +49,7 @@ En el cuadro de diálogo Revisar miembros, revisa la lista de volúmenes que est
 
 
 
+[[step-2-assign-snapshot-volume-to-host]]
 == Paso 2: asignar volumen de instantánea al host
 
 Selecciona un host o clúster de host específico para asignarlo al volumen de instantáneas. Esta asignación le da a un host o clúster de host acceso al volumen de instantáneas. Puedes elegir asignar un host más tarde si lo necesitas.
@@ -90,6 +92,7 @@ Asignar un volumen a un host falla si intentas asignar un volumen a un host clus
 
 
 
+[[step-3-reserve-capacity-for-a-snapshot-volume]]
 == Paso 3: reserva capacidad para un volumen de instantánea
 
 Asocia la capacidad reservada a un volumen de instantánea de lectura/escritura. System Manager sugiere los volúmenes y la capacidad según las propiedades del volumen base o del grupo de coherencia de instantáneas. Puedes aceptar la configuración recomendada de capacidad reservada o personalizar el almacenamiento asignado.
@@ -130,6 +133,7 @@ Asigna la capacidad reservada usando las siguientes pautas.
 
 
 
+[[step-4-edit-settings-for-a-snapshot-volume]]
 == Paso 4: editar la configuración de un volumen instantáneo
 
 Cambia la configuración de un volumen de instantáneas, como su nombre, caché, umbrales de alerta de capacidad reservada y así sucesivamente.

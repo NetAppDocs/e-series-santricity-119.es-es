@@ -15,6 +15,7 @@ SANtricity System Manager es una interfaz basada en web que te permite gestionar
 
 
 
+[[home-page]]
 == Página de inicio
 
 La página de inicio proporciona una vista de consola para la gestión diaria de tu matriz de almacenamiento. Cuando inicias sesión en System Manager, la página de inicio es la primera pantalla que se muestra.
@@ -55,6 +56,7 @@ El área Jerarquía de almacenamiento proporciona una vista organizada de los di
 |===
 
 
+[[interface-settings]]
 == Configuración de la interfaz
 
 Puedes cambiar las preferencias de visualización y otros ajustes desde la interfaz principal.
@@ -86,6 +88,7 @@ Accede a la documentación de ayuda y a otros recursos desde el desplegable en l
 |===
 
 
+[[user-logins-and-passwords]]
 == Inicios de sesión y contraseñas de usuario
 
 El usuario actual que ha iniciado sesión en el sistema se muestra en la parte superior derecha de la interfaz.

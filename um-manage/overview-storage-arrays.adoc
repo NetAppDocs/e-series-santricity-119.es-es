@@ -15,6 +15,7 @@ Para gestionar los recursos de almacenamiento, primero tienes que descubrir las 
 
 
 
+[[how-do-i-discover-arrays]]
 == ¿Cómo descubro las matrices?
 
 Usa la página Add/Discover para buscar y agregar las matrices de almacenamiento que quieres gestionar en la red de tu organización. Puedes descubrir varias matrices o puedes descubrir una sola matriz. Para hacer esto, introduces direcciones IP de red y luego Unified Manager intenta conexiones individuales con cada dirección IP de ese rango.
@@ -28,6 +29,7 @@ Más información:
 
 
 
+[[how-do-i-manage-arrays]]
 == ¿Cómo gestiono las matrices?
 
 Después de descubrir las matrices, ve a la página *Manage - All*. Desde esta página, puedes desplazarte por una lista de matrices de almacenamiento descubiertas en tu red, ver su estado y realizar operaciones en una sola matriz o en un grupo de matrices.

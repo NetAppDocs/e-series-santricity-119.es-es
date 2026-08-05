@@ -15,6 +15,7 @@ Antes de importar una configuración de almacenamiento de una matriz de almacena
 
 
 
+[[shelves]]
 == Bandejas
 
 * Los estantes donde residen los controladores deben ser idénticos en los arrays de origen y destino.
@@ -24,6 +25,7 @@ Antes de importar una configuración de almacenamiento de una matriz de almacena
 
 
 
+[[controllers]]
 == Controladoras
 
 * El tipo de controlador puede ser diferente entre las matrices de origen y destino (por ejemplo, importar de un E2800 a un E5700), pero el tipo de caja RBOD debe ser idéntico.
@@ -34,6 +36,7 @@ Antes de importar una configuración de almacenamiento de una matriz de almacena
 
 
 
+[[status]]
 == Estado
 
 * Las cabinas objetivo deben tener el estado Óptimo.
@@ -42,6 +45,7 @@ Antes de importar una configuración de almacenamiento de una matriz de almacena
 
 
 
+[[storage]]
 == Almacenamiento
 
 * La capacidad de las unidades puede variar entre las matrices de origen y de destino, siempre y cuando la capacidad del volumen en el destino sea mayor que en el origen. (Una matriz de destino podría tener unidades más nuevas y de mayor capacidad que no serían totalmente configuradas en volúmenes por la operación de replicación.)

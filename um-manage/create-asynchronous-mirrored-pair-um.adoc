@@ -40,6 +40,7 @@ El proceso para crear una pareja reflejada asíncrona es un procedimiento de var
 
 
 
+[[step-1-create-or-select-a-mirror-consistency-group]]
 == Paso 1: crea o selecciona un grupo de coherencia de réplica
 
 En este paso, creas un nuevo grupo de consistencia de réplica o seleccionas uno existente. Un grupo de consistencia de réplica es un contenedor para los volúmenes primario y secundario (el par reflejado), y especifica el método de resincronización que quieras (manual o automático) para todos los pares del grupo.
@@ -95,6 +96,7 @@ Si Unified Manager crea correctamente el grupo de coherencia de réplica en la m
 
 
 
+[[step-2-select-the-primary-volume]]
 == Paso 2: selecciona el volumen primario
 
 En este paso, seleccionas el volumen primario que vas a usar en la relación de espejo y asignas su capacidad reservada. Cuando seleccionas un volumen primario en la matriz de almacenamiento local, el sistema muestra una lista de todos los volúmenes elegibles para ese par reflejado. Cualquier volumen que no sea elegible para usarse no aparece en esa lista.
@@ -123,6 +125,7 @@ Ten en cuenta las siguientes directrices:
 
 
 
+[[step-3-select-the-secondary-volume]]
 == Paso 3: selecciona el volumen secundario
 
 En este paso, seleccionas el volumen secundario que quieres usar en la relación de duplicación y asignas su capacidad reservada. Cuando seleccionas un volumen secundario en la matriz de almacenamiento remota, el sistema muestra una lista de todos los volúmenes elegibles para ese par duplicado. Cualquier volumen que no sea elegible para usarse no aparece en esa lista.

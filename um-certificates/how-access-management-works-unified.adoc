@@ -15,6 +15,7 @@ Usa Access Management para establecer la autenticación de usuarios en SANtricit
 
 
 
+[[configuration-workflow]]
 == Flujo de trabajo de configuración
 
 La configuración de Access Management funciona así:
@@ -47,6 +48,7 @@ Al iniciar sesión por primera vez, el nombre de usuario `admin` se muestra auto
 
 
 
+[[functions-available-in-unified-manager]]
 == Funciones disponibles en Unified Manager
 
 El acceso a las funciones depende de los roles asignados a un usuario, que incluyen lo siguiente:

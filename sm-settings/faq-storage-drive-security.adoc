@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[what-do-i-need-to-know-before-creating-a-security-key]]
 == ¿Qué debo saber antes de crear una clave de seguridad?
 
 Una clave de seguridad es compartida por los controladores y las unidades habilitadas para seguridad dentro de una matriz de almacenamiento. Si se retira una unidad habilitada para seguridad de la matriz de almacenamiento, la clave de seguridad protege los datos de acceso no autorizado.
@@ -28,6 +29,7 @@ Puedes crear y gestionar claves de seguridad usando uno de los siguientes métod
 
 
 
+[[internal-key-management]]
 === Gestión interna de claves
 
 Las claves internas se mantienen y "ocultan" en una ubicación no accesible de la memoria persistente del controlador. Antes de crear una clave de seguridad interna, tienes que hacer lo siguiente:
@@ -40,6 +42,7 @@ Luego puedes crear una clave de seguridad interna, lo que implica definir un ide
 
 
 
+[[external-key-management]]
 === Gestión de claves externas
 
 Las claves externas se mantienen en un servidor de gestión de claves independiente, utilizando un protocolo de interoperabilidad de gestión de claves (KMIP). Antes de crear una clave de seguridad externa, tienes que hacer lo siguiente:
@@ -60,12 +63,14 @@ Luego puedes crear una clave externa, lo que implica definir la dirección IP de
 
 
 
+[[why-do-i-need-to-define-a-pass-phrase]]
 == ¿Por qué necesito definir una frase de paso?
 
 La frase de contraseña se utiliza para cifrar y descifrar el archivo de clave de seguridad almacenado en el cliente de gestión local. Sin la frase de contraseña, la clave de seguridad no se puede descifrar ni usar para desbloquear datos de una unidad habilitada para seguridad si se vuelve a instalar en otra storage array.
 
 
 
+[[why-is-it-important-to-record-security-key-information]]
 == ¿Por qué es importante registrar la información de la clave de seguridad?
 
 Si pierdes la información de la clave de seguridad y no tienes una copia de seguridad, podrías perder datos al reubicar unidades habilitadas para seguridad o al actualizar un controlador. Necesitas la clave de seguridad para desbloquear los datos de las unidades.
@@ -74,6 +79,7 @@ Asegúrate de registrar el identificador de la clave de seguridad, la frase de p
 
 
 
+[[what-do-i-need-to-know-before-backing-up-a-security-key]]
 == ¿Qué debo saber antes de hacer una copia de seguridad de una clave de seguridad?
 
 Si tu clave de seguridad original se corrompe y no tienes una copia de seguridad, perderás el acceso a los datos de las unidades si se migran de una matriz de almacenamiento a otra.
@@ -99,6 +105,7 @@ La frase de contraseña para Drive Security no debe confundirse con la contrase�
 
 
 
+[[what-do-i-need-to-know-before-unlocking-secure-drives]]
 == ¿Qué debo saber antes de desbloquear unidades seguras?
 
 Para desbloquear los datos de una unidad con seguridad habilitada, debes importar su clave de seguridad.
@@ -113,6 +120,7 @@ Antes de desbloquear unidades con la función de seguridad habilitada, recuerde 
 
 
 
+[[what-is-readwrite-accessibility]]
 == ¿Qué es la accesibilidad de lectura/escritura?
 
 La ventana Drive Settings incluye información sobre los atributos de seguridad de la unidad. "Read/Write Accessible" es uno de los atributos que muestra si se han bloqueado los datos de una unidad.
@@ -121,6 +129,7 @@ Para ver los atributos de seguridad de la unidad, ve a la página Hardware. Sele
 
 
 
+[[what-do-i-need-to-know-about-validating-the-security-key]]
 == ¿Qué necesito saber sobre la validación de la clave de seguridad?
 
 Después de crear una clave de seguridad, debes validar el archivo de clave para asegurarte de que no está dañado.
@@ -134,6 +143,7 @@ Si la validación falla, haz lo siguiente:
 
 
 
+[[what-is-the-difference-between-internal-security-key-and-external-security-key-management]]
 == ¿Cuál es la diferencia entre la clave de seguridad interna y la gestión externa de claves de seguridad?
 
 Cuando implementas la función Drive Security, puedes usar una clave de seguridad interna o una clave de seguridad externa para bloquear los datos cuando se retira una unidad habilitada para seguridad de la matriz de almacenamiento.

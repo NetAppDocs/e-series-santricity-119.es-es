@@ -16,6 +16,7 @@ Esta sección de preguntas frecuentes puede ayudarte si solo buscas una respuest
 
 
 
+[[how-does-asynchronous-mirroring-differ-from-synchronous-mirroring]]
 == ¿En qué se diferencia la replicación asíncrona de la replicación síncrona?
 
 La función de Asynchronous Mirroring difiere de la de Synchronous Mirroring en un aspecto esencial: captura el estado del volumen de origen en un momento determinado y copia solo los datos que han cambiado desde la última captura de imagen.
@@ -112,6 +113,7 @@ Normalmente debe estar a unos 10 km (6.2 millas) de la matriz de almacenamiento 
 |===
 
 
+[[synchronous-mirroring-why-dont-i-see-all-my-volumes]]
 == Synchronous mirroring - ¿por qué no veo todos mis volúmenes?
 
 Cuando estás seleccionando un volumen primario para un par reflejado, una lista muestra todos los volúmenes elegibles.
@@ -125,6 +127,7 @@ Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista
 
 
 
+[[synchronous-mirroring-why-dont-i-see-all-the-volumes-on-the-remote-storage-array]]
 == Replicación síncrona: ¿por qué no veo todos los volúmenes en la matriz de almacenamiento remota?
 
 Cuando estás seleccionando un volumen secundario en la matriz de almacenamiento remota, una lista muestra todos los volúmenes elegibles para ese par reflejado.
@@ -144,6 +147,7 @@ Los volúmenes que no son elegibles para ser utilizados no aparecen en esa lista
 
 
 
+[[synchronous-mirroring-what-do-i-need-to-know-before-creating-a-mirrored-pair]]
 == Replicación síncrona: ¿qué debo saber antes de crear un par reflejado?
 
 Configuras los pares reflejados en la interfaz de SANtricity Unified Manager y luego gestionas los pares en SANtricity System Manager.
@@ -163,6 +167,7 @@ Antes de crear un par duplicado, sigue estas directrices:
 
 
 
+[[what-impact-does-synchronization-priority-have-on-synchronization-rates]]
 == ¿Qué impacto tiene la prioridad de sincronización en las tasas de sincronización?
 
 La prioridad de sincronización define cuánto tiempo de procesamiento se asigna a las actividades de sincronización en relación con el rendimiento del sistema.
@@ -224,6 +229,7 @@ El tamaño del volumen y las cargas de la tasa de E/S del host afectan el tiempo
 
 
 
+[[why-is-it-recommended-to-use-a-manual-synchronization-policy]]
 == ¿Por qué se recomienda usar una política de sincronización manual?
 
 Se recomienda la resincronización manual porque te permite gestionar el proceso de resincronización de una manera que ofrece la mejor oportunidad para recuperar datos.

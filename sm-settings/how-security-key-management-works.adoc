@@ -24,6 +24,7 @@ Puedes crear y gestionar claves de seguridad usando uno de los siguientes métod
 
 
 
+[[internal-key-management]]
 == Gestión interna de claves
 
 Las claves internas se mantienen y se "ocultan" en una ubicación no accesible de la memoria persistente del controlador. Para implementar la gestión de claves internas, realiza los siguientes pasos:
@@ -37,6 +38,7 @@ La clave de seguridad se almacena en el controlador en una ubicación oculta y n
 
 
 
+[[external-key-management]]
 == Gestión de claves externas
 
 Las claves externas se mantienen en un servidor de gestión de claves independiente, utilizando un protocolo de interoperabilidad de gestión de claves (KMIP). Para implementar la gestión de claves externas, realiza los siguientes pasos:
