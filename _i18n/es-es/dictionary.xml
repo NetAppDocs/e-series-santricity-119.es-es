@@ -5896,7 +5896,6 @@
   <block id="945ae7820c24188a29edbd29e427962f" category="paragraph">Ampliación de capacidad (añadir capacidad)</block>
   <block id="bd3fd623256db562bebda3e697d43452" category="paragraph">Reducción de capacidad</block>
   <block id="dca785ddf6462cb2ce8d0332432fef85" category="paragraph">Los tipos de unidades mixtas (HDD, SSD) no son compatibles con pools o grupos de volúmenes.</block>
-  <block id="28777dded0f4b7a62c3138973e35582c" category="summary">Usa la opción Disminuir capacidad para reducir la capacidad reservada de los siguientes objetos de almacenamiento: grupo de instantáneas, volumen de instantáneas y volumen miembro del grupo de coherencia. Solo puedes reducir la capacidad reservada en la(s) cantidad(es) que usaste para aumentarla.</block>
   <block id="37e9db9b7a1415532978e5e59b0e1792" category="doc">Disminuir la capacidad reservada en SANtricity System Manager</block>
   <block id="115acc53492ff3d71c7e0717c01220a6" category="paragraph">Usa la opción Decrease Capacity para disminuir la capacidad reservada de los siguientes objetos de almacenamiento: grupo de snapshot, volumen de snapshot y volumen miembro del grupo de consistencia. Solo puedes disminuir la capacidad reservada por la(s) cantidad(es) que usaste para aumentarla.</block>
   <block id="1d76cca7e5eb092d02723fdb9a2c1272" category="list-text">El objeto de almacenamiento debe contener más de un volumen de capacidad reservada.</block>
@@ -9049,4 +9048,9 @@
   <block id="24c9cd56861c16e2290412c4fe4d5a8f" category="list-text">IOM12C - v0112</block>
   <block id="818d5ca9647738ea76069fc99cf59499" category="list-text">IOM12G - v0212</block>
   <block id="9133a8b23ddd677242ee6747a18b0e24" category="list-text">DCM3 - v01.12.09.02</block>
+  <block id="fb2a0888f91c24b63218fe88807bbba3" category="summary">Puedes poner un controlador en tres estados diferentes: en línea, fuera de línea y en modo de servicio.</block>
+  <block id="49390b5788f909c095a9221fc5028cc6" category="summary">Puedes realizar varias acciones diferentes en un volumen, como aumentar su capacidad, eliminarlo, copiarlo, inicializarlo, redistribuirlo, cambiar su propiedad, cambiar la configuración de la caché y cambiar la configuración del análisis de medios.</block>
+  <block id="5fde626ba0e89d16805ea6acf1d0ad24" category="summary">Usas la opción «Reducir capacidad» para reducir la capacidad reservada de los grupos de instantáneas, los volúmenes de instantáneas y los volúmenes miembro de grupos de consistencia. Solo puedes reducir la capacidad reservada en las mismas cantidades que usaste para aumentarla.</block>
+  <block id="9587f27e2d9da9b950f8b3a7d00fbad9" category="section-title">Novedades en la versión 11.90R7</block>
+  <block id="7e2382649b16a571eb0ec2a8e1b78824" category="paragraph">Esta versión contiene solo correcciones de defectos y ninguna función nueva. Para más información sobre los cambios en esta versión, consulta el archivo README de E-Series SANtricity OS 11.90R7.</block>
 </blocks>
